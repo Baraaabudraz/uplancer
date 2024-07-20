@@ -3,13 +3,13 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Up Lancer Agency</title>
+    <title>Up Lancer | @yield('title')</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
 
     <!-- Favicon -->
-    <link href="{{asset('uplancer/img/favicon.ico')}}" rel="icon">
+    <link href="{{asset('uplancer/logo/up lancer team logo.svg')}}" rel="icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,7 +20,8 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
-    @yield('style')
+    @yield('styles')
+
     <!-- Libraries Stylesheet -->
     <link href="{{asset('uplancer/lib/animate/animate.min.css')}}" rel="stylesheet">
     <link href="{{asset('uplancer/lib/owlcarousel/assets/owl.carousel.min.css')}}" rel="stylesheet">
@@ -30,15 +31,15 @@
     <link href="{{asset('uplancer/css/bootstrap.min.css')}}" rel="stylesheet">
 
     <!-- Template Stylesheet -->
-    <link href="{{asset('uplancer/css/style.css')}}" rel="stylesheet">
+    <link href="{{asset('/uplancer/css/style.css')}}" rel="stylesheet">
 </head>
 
 <body>
 <!-- Spinner Start -->
-<div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-    <div class="spinner-border position-relative text-primary" style="width: 6rem; height: 6rem;" role="status"></div>
-    <i class="fa fa-laptop-code fa-2x text-primary position-absolute top-50 start-50 translate-middle"></i>
-</div>
+{{--<div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">--}}
+{{--    <div class="spinner-border position-relative text-primary" style="width: 6rem; height: 6rem;" role="status"></div>--}}
+{{--    <img src="{{asset('uplancer/logo/up lancer team logo.svg')}}" style="width: 70px; height: 70px" class="fa fa-laptop-code fa-2x text-primary position-absolute top-50 start-50 translate-middle" alt="">--}}
+{{--</div>--}}
 <!-- Spinner End -->
 
 
@@ -56,10 +57,10 @@
         <div class="col-lg-6 px-6 text-end">
             <small>Follow us:</small>
             <div class="h-100 d-inline-flex align-items-center">
-                <a class="btn-square text-primary border-end rounded-0" href=""><i class="fab fa-facebook-f"></i></a>
-                <a class="btn-square text-primary border-end rounded-0" href=""><i class="fab fa-twitter"></i></a>
-                <a class="btn-square text-primary border-end rounded-0" href=""><i class="fab fa-linkedin-in"></i></a>
-{{--                <a class="btn-square text-primary pe-0" href=""><i class="fab fa-instagram"></i></a>--}}
+                <a class="btn-square text-primary border-end rounded-0" href="https://www.facebook.com/uplancerps" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a class="btn-square text-primary border-end rounded-0" href="https://twitter.com/uplancerps" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a class="btn-square text-primary border-end rounded-0" href="https://www.linkedin.com/company/uplancerr" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+
             </div>
         </div>
     </div>
@@ -72,8 +73,8 @@
     <div class="row align-items-center top-bar">
         <div class="col-lg-4 col-md-12 text-center text-lg-start">
             <a href="" class="navbar-brand m-0 p-0">
-                {{--                    <h1 class="fw-bold text-primary m-0"><i class="fa fa-laptop-code me-3"></i>Up Lancer</h1>--}}
-                <img src="{{asset('uplancer/logo/up-lancer-team-logo.png')}}" style="height: 60px" width="230"  alt="Logo">
+
+                <img src="{{asset('uplancer/logo/up-lancer-team-logo.png')}}" style="height: 100px" alt="Logo">
             </a>
         </div>
         <div class="col-lg-8 col-md-7 d-none d-lg-block">
@@ -96,7 +97,7 @@
                         </div>
                         <div class="ps-3">
                             <p class="mb-2">Call Us</p>
-                            <h6 class="mb-0">+970 345 6789</h6>
+                            <h6 class="mb-0">+970-597644664</h6>
                         </div>
                     </div>
                 </div>
@@ -107,7 +108,7 @@
                         </div>
                         <div class="ps-3">
                             <p class="mb-2">Email Us</p>
-                            <h6 class="mb-0">info@uplancer.com</h6>
+                            <h6 class="mb-0">info@uplancerps.com</h6>
                         </div>
                     </div>
                 </div>
@@ -126,22 +127,22 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <div class="navbar-nav me-auto p-3 p-lg-0">
-            <a href="index.html" class="nav-item nav-link active">Home</a>
+            <a href="{{route('home')}}" class="nav-item nav-link active">Home</a>
             <a href="{{route('about')}}" class="nav-item nav-link">About Us</a>
-            <a href="service.html" class="nav-item nav-link">Services</a>
-            <a href="project.html" class="nav-item nav-link">Projects</a>
-            <div class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
-                <div class="dropdown-menu border-0 rounded-0 rounded-bottom m-0">
-                    <a href="feature.html" class="dropdown-item">Features</a>
-                    <a href="team.html" class="dropdown-item">Our Team</a>
-                    <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-                    <a href="404.html" class="dropdown-item">404 Page</a>
-                </div>
-            </div>
-            <a href="contact.html" class="nav-item nav-link">Contact Us</a>
+            <a href="{{route('services')}}" class="nav-item nav-link">Services</a>
+            <a href="{{route('projects')}}" class="nav-item nav-link">Projects</a>
+            <!--            <div class="nav-item dropdown">-->
+            <!--                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>-->
+            <!--                <div class="dropdown-menu border-0 rounded-0 rounded-bottom m-0">-->
+            <!--                    <a href="feature.blade.php" class="dropdown-item">Features</a>-->
+            <!--                    <a href="team.blade.php" class="dropdown-item">Our Team</a>-->
+            <!--                    <a href="testimonial.blade.php" class="dropdown-item">Testimonial</a>-->
+            <!--                    <a href="404.html" class="dropdown-item">404 Page</a>-->
+            <!--                </div>-->
+            <!--            </div>-->
+            <a href="{{route('contact')}}" class="nav-item nav-link">Contact Us</a>
         </div>
-        {{--            <a href="https://htmlcodex.com/web-design-agency-html-template-pro" class="btn btn-sm btn-light rounded-pill py-2 px-4 d-none d-lg-block">Pro Version</a>--}}
+
     </div>
 </nav>
 <!-- Navbar End -->
@@ -156,8 +157,8 @@
         <div class="row g-5">
             <div class="col-lg-3 col-md-6">
                 <h5 class="text-light mb-4">Address</h5>
-                <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>123 Street, GAZA, PAL</p>
-                <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>
+                <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>GAZA, PAL</p>
+                <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+970597644664</p>
                 <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@uplancer.com</p>
                 <div class="d-flex pt-2">
                     <a class="btn btn-square btn-outline-secondary rounded-circle me-1" href=""><i class="fab fa-twitter"></i></a>
@@ -229,6 +230,7 @@
 
 @yield('scripts')
 <!-- JavaScript Libraries -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="{{asset('uplancer/lib/wow/wow.min.js')}}"></script>
