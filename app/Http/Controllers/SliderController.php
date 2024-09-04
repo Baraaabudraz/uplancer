@@ -39,7 +39,7 @@ class SliderController extends Controller
             return response()->json([
                 'title'=>'success',
                 'icon'=>'success',
-                'text'=>trans('dashboard_trans.Image deleted successfully'),
+                'text'=>trans('dashboard_trans.Service deleted successfully'),
             ]);
         }else{
             return response()->json([

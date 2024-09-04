@@ -4,15 +4,14 @@
     @else
         <html dir="ltr" lang="en">
         @endif
-
         <!--begin::Head-->
         <head>
             <base href="">
             <meta charset="utf-8"/>
             <title> {{trans('dashboard_trans.Dashboard')}} | @yield('title')</title>
-            <meta name="description" content="Metronic admin dashboard live demo. Check out all the features of the admin panel. A large number of settings, additional services and widgets."/>
-            <meta name="keywords" content="Metronic, bootstrap, bootstrap 5, Angular 11, VueJs, React, Laravel, admin themes, web design, figma, web development, ree admin themes, bootstrap admin, bootstrap dashboard"/>
-            <link rel="canonical" href="Https://preview.keenthemes.com/metronic8"/>
+            <meta name="description" content="UP Lancer, the place where creativity and technological advancements converge"/>
+            <meta name="keywords" content="Growth your business"/>
+            <link rel="canonical" href="Https://www.uplancerps.com"/>
             <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
             <meta name="csrf-token" content="{{ csrf_token() }}"/>
@@ -62,7 +61,7 @@
             <!--begin::Page-->
             <div class="page d-flex flex-row flex-column-fluid">
                 <!--begin::Aside-->
-                <div id="kt_aside" class="aside aside-light aside-hoverable" data-kt-drawer="true" data-kt-drawer-name="aside"
+                <div id="kt_aside" class="aside aside-light aside-hoverable"  data-kt-drawer="true" data-kt-drawer-name="aside"
                      data-kt-drawer-activate="{default: true, lg: false}" data-kt-drawer-overlay="true"
                      data-kt-drawer-width="{default:'200px', '300px': '250px'}" data-kt-drawer-direction="start"
                      data-kt-drawer-toggle="#kt_aside_mobile_toggle">
@@ -70,7 +69,7 @@
                     <div class="aside-logo flex-column-auto" id="kt_aside_logo">
                         <!--begin::Logo-->
                         <a href="{{route('dashboard')}}">
-                            <img alt="Logo" src="{{asset('admin/img/dashboard-logo.png')}}" class="w-100px logo"/>
+                            <img alt="Logo" src="{{asset('uplancer/logo/up-lancer-team-logo.png')}}" class="w-200px logo"/>
                         </a>
                         <!--end::Logo-->
                         <!--begin::Aside toggler-->
@@ -108,9 +107,8 @@
                              data-kt-scroll-dependencies="#kt_aside_logo, #kt_aside_footer"
                              data-kt-scroll-wrappers="#kt_aside_menu" data-kt-scroll-offset="0">
                             <!--begin::Menu-->
-                            <div
-                                class="menu menu-column menu-title-gray-800 menu-state-title-primary menu-state-icon-primary menu-state-bullet-primary menu-arrow-gray-500"
-                                id="#kt_aside_menu" data-kt-menu="true">
+                            <div class="menu menu-column menu-title-gray-800 menu-state-title-primary menu-state-icon-primary menu-state-bullet-primary menu-arrow-gray-500"
+                                 id="#kt_aside_menu" data-kt-menu="true">
                                 <div class="menu-item">
                                     <a class="menu-link active" href="{{route('dashboard')}}">
 										<span class="menu-icon">
@@ -136,7 +134,6 @@
                                         <span class="menu-section text-muted text-uppercase fs-8 ls-1">{{trans('dashboard_trans.General')}}</span>
                                     </div>
                                 </div>
-                                @if(isset(Auth()->user()->role->permission['name']['category']['can-view']))
                                     <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
 									<span class="menu-link">
 										<span class="menu-icon">
@@ -154,78 +151,31 @@
 											</span>
                                             <!--end::Svg Icon-->
 										</span>
-										<span class="menu-title">{{trans('dashboard_trans.Industrial Sectors')}}</span>
-										<span class="menu-arrow"></span>
-									</span>
-                                        <div class="menu-sub menu-sub-accordion">
-                                            @if(isset(Auth()->user()->role->permission['name']['category']['can-list']))
-                                                <div class="menu-item">
-                                                    <a class="menu-link" href="{{route('categories.index')}}">
-												<span class="menu-bullet">
-													<span class="bullet bullet-dot"></span>
-												</span>
-                                                        <span class="menu-title">{{trans('dashboard_trans.All industrial sectors')}}</span>
-                                                    </a>
-                                                </div>
-                                            @endif
-                                            @if(isset(Auth()->user()->role->permission['name']['category']['can-add']))
-                                                <div class="menu-item">
-                                                    <a class="menu-link" href="{{route('categories.create')}}">
-												<span class="menu-bullet">
-													<span class="bullet bullet-dot"></span>
-												</span>
-                                                        <span class="menu-title">{{trans('dashboard_trans.Add new industrial sector')}}</span>
-                                                    </a>
-                                                </div>
-                                            @endif
-                                        </div>
-                                    </div>
-                                @endif
-                                @if(isset(Auth()->user()->role->permission['name']['subcategory']['can-view']))
-                                    <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
-									<span class="menu-link">
-										<span class="menu-icon">
-											<!--begin::Svg Icon | path: icons/duotone/Communication/Group.svg-->
-											<span class="svg-icon svg-icon-2">
-												<svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px"
-                                                     viewBox="0 0 24 24" version="1.1">
-													<path
-                                                        d="M18,14 C16.3431458,14 15,12.6568542 15,11 C15,9.34314575 16.3431458,8 18,8 C19.6568542,8 21,9.34314575 21,11 C21,12.6568542 19.6568542,14 18,14 Z M9,11 C6.790861,11 5,9.209139 5,7 C5,4.790861 6.790861,3 9,3 C11.209139,3 13,4.790861 13,7 C13,9.209139 11.209139,11 9,11 Z"
-                                                        fill="#000000" fill-rule="nonzero" opacity="0.3"/>
-													<path
-                                                        d="M17.6011961,15.0006174 C21.0077043,15.0378534 23.7891749,16.7601418 23.9984937,20.4 C24.0069246,20.5466056 23.9984937,21 23.4559499,21 L19.6,21 C19.6,18.7490654 18.8562935,16.6718327 17.6011961,15.0006174 Z M0.00065168429,20.1992055 C0.388258525,15.4265159 4.26191235,13 8.98334134,13 C13.7712164,13 17.7048837,15.2931929 17.9979143,20.2 C18.0095879,20.3954741 17.9979143,21 17.2466999,21 C13.541124,21 8.03472472,21 0.727502227,21 C0.476712155,21 -0.0204617505,20.45918 0.00065168429,20.1992055 Z"
-                                                        fill="#000000" fill-rule="nonzero"/>
-												</svg>
-											</span>
-                                            <!--end::Svg Icon-->
-										</span>
-										<span class="menu-title">{{trans('dashboard_trans.Subcategories')}}</span>
+										<span class="menu-title">{{trans('dashboard_trans.Services')}}</span>
 										<span class="menu-arrow"></span>
 									</span>
                                         <div class="menu-sub menu-sub-accordion">
                                             <div class="menu-item">
-                                                <a class="menu-link" href="{{route('subcategories.index')}}">
+                                                <a class="menu-link" href="{{route('services.index')}}">
 												<span class="menu-bullet">
 													<span class="bullet bullet-dot"></span>
 												</span>
-                                                    <span class="menu-title">{{trans('dashboard_trans.All subcategories')}}</span>
+                                                    <span class="menu-title">{{trans('dashboard_trans.All services')}}</span>
                                                 </a>
                                             </div>
-                                            @if(isset(Auth()->user()->role->permission['name']['subcategory']['can-add']))
-                                                <div class="menu-item">
-                                                    <a class="menu-link" href="{{route('subcategories.create')}}">
+                                            <div class="menu-item">
+                                                <a class="menu-link" href="{{route('services.create')}}">
 												<span class="menu-bullet">
 													<span class="bullet bullet-dot"></span>
 												</span>
-                                                        <span class="menu-title">{{trans('dashboard_trans.Add new subcategories')}}</span>
-                                                    </a>
-                                                </div>
-                                            @endif
+                                                    <span class="menu-title">{{trans('dashboard_trans.Add new service')}}</span>
+                                                </a>
+                                            </div>
+
                                         </div>
+
                                     </div>
-                                @endif
-                                @if(isset(Auth()->user()->role->permission['name']['product']['can-view']))
-                                    <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+                                <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
 									<span class="menu-link">
 										<span class="menu-icon">
 											<!--begin::Svg Icon | path: icons/duotone/Communication/Group.svg-->
@@ -242,113 +192,36 @@
 											</span>
                                             <!--end::Svg Icon-->
 										</span>
-										<span class="menu-title">{{trans('dashboard_trans.Products')}}</span>
-                                        <span class="menu-arrow"></span>
+										<span class="menu-title">{{trans('dashboard_trans.Projects')}}</span>
+										<span class="menu-arrow"></span>
 									</span>
-                                        <div class="menu-sub menu-sub-accordion">
-                                            <div class="menu-item">
-                                                <a class="menu-link" href="{{route('products.index')}}">
+                                    <div class="menu-sub menu-sub-accordion">
+                                        <div class="menu-item">
+                                            <a class="menu-link" href="{{route('projects.index')}}">
 												<span class="menu-bullet">
 													<span class="bullet bullet-dot"></span>
 												</span>
-                                                    <span class="menu-title">{{trans('dashboard_trans.All Products')}}</span>
-                                                </a>
-                                            </div>
-                                            <div class="menu-item">
-                                                <a class="menu-link" href="{{route('products.create')}}">
-												<span class="menu-bullet">
-													<span class="bullet bullet-dot"></span>
-												</span>
-                                                    <span class="menu-title">{{trans('dashboard_trans.Add new products')}}</span>
-                                                </a>
-                                            </div>
+                                                <span class="menu-title">{{trans('dashboard_trans.All projects')}}</span>
+                                            </a>
                                         </div>
-                                    </div>
-                                @endif
-                                @if(isset(Auth()->user()->role->permission['name']['slider']['can-view']))
-                                    <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
-									<span class="menu-link">
-										<span class="menu-icon">
-											<!--begin::Svg Icon | path: icons/duotone/Communication/Group.svg-->
-											<span class="svg-icon svg-icon-2">
-												<svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px"
-                                                     viewBox="0 0 24 24" version="1.1">
-													<path
-                                                        d="M18,14 C16.3431458,14 15,12.6568542 15,11 C15,9.34314575 16.3431458,8 18,8 C19.6568542,8 21,9.34314575 21,11 C21,12.6568542 19.6568542,14 18,14 Z M9,11 C6.790861,11 5,9.209139 5,7 C5,4.790861 6.790861,3 9,3 C11.209139,3 13,4.790861 13,7 C13,9.209139 11.209139,11 9,11 Z"
-                                                        fill="#000000" fill-rule="nonzero" opacity="0.3"/>
-													<path
-                                                        d="M17.6011961,15.0006174 C21.0077043,15.0378534 23.7891749,16.7601418 23.9984937,20.4 C24.0069246,20.5466056 23.9984937,21 23.4559499,21 L19.6,21 C19.6,18.7490654 18.8562935,16.6718327 17.6011961,15.0006174 Z M0.00065168429,20.1992055 C0.388258525,15.4265159 4.26191235,13 8.98334134,13 C13.7712164,13 17.7048837,15.2931929 17.9979143,20.2 C18.0095879,20.3954741 17.9979143,21 17.2466999,21 C13.541124,21 8.03472472,21 0.727502227,21 C0.476712155,21 -0.0204617505,20.45918 0.00065168429,20.1992055 Z"
-                                                        fill="#000000" fill-rule="nonzero"/>
-												</svg>
-											</span>
-                                            <!--end::Svg Icon-->
-										</span>
-										<span class="menu-title">{{trans('dashboard_trans.Slides')}}</span>
-                                        <span class="menu-arrow"></span>
-									</span>
-                                        <div class="menu-sub menu-sub-accordion">
-                                            <div class="menu-item">
-                                                <a class="menu-link" href="{{route('slider.index')}}">
+                                        <div class="menu-item">
+                                            <a class="menu-link" href="{{route('projects.create')}}">
 												<span class="menu-bullet">
 													<span class="bullet bullet-dot"></span>
 												</span>
-                                                    <span class="menu-title">{{trans('dashboard_trans.All Slides')}}</span>
-                                                </a>
-                                            </div>
-                                            <div class="menu-item">
-                                                <a class="menu-link" href="{{route('slider.create')}}">
-												<span class="menu-bullet">
-													<span class="bullet bullet-dot"></span>
-												</span>
-                                                    <span class="menu-title">{{trans('dashboard_trans.Add Slide')}}</span>
-                                                </a>
-                                            </div>
+                                                <span class="menu-title">{{trans('dashboard_trans.Add new project')}}</span>
+                                            </a>
                                         </div>
+
                                     </div>
-                                @endif
-                                @if(isset(Auth()->user()->role->permission['name']['sponsor']['can-view']))
-                                    <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
-									<span class="menu-link">
-										<span class="menu-icon">
-											<!--begin::Svg Icon | path: icons/duotone/Communication/Group.svg-->
-											<span class="svg-icon svg-icon-2">
-												<svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px"
-                                                     viewBox="0 0 24 24" version="1.1">
-													<path
-                                                        d="M18,14 C16.3431458,14 15,12.6568542 15,11 C15,9.34314575 16.3431458,8 18,8 C19.6568542,8 21,9.34314575 21,11 C21,12.6568542 19.6568542,14 18,14 Z M9,11 C6.790861,11 5,9.209139 5,7 C5,4.790861 6.790861,3 9,3 C11.209139,3 13,4.790861 13,7 C13,9.209139 11.209139,11 9,11 Z"
-                                                        fill="#000000" fill-rule="nonzero" opacity="0.3"/>
-													<path
-                                                        d="M17.6011961,15.0006174 C21.0077043,15.0378534 23.7891749,16.7601418 23.9984937,20.4 C24.0069246,20.5466056 23.9984937,21 23.4559499,21 L19.6,21 C19.6,18.7490654 18.8562935,16.6718327 17.6011961,15.0006174 Z M0.00065168429,20.1992055 C0.388258525,15.4265159 4.26191235,13 8.98334134,13 C13.7712164,13 17.7048837,15.2931929 17.9979143,20.2 C18.0095879,20.3954741 17.9979143,21 17.2466999,21 C13.541124,21 8.03472472,21 0.727502227,21 C0.476712155,21 -0.0204617505,20.45918 0.00065168429,20.1992055 Z"
-                                                        fill="#000000" fill-rule="nonzero"/>
-												</svg>
-											</span>
-                                            <!--end::Svg Icon-->
-										</span>
-										<span class="menu-title">{{trans('dashboard_trans.Sponsors')}}</span>
-                                        <span class="menu-arrow"></span>
-									</span>
-                                        <div class="menu-sub menu-sub-accordion">
-                                            <div class="menu-item">
-                                                <a class="menu-link" href="{{route('sponsors.index')}}">
-												<span class="menu-bullet">
-													<span class="bullet bullet-dot"></span>
-												</span>
-                                                    <span class="menu-title">{{trans('dashboard_trans.All Sponsors')}}</span>
-                                                </a>
-                                            </div>
-                                            <div class="menu-item">
-                                                <a class="menu-link" href="{{route('sponsors.create')}}">
-												<span class="menu-bullet">
-													<span class="bullet bullet-dot"></span>
-												</span>
-                                                    <span class="menu-title">{{trans('dashboard_trans.Add new sponsor')}}</span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endif
+
+                                </div>
                                 @if(isset(Auth()->user()->role->permission['name']['user']['can-view']))
-                                    <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+                                    <div class="menu-item">
+                                        <div class="menu-content pt-8 pb-2">
+                                            <span class="menu-section text-muted text-uppercase fs-8 ls-1">{{trans('dashboard_trans.Users')}}</span>
+                                        </div>
+                                        <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
 									<span class="menu-link">
 										<span class="menu-icon">
 											<!--begin::Svg Icon | path: icons/duotone/Communication/Group.svg-->
@@ -368,221 +241,29 @@
 										<span class="menu-title">{{trans('dashboard_trans.Users')}}</span>
 										<span class="menu-arrow"></span>
 									</span>
-                                        <div class="menu-sub menu-sub-accordion">
-                                            <div class="menu-item">
-                                                <a class="menu-link" href="{{route('admins.index')}}">
-												<span class="menu-bullet">
-													<span class="bullet bullet-dot"></span>
-												</span>
-                                                    <span class="menu-title">{{trans('dashboard_trans.All Admins')}}</span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="menu-sub menu-sub-accordion">
-                                            <div class="menu-item">
-                                                <a class="menu-link" href="{{route('industries.index')}}">
-												<span class="menu-bullet">
-													<span class="bullet bullet-dot"></span>
-												</span>
-                                                    <span class="menu-title">{{trans('dashboard_trans.All Industries')}}</span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="menu-sub menu-sub-accordion">
-                                            <div class="menu-item">
-                                                <a class="menu-link" href="{{route('users.index')}}">
-												<span class="menu-bullet">
-													<span class="bullet bullet-dot"></span>
-												</span>
-                                                    <span class="menu-title">{{trans('dashboard_trans.All Users')}}</span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endif
-                                <div class="menu-item">
-                                    <div class="menu-content">
-                                        <div class="separator mx-1 my-4">
-                                        </div>
-                                        <span class="menu-section text-muted text-uppercase fs-8 ls-1">{{trans('dashboard_trans.Orders')}}</span>
-                                    </div>
-                                </div>
-                                @if(isset(Auth()->user()->role->permission['name']['industries_order']['can-view']))
-                                    <div  class="menu-item menu-accordion">
-                                        <a href="{{route('register.orders')}}" class="menu-link">
-										<span class="menu-icon">
-											<!--begin::Svg Icon | path: icons/duotone/Communication/Group.svg-->
-											<span class="svg-icon svg-icon-2">
-												<svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px"
-                                                     viewBox="0 0 24 24" version="1.1">
-													<path
-                                                        d="M18,14 C16.3431458,14 15,12.6568542 15,11 C15,9.34314575 16.3431458,8 18,8 C19.6568542,8 21,9.34314575 21,11 C21,12.6568542 19.6568542,14 18,14 Z M9,11 C6.790861,11 5,9.209139 5,7 C5,4.790861 6.790861,3 9,3 C11.209139,3 13,4.790861 13,7 C13,9.209139 11.209139,11 9,11 Z"
-                                                        fill="#000000" fill-rule="nonzero" opacity="0.3"/>
-													<path
-                                                        d="M17.6011961,15.0006174 C21.0077043,15.0378534 23.7891749,16.7601418 23.9984937,20.4 C24.0069246,20.5466056 23.9984937,21 23.4559499,21 L19.6,21 C19.6,18.7490654 18.8562935,16.6718327 17.6011961,15.0006174 Z M0.00065168429,20.1992055 C0.388258525,15.4265159 4.26191235,13 8.98334134,13 C13.7712164,13 17.7048837,15.2931929 17.9979143,20.2 C18.0095879,20.3954741 17.9979143,21 17.2466999,21 C13.541124,21 8.03472472,21 0.727502227,21 C0.476712155,21 -0.0204617505,20.45918 0.00065168429,20.1992055 Z"
-                                                        fill="#000000" fill-rule="nonzero"/>
-												</svg>
-											</span>
-                                            <!--end::Svg Icon-->
-										</span>
-                                            <span class="menu-title">{{trans('dashboard_trans.Industries Register orders')}}</span>
-                                        </a>
-                                    </div>
-                                @endif
-                                <div  class="menu-item menu-accordion">
-                                    <a href="{{route('orders.index')}}" class="menu-link">
-										<span class="menu-icon">
-											<!--begin::Svg Icon | path: icons/duotone/Communication/Group.svg-->
-											<span class="svg-icon svg-icon-2">
-												<svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px"
-                                                     viewBox="0 0 24 24" version="1.1">
-													<path
-                                                        d="M18,14 C16.3431458,14 15,12.6568542 15,11 C15,9.34314575 16.3431458,8 18,8 C19.6568542,8 21,9.34314575 21,11 C21,12.6568542 19.6568542,14 18,14 Z M9,11 C6.790861,11 5,9.209139 5,7 C5,4.790861 6.790861,3 9,3 C11.209139,3 13,4.790861 13,7 C13,9.209139 11.209139,11 9,11 Z"
-                                                        fill="#000000" fill-rule="nonzero" opacity="0.3"/>
-													<path
-                                                        d="M17.6011961,15.0006174 C21.0077043,15.0378534 23.7891749,16.7601418 23.9984937,20.4 C24.0069246,20.5466056 23.9984937,21 23.4559499,21 L19.6,21 C19.6,18.7490654 18.8562935,16.6718327 17.6011961,15.0006174 Z M0.00065168429,20.1992055 C0.388258525,15.4265159 4.26191235,13 8.98334134,13 C13.7712164,13 17.7048837,15.2931929 17.9979143,20.2 C18.0095879,20.3954741 17.9979143,21 17.2466999,21 C13.541124,21 8.03472472,21 0.727502227,21 C0.476712155,21 -0.0204617505,20.45918 0.00065168429,20.1992055 Z"
-                                                        fill="#000000" fill-rule="nonzero"/>
-												</svg>
-											</span>
-                                            <!--end::Svg Icon-->
-										</span>
-                                        <span class="menu-title">{{trans('dashboard_trans.Orders')}}</span>
-
-                                    </a>
-
-                                </div>
-                                @if(isset(Auth()->user()->role->permission['name']['blog']['can-view']))
-                                    <div class="menu-item">
-                                        <div class="menu-content">
-                                            <div class="separator mx-1 my-4">
-                                            </div>
-                                            <span class="menu-section text-muted text-uppercase fs-8 ls-1">{{trans('dashboard_trans.Blog')}}</span>
-                                        </div>
-                                    </div>
-                                    <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
-									<span class="menu-link">
-										<span class="menu-icon">
-											<!--begin::Svg Icon | path: icons/duotone/Communication/Group.svg-->
-											<span class="svg-icon svg-icon-2">
-												<svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px"
-                                                     viewBox="0 0 24 24" version="1.1">
-													<path
-                                                        d="M18,14 C16.3431458,14 15,12.6568542 15,11 C15,9.34314575 16.3431458,8 18,8 C19.6568542,8 21,9.34314575 21,11 C21,12.6568542 19.6568542,14 18,14 Z M9,11 C6.790861,11 5,9.209139 5,7 C5,4.790861 6.790861,3 9,3 C11.209139,3 13,4.790861 13,7 C13,9.209139 11.209139,11 9,11 Z"
-                                                        fill="#000000" fill-rule="nonzero" opacity="0.3"/>
-													<path
-                                                        d="M17.6011961,15.0006174 C21.0077043,15.0378534 23.7891749,16.7601418 23.9984937,20.4 C24.0069246,20.5466056 23.9984937,21 23.4559499,21 L19.6,21 C19.6,18.7490654 18.8562935,16.6718327 17.6011961,15.0006174 Z M0.00065168429,20.1992055 C0.388258525,15.4265159 4.26191235,13 8.98334134,13 C13.7712164,13 17.7048837,15.2931929 17.9979143,20.2 C18.0095879,20.3954741 17.9979143,21 17.2466999,21 C13.541124,21 8.03472472,21 0.727502227,21 C0.476712155,21 -0.0204617505,20.45918 0.00065168429,20.1992055 Z"
-                                                        fill="#000000" fill-rule="nonzero"/>
-												</svg>
-											</span>
-                                            <!--end::Svg Icon-->
-										</span>
-										<span class="menu-title">{{trans('dashboard_trans.Sections')}}</span>
-                                        <span class="menu-arrow"></span>
-									</span>
-                                        <div class="menu-sub menu-sub-accordion">
-                                            @if(isset(Auth()->user()->role->permission['name']['blog']['can-list']))
-                                                <div class="menu-item">
-                                                    <a class="menu-link" href="{{route('sections.index')}}">
-												<span class="menu-bullet">
-													<span class="bullet bullet-dot"></span>
-												</span>
-                                                        <span class="menu-title">{{trans('dashboard_trans.All sections')}}</span>
-                                                    </a>
-                                                </div>
                                             @endif
-                                            @if(isset(Auth()->user()->role->permission['name']['blog']['can-add']))
-                                                <div class="menu-item">
-                                                    <a class="menu-link" href="{{route('sections.create')}}">
+                                            @if(isset(Auth()->user()->role->permission['name']['admin']['can-view']))
+                                                <div class="menu-sub menu-sub-accordion">
+                                                    <div class="menu-item">
+                                                        <a class="menu-link" href="{{route('admins.index')}}">
 												<span class="menu-bullet">
 													<span class="bullet bullet-dot"></span>
 												</span>
-                                                        <span class="menu-title">{{trans('dashboard_trans.Add new section')}}</span>
-                                                    </a>
+                                                            <span class="menu-title">{{trans('dashboard_trans.All Admins')}}</span>
+                                                        </a>
+                                                    </div>
                                                 </div>
                                             @endif
                                         </div>
                                     </div>
-                                    <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
-									<span class="menu-link">
-										<span class="menu-icon">
-											<!--begin::Svg Icon | path: icons/duotone/Communication/Group.svg-->
-											<span class="svg-icon svg-icon-2">
-												<svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px"
-                                                     viewBox="0 0 24 24" version="1.1">
-													<path
-                                                        d="M18,14 C16.3431458,14 15,12.6568542 15,11 C15,9.34314575 16.3431458,8 18,8 C19.6568542,8 21,9.34314575 21,11 C21,12.6568542 19.6568542,14 18,14 Z M9,11 C6.790861,11 5,9.209139 5,7 C5,4.790861 6.790861,3 9,3 C11.209139,3 13,4.790861 13,7 C13,9.209139 11.209139,11 9,11 Z"
-                                                        fill="#000000" fill-rule="nonzero" opacity="0.3"/>
-													<path
-                                                        d="M17.6011961,15.0006174 C21.0077043,15.0378534 23.7891749,16.7601418 23.9984937,20.4 C24.0069246,20.5466056 23.9984937,21 23.4559499,21 L19.6,21 C19.6,18.7490654 18.8562935,16.6718327 17.6011961,15.0006174 Z M0.00065168429,20.1992055 C0.388258525,15.4265159 4.26191235,13 8.98334134,13 C13.7712164,13 17.7048837,15.2931929 17.9979143,20.2 C18.0095879,20.3954741 17.9979143,21 17.2466999,21 C13.541124,21 8.03472472,21 0.727502227,21 C0.476712155,21 -0.0204617505,20.45918 0.00065168429,20.1992055 Z"
-                                                        fill="#000000" fill-rule="nonzero"/>
-												</svg>
-											</span>
-                                            <!--end::Svg Icon-->
-										</span>
-										<span class="menu-title">{{trans('dashboard_trans.Posts')}}</span>
-                                        <span class="menu-arrow"></span>
-									</span>
-                                        <div class="menu-sub menu-sub-accordion">
-                                            @if(isset(Auth()->user()->role->permission['name']['blog']['can-list']))
-                                                <div class="menu-item">
-                                                    <a class="menu-link" href="{{route('posts.index')}}">
-												<span class="menu-bullet">
-													<span class="bullet bullet-dot"></span>
-												</span>
-                                                        <span class="menu-title">{{trans('dashboard_trans.All posts')}}</span>
-                                                    </a>
+                                    @if(isset(Auth()->user()->role->permission['name']['admin']['can-view']))
+                                        <div class="menu-item">
+                                            <div class="menu-content">
+                                                <div class="separator mx-1 my-4">
                                                 </div>
-                                            @endif
-                                            @if(isset(Auth()->user()->role->permission['name']['blog']['can-add']))
-                                                <div class="menu-item">
-                                                    <a class="menu-link" href="{{route('posts.create')}}">
-												<span class="menu-bullet">
-													<span class="bullet bullet-dot"></span>
-												</span>
-                                                        <span class="menu-title">{{trans('dashboard_trans.Add new post')}}</span>
-                                                    </a>
-                                                </div>
-                                            @endif
-                                        </div>
-                                    </div>
-                                @endif
-                                @if(isset(Auth()->user()->role->permission['name']['mail']['can-view']))
-                                    <div class="menu-item">
-                                        <div class="menu-content">
-                                            <div class="separator mx-1 my-4">
+                                                <span class="menu-section text-muted text-uppercase fs-8 ls-1">{{trans('dashboard_trans.Settings')}}</span>
                                             </div>
-                                            <span class="menu-section text-muted text-uppercase fs-8 ls-1">{{trans('dashboard_trans.Mail')}}</span>
-                                        </div>
-                                    </div>
-                                    <div class="menu-item menu-accordion">
-                                        <a class="menu-link" href="{{route('mail.create')}}">
-										<span class="menu-icon">
-											<!--begin::Svg Icon | path: icons/duotone/Communication/Group.svg-->
-											<span class="svg-icon svg-icon-2">
-												<svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px"
-                                                     viewBox="0 0 24 24" version="1.1">
-													<path
-                                                        d="M18,14 C16.3431458,14 15,12.6568542 15,11 C15,9.34314575 16.3431458,8 18,8 C19.6568542,8 21,9.34314575 21,11 C21,12.6568542 19.6568542,14 18,14 Z M9,11 C6.790861,11 5,9.209139 5,7 C5,4.790861 6.790861,3 9,3 C11.209139,3 13,4.790861 13,7 C13,9.209139 11.209139,11 9,11 Z"
-                                                        fill="#000000" fill-rule="nonzero" opacity="0.3"/>
-													<path
-                                                        d="M17.6011961,15.0006174 C21.0077043,15.0378534 23.7891749,16.7601418 23.9984937,20.4 C24.0069246,20.5466056 23.9984937,21 23.4559499,21 L19.6,21 C19.6,18.7490654 18.8562935,16.6718327 17.6011961,15.0006174 Z M0.00065168429,20.1992055 C0.388258525,15.4265159 4.26191235,13 8.98334134,13 C13.7712164,13 17.7048837,15.2931929 17.9979143,20.2 C18.0095879,20.3954741 17.9979143,21 17.2466999,21 C13.541124,21 8.03472472,21 0.727502227,21 C0.476712155,21 -0.0204617505,20.45918 0.00065168429,20.1992055 Z"
-                                                        fill="#000000" fill-rule="nonzero"/>
-												</svg>
-											</span>
-                                            <!--end::Svg Icon-->
-										</span>
-                                            <span class="menu-title">{{trans('dashboard_trans.Mail')}}</span>
-                                        </a>
-                                    </div>
-                                @endif
-                                <div class="menu-item">
-                                    <div class="menu-content">
-                                        <div class="separator mx-1 my-4">
-                                        </div>
-                                        <span class="menu-section text-muted text-uppercase fs-8 ls-1">{{trans('dashboard_trans.Settings')}}</span>
-                                    </div>
-                                </div>
-                                <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+                                            <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
 									<span class="menu-link">
 										<span class="menu-icon">
 											<!--begin::Svg Icon | path: icons/duotone/Communication/Group.svg-->
@@ -602,47 +283,49 @@
 										<span class="menu-title">{{trans('dashboard_trans.Settings')}}</span>
                                         <span class="menu-arrow"></span>
 									</span>
-                                    @if(isset(Auth()->user()->role->permission['name']['role']['can-view']))
-                                        <div class="menu-sub menu-sub-accordion">
-                                            <div class="menu-item">
-                                                <a class="menu-link" href="{{route('roles.index')}}">
+                                                @if(isset(Auth()->user()->role->permission['name']['role']['can-view']))
+                                                    <div class="menu-sub menu-sub-accordion">
+                                                        <div class="menu-item">
+                                                            <a class="menu-link" href="{{route('roles.index')}}">
 												<span class="menu-bullet">
 													<span class="bullet bullet-dot"></span>
 												</span>
-                                                    <span class="menu-title">{{trans('dashboard_trans.All roles')}}</span>
-                                                </a>
-                                            </div>
-                                            <div class="menu-item">
-                                                <a class="menu-link" href="{{route('roles.create')}}">
+                                                                <span class="menu-title">{{trans('dashboard_trans.Roles')}}</span>
+                                                            </a>
+                                                        </div>
+                                                        <div class="menu-item">
+                                                            <a class="menu-link" href="{{route('roles.create')}}">
 												<span class="menu-bullet">
 													<span class="bullet bullet-dot"></span>
 												</span>
-                                                    <span class="menu-title">{{trans('dashboard_trans.Add new role')}}</span>
-                                                </a>
+                                                                <span class="menu-title">{{trans('dashboard_trans.Add new role')}}</span>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                @endif
+                                                @if(isset(Auth()->user()->role->permission['name']['permission']['can-view']))
+                                                    <div class="menu-sub menu-sub-accordion">
+                                                        <div class="menu-item">
+                                                            <a class="menu-link" href="{{route('permissions.index')}}">
+												<span class="menu-bullet">
+													<span class="bullet bullet-dot"></span>
+												</span>
+                                                                <span class="menu-title">{{trans('dashboard_trans.All permissions')}}</span>
+                                                            </a>
+                                                        </div>
+                                                        <div class="menu-item">
+                                                            <a class="menu-link" href="{{route('permissions.create')}}">
+												<span class="menu-bullet">
+													<span class="bullet bullet-dot"></span>
+												</span>
+                                                                <span class="menu-title">{{trans('dashboard_trans.Add new permissions')}}</span>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                @endif
                                             </div>
                                         </div>
                                     @endif
-                                    @if(isset(Auth()->user()->role->permission['name']['permission']['can-view']))
-                                        <div class="menu-sub menu-sub-accordion">
-                                            <div class="menu-item">
-                                                <a class="menu-link" href="{{route('permissions.index')}}">
-												<span class="menu-bullet">
-													<span class="bullet bullet-dot"></span>
-												</span>
-                                                    <span class="menu-title">{{trans('dashboard_trans.All permissions')}}</span>
-                                                </a>
-                                            </div>
-                                            <div class="menu-item">
-                                                <a class="menu-link" href="{{route('permissions.create')}}">
-												<span class="menu-bullet">
-													<span class="bullet bullet-dot"></span>
-												</span>
-                                                    <span class="menu-title">{{trans('dashboard_trans.Add new permissions')}}</span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    @endif
-                                </div>
                             </div>
                             <!--end::Menu-->
                         </div>
@@ -681,9 +364,9 @@
                             <!--end::Aside mobile toggle-->
                             <!--begin::Mobile logo-->
                             <div class="d-flex align-items-center flex-grow-1 flex-lg-grow-0">
-                                <a href="" class="d-lg-none">
-                                    <img alt="Logo" src="{{asset('admin/img/logo.png')}}" class="h-30px"/>
-                                </a>
+                                {{--                                <a href="" class="d-lg-none">--}}
+                                {{--                                    <img alt="Logo" src="{{asset('assets/media/logos/logo-1-dark.svg')}}" class="h-20px"/>--}}
+                                {{--                                </a>--}}
                             </div>
 
                             <!--end::Mobile logo-->
@@ -691,21 +374,6 @@
                             <div class="d-flex align-items-stretch justify-content-between flex-lg-grow-1">
                                 <!--begin::Navbar-->
                                 <div class="d-flex align-items-stretch" id="kt_header_nav">
-                                    <!--begin::Menu wrapper-->
-                                    <div class="header-menu align-items-stretch" data-kt-drawer="true" data-kt-drawer-name="header-menu" data-kt-drawer-activate="{default: true, lg: false}" data-kt-drawer-overlay="true" data-kt-drawer-width="{default:'200px', '300px': '250px'}" data-kt-drawer-direction="end" data-kt-drawer-toggle="#kt_header_menu_mobile_toggle" data-kt-swapper="true" data-kt-swapper-mode="prepend" data-kt-swapper-parent="{default: '#kt_body', lg: '#kt_header_nav'}">
-                                        <div class="d-flex align-items-center ms-1 ms-lg-3 r">
-                                            <!--begin::Menu wrapper-->
-                                            {{--                                    <div class="btn btn-icon btn-active-light-primary " >--}}
-                                            <!--begin::Svg Icon | path: icons/duotone/Communication/Group-chat.svg-->
-                                            <a href="{{route('home')}}" type="button" class="btn btn-info" target="_blank">
-                                                {{trans('dashboard_trans.Go to website ')}}&nbsp;
-                                                <i class="fa fa-home"></i></a>
-                                            <!--end::Svg Icon-->
-                                            {{--                                    </div>--}}
-                                            <!--end::Menu wrapper-->
-                                        </div>
-                                    </div>
-                                    <!--end::Menu wrapper-->
                                 </div>
                                 <!--end::Navbar-->
                                 <!--begin::Topbar-->
@@ -715,75 +383,74 @@
 
                                     <!--end::Notifications-->
 
-                                    <div class="d-flex align-items-center ms-1 ms-lg-3" id="kt_header_user_menu_toggle">
+                                    {{--                                    <div class="d-flex align-items-center ms-1 ms-lg-3" id="kt_header_user_menu_toggle">--}}
 
-                                        <div class="app-navbar-item">
-                                            <!--begin::Menu toggle-->
-                                            <span class="btn btn-icon btn-custom btn-icon-muted btn-active-light btn-active-color-primary w-20px h-20px w-sm-15px h-sm-15px" data-kt-menu-trigger="{default:'click', lg: 'hover'}" data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end">
-                                    <!--begin::Svg Icon | path: icons/duotune/general/gen060.svg-->
-                                    @if (App::getLocale() == 'en')
-                                                    <img class="symbol symbol h-15px" src="{{asset('assets/media/flags/united-kingdom.svg')}}" alt="" />
+                                    {{--                                        <div class="app-navbar-item">--}}
+                                    {{--                                            <!--begin::Menu toggle-->--}}
+                                    {{--                                            <span class="btn btn-icon btn-custom btn-icon-muted btn-active-light btn-active-color-primary w-20px h-20px w-sm-15px h-sm-15px" data-kt-menu-trigger="{default:'click', lg: 'hover'}" data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end">--}}
+                                    {{--                                    <!--begin::Svg Icon | path: icons/duotune/general/gen060.svg-->--}}
+                                    {{--                                                    <img class="symbol symbol h-15px" src="{{asset('assets/media/flags/united-arab-emirates.svg')}}" alt="" />--}}
 
-                                                @else
-                                                    <img class="symbol symbol h-15px" src="{{asset('assets/media/flags/united-arab-emirates.svg')}}" alt="" />
+                                    {{--                                                <!--end::Svg Icon-->--}}
+                                    {{--                                </span>--}}
+                                    {{--                                            <span> </span>--}}
+                                    {{--                                            <!--begin::Menu toggle-->--}}
+                                    {{--                                            <!--begin::Menu-->--}}
 
-                                                @endif
+                                    {{--                                            <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-title-gray-700 menu-icon-muted menu-active-bg menu-state-color fw-semibold py-4 fs-base w-175px" data-kt-menu="true" data-kt-element="theme-mode-menu" style="">--}}
+                                    {{--                                                <!--begin::Menu item-->--}}
 
-                                                <!--end::Svg Icon-->
-                                </span>
-                                            <span> {{ LaravelLocalization::getCurrentLocaleNative() }}</span>
-                                            <!--begin::Menu toggle-->
-                                            <!--begin::Menu-->
+                                    {{--                                                <ul class="menu-item px-3 my-0">--}}
 
-                                            <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-title-gray-700 menu-icon-muted menu-active-bg menu-state-color fw-semibold py-4 fs-base w-175px" data-kt-menu="true" data-kt-element="theme-mode-menu" style="">
-                                                <!--begin::Menu item-->
+                                    {{--                                                        <li class="menu-title">--}}
+                                    {{--                                                            <a rel="alternate" hreflang="" href="">--}}
 
-                                                <ul class="menu-item px-3 my-0">
-                                                    @foreach(LaravelLocalization::getSupportedLocales()  as $localeCode => $properties)
-                                                        <li class="menu-title">
-                                                            <a rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
-                                                                {{ $properties['native'] }}
-                                                            </a>
-                                                        </li>
-                                                    @endforeach
-                                                </ul>
-                                                <!--end::Menu item-->
-                                            </div>
-                                            <!--end::Menu-->
-                                        </div>
-                                    </div>
+                                    {{--                                                            </a>--}}
+                                    {{--                                                        </li>--}}
+
+                                    {{--                                                </ul>--}}
+                                    {{--                                                <!--end::Menu item-->--}}
+                                    {{--                                            </div>--}}
+                                    {{--                                            <!--end::Menu-->--}}
+                                    {{--                                        </div>--}}
+                                    {{--                                    </div>--}}
                                     <!--begin::User-->
                                     <div class="d-flex align-items-center ms-1 ms-lg-3" id="kt_header_user_menu_toggle">
 
                                         <!--begin::Menu wrapper-->
                                         <div class="cursor-pointer symbol symbol-30px symbol-md-40px" data-kt-menu-trigger="click" data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end" data-kt-menu-flip="bottom">
                                             @auth('admin')
-                                                <img src="{{url('images/admin/',Auth::user()->image)}}" alt="metronic" />
-                                            @endauth
-                                            @auth('industry')
-                                                <img src="{{asset('cms/img/industry.png')}}" alt="" />
+                                                @if(auth()->user()->image)
+                                                    <img src="{{asset('images/admin/'.Auth()->user()->image)}}" alt="Admin" />
+                                                @else
+                                                    <img alt="Logo" src="{{asset('assets/media/avatars/blank.png')}}"/>
+                                                @endif
                                             @endauth
                                         </div>
 
                                         <!--begin::Menu-->
                                         <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-bold py-4 fs-6 w-275px" data-kt-menu="true">
                                             <!--begin::Menu item-->
+
                                             <div class="menu-item px-3">
                                                 <div class="menu-content d-flex align-items-center px-3">
                                                     <!--begin::Avatar-->
                                                     <div class="symbol symbol-50px me-5">
                                                         @auth('admin')
-                                                            <img alt="Logo" src="{{url('images/admin/',Auth::user()->image)}}" />
-                                                        @endauth
-                                                        @auth('industry')
-                                                            <img src="{{asset('cms/img/industry.png')}}" alt="logo" />
+                                                            @if(auth()->user()->image)
+                                                                <img alt="Logo" src="{{asset('images/admin/'.Auth()->user()->image)}}"/>
+                                                            @else
+                                                                <img alt="Logo" src="{{asset('assets/media/avatars/blank.png')}}"/>
+                                                            @endif
                                                         @endauth
                                                     </div>
+
                                                     <!--end::Avatar-->
                                                     <!--begin::Username-->
                                                     <div class="d-flex flex-column">
-                                                        <div class="fw-bolder d-flex align-items-center fs-5">{{Auth::user()->name}}</div>
-                                                        <a href="#" class="fw-bold text-muted text-hover-primary fs-7">{{Auth::user()->email}}</a>
+                                                        <div class="fw-bolder d-flex align-items-center fs-5">
+                                                            {{Auth()->user()->name}}</div>
+                                                        <a href="#" class="fw-bold text-muted text-hover-primary fs-7">{{Auth()->user()->user_name}}</a>
                                                     </div>
                                                     <!--end::Username-->
                                                 </div>
@@ -794,35 +461,22 @@
                                             <!--end::Menu separator-->
 
                                             <!--begin::Menu item-->
-                                            {{--                                    <div class="menu-item px-5 my-1">--}}
-                                            {{--                                        <a href="#" class="menu-link px-5">إعدادات الحساب</a>--}}
-                                            {{--                                    </div>--}}
+                                            <div class="menu-item px-5 my-1">
+                                                <a href="{{route('profile.edit',auth()->user()->id)}}" class="menu-link px-5">{{trans('dashboard_trans.Profile')}}</a>
+                                            </div>
                                             <!--end::Menu item-->
                                             <!--begin::Menu item-->
                                             @auth('admin')
                                                 <div class="menu-item px-5">
-                                                    <a class="menu-link px-5" href="{{ route('admin.logout') }}"
+                                                    <a class="menu-link px-5" href="{{route('admin.logout')}}"
                                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                                         {{trans('dashboard_trans.Log Out')}}
                                                     </a>
-                                                    <form id="logout-form" action="{{ route('admin.logout') }}" method="GET" class="d-none">
+                                                    <form id="logout-form" action="{{route('admin.logout')}}" method="GET" class="d-none">
                                                     </form>
                                                 </div>
                                             @endauth
-                                            @auth('industry')
-                                                <div class="menu-item px-5">
-                                                    <a class="menu-link px-5" href="{{ route('logout','industry') }}"
-                                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                                        {{trans('dashboard_trans.Log Out')}}
-                                                    </a>
-                                                    <form id="logout-form" action="{{ route('logout','industry') }}" method="GET" class="d-none">
-
-                                                    </form>
-                                                </div>
-                                            @endauth
-
 
                                             <!--end::Menu item-->
                                         </div>
@@ -830,23 +484,7 @@
                                         <!--end::Menu wrapper-->
                                     </div>
                                     <!--end::User -->
-                                    <!--begin::Heaeder menu toggle-->
-                                    <div class="d-flex align-items-center d-lg-none ms-2 me-n3" title="Show header menu">
-                                        <div class="btn btn-icon btn-active-light-primary w-30px h-30px w-md-40px h-md-40px" id="kt_header_menu_mobile_toggle">
-                                            <!--begin::Svg Icon | path: icons/duotone/Text/Toggle-Right.svg-->
-                                            <span class="svg-icon svg-icon-1">
-													<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-														<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-															<rect x="0" y="0" width="24" height="24" />
-															<path fill-rule="evenodd" clip-rule="evenodd" d="M22 11.5C22 12.3284 21.3284 13 20.5 13H3.5C2.6716 13 2 12.3284 2 11.5C2 10.6716 2.6716 10 3.5 10H20.5C21.3284 10 22 10.6716 22 11.5Z" fill="black" />
-															<path opacity="0.5" fill-rule="evenodd" clip-rule="evenodd" d="M14.5 20C15.3284 20 16 19.3284 16 18.5C16 17.6716 15.3284 17 14.5 17H3.5C2.6716 17 2 17.6716 2 18.5C2 19.3284 2.6716 20 3.5 20H14.5ZM8.5 6C9.3284 6 10 5.32843 10 4.5C10 3.67157 9.3284 3 8.5 3H3.5C2.6716 3 2 3.67157 2 4.5C2 5.32843 2.6716 6 3.5 6H8.5Z" fill="black" />
-														</g>
-													</svg>
-												</span>
-                                            <!--end::Svg Icon-->
-                                        </div>
-                                    </div>
-                                    <!--end::Heaeder menu toggle-->
+
                                 </div>
                                 <!--end::Toolbar wrapper-->
                             </div>
@@ -856,16 +494,16 @@
 
                         <!--end::Container-->
                     </div>
+
                     <!--end::Header-->
                     <!--begin::Content-->
 
                     <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
-
                         <div id="kt_content_container" class="container">
                             @yield('content')
                         </div>
-
                     </div>
+
                     <!--end::Content-->
                     <!--begin::Footer-->
                     <div class="footer py-4 d-flex flex-lg-column" id="kt_footer">
@@ -873,9 +511,10 @@
                         <div class="container-fluid d-flex flex-column flex-md-row align-items-center justify-content-between">
                             <!--begin::Copyright-->
                             <div class="text-dark order-2 order-md-1">
-                                <a href="" target="_blank" class="text-gray-800 text-hover-primary"> Masnaaco </a>
+                                <a href="https://www.uplancerps.com" target="_blank" class="text-gray-800 text-hover-primary">Copy Right || Up Lancer</a>
                                 <span class="text-muted fw-bold me-1">2022©</span>
                             </div>
+
                             <!--end::Copyright-->
                             <!--begin::Menu-->
                             <ul class="menu menu-gray-600 menu-hover-primary fw-bold order-1">
@@ -898,15 +537,18 @@
             <!--end::Page-->
         </div>
         <!--end::Root-->
-
         <!--end::Main-->
         <!--begin::Javascript-->
         <!--begin::Global Javascript Bundle(used by all pages)-->
+        <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
         <script src="{{asset('assets/plugins/global/plugins.bundle.js')}}"></script>
         <script src="{{asset('assets/js/scripts.bundle.js')}}"></script>
-
         <!--end::Global Javascript Bundle-->
+
         <!--begin::Page Custom Javascript(used by this page)-->
+
         {{--<script src="assets/js/custom/widgets.js"></script>--}}
         {{--<script src="assets/js/custom/modals/create-app.js"></script>--}}
 

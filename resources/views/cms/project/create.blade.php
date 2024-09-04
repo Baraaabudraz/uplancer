@@ -1,6 +1,6 @@
 @extends('cms.layouts.master')
 @section('title')
-    {{trans('dashboard_trans.Add new products')}}
+    {{trans('dashboard_trans.Add new service')}}
 @endsection
 
 @section('links')
@@ -30,7 +30,7 @@
                  data-kt-place-parent="{default: '#kt_content_container', 'lg': '#kt_toolbar_container'}"
                  class="page-title d-flex align-items-center me-3">
                 <!--begin::Title-->
-                <h1 class="d-flex align-items-center text-dark fw-bolder my-1 fs-3">{{trans('dashboard_trans.Add new products')}}</h1>
+                <h1 class="d-flex align-items-center text-dark fw-bolder my-1 fs-3">{{trans('dashboard_trans.Add new service')}}</h1>
                 <!--end::Title-->
                 <!--begin::Separator-->
                 <span class="h-20px border-gray-200 border-start mx-4"></span>
@@ -49,7 +49,7 @@
                     <!--end::Item-->
 
                     <!--begin::Item-->
-                    <a href="#" class="text-muted text-hover-primary">{{trans('dashboard_trans.All Products')}}</a>
+                    <a href="#" class="text-muted text-hover-primary">{{trans('dashboard_trans.All services')}}</a>
                     <!--end::Item-->
                     <!--begin::Item-->
                     <li class="breadcrumb-item">
@@ -57,7 +57,7 @@
                     </li>
                     <!--end::Item-->
                     <!--begin::Item-->
-                    <li class="breadcrumb-item text-dark">{{trans('dashboard_trans.Add new products')}}</li>
+                    <li class="breadcrumb-item text-dark">{{trans('dashboard_trans.Add new service')}}</li>
                     <!--end::Item-->
                 </ul>
                 <!--end::Breadcrumb-->
@@ -91,17 +91,17 @@
                     <!--begin::Heading-->
                     <div class="mb-13 text-center">
                         <!--begin::Title-->
-                        <h1 class="mb-3">{{trans('dashboard_trans.Add new products')}}</h1>
+                        <h1 class="mb-3">{{trans('dashboard_trans.Add new service')}}</h1>
                         <!--end::Title-->
                         <!--begin::Description-->
-                        <div class="text-gray-400 fw-bold fs-5">{{trans('dashboard_trans.You can browse the list of products')}}
-                            <a href="{{ route('products.index') }}" class="fw-bolder link-primary">{{trans('dashboard_trans.here')}}</a>.
+                        <div class="text-gray-400 fw-bold fs-5">{{trans('dashboard_trans.You can browse the list of services')}}
+                            <a href="{{ route('services.index') }}" class="fw-bolder link-primary">{{trans('dashboard_trans.here')}}</a>.
                         </div>
                         <!--end::Description-->
                     </div>
                     <!--end::Heading-->
 
-                    <form method="POST" action="{{route('products.store')}}" enctype="multipart/form-data" class="w-100 position-relative mb-3">
+                    <form method="POST" action="{{route('services.store')}}" enctype="multipart/form-data" class="w-100 position-relative mb-3">
                         @csrf
                         <div class="row">
                             <div class="col-md-12 mb-10" style="border:1px ">
@@ -112,9 +112,9 @@
                                                 <span class="required">{{trans('dashboard_trans.Name')}} ({{$lang}})</span>
                                                 <i class="fas fa-exclamation-circle ms-2 fs-7"
                                                    data-bs-toggle="tooltip"
-                                                   title="{{trans('dashboard_trans.Enter the name of the industrial sector')}}"></i>
+                                                   title="{{trans('dashboard_trans.Enter the name of the service')}}"></i>
                                             </label>
-                                            <input class="form-control form-control-solid" placeholder="{{trans('dashboard_trans.Enter Name Of')}} {{trans('dashboard_trans.product')}} " name="name[{{$key}}]" value="{{old('name.'.$key)}}" />
+                                            <input class="form-control form-control-solid" placeholder="{{trans('dashboard_trans.Enter Name Of')}} {{trans('dashboard_trans.service')}} " name="name[{{$key}}]" value="{{old('name.'.$key)}}" />
                                             @error('name.'.$key)
                                             <span class="text-danger">{{$message}}</span>
                                             @enderror
@@ -133,65 +133,7 @@
                                         <span class="text-danger">{{$message}}</span>
                                         @enderror
                                     </div>
-
                                         @endforeach
-
-                                        @foreach(config('lang') as $key => $lang)
-                                    <div class="col-md-6 d-flex flex-column mb-8 fv-row">
-                                        <label class="d-flex align-items-center fs-6 fw-bold mb-2">
-                                            <span class="required">{{trans('dashboard_trans.Additional information')}} ({{$lang}})</span>
-                                            <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"></i>
-                                        </label>
-                                        <textarea name="additional_info[{{$key}}]" class="form-control @error('additional_info') is-invalid @enderror ">{{old('additional_info.'.$key)}}</textarea>
-                                        @error('additional_info.'.$key)
-                                        <span class="text-danger">{{$message}}</span>
-                                        @enderror
-                                    </div>
-                                        @endforeach
-                                    <div class="col-md-6 d-flex flex-column mb-8 fv-row">
-                                        <label class="d-flex align-items-center fs-6 fw-bold mb-2">
-                                            <span class="required">{{trans('dashboard_trans.Choose industrial sector')}}</span>
-                                            <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"></i>
-                                        </label>
-                                        <select class="form-select @error('category_id') is-invalid @enderror" id="category_id" name="category_id">
-                                            <option disabled hidden selected>{{trans('dashboard_trans.Choose')}} {{trans('dashboard_trans.Industrial Sector')}}</option>
-                                            @foreach($categories as $category)
-                                                <option value="{{$category->id}}">{{$category->name}}</option>
-                                            @endforeach
-                                        </select>
-                                        @error('category_id')
-                                        <span class="text-danger">{{$message}}</span>
-                                        @enderror
-                                    </div>
-                                    <div class="col-md-6 d-flex flex-column mb-8 fv-row">
-                                        <label class="d-flex align-items-center fs-6 fw-bold mb-2">
-                                            <span class="required">{{trans('dashboard_trans.Choose subcategory')}}</span>
-                                            <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"></i>
-                                        </label>
-                                        <select name="subcategory_id" id="subcategory_id"   class="form-select @error('subcategory_id') is-invalid @enderror" >
-                                            <option value=""  id="loading">Loading</option>
-                                        </select>
-                                        @error('subcategory_id')
-                                        <span class="text-danger" role="alert">{{$message}}</span>
-                                        @enderror
-                                    </div>
-                                        @auth('admin')
-                                    <div class="col-md-6 d-flex flex-column mb-8 fv-row">
-                                        <label class="d-flex align-items-center fs-6 fw-bold mb-2">
-                                            <span class="required">{{trans('dashboard_trans.Choose industry')}}</span>
-                                            <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"></i>
-                                        </label>
-                                        <select class="form-select @error('industry_id') is-invalid @enderror"  name="industry_id">
-                                            <option disabled hidden selected>{{trans('dashboard_trans.Choose industry')}}</option>
-                                            @foreach($industries as $industry)
-                                                <option value="{{$industry->id}}">{{$industry->name}}</option>
-                                            @endforeach
-                                        </select>
-                                        @error('industry_id')
-                                        <span class="text-danger">{{$message}}</span>
-                                        @enderror
-                                    </div>
-                                        @endauth
 
                                         <div  class="col-md-6 ">
                                             <!--begin::Label-->
@@ -243,39 +185,6 @@
 {{--    <script src="{{asset('assets/js/custom/dropzonejs/dropzonejs.js')}}"></script>--}}
 {{--    <script src="{{asset('assets/js/custom/documentation/forms/dropzonejs.js')}}"></script>--}}
 {{--    <script src="{{asset('assets/js/custom/documentation/forms/dropzonejs.js.map')}}"></script>--}}
-    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $('#category_id').on('change', function() {
-                $('#subcategory_id').empty()
-                var category_id = this.value;
-                $.ajax({
-                    url: "{{route('get_subcategories')}}",
-                    type: "GET",
-                    data: {
-                        category_id: category_id
-                    },
-                    cache: false,
-                    success: function(result){
-                        $.each(result, function(key, modelName){
-                            console.log(key)
-                            //Use the Option() constructor to create a new HTMLOptionElement.
-                            var option = new Option(key, modelName);
-                            //Convert the HTMLOptionElement into a JQuery object that can be used with the append method.
-                            $(option).html(modelName);
-                            $(option).val(key);
-                            //Append the option to our Select element.
-                            $("#subcategory_id").append(option);
-                        });
-
-                        //Change the text of the default "loading" option.
-                        $('#loading').text('-- select --');
-                    }
-                });
-            });
-        });
-    </script>
-
 
     <script>
         document.querySelector("#files").addEventListener("change", (e) => { //CHANGE EVENT FOR UPLOADING PHOTOS

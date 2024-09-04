@@ -189,19 +189,19 @@
                             <tr>
                                 <td>{{trans('dashboard_trans.Products')}}</td>
                                 <td><input type="checkbox" name="name[product][can-add]"
-                                           @if(isset($permissions['name']['product']['can-add']))checked
+                                           @if(isset($permissions['name']['service']['can-add']))checked
                                            @endif value="1"></td>
                                 <td><input type="checkbox" name="name[product][can-edit]"
-                                           @if(isset($permissions['name']['product']['can-edit']))checked
+                                           @if(isset($permissions['name']['service']['can-edit']))checked
                                            @endif value="1"></td>
                                 <td><input type="checkbox" name="name[product][can-delete]"
-                                           @if(isset($permissions['name']['product']['can-delete']))checked
+                                           @if(isset($permissions['name']['service']['can-delete']))checked
                                            @endif value="1"></td>
                                 <td><input type="checkbox" name="name[product][can-view]"
-                                           @if(isset($permissions['name']['product']['can-view']))checked
+                                           @if(isset($permissions['name']['service']['can-view']))checked
                                            @endif value="1"></td>
                                 <td><input type="checkbox" name="name[product][can-list]"
-                                           @if(isset($permissions['name']['product']['can-list']))checked
+                                           @if(isset($permissions['name']['service']['can-list']))checked
                                            @endif value="1"></td>
                             </tr>
                             <tr>

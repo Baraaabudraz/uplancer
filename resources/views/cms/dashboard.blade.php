@@ -60,10 +60,10 @@
                     </span>
                     <!--end::Svg Icon-->
                     <span class="svg-icon svg-icon-white svg-icon-3x ms-n1 float-end">
-                                       <div class="text-inverse-warning fw-bolder fs-1  mt-5">{{App\Models\Order::count()}}</div>
+                                       <div class="text-inverse-warning fw-bolder fs-1  mt-5"></div>
 												</span>
                     <!--end::Svg Icon-->
-                    <div class="text-inverse-danger fw-bolder fs-2 mb-2 mt-5">{{trans('dashboard_trans.Orders')}}</div>
+                    <div class="text-inverse-danger fw-bolder fs-2 mb-2 mt-5">{{trans('dashboard_trans.Services')}}</div>
                     <div class="fw-bold text-inverse-danger fs-7"></div>
                 </div>
                 <!--end::Body-->
@@ -72,7 +72,7 @@
         </div>
         <div class="col-xl-6">
             <!--begin::Statistics Widget 5-->
-            <a href="{{route('products.index')}}" class="card bg-primary hoverable card-xl-stretch mb-xl-8">
+            <a href="" class="card bg-primary hoverable card-xl-stretch mb-xl-8">
                 <!--begin::Body-->
                 <div class="card-body">
                     <!--begin::Svg Icon | path: icons/duotone/Home/Building.svg-->
@@ -89,20 +89,19 @@
 </svg></span>
                     <!--end::Svg Icon-->
                     <span class="svg-icon svg-icon-white svg-icon-3x ms-n1 float-end">
-                                       <div class="text-inverse-warning fw-bolder fs-1  mt-5">{{App\Models\Product::count()}}</div>
+                                       <div class="text-inverse-warning fw-bolder fs-1  mt-5"></div>
 												</span>
                     <!--end::Svg Icon-->
-                    <div class="text-inverse-primary fw-bolder fs-2 mb-2 mt-5">{{trans('dashboard_trans.Products')}}</div>
-                    <div class="fw-bold text-inverse-primary fs-7">{{trans('dashboard_trans.All Products')}}</div>
+                    <div class="text-inverse-primary fw-bolder fs-2 mb-2 mt-5">{{trans('dashboard_trans.Projects')}}</div>
+                    <div class="fw-bold text-inverse-primary fs-7">{{trans('dashboard_trans.All projects')}}</div>
                 </div>
                 <!--end::Body-->
             </a>
             <!--end::Statistics Widget 5-->
         </div>
-        @if(isset(Auth()->user()->role->permission['name']['user']['can-view']))
         <div class="col-xl-6">
             <!--begin::Statistics Widget 5-->
-            <a href="{{route('users.index')}}" class="card bg-warning hoverable card-xl-stretch mb-xl-8">
+            <a href="" class="card bg-warning hoverable card-xl-stretch mb-xl-8">
                 <!--begin::Body-->
                 <div class="card-body">
                     <!--begin::Svg Icon | path: icons/duotone/Communication/Group.svg-->
@@ -129,11 +128,9 @@
 
             <!--end::Row-->
         </div>
-        @endif
-        @if(isset(Auth()->user()->role->permission['name']['industry']['can-view']))
         <div class="col-xl-6">
             <!--begin::Statistics Widget 5-->
-            <a href="{{route('industries.index')}}" class="card bg-success hoverable card-xl-stretch mb-5 mb-xl-8">
+            <a href="" class="card bg-success hoverable card-xl-stretch mb-5 mb-xl-8">
                 <!--begin::Body-->
                 <div class="card-body">
                     <!--begin::Svg Icon | path: icons/duotone/Shopping/Chart-bar1.svg-->
@@ -151,16 +148,15 @@
 												</span>
                     <!--end::Svg Icon-->
                     <span class="svg-icon svg-icon-white svg-icon-3x ms-n1 float-end">
-                                       <div class="text-inverse-warning fw-bolder fs-1  mt-5">{{App\Models\Industry::count()}}</div>
+                                       <div class="text-inverse-warning fw-bolder fs-1  mt-5"></div>
 												</span>
                     <!--end::Svg Icon-->
-                    <div class="text-inverse-success fw-bolder fs-2 mb-2 mt-5">{{trans('dashboard_trans.Industries')}}</div>
+                    <div class="text-inverse-success fw-bolder fs-2 mb-2 mt-5">{{trans('dashboard_trans.Sponsors')}}</div>
                 </div>
                 <!--end::Body-->
             </a>
             <!--end::Statistics Widget 5-->
         </div>
-        @endif
         <!--end::Row-->
     </div>
 @endsection

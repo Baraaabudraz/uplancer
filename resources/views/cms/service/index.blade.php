@@ -1,8 +1,6 @@
 @extends('cms.layouts.master')
 
-@section('title')
-    {{trans('dashboard_trans.Products')}}
-@endsection
+@section('title', trans('dashboard_trans.Services'))
 
 @section('content')
     <!--begin::Toolbar-->
@@ -14,7 +12,7 @@
                  data-kt-place-parent="{default: '#kt_content_container', 'lg': '#kt_toolbar_container'}"
                  class="page-title d-flex align-items-center me-3">
                 <!--begin::Title-->
-                <h1 class="d-flex align-items-center text-dark fw-bolder my-1 fs-3">{{trans('dashboard_trans.Products')}}</h1>
+                <h1 class="d-flex align-items-center text-dark fw-bolder my-1 fs-3">{{trans('dashboard_trans.Services')}}</h1>
                 <!--end::Title-->
                 <!--begin::Separator-->
                 <span class="h-20px border-gray-200 border-start mx-4"></span>
@@ -32,7 +30,7 @@
                     </li>
 
                     <li class="breadcrumb-item text-muted">
-                        <a href="{{route('products.index')}}" class="text-muted text-hover-primary">{{trans('dashboard_trans.Products')}}</a>
+                        <a href="{{route('services.index')}}" class="text-muted text-hover-primary">{{trans('dashboard_trans.Services')}}</a>
                     </li>
                     <!--end::Item-->
                     <!--begin::Item-->
@@ -43,7 +41,7 @@
 
                     <!--end::Item-->
                     <!--begin::Item-->
-                    <li class="breadcrumb-item text-dark">{{trans('dashboard_trans.All Products')}}</li>
+                    <li class="breadcrumb-item text-dark">{{trans('dashboard_trans.All services')}}</li>
                     <!--end::Item-->
                 </ul>
                 <!--end::Breadcrumb-->
@@ -63,15 +61,15 @@
         <!--begin::Header-->
         <div class="card-header border-0 pt-5">
             <h3 class="card-title align-items-start flex-column">
-                <span class="card-label fw-bolder fs-3 mb-1">{{trans('dashboard_trans.All Products')}}</span>
+                <span class="card-label fw-bolder fs-3 mb-1">{{trans('dashboard_trans.All services')}}</span>
             </h3>
             <div class="card-toolbar">
-                <a href="{{route('products.create')}}" class="btn btn-sm btn-light-primary">
+                <a href="{{route('services.create')}}" class="btn btn-sm btn-light-primary">
                     <!--begin::Svg Icon | path: icons/duotone/Communication/Add-user.svg-->
                     <span class="svg-icon svg-icon-2">
 											<i class="fa fa-plus"></i>
 											</span>
-                    <!--end::Svg Icon-->  {{trans('dashboard_trans.Add new products')}}</a>
+                    <!--end::Svg Icon-->  {{trans('dashboard_trans.Add new service')}}</a>
             </div>
         </div>
         <!--end::Header-->
@@ -88,29 +86,25 @@
                         <th>#</th>
                         <th>{{trans('dashboard_trans.Image')}}</th>
                         <th>{{trans('dashboard_trans.Name')}}</th>
-                        <th>{{trans('dashboard_trans.Industrial Sector')}}</th>
-                        <th>{{trans('dashboard_trans.Industry')}}</th>
                         <th>{{trans('dashboard_trans.Operations')}}</th>
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($products as $key=>$product)
+                    @foreach($services as $key=>$service)
                         <tr>
                             <td>{{$key+1}}</td>
 
                             <td>
                                 <div class="d-flex align-items-center">
                                     <div class="symbol symbol-30px me-5">
-                                        <img src="{{url('/images/product/'.json_decode($product->image)[0])}}" class="" alt="">
+                                        <img src="{{url('/images/service/'.json_decode($service->image)[0])}}" class="" alt="">
                                     </div>
                                 </div>
                             </td>
 
-                            <td>{{$product->name}}</td>
-                            <td>{{$product->category->name}}</td>
-                            <td><span class="badge badge-primary">{{$product->industry->name}}</span></td>
+                            <td>{{$service->name}}</td>
                             <td>
-                                <a href="{{route('products.edit' , $product)}}" class="btn btn-sm btn-light-primary">
+                                <a href="{{route('services.edit' , $service)}}" class="btn btn-sm btn-light-primary">
                                     <!--begin::Svg Icon | path: icons/duotone/Communication/Add-user.svg-->
                                     <span class="svg-icon svg-icon-3">
 																	<svg xmlns="http://www.w3.org/2000/svg" width="24px"
@@ -128,7 +122,7 @@
 																</span>
                                     <!--end::Svg Icon-->{{trans('dashboard_trans.Edit')}}</a>
 
-                                <a href="#"  onclick="confirmDelete (this, '{{ $product->id }}')"
+                                <a href="#"  onclick="confirmDelete (this, '{{ $service->id }}')"
                                          class="btn btn-sm btn-light-danger">
                                     <!--begin::Svg Icon | path: icons/duotone/General/Trash.svg-->
                                     <span class="svg-icon svg-icon-3">
@@ -158,7 +152,7 @@
                 </table>
                 <div class="kt-pagination--circle float-end">
                     <ul class="pagination">
-                        {{$products->links()}}
+                        {{$services->links()}}
                     </ul>
                 </div>
                 <!--end::Table-->
@@ -200,14 +194,14 @@
             }).then((result) => {
                 if (result.isConfirmed) {
                     Swal.fire(
-                        deleteProduct(app,id)
+                        deleteService(app,id)
                     )
 
                 }
             })
         }
-        function deleteProduct(app,id){
-            axios.delete('/cms/admin/products/'+id)
+        function deleteService(app,id){
+            axios.delete('/cms/admin/services/'+id)
                 .then(function (response) {
                     // handle success
                     console.log(response);

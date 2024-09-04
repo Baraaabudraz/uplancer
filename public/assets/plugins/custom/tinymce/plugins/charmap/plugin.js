@@ -640,7 +640,7 @@
             ],
             [
               8719,
-              'n-ary product'
+              'n-ary service'
             ],
             [
               8743,

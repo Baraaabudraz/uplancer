@@ -25,10 +25,10 @@ License: For each use you must have a valid license purchased only from above li
     <meta charset="utf-8" />
     <meta property="og:locale" content="en_US" />
     <meta property="og:type" content="article" />
-    <meta property="og:title" content="Metronic - Bootstrap 5 HTML, VueJS, React, Angular &amp; Laravel Admin Dashboard Theme" />
-    <meta property="og:url" content="https://keenthemes.com/metronic" />
-    <meta property="og:site_name" content="Keenthemes | Metronic" />
-    <link rel="canonical" href="Https://preview.keenthemes.com/metronic8" />
+    <meta property="og:title" content="www.uplancerps.com" />
+    <meta property="og:url" content="www.uplancerps.com" />
+    <meta property="og:site_name" content="Up Lancer" />
+    <link rel="canonical" href="https://www.uplancerps.com" />
     <link rel="shortcut icon" href="{{asset('admin/img/dashboard-logo.png')}}" />
     <!--begin::Fonts-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
@@ -54,7 +54,7 @@ License: For each use you must have a valid license purchased only from above li
         <div class="d-flex flex-center flex-column flex-column-fluid p-10 pb-lg-20">
             <!--begin::Logo-->
             <a href="{{route('home')}}" class="mb-12">
-                <img alt="Logo" src="{{asset('admin/img/dashboard-logo.png')}}" class="w-250px" />
+                <img alt="Logo" src="{{asset('uplancer/logo/up-lancer-team-logo.png')}}" class="w-350px" />
             </a>
             <!--end::Logo-->
             <!--begin::Wrapper-->
@@ -106,7 +106,7 @@ License: For each use you must have a valid license purchased only from above li
                     <div class="text-center">
                         <!--begin::Submit button-->
                         <button type="submit" class="btn btn-lg btn-primary w-100 mb-5">
-                            <span class="indicator-label">{{trans('dashboard_trans.Sign In')}}</span>
+                            <span class="indicator-label" >{{trans('dashboard_trans.Sign In')}}</span>
                         </button>
                         </div>
                         <!--end::Submit button-->
