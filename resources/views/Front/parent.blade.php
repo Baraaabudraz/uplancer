@@ -179,22 +179,22 @@
                 <h5 class="text-light mb-4">Gallery</h5>
                 <div class="row g-2">
                     <div class="col-4">
-                        <img class="img-fluid rounded" src="/uplancer/portfolio/Web/EMS.jpg" alt="Image">
+                        <img class="img-fluid rounded" src="{{asset('uplancer/portfolio/Web/EMS.jpg')}}" alt="Image">
                     </div>
                     <div class="col-4">
-                        <img class="img-fluid rounded" src="/uplancer/portfolio/mobile%20app/WhatsApp%20Image%202023-05-25%20at%2015.02.12.jpg" alt="Image">
+                        <img class="img-fluid rounded" src="{{asset('uplancer/portfolio/mobile%20app/WhatsApp%20Image%202023-05-25%20at%2015.02.12.jpg')}}" alt="Image">
                     </div>
                     <div class="col-4">
-                        <img class="img-fluid rounded" src="/uplancer/portfolio/mobile%20app/WhatsApp%20Image%202023-05-25%20at%2015.01.51.jpg" alt="Image">
+                        <img class="img-fluid rounded" src="{{asset('uplancer/portfolio/mobile%20app/WhatsApp%20Image%202023-05-25%20at%2015.01.51.jpg')}}" alt="Image">
                     </div>
                     <div class="col-4">
-                        <img class="img-fluid rounded" src="/uplancer/portfolio/mobile%20app/WhatsApp%20Image%202023-05-25%20at%2015.01.32.jpg" alt="Image">
+                        <img class="img-fluid rounded" src="{{asset('uplancer/portfolio/mobile%20app/WhatsApp%20Image%202023-05-25%20at%2015.01.32.jpg')}}" alt="Image">
                     </div>
                     <div class="col-4">
-                        <img class="img-fluid rounded" src="/uplancer/img/project-5.jpg" alt="Image">
+                        <img class="img-fluid rounded" src="{{asset('uplancer/img/project-5.jpg')}}" alt="Image">
                     </div>
                     <div class="col-4">
-                        <img class="img-fluid rounded" src="/uplancer/img/project-6.jpg" alt="Image">
+                        <img class="img-fluid rounded" src="{{asset('uplancer/img/project-6.jpg')}}" alt="Image">
                     </div>
                 </div>
             </div>
