@@ -59,7 +59,7 @@
             <div class="h-100 d-inline-flex align-items-center">
                 <a class="btn-square text-primary border-end rounded-0" href="https://www.facebook.com/uplancerps" target="_blank"><i class="fab fa-facebook-f"></i></a>
                 <a class="btn-square text-primary border-end rounded-0" href="https://twitter.com/uplancerps" target="_blank"><i class="fab fa-twitter"></i></a>
-                <a class="btn-square text-primary border-end rounded-0" href="https://www.linkedin.com/company/uplancerr" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a class="btn-square text-primary border-end rounded-0" href="https://www.linkedin.com/company/uplancerps" target="_blank"><i class="fab fa-linkedin-in"></i></a>
 
             </div>
         </div>
