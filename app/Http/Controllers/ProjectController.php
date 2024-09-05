@@ -112,6 +112,19 @@ class ProjectController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $is_Deleted = Project::destroy($id);
+        if($is_Deleted){
+            return response()->json([
+                'title'=>'success',
+                'icon'=>'success',
+                'text'=>trans('dashboard_trans.Project deleted successfully'),
+            ]);
+        }else{
+            return response()->json([
+                'title'=>'error',
+                'icon'=>'error',
+                'text'=>trans('dashboard_trans.Failed to delete this project'),
+            ]);
+        }
     }
 }
