@@ -245,6 +245,9 @@ return [
     'Failed to create project' => 'Failed to create project',
     'Profile' => 'Profile',
     'Save Edit' => 'Save Edit',
+    'Project deleted successfully' => 'Project deleted successfully',
+    'Failed to delete this project' => 'Failed to delete this project',
+    'Allowed file types' => 'Allowed file types',
 
 
 ];

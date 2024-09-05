@@ -244,6 +244,11 @@ return [
     'Failed to create project' => 'لم يتم اضافة المشروع',
     'Profile' => 'الملف الشخصي',
     'Save Edit' => 'حفظ التعديلات',
+    'Project deleted successfully' => 'تم حذف المشروع بنجاح',
+    'Failed to delete this project' => 'لم يتم حذف المشروع',
+    'Allowed file types' => 'أنواع الملفات المسموح بها',
+
+
 
 
 
