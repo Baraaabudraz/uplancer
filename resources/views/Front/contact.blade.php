@@ -1,4 +1,5 @@
 @extends('Front.parent')
+@section('title','Contact Us')
 @section('content')
     <!-- Contact Start -->
     <div class="container-xxl py-5">

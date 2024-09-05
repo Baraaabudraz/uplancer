@@ -97,7 +97,7 @@
                         </div>
                         <div class="ps-3">
                             <p class="mb-2">Call Us</p>
-                            <h6 class="mb-0">+970-597644664</h6>
+                            <h6 class="mb-0">+970 597644 664</h6>
                         </div>
                     </div>
                 </div>
