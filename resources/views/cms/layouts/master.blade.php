@@ -302,7 +302,7 @@
 												<span class="menu-bullet">
 													<span class="bullet bullet-dot"></span>
 												</span>
-                                                                <span class="menu-title">{{trans('dashboard_trans.All permissions')}}</span>
+                                                                <span class="menu-title">{{trans('dashboard_trans.Permissions')}}</span>
                                                             </a>
                                                         </div>
                                                     </div>
