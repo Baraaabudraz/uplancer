@@ -293,14 +293,6 @@
                                                                 <span class="menu-title">{{trans('dashboard_trans.Roles')}}</span>
                                                             </a>
                                                         </div>
-                                                        <div class="menu-item">
-                                                            <a class="menu-link" href="{{route('roles.create')}}">
-												<span class="menu-bullet">
-													<span class="bullet bullet-dot"></span>
-												</span>
-                                                                <span class="menu-title">{{trans('dashboard_trans.Add new role')}}</span>
-                                                            </a>
-                                                        </div>
                                                     </div>
                                                 @endif
                                                 @if(isset(Auth()->user()->role->permission['name']['permission']['can-view']))
@@ -311,14 +303,6 @@
 													<span class="bullet bullet-dot"></span>
 												</span>
                                                                 <span class="menu-title">{{trans('dashboard_trans.All permissions')}}</span>
-                                                            </a>
-                                                        </div>
-                                                        <div class="menu-item">
-                                                            <a class="menu-link" href="{{route('permissions.create')}}">
-												<span class="menu-bullet">
-													<span class="bullet bullet-dot"></span>
-												</span>
-                                                                <span class="menu-title">{{trans('dashboard_trans.Add new permissions')}}</span>
                                                             </a>
                                                         </div>
                                                     </div>
