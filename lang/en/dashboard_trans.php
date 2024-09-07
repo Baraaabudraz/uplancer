@@ -103,6 +103,9 @@ return [
     'Industrial License' => 'Industrial License',
     'Work Days' => 'Work Days',
     'Website' => 'Website',
+    'Website Settings' => 'Website Settings',
+    'Website Logo' => 'Website Logo',
+    'Website Name' => 'Website Name',
     'Industry Phone' => 'Industry Phone',
     'User Name' => 'User Name',
     'Country' => 'Country',
@@ -248,6 +251,19 @@ return [
     'Project deleted successfully' => 'Project deleted successfully',
     'Failed to delete this project' => 'Failed to delete this project',
     'Allowed file types' => 'Allowed file types',
+    'Settings Updated Successfully' => 'Settings Updated Successfully',
+    'Failed to update Settings' => 'Failed to update Settings',
+    'You can browse the list of projects' => 'You can browse the list of projects',
+    'Enter the name of the project' => 'Enter the name of the project',
+    'Settings deleted Successfully' => 'Settings deleted Successfully',
+    'Edit Website Settings' => 'Edit Website Settings',
+    'Add Settings to website' => 'Add Settings to website',
+    'Company Site' => 'Company Site',
+    'About' => 'About',
+    'Contact Description' => 'Contact Description',
+    'Why Us' => 'Why Us',
+    'Connected Accounts' => 'Connected Accounts',
+
 
 
 ];

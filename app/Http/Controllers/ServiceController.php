@@ -38,22 +38,26 @@ class ServiceController extends Controller
         $data = $request->only([
             'name' , 'description'
         ]);
-        if ($request->hasFile('images')){
-            foreach ($request->file('images') as $image){
-                $Image=$image;
-                $imageName=$Image->getClientOriginalName(). '-' . $Image->getClientOriginalExtension();
-                $images[]=$imageName;
-                $Image->move('images/services',$imageName);
-            }
+
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $imageName = time() . '_' . $request->get('name.*') . '.' . $image->getClientOriginalExtension();
+            $image->move('images/services', $imageName);
         }
-        $data['image'] = json_encode($images);
+
+        $data['image'] = $imageName;
+
         $service = Service::query()->create($data);
+
         if ($service){
             session()->flash('alert-type','alert-success');
             session()->flash('message',trans('dashboard_trans.Service Created Successfully'));
+            return redirect()->back();
         }else{
             session()->flash('alert-type','alert-danger');
             session()->flash('message',trans('dashboard_trans.Failed to create service'));
+            return redirect()->back();
+
         }
     }
 

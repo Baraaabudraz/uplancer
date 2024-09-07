@@ -11,10 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('services', function (Blueprint $table) {
+        Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->json('name');
-            $table->json('description');
+            $table->json('post');
+            $table->foreignId('section_id');
+            $table->foreign('section_id')->references('id')->on('sections');
             $table->string('image');
             $table->timestamps();
         });
@@ -25,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('services');
+        Schema::dropIfExists('posts');
     }
 };

@@ -87,7 +87,7 @@
                         <th>{{trans('dashboard_trans.Image')}}</th>
                         <th>{{trans('dashboard_trans.Name')}}</th>
                         <th>{{trans('dashboard_trans.Service')}}</th>
-                        <th>{{trans('dashboard_trans.Operations')}}</th>
+                        <th>{{trans('dashboard_trans.Actions')}}</th>
                     </tr>
                     </thead>
                     <tbody>

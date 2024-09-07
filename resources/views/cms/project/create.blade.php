@@ -1,6 +1,6 @@
 @extends('cms.layouts.master')
 @section('title')
-    {{trans('dashboard_trans.Add new service')}}
+    {{trans('dashboard_trans.Add new project')}}
 @endsection
 
 @section('links')
@@ -30,7 +30,7 @@
                  data-kt-place-parent="{default: '#kt_content_container', 'lg': '#kt_toolbar_container'}"
                  class="page-title d-flex align-items-center me-3">
                 <!--begin::Title-->
-                <h1 class="d-flex align-items-center text-dark fw-bolder my-1 fs-3">{{trans('dashboard_trans.Add new service')}}</h1>
+                <h1 class="d-flex align-items-center text-dark fw-bolder my-1 fs-3">{{trans('dashboard_trans.Add new project')}}</h1>
                 <!--end::Title-->
                 <!--begin::Separator-->
                 <span class="h-20px border-gray-200 border-start mx-4"></span>
@@ -49,7 +49,7 @@
                     <!--end::Item-->
 
                     <!--begin::Item-->
-                    <a href="#" class="text-muted text-hover-primary">{{trans('dashboard_trans.All services')}}</a>
+                    <a href="#" class="text-muted text-hover-primary">{{trans('dashboard_trans.All projects')}}</a>
                     <!--end::Item-->
                     <!--begin::Item-->
                     <li class="breadcrumb-item">
@@ -57,7 +57,7 @@
                     </li>
                     <!--end::Item-->
                     <!--begin::Item-->
-                    <li class="breadcrumb-item text-dark">{{trans('dashboard_trans.Add new service')}}</li>
+                    <li class="breadcrumb-item text-dark">{{trans('dashboard_trans.Add new project')}}</li>
                     <!--end::Item-->
                 </ul>
                 <!--end::Breadcrumb-->
@@ -91,17 +91,17 @@
                     <!--begin::Heading-->
                     <div class="mb-13 text-center">
                         <!--begin::Title-->
-                        <h1 class="mb-3">{{trans('dashboard_trans.Add new service')}}</h1>
+                        <h1 class="mb-3">{{trans('dashboard_trans.Add new project')}}</h1>
                         <!--end::Title-->
                         <!--begin::Description-->
-                        <div class="text-gray-400 fw-bold fs-5">{{trans('dashboard_trans.You can browse the list of services')}}
+                        <div class="text-gray-400 fw-bold fs-5">{{trans('dashboard_trans.You can browse the list of projects')}}
                             <a href="{{ route('services.index') }}" class="fw-bolder link-primary">{{trans('dashboard_trans.here')}}</a>.
                         </div>
                         <!--end::Description-->
                     </div>
                     <!--end::Heading-->
 
-                    <form method="POST" action="{{route('services.store')}}" enctype="multipart/form-data" class="w-100 position-relative mb-3">
+                    <form method="POST" action="{{route('projects.store')}}" enctype="multipart/form-data" class="w-100 position-relative mb-3">
                         @csrf
                         <div class="row">
                             <div class="col-md-12 mb-10" style="border:1px ">
@@ -112,9 +112,9 @@
                                                 <span class="required">{{trans('dashboard_trans.Name')}} ({{$lang}})</span>
                                                 <i class="fas fa-exclamation-circle ms-2 fs-7"
                                                    data-bs-toggle="tooltip"
-                                                   title="{{trans('dashboard_trans.Enter the name of the service')}}"></i>
+                                                   title="{{trans('dashboard_trans.Enter the name of the project')}}"></i>
                                             </label>
-                                            <input class="form-control form-control-solid" placeholder="{{trans('dashboard_trans.Enter Name Of')}} {{trans('dashboard_trans.service')}} " name="name[{{$key}}]" value="{{old('name.'.$key)}}" />
+                                            <input class="form-control form-control-solid" placeholder="{{trans('dashboard_trans.Enter the name of the project')}} " name="name[{{$key}}]" value="{{old('name.'.$key)}}" />
                                             @error('name.'.$key)
                                             <span class="text-danger">{{$message}}</span>
                                             @enderror

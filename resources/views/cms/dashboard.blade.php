@@ -5,7 +5,6 @@
 @endsection
 
 @section('content')
-
     <!--begin::Toolbar-->
     <div class="toolbar" id="kt_toolbar">
         <!--begin::Container-->
@@ -42,7 +41,6 @@
         <!--end::Container-->
     </div>
     <!--end::Toolbar-->
-
     <!--begin::Row-->
     <div class="row g-5 g-xl-8">
         <div class="col-xl-6">

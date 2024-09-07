@@ -145,7 +145,7 @@
                                             <!--end::Label-->
 
 {{--                                            <div class="dz-default dz-message" >قم بإسقاط الصور هنا أو إضغط للرفع</div>--}}
-                                            <input id="files" type="file" class="dropzone" name="images[]" multiple="multiple" accept="image/jpeg, image/png, image/jpg">
+                                            <input id="files" type="file" class="dropzone" name="image" multiple="multiple" accept="image/jpeg, image/png, image/jpg">
                                         </div>
                                         <output id="result"></output>
                                 </div>

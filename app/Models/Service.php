@@ -9,7 +9,7 @@ use Spatie\Translatable\HasTranslations;
 class Service extends Model
 {
     use HasTranslations;
-    protected $translatable  = ['name'   ,'description' ];
+    protected $translatable  = ['name'  , 'description' ];
 
     protected $guarded=[];
     public function projects(){

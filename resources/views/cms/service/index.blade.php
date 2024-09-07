@@ -86,7 +86,7 @@
                         <th>#</th>
                         <th>{{trans('dashboard_trans.Image')}}</th>
                         <th>{{trans('dashboard_trans.Name')}}</th>
-                        <th>{{trans('dashboard_trans.Operations')}}</th>
+                        <th>{{trans('dashboard_trans.Actions')}}</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -97,8 +97,7 @@
                             <td>
                                 <div class="d-flex align-items-center">
                                     <div class="symbol symbol-30px me-5">
-                                        <img src="{{url('/images/service/'.json_decode($service->image)[0])}}" class="" alt="">
-                                    </div>
+                                        <img src="{{url('/images/services/'.$service->logo)}}" class="" alt="Service">                                    </div>
                                 </div>
                             </td>
 

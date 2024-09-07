@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AboutControlller;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Auth\AdminAuthController;
 use App\Http\Controllers\PermissionController;
@@ -9,6 +10,7 @@ use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\SectionController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\SettingController;
 use App\Http\Controllers\SliderController;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
@@ -38,7 +40,6 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function()
 {
 Route::prefix('cms/admin')->middleware(['auth:admin','has.permission'])->group(function (){
     Route::view('/','cms.dashboard')->name('dashboard');
-//    Route::view('upload','cms.product.upload');
     Route::resource('admins',AdminController::class);
     Route::resource('roles',RoleController::class);
     Route::resource('permissions',PermissionController::class);
@@ -47,17 +48,25 @@ Route::prefix('cms/admin')->middleware(['auth:admin','has.permission'])->group(f
     Route::resource('services',ServiceController::class);
     Route::resource('profile',ProfileController::class);
     Route::resource('projects',ProjectController::class);
+    Route::resource('abouts',AboutControlller::class);
+    Route::resource('settings',SettingController::class);
+
 
 //    Route::resource('sponsors',SponsorController::class);
+
     Route::get('get_roles', [AdminController::class, 'loadRoles'])->name('get_roles');
     Route::get('slider/index',[SliderController::class,'index'])->name('slider.index');
     Route::get('slider/create',[SliderController::class,'create'])->name('slider.create');
     Route::post('slider',[SliderController::class,'store'])->name('slider.store');
     Route::delete('slider/{id}',[SliderController::class,'destroy'])->name('slider.destroy');
+    Route::put('update-settings',[SettingController::class,'updateSettings'])->name('update-settings');
+    Route::get('edit-website-settings',[SettingController::class,'edit_settings'])->name('edit-website-settings');
+
 //    Route::resource('users',UserController::class);
 //        Route::get('orders',[CartController::class,'userOrder'])->name('industries_orders.index');
 //    Route::get('mail',[MailController::class ,'create'])->name('mail.create');
 //    Route::post('mail',[MailController::class,'store'])->name('mail.store');
+
 });
 
 Route::prefix('dashboard')->group(function (){

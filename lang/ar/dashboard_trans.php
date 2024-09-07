@@ -103,6 +103,9 @@ return [
     'Industrial License' => 'الرخصة الصناعية',
     'Work Days' => 'أيام العمل',
     'Website' => 'الموقع الإلكتروني',
+    'Website Settings' => 'إعدادات الموقع الإلكتروني',
+    'Website Logo' => 'شعار الموقع',
+    'Website Name' => 'اسم الموقع',
     'Industry Phone' => 'هاتف المصنع',
     'User Name' => 'اسم المستخدم',
     'Country' => 'الدولة',
@@ -247,6 +250,29 @@ return [
     'Project deleted successfully' => 'تم حذف المشروع بنجاح',
     'Failed to delete this project' => 'لم يتم حذف المشروع',
     'Allowed file types' => 'أنواع الملفات المسموح بها',
+    'Settings Updated Successfully' => 'تم تحديث الاعدادات بنجاح',
+    'Failed to update Settings' => 'لم يتم تحديث الاعدادات',
+    'You can browse the list of projects' => 'يمكنك تصفح قائمة المشاريع من',
+    'Enter the name of the project' => 'ادخل اسم المشروع',
+    'Settings deleted Successfully' => 'تم حذف الاعدادات بنجاح',
+    'Edit Website Settings' => 'تعديل اعدادات الموقع الالكتروني',
+    'Add Settings to website' => 'إضافة إعدادات للموقع الالكتروني',
+    'Company Site' => 'موقع الشركة',
+    'About' => 'عنّا',
+    'Contact Description' => 'وصف التواصل',
+    'Why Us' => 'لماذا نحن',
+    'Connected Accounts' => 'حسابات التواصل',
+
+
+
+
+
+
+
+
+
+
+
 
 
 

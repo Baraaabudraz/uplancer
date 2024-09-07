@@ -21,7 +21,7 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        return view('cms.service.create');
+        return view('cms.project.create');
     }
 
     /**
@@ -50,9 +50,12 @@ class ProjectController extends Controller
         if ($project){
             session()->flash('alert-type','alert-success');
             session()->flash('message',trans('dashboard_trans.Project Created Successfully'));
+            return redirect()->back();
         }else{
             session()->flash('alert-type','alert-danger');
             session()->flash('message',trans('dashboard_trans.Failed to create project'));
+            return redirect()->back();
+
         }
     }
 
