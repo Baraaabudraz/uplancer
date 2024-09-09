@@ -73,7 +73,7 @@ class SettingController extends Controller
     {
         $request->validate([
             'name' => 'required|string',
-            'logo' => 'required|image',
+            'logo' => '',
             'phone' => 'required|numeric',
             'email' => 'required|email',
             'about' => 'required|string',
@@ -86,9 +86,12 @@ class SettingController extends Controller
             'x' => 'nullable|url',
         ]);
         $data = $request->only([
-            'name', 'logo', 'phone', 'email', 'linkedin', 'company_site' ,
+            'name', 'phone', 'email', 'linkedin', 'company_site' ,
             'facebook', 'instagram', 'x' , 'desc_contact' , 'about' , 'why_us'
         ]);
+
+
+
         if ($request->hasFile('logo')) {
             $logo = $request->file('logo');
             $logoName = time() . '_' . $request->get('name') . '.' . $logo->getClientOriginalExtension();

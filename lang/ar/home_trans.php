@@ -170,6 +170,8 @@ return[
     'Sign in with Facebook'=>'تسجيل باستخدام فيس بوك',
     'Sign in with Google'=>'تسجيل باستخدام جوجل',
     'Sponsors'=>'شركائنا',
+    'Services'=>'الخدمات',
+
 
 
 

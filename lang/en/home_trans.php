@@ -150,6 +150,7 @@ return[
     The factories bring together the different capabilities and competencies of the national industries, construction and development sector in the UAE under a unified and integrated platform, with the aim of improving the value of customers,shareholders,factories and other stakeholders.',
 
     'About'=>'About',
+
     'We are your masnaaco platform, a leading platform of its kind in the region in terms of displaying factory products, the platform is designed according to the latest international standards, high-level technologies and support services.'
     =>'We are your masnaaco platform, a leading platform of its kind in the region in terms of displaying factory products, the platform is designed according to the latest international standards, high-level technologies and support services.',
 
@@ -168,4 +169,5 @@ return[
     'Sign in with Facebook'=>'Sign in with Facebook',
     'Sign in with Google'=>'Sign in with Google',
     'Sponsors'=>'Sponsors',
+    'Services'=>'Services',
 ];

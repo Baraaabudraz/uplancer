@@ -31,7 +31,7 @@
                     <!--end::Item-->
 
                     <!--begin::Item-->
-                    <a href="{{route('slider.index')}}" class="text-muted text-hover-primary">{{trans('dashboard_trans.Slides')}}</a>
+                    <a href="{{route('sliders.index')}}" class="text-muted text-hover-primary">{{trans('dashboard_trans.Slides')}}</a>
                     <!--end::Item-->
                     <!--begin::Item-->
                     <li class="breadcrumb-item">
@@ -77,15 +77,29 @@
                         <!--end::Title-->
                         <!--begin::Description-->
                         <div class="text-gray-400 fw-bold fs-5">{{trans('dashboard_trans.You can browse the list of slides')}}
-                            <a href="{{route('slider.index')}}" class="fw-bolder link-primary">{{trans('dashboard_trans.here')}}</a>.
+                            <a href="{{route('sliders.index')}}" class="fw-bolder link-primary">{{trans('dashboard_trans.here')}}</a>.
                         </div>
                         <!--end::Description-->
                     </div>
                     <!--end::Heading-->
 
-            <form action="{{route('slider.store')}}" method="POST" enctype="multipart/form-data">
+            <form action="{{route('sliders.store')}}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="row">
+                    @foreach(config('lang') as $key => $lang)
+                        <div class="col-md-6 d-flex flex-column mb-8 fv-row">
+                            <!--begin::Label-->
+                            <label class="d-flex align-items-center fs-6 fw-bold mb-2">
+                                <span class="required">{{trans('dashboard_trans.Description')}} ({{$lang}})</span>
+                                <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title=""></i>
+                            </label>
+                            <!--end::Label-->
+                            <textarea name="description[{{$key}}]" class="form-control @error('description') is-invalid @enderror">{{old('description.'.$key)}}</textarea>
+                            @error('description.'.$key)
+                            <span class="text-danger">{{$message}}</span>
+                            @enderror
+                        </div>
+                    @endforeach
                     <div class="col-md-12 mb-10" style="border:1px ">
                         <div class="row">
                             <div class="col-md-6">

@@ -142,12 +142,10 @@
                                             <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="{{trans('dashboard_trans.Image')}}"></i>
                                         </label>
                                         <br>
-                                        <input id="files" type="file"  class="dropzone" name="images[]" multiple="multiple" accept="image/jpeg, image/png, image/jpg">
+                                        <input id="files" type="file"  class="dropzone" name="image"  accept="image/jpeg, image/png, image/jpg">
                                     </div>
                                     <output id="result">
-                                        @foreach(json_decode($service->image) as $key => $image)
-                                            <img src="{{url('images/service/',$image)}}" style="height: 100px" width="100" alt="Service Image">
-                                        @endforeach
+                                            <img src="{{url('images/services/'.$service->image)}}" style="height: 100px" width="100" alt="Service Image">
                                     </output>
 
                                 </div>
@@ -162,7 +160,7 @@
                             </button>
 
                             <button type="submit" class="addUserBtn1 btn btn-success me-2">
-                                {{trans('dashboard_trans.Create')}}
+                                {{trans('dashboard_trans.Edit')}}
                             </button>
                         </div>
                         <!--end::Actions-->

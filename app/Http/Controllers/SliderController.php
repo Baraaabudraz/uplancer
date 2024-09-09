@@ -17,29 +17,45 @@ class SliderController extends Controller
     }
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'image' => 'required|image|mimes:jpg,jpeg,png'
-        ]);
-        if ($request->hasFile('image')) {
-            $image = $request->image->hashName();
-            $request->image->move(public_path('images/slider'), $image);
+        $data = $this->getArr($request);
+        $slider = Slider::query()->create($data);
+        if ($slider) {
+            session()->flash('alert-type', 'alert-success');
+            session()->flash('message', trans('dashboard_trans.Image Uploaded Successfully'));
+            return redirect()->back();
+        } else {
+            session()->flash('alert-type', 'alert-danger');
+            session()->flash('message', trans('dashboard_trans.Failed to upload image'));
+            return redirect()->back();
         }
-            Slider::create([
-                'image' => $image
-            ]);
-        session()->flash('alert-type','alert-success');
-        session()->flash('message',trans('dashboard_trans.Image Uploaded Successfully'));
-        return redirect()->back();
-
-
     }
+       public function edit($id){
+        $slider = Slider::query()->findOrFail($id);
+        return view('cms.slider.edit',compact('slider'));
+       }
+
+       public function update(Request $request, $id){
+           $data = $this->getArr($request);
+           $slider = Slider::query()->find($id)->update($data);
+           if ($slider) {
+               session()->flash('alert-type', 'alert-success');
+               session()->flash('message', trans('dashboard_trans.Image Uploaded Successfully'));
+               return redirect()->back();
+           } else {
+               session()->flash('alert-type', 'alert-danger');
+               session()->flash('message', trans('dashboard_trans.Failed to upload image'));
+               return redirect()->back();
+           }
+
+       }
+
     public function destroy($id){
         $isDeleted=Slider::destroy($id);
         if ($isDeleted){
             return response()->json([
                 'title'=>'success',
                 'icon'=>'success',
-                'text'=>trans('dashboard_trans.Service deleted successfully'),
+                'text'=>trans('dashboard_trans.Image deleted successfully'),
             ]);
         }else{
             return response()->json([
@@ -50,6 +66,29 @@ class SliderController extends Controller
         }
 
 
+    }
+
+    /**
+     * @param Request $request
+     * @return array
+     */
+    public function getArr(Request $request): array
+    {
+        $request->validate([
+            'image' => 'required|image',
+            'description.*' => 'required|string'
+        ]);
+
+        $data = $request->only(['image', 'description']);
+
+        if ($request->hasFile('image')){
+            $image = $request->image->hashName();
+            $request->image->move(public_path('images/sliders'),$image);
+        }else{
+            $image=$request->get('image');
+        }
+        $data['image'] = $image;
+        return $data;
     }
 
 }

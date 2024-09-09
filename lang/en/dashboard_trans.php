@@ -263,6 +263,7 @@ return [
     'Contact Description' => 'Contact Description',
     'Why Us' => 'Why Us',
     'Connected Accounts' => 'Connected Accounts',
+    'Failed to upload image ' => 'Failed to upload image',
 
 
 

@@ -1,8 +1,8 @@
 <?php
 
-use App\Http\Controllers\AboutControlller;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Auth\AdminAuthController;
+use App\Http\Controllers\Front\Front\HomeController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
@@ -26,19 +26,21 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 |
 */
 
-Route::get('/', function () {
-    return view('Front.index');
-});
-Route::view('home','Front.index')->name('home');
-Route::view('about','Front.about')->name('about');
-Route::view('contact','Front.contact')->name('contact');
-Route::view('projects','Front.project')->name('projects');
-Route::view('services','Front.service')->name('services');
-Route::view('teams','Front.team')->name('teams');
+//Route::get('/', function () {
+//    return view('Front.index');
+//});
+
 
 Route::group(['prefix' => LaravelLocalization::setLocale()], function()
 {
-Route::prefix('cms/admin')->middleware(['auth:admin','has.permission'])->group(function (){
+    Route::get('/',[HomeController::class,'index'])->name('home');
+    Route::view('about','Front.about')->name('about');
+    Route::view('contact','Front.contact')->name('contact');
+    Route::view('projects','Front.project')->name('projects');
+    Route::view('services','Front.service')->name('services');
+    Route::view('teams','Front.team')->name('teams');
+
+    Route::prefix('cms/admin')->middleware(['auth:admin','has.permission'])->group(function (){
     Route::view('/','cms.dashboard')->name('dashboard');
     Route::resource('admins',AdminController::class);
     Route::resource('roles',RoleController::class);
@@ -48,17 +50,13 @@ Route::prefix('cms/admin')->middleware(['auth:admin','has.permission'])->group(f
     Route::resource('services',ServiceController::class);
     Route::resource('profile',ProfileController::class);
     Route::resource('projects',ProjectController::class);
-    Route::resource('abouts',AboutControlller::class);
     Route::resource('settings',SettingController::class);
+    Route::resource('sliders',SliderController::class);
 
 
 //    Route::resource('sponsors',SponsorController::class);
 
     Route::get('get_roles', [AdminController::class, 'loadRoles'])->name('get_roles');
-    Route::get('slider/index',[SliderController::class,'index'])->name('slider.index');
-    Route::get('slider/create',[SliderController::class,'create'])->name('slider.create');
-    Route::post('slider',[SliderController::class,'store'])->name('slider.store');
-    Route::delete('slider/{id}',[SliderController::class,'destroy'])->name('slider.destroy');
     Route::put('update-settings',[SettingController::class,'updateSettings'])->name('update-settings');
     Route::get('edit-website-settings',[SettingController::class,'edit_settings'])->name('edit-website-settings');
 

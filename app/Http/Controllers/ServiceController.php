@@ -32,7 +32,7 @@ class ServiceController extends Controller
     {
         $request->validate([
             'name.*' => 'required|string|max:100',
-            'description.*' => 'required|string',
+            'description.*' => 'nullable|string',
         ]);
 
         $data = $request->only([
@@ -87,24 +87,22 @@ class ServiceController extends Controller
         $request->validate([
             'id'=>'required|int|exists:services',
             'name.*'   =>  'required|string',
-            'description.*'    =>  'required|string',
+            'description.*'    =>  'nullable|string',
         ]);
         $data=$request->only([
            'description'    ,   'name'
         ]);
-        if ($request->hasFile('images')){
-            foreach ($request->file('images') as $image){
-                $Image=$image;
-                $imageName=$Image->getClientOriginalName(). '-' . $Image->getClientOriginalExtension();
-                $images[]=$imageName;
-                $Image->move('images/services',$imageName);
-            }
-            $data['image'] = json_encode($images);
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $imageName = time() . '_' . $request->get('name.*') . '.' . $image->getClientOriginalExtension();
+            $image->move('images/services', $imageName);
+            $data['image'] = $imageName;
         }
         $service= Service::query()->find($id)->update($data);
         if ($service){
             session()->flash('alert-type','alert-success');
             session()->flash('message',trans('dashboard_trans.Service Updated Successfully'));
+            return redirect()->back();
 
         }else{
             session()->flash('alert-type','alert-danger');

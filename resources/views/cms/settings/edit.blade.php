@@ -87,7 +87,7 @@
                         <label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-white shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" title="" data-bs-original-title="Change avatar">
                             <i class="bi bi-pencil-fill fs-7"></i>
                             <!--begin::Inputs-->
-                            <input type="file" name="logo" accept=".png, .jpg, .jpeg">
+                            <input type="file" name="logo"  accept=".png, .jpg, .jpeg">
                             <input type="hidden" name="logo">
                             <!--end::Inputs-->
                         </label>
@@ -123,6 +123,19 @@
                     <input type="text" class="form-control form-control-solid" name="name" value="{{$website_settings->name}}" placeholder="{{trans('dashboard_trans.Website Name')}}">
                     <div class="fv-plugins-message-container invalid-feedback"></div></div>
             </div>
+            <!--begin::Row-->
+            <div class="row mb-8">
+                <!--begin::Col-->
+                <div class="col-xl-3">
+                    <div class="fs-6 fw-bold mt-2 mb-3">{{trans('dashboard_trans.Company Site')}}</div>
+                </div>
+                <!--end::Col-->
+                <!--begin::Col-->
+                <div class="col-xl-9 fv-row fv-plugins-icon-container">
+                    <input type="text" class="form-control form-control-solid" name="company_site" value="{{$website_settings->company_site}}" placeholder="{{trans('dashboard_trans.Company Site')}}">
+                    <div class="fv-plugins-message-container invalid-feedback"></div></div>
+            </div>
+            <!--end::Row-->
             <!--end::Row-->
             <!--begin::Row-->
             <div class="row mb-8">
@@ -151,6 +164,60 @@
                 <!--begin::Col-->
             </div>
             <!--end::Row-->
+            <div class="card mb-5 mb-xl-10">
+                <!--begin::Card header-->
+                <div class="card-header border-0 cursor-pointer" role="button" data-bs-toggle="collapse" data-bs-target="#kt_account_notifications" aria-expanded="true" aria-controls="kt_account_notifications">
+                    <div class="card-title m-0">
+                        <h3 class="fw-bolder m-0">{{trans('dashboard_trans.Additional information')}}</h3>
+                    </div>
+                </div>
+                <!--begin::Card header-->
+                <!--begin::Content-->
+                <div id="kt_account_notifications" class="collapse show">
+                    <!--begin::Form-->
+                    <!--begin::Card body-->
+                    <div class="card-body border-top px-9 pt-3 pb-4">
+                        <div class="row mb-8">
+                            <!--begin::Col-->
+                            <div class="col-xl-3">
+                                <div class="fs-6 fw-bold mt-2 mb-3">{{trans('dashboard_trans.About')}}</div>
+                            </div>
+                            <!--end::Col-->
+                            <!--begin::Col-->
+                            <div class="col-xl-9 fv-row fv-plugins-icon-container">
+                                <textarea type="text" name="about" class="form-control form-control-solid" placeholder="{{trans('dashboard_trans.About')}}">{{$website_settings->about}}</textarea>
+                                <div class="fv-plugins-message-container invalid-feedback"></div></div>
+                            <!--begin::Col-->
+                        </div>
+                        <div class="row mb-8">
+                            <!--begin::Col-->
+                            <div class="col-xl-3">
+                                <div class="fs-6 fw-bold mt-2 mb-3">{{trans('dashboard_trans.Contact Description')}}</div>
+                            </div>
+                            <!--end::Col-->
+                            <!--begin::Col-->
+                            <div class="col-xl-9 fv-row fv-plugins-icon-container">
+                                <textarea type="text" name="desc_contact" class="form-control form-control-solid" placeholder="{{trans('dashboard_trans.Contact Description')}}">{{$website_settings->desc_contact}}</textarea>
+                                <div class="fv-plugins-message-container invalid-feedback"></div></div>
+                            <!--begin::Col-->
+                        </div>
+                        <div class="row mb-8">
+                            <!--begin::Col-->
+                            <div class="col-xl-3">
+                                <div class="fs-6 fw-bold mt-2 mb-3">{{trans('dashboard_trans.Why Us')}}</div>
+                            </div>
+                            <!--end::Col-->
+                            <!--begin::Col-->
+                            <div class="col-xl-9 fv-row fv-plugins-icon-container">
+                                <textarea type="text" name="why_us" class="form-control form-control-solid" placeholder="{{trans('dashboard_trans.Why Us')}}">{{$website_settings->why_us}}</textarea>
+                                <div class="fv-plugins-message-container invalid-feedback"></div></div>
+                            <!--begin::Col-->
+                        </div>
+                    </div>
+                    <!--end::Card body--><!--end::Form-->
+                </div>
+                <!--end::Content-->
+            </div>
             <div class="card mb-5 mb-xl-10">
                 <!--begin::Card header-->
                 <div class="card-header border-0 cursor-pointer" role="button" data-bs-toggle="collapse" data-bs-target="#kt_account_connected_accounts" aria-expanded="true" aria-controls="kt_account_connected_accounts">

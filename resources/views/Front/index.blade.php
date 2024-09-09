@@ -1,62 +1,47 @@
 @extends('Front.parent')
 @section('title','Home')
-@section('styles','')
+@section('styles')
+@endsection
 @section('content')
     <!-- Carousel Start -->
     <div class="container-fluid p-0 mb-5 wow fadeIn" data-wow-delay="0.1s">
         <div id="header-carousel" class="carousel slide" data-bs-ride="carousel">
+            <!-- Indicators -->
             <div class="carousel-indicators">
-                <button type="button" data-bs-target="#header-carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1">
-                    <img class="img-fluid" src="{{asset('uplancer/img/carousel-1.jpg')}}" alt="Image">
-                </button>
-                <button type="button" data-bs-target="#header-carousel" data-bs-slide-to="1" aria-label="Slide 2">
-                    <img class="img-fluid" src="{{asset('/uplancer/img/carousel-2.jpg')}}" alt="Image">
-                </button>
-                <button type="button" data-bs-target="#header-carousel" data-bs-slide-to="2" aria-label="Slide 3">
-                    <img class="img-fluid" src="{{asset('/uplancer/img/carousel-3.jpg')}}" alt="Image">
-                </button>
+                @foreach($sliders as $key => $slider)
+                    <button type="button" data-bs-target="#header-carousel" data-bs-slide-to="{{$key}}" class="{{$key == 0 ? 'active' : ''}}" aria-current="{{$key == 0 ? 'true' : ''}}" aria-label="Slide {{$key + 1}}">
+                        <img class="img-fluid" src="{{asset('images/sliders/'.$slider->image)}}" alt="Image">
+                    </button>
+                @endforeach
             </div>
+
+            <!-- Slides -->
             <div class="carousel-inner">
-                <div class="carousel-item ">
-                    <img class="w-100" src="{{asset('/uplancer/img/carousel-1.jpg')}}" alt="Image">
-                    <div class="carousel-caption">
-                        <div class="p-3" style="max-width: 1500px;">
-                            <h4 class="text-white text-uppercase mb-4 animated zoomIn"></h4>
-                            <h1 class="display-3 text-white mb-0 animated zoomIn">Unlock Your Digital Potential with Our Expert Guidance</h1>
+                @foreach($sliders as $key => $slider)
+                    <div class="carousel-item {{$key == 0 ? 'active' : ''}}">
+                        <img class="w-100" src="{{asset('images/sliders/'.$slider->image)}}" alt="Image">
+                        <div class="carousel-caption">
+                            <div class="p-3" style="max-width: 1500px;">
+                                <h4 class="text-white text-uppercase mb-4 animated zoomIn"></h4>
+                                <h1 class="display-3 text-white mb-0 animated zoomIn">{{$slider->description}}</h1>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="carousel-item active">
-                    <img class="w-100" src="{{asset('/uplancer/img/carousel-2.jpg')}}" alt="Image">
-                    <div class="carousel-caption">
-                        <div class="p-3" style="max-width: 1500px;">
-                            <h4 class="text-white text-uppercase mb-4 animated zoomIn">Up Lancer</h4>
-                            <h1 class="display-3 text-white mb-0 animated zoomIn">Your Trusted Partner  in Creative and Innovative Digital Solutions.</h1>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img class="w-100" src="{{asset('/uplancer/img/carousel-3.jpg')}}" alt="Image">
-                    <div class="carousel-caption">
-                        <div class="p-3" style="max-width: 3000px;">
-                            <h4 class="text-white text-uppercase mb-4 animated zoomIn"></h4>
-                            <h1 class="display-4 text-white mb-0 animated zoomIn">Transform Your Vision into Reality with Up Lancer's Professional Services.</h1>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#header-carousel"
-                    data-bs-slide="prev">
+
+            <!-- Controls -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#header-carousel" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Previous</span>
             </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#header-carousel"
-                    data-bs-slide="next">
+            <button class="carousel-control-next" type="button" data-bs-target="#header-carousel" data-bs-slide="next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Next</span>
             </button>
         </div>
     </div>
+
     <!-- Carousel End -->
 
 
@@ -79,7 +64,7 @@
                         <h6 class="section-title bg-white text-start text-primary pe-3">About Us</h6>
 
                         <h1 class="display-6 mb-4"># Empower Your Success with <span class="text-primary">Up Lancer</span>- Where Excellence Meets Innovation </h1>
-                        <p>Welcome to UP Lancer, the place where creativity and technological advancements converge. Allow us to assist you in realizing your vision and transforming your ideas into reality through our specialized team in web and mobile development, user interface design, and marketing. Join us and embark on a distinctive journey of programming, design, and marketing that will propel you to new heights.</p>
+                        <p>{{$settings->about}}</p>
                         <!--                        <p class="mb-4"></p>-->
                         <!--                        <div class="d-flex align-items-center mb-4 pb-2">-->
                         <!--                            <img class="flex-shrink-0 " src="/uplancer/logo/up-lancer-team-logo.png" alt="" style="width: 80px; height: 50px;">-->
@@ -101,46 +86,42 @@
     <div class="container-xxl py-5">
         <div class="container">
             <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-                <h6 class="section-title bg-white text-center text-primary px-3">Services</h6>
+                <h6 class="section-title bg-white text-center text-primary px-3">{{trans('home_trans.Services')}}</h6>
                 <h1 class="display-6 mb-4">We Focuse On Making The Best In All Sectors</h1>
             </div>
             <div class="row g-4">
+                @foreach($services as $service)
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                     <a class="service-item d-block rounded text-center h-100 p-4" href="#">
-                        <img class="img-fluid rounded mb-4" src="{{asset('/uplancer/img/service-1.jpg')}}" alt="">
-                        <h4 class="mb-0">Web Development</h4>
+                        <img class="img-fluid rounded mb-4" src="{{asset('/images/services/'.$service->image)}}" alt="">
+                        <h4 class="mb-0">{{$service->name}}</h4>
                     </a>
                 </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <a class="service-item d-block rounded text-center h-100 p-4" href="#">
-                        <img class="img-fluid rounded mb-4" src="{{asset('/uplancer/img/service-2.jpg')}}" alt="">
-                        <h4 class="mb-0">Mobile App Development</h4>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                    <a class="service-item d-block rounded text-center h-100 p-4" href="#">
-                        <img class="img-fluid rounded mb-4" src="{{asset('/uplancer/img/service-3.jpg')}}" alt="">
-                        <h4 class="mb-0">SEO</h4>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <a class="service-item d-block rounded text-center h-100 p-4" href="#">
-                        <img class="img-fluid rounded mb-4" src="{{asset('/uplancer/img/service-4.jpg')}}" alt="">
-                        <h4 class="mb-0">Social Media Marketing</h4>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <a class="service-item d-block rounded text-center h-100 p-4" href="#">
-                        <img class="img-fluid rounded mb-4" src="{{asset('/uplancer/img/service-5.jpg')}}" alt="">
-                        <h4 class="mb-0">Graphic Design</h4>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                    <a class="service-item d-block rounded text-center h-100 p-4" href="#">
-                        <img class="img-fluid rounded mb-4" src="{{asset('/uplancer/img/service-6.jpg')}}" alt="">
-                        <h4 class="mb-0">UI/UX Design</h4>
-                    </a>
-                </div>
+                @endforeach
+{{--                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">--}}
+{{--                    <a class="service-item d-block rounded text-center h-100 p-4" href="#">--}}
+{{--                        <img class="img-fluid rounded mb-4" src="{{asset('/uplancer/img/service-3.jpg')}}" alt="">--}}
+{{--                        <h4 class="mb-0">SEO</h4>--}}
+{{--                    </a>--}}
+{{--                </div>--}}
+{{--                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">--}}
+{{--                    <a class="service-item d-block rounded text-center h-100 p-4" href="#">--}}
+{{--                        <img class="img-fluid rounded mb-4" src="{{asset('/uplancer/img/service-4.jpg')}}" alt="">--}}
+{{--                        <h4 class="mb-0">Social Media Marketing</h4>--}}
+{{--                    </a>--}}
+{{--                </div>--}}
+{{--                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">--}}
+{{--                    <a class="service-item d-block rounded text-center h-100 p-4" href="#">--}}
+{{--                        <img class="img-fluid rounded mb-4" src="{{asset('/uplancer/img/service-5.jpg')}}" alt="">--}}
+{{--                        <h4 class="mb-0">Graphic Design</h4>--}}
+{{--                    </a>--}}
+{{--                </div>--}}
+{{--                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">--}}
+{{--                    <a class="service-item d-block rounded text-center h-100 p-4" href="#">--}}
+{{--                        <img class="img-fluid rounded mb-4" src="{{asset('/uplancer/img/service-6.jpg')}}" alt="">--}}
+{{--                        <h4 class="mb-0">UI/UX Design</h4>--}}
+{{--                    </a>--}}
+{{--                </div>--}}
             </div>
         </div>
     </div>
@@ -155,54 +136,44 @@
                     <div class="h-100">
                         <h6 class="section-title bg-white text-start text-primary pe-3">Why Choose Us</h6>
                         <h1 class="display-6 mb-4">Why People Trust Us?</h1>
-                        <p class="mb-4">At UP Lancer, we have earned the trust and confidence of our clients by consistently delivering excellent results and maintaining a strong track record of success. Here are the key factors that contribute to the trust our clients place in us:</p>
-                        <div class="row g-4">
-                            <div class="col-12">
-                                <div class="skill">
-                                    <div class="justify-content-between">
-                                        <p class="mb-1">Expertise: </p>
-                                        <p class="mb-4">UP Lancer is home to a team of highly skilled professionals specializing in web development, mobile app development, UI/UX design, and digital marketing. Clients trust our team for their extensive knowledge and ability to provide exceptional solutions.</p>
-                                    </div>
-                                    <!--                                    <div class="progress">-->
-                                    <!--                                        <div class="progress-bar bg-primary" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>-->
-                                    <!--                                    </div>-->
-                                </div>
+                        <div class="why-us-content mb-4">
+                            <div class="why-item" data-animate="fade-up">
+                                <i class="icon fa fa-lightbulb fa-2x"></i>
+                                <h5>Innovative Solutions</h5>
+                                <p>At UP Lancer, we don’t just follow trends – we set them. Our team is committed to innovation, delivering cutting-edge web and mobile solutions.</p>
                             </div>
-                            <div class="col-12">
-                                <div class="skill">
-                                    <div class="justify-content-between">
-                                        <p class="mb-1">Track Record:</p>
-                                        <p class="mb-2">We have a proven track record of completing projects on time and exceeding client expectations, showcasing our ability to consistently deliver high-quality outcomes.</p>
-                                    </div>
-                                    <!--                                    <div class="progress">-->
-                                    <!--                                        <div class="progress-bar bg-primary" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>-->
-                                    <!--                                    </div>-->
-                                </div>
+                            <div class="why-item" data-animate="fade-up">
+                                <i class="icon fa fa-check-circle fa-2x"></i>
+                                <h5>Quality-Driven Processes</h5>
+                                <p>Our development process ensures timely delivery and the highest standards of quality.</p>
                             </div>
-                            <div class="col-12">
-                                <div class="skill">
-                                    <div class="justify-content-between">
-                                        <p class="mb-1">Client-Centric Approach: </p>
-                                        <p class="mb-2">We prioritize the needs and goals of our clients. We invest time in understanding their unique requirements and tailor our solutions accordingly. Our client-centric approach ensures personalized experiences and solutions that align precisely with their vision.</p>
-                                    </div>
-                                    <!--                                    <div class="progress">-->
-                                    <!--                                        <div class="progress-bar bg-primary" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>-->
-                                    <!--                                    </div>-->
-                                </div>
+                            <div class="why-item" data-animate="fade-up">
+                                <i class="icon fa fa-leaf fa-2x"></i>
+                                <h5>Long-Term Value</h5>
+                                <p>We focus on scalability and long-term sustainability, helping your business grow without frequent redevelopments.</p>
+                            </div>
+                            <div class="why-item" data-animate="fade-up">
+                                <i class="icon fa fa-users fa-2x"></i>
+                                <h5>Collaborative Partnership</h5>
+                                <p>We work closely with our clients to tailor solutions to their needs and business goals.</p>
+                            </div>
+                            <div class="why-item" data-animate="fade-up">
+                                <i class="icon fa fa-lock fa-2x"></i>
+                                <h5>Security & Reliability</h5>
+                                <p>We provide secure and robust solutions to protect your data and operations.</p>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
                     <div class="img-border">
-                        <img class="img-fluid" src="{{asset('uplancer/img/feature.jpg')}}" alt="">
+                        <img class="img-fluid" src="{{asset('images/DALL·E 2024-09-09 13.18.25 - A modern, sleek infographic design to replace text-heavy sections of a website. The infographic highlights 5 key reasons why clients trust UP Lancer, .webp')}}" alt="">
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <!-- Feature End -->
-
 
     <!-- Project Start -->
     <div class="container-xxl py-5">
@@ -277,7 +248,6 @@
     <!-- Team Start -->
 
     <!-- Team End -->
-
 
     <!-- Testimonial Start -->
     <!--    <div class="container-xxl py-5">-->

@@ -97,7 +97,7 @@
                             <td>
                                 <div class="d-flex align-items-center">
                                     <div class="symbol symbol-30px me-5">
-                                        <img src="{{url('/images/services/'.$service->logo)}}" class="" alt="Service">                                    </div>
+                                        <img src="{{url('/images/services/',$service->image)}}" class="" alt="Service">                                    </div>
                                 </div>
                             </td>
 

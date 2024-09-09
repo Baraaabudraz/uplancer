@@ -262,6 +262,7 @@ return [
     'Contact Description' => 'وصف التواصل',
     'Why Us' => 'لماذا نحن',
     'Connected Accounts' => 'حسابات التواصل',
+    'Failed to upload image ' => 'لم يتم رفع الصورة',
 
 
 
