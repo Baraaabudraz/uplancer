@@ -4,7 +4,7 @@ namespace App\Traits;
     trait permissionTrait{
         public function hasPermission()
         {
-            //for category
+            //for services
         if (!isset(auth()->user()->role->permission['name']['service']['can-add']) &&
             \Route::is('categories.create')){
             return abort(401);
@@ -13,15 +13,7 @@ namespace App\Traits;
                 \Route::is('categories.index')){
                 return abort(401);
             }
-            //for user
-            if (!isset(auth()->user()->role->permission['name']['user']['can-list']) &&
-                \Route::is('users.index')){
-                return abort(401);
-            }
-            if (!isset(auth()->user()->role->permission['name']['user']['can-add']) &&
-                \Route::is('users.create')){
-                return abort(401);
-            }
+
             //for admin
             if (!isset(auth()->user()->role->permission['name']['admin']['can-list']) &&
                 \Route::is('admins.index')){
@@ -31,13 +23,17 @@ namespace App\Traits;
                 \Route::is('admins.create')){
                 return abort(401);
             }
-            //for industry
-            if (!isset(auth()->user()->role->permission['name']['industry']['can-list']) &&
-                \Route::is('industries.index')){
+            //for project
+            if (!isset(auth()->user()->role->permission['name']['project']['can-list']) &&
+                \Route::is('projects.index')){
                 return abort(401);
             }
-            if (!isset(auth()->user()->role->permission['name']['industry']['can-edit']) &&
-                \Route::is('industries.edit')){
+            if (!isset(auth()->user()->role->permission['name']['project']['can-edit']) &&
+                \Route::is('projects.edit')){
+                return abort(401);
+            }
+            if (!isset(auth()->user()->role->permission['name']['project']['can-add']) &&
+                \Route::is('projects.create')){
                 return abort(401);
             }
 
@@ -58,24 +54,6 @@ namespace App\Traits;
             }
             if (!isset(auth()->user()->role->permission['name']['permission']['can-add']) &&
                 \Route::is('permissions.create')){
-                return abort(401);
-            }
-            //for subcategories
-            if (!isset(auth()->user()->role->permission['name']['subcategory']['can-add']) &&
-                \Route::is('subcategories.create')){
-                return abort(401);
-            }
-            if (!isset(auth()->user()->role->permission['name']['subcategory']['can-list']) &&
-                \Route::is('subcategories.index')){
-                return abort(401);
-            }
-            //for service
-            if (!isset(auth()->user()->role->permission['name']['service']['can-add']) &&
-                \Route::is('products.create')){
-                return abort(401);
-            }
-            if (!isset(auth()->user()->role->permission['name']['service']['can-list']) &&
-                \Route::is('products.index')){
                 return abort(401);
             }
 

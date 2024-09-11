@@ -72,7 +72,7 @@ class AdminController extends Controller
         if ($isSaved){
             session()->flash('alert-type','alert-success');
             session()->flash('message','Admin created successfully');
-            return redirect()->route('admins.create');
+            return redirect()->back();
         }else{
             session()->flash('alert-type','alert-danger');
             session()->flash('message','Failed to create admin');

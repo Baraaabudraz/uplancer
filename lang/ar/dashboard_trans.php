@@ -263,6 +263,8 @@ return [
     'Why Us' => 'لماذا نحن',
     'Connected Accounts' => 'حسابات التواصل',
     'Failed to upload image ' => 'لم يتم رفع الصورة',
+    'Edit project' => 'تعديل المشروع',
+
 
 
 

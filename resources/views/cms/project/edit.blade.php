@@ -1,5 +1,8 @@
 @extends('cms.layouts.master')
-@section('title',trans('dashboard_trans.Edit service'))
+@section('title')
+    {{trans('dashboard_trans.Edit project')}}
+@endsection
+
 @section('links')
     <style>
         #result{
@@ -17,6 +20,7 @@
     </style>
 @endsection
 @section('content')
+
     <!--begin::Toolbar-->
     <div class="toolbar" id="kt_toolbar">
         <!--begin::Container-->
@@ -26,7 +30,7 @@
                  data-kt-place-parent="{default: '#kt_content_container', 'lg': '#kt_toolbar_container'}"
                  class="page-title d-flex align-items-center me-3">
                 <!--begin::Title-->
-                <h1 class="d-flex align-items-center text-dark fw-bolder my-1 fs-3">{{trans('dashboard_trans.Edit service')}}</h1>
+                <h1 class="d-flex align-items-center text-dark fw-bolder my-1 fs-3">{{trans('dashboard_trans.Edit project')}}</h1>
                 <!--end::Title-->
                 <!--begin::Separator-->
                 <span class="h-20px border-gray-200 border-start mx-4"></span>
@@ -45,7 +49,7 @@
                     <!--end::Item-->
 
                     <!--begin::Item-->
-                    <a href="#" class="text-muted text-hover-primary">{{trans('dashboard_trans.All services')}}</a>
+                    <a href="#" class="text-muted text-hover-primary">{{trans('dashboard_trans.All projects')}}</a>
                     <!--end::Item-->
                     <!--begin::Item-->
                     <li class="breadcrumb-item">
@@ -53,7 +57,7 @@
                     </li>
                     <!--end::Item-->
                     <!--begin::Item-->
-                    <li class="breadcrumb-item text-dark">{{trans('dashboard_trans.Edit service')}}</li>
+                    <li class="breadcrumb-item text-dark">{{trans('dashboard_trans.Edit project')}}</li>
                     <!--end::Item-->
                 </ul>
                 <!--end::Breadcrumb-->
@@ -64,11 +68,9 @@
     </div>
     <!--end::Toolbar-->
     @if(session()->has('alert-type'))
-        <div class="alert {{session()->get('alert-type')}} alert-dismissible" role="alert">
-            {{session()->get('message')}}
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
+        <div class="alert {{session()->get('alert-type')}} alert-custom alert-notice alert-light-primary fade show" role="alert">
+            <div class="alert-icon"><i class="flaticon-warning"></i></div>
+            <div class="alert-text"> {{session()->get('message')}}</div>
         </div>
     @endif
     <!--begin::Card-->
@@ -89,52 +91,63 @@
                     <!--begin::Heading-->
                     <div class="mb-13 text-center">
                         <!--begin::Title-->
-                        <h1 class="mb-3">{{trans('dashboard_trans.Edit service')}}</h1>
+                        <h1 class="mb-3">{{trans('dashboard_trans.Edit project')}}</h1>
                         <!--end::Title-->
                         <!--begin::Description-->
-                        <div class="text-gray-400 fw-bold fs-5">{{trans('dashboard_trans.You can browse the list of services')}}
-                            <a href="#" class="fw-bolder link-primary">{{trans('dashboard_trans.here')}}</a>.
+                        <div class="text-gray-400 fw-bold fs-5">{{trans('dashboard_trans.You can browse the list of projects')}}
+                            <a href="{{ route('projects.index') }}" class="fw-bolder link-primary">{{trans('dashboard_trans.here')}}</a>.
                         </div>
                         <!--end::Description-->
                     </div>
                     <!--end::Heading-->
 
-                    <form method="POST" action="{{route('services.update',$service->id)}}" enctype="multipart/form-data" class="w-100 position-relative mb-3">
+                    <form method="POST" action="{{route('projects.update',$project->id)}}" enctype="multipart/form-data" class="w-100 position-relative mb-3">
                         @csrf
                         @method('PUT')
                         <div class="row">
                             <div class="col-md-12 mb-10" style="border:1px ">
                                 <div class="row">
                                     @foreach(config('lang') as $key => $lang)
-                                    <div class="col-md-6 d-flex flex-column mb-8 fv-row">
-                                        <label class="d-flex align-items-center fs-6 fw-bold mb-2">
-                                            <span class="required">{{trans('dashboard_trans.Name')}} {{$lang}}</span>
-                                            <i class="fas fa-exclamation-circle ms-2 fs-7"
-                                               data-bs-toggle="tooltip"
-                                               title="{{trans('dashboard_trans.Name')}}"></i>
-                                        </label>
-                                            <input class="form-control form-control-solid" placeholder="{{trans('dashboard_trans.Enter Name Of')}} {{trans('dashboard_trans.service')}} " name="name[{{$key}}]" value="{{$service->getTranslation('name' ,$key)}}" />
-                                        @error('name.'.$key)
-                                        <span class="text-danger">{{$message}}</span>
-                                        @enderror
-                                    </div>
+                                        <div class="col-md-6 d-flex flex-column mb-8 fv-row">
+                                            <label class="d-flex align-items-center fs-6 fw-bold mb-2">
+                                                <span class="required">{{trans('dashboard_trans.Name')}} ({{$lang}})</span>
+                                                <i class="fas fa-exclamation-circle ms-2 fs-7"
+                                                   data-bs-toggle="tooltip"
+                                                   title="{{trans('dashboard_trans.Enter the name of the project')}}"></i>
+                                            </label>
+                                            <input class="form-control form-control-solid" placeholder="{{trans('dashboard_trans.Enter the name of the project')}} " name="name[{{$key}}]" value="{{$project->getTranslation('name',$key)}}" />
+                                            @error('name.'.$key)
+                                            <span class="text-danger">{{$message}}</span>
+                                            @enderror
+                                        </div>
                                     @endforeach
-                                        @foreach(config('lang') as $key => $lang)
+
+                                    @foreach(config('lang') as $key => $lang)
+                                        <div class="col-md-6 d-flex flex-column mb-8 fv-row">
+                                            <!--begin::Label-->
+                                            <label class="d-flex align-items-center fs-6 fw-bold mb-2">
+                                                <span class="required">{{trans('dashboard_trans.Description')}} ({{$lang}})</span>
+                                                <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title=""></i>
+                                            </label>
+                                            <!--end::Label-->
+                                            <textarea name="description[{{$key}}]" class="form-control @error('description') is-invalid @enderror">{{$project->getTranslation('description',$key)}}</textarea>
+                                            @error('description.'.$key)
+                                            <span class="text-danger">{{$message}}</span>
+                                            @enderror
+                                        </div>
+                                    @endforeach
                                     <div class="col-md-6 d-flex flex-column mb-8 fv-row">
-                                        <!--begin::Label-->
-                                        <label class="d-flex align-items-center fs-6 fw-bold mb-2">
-                                            <span class="required">{{trans('dashboard_trans.Description')}} {{$lang}}</span>
-                                            <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title=""></i>
-                                        </label>
-                                        <!--end::Label-->
-                                        <label>
-                                            <textarea name="description[{{$key}}]" class="form-control @error('description') is-invalid @enderror">{{$service->getTranslation('description',$key)}}</textarea>
-                                        </label>
-                                        @error('description.'.$key)
-                                        <span class="text-danger">{{$message}}</span>
+                                        <label class="d-flex align-items-center fs-6 fw-bold mb-2">{{trans('dashboard_trans.Services')}}</label>
+                                        <select class="form-select" name="service_id" >
+                                            <option disabled hidden selected>{{trans('dashboard_trans.All services')}}</option>
+                                            @foreach($services as $service)
+                                                <option value="{{$service->id}}" @selected($project->service_id  == $service->id)>{{$service->name}}</option>
+                                            @endforeach
+                                        </select>
+                                        @error('service_id')
+                                        <span class="text-danger" role="alert">{{ $message }}</span>
                                         @enderror
                                     </div>
-                                        @endforeach
                                     <div  class="col-md-6 ">
                                         <!--begin::Label-->
                                         <label class="d-flex align-items-center fs-6 fw-bold mb-2">
@@ -142,11 +155,14 @@
                                             <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="{{trans('dashboard_trans.Image')}}"></i>
                                         </label>
                                         <br>
-                                        <input id="files" type="file"  class="dropzone" name="images[]" multiple="multiple" accept="image/jpeg, image/png, image/jpg">
+                                        <!--end::Label-->
+
+                                        {{--                                            <div class="dz-default dz-message" >قم بإسقاط الصور هنا أو إضغط للرفع</div>--}}
+                                        <input id="files" type="file" class="dropzone" name="images[]" multiple="multiple" accept="image/jpeg, image/png, image/jpg">
                                     </div>
                                     <output id="result">
-                                        @foreach(json_decode($service->image) as $key => $image)
-                                            <img src="{{url('images/service/',$image)}}" style="height: 100px" width="100" alt="Service Image">
+                                        @foreach(json_decode($project->images) as $key => $image)
+                                            <img src="{{url('images/projects/',$image)}}" style="height: 100px" width="100">
                                         @endforeach
                                     </output>
 
@@ -182,6 +198,12 @@
 
 @endsection
 @section('scripts')
+    <script src="{{asset('assets/js/custom/uppy/uppy.bundle.js')}}"></script>
+    <script src="{{asset('assets/js/custom/uppy/uppy.js')}}"></script>
+    {{--    <script src="{{asset('assets/js/custom/dropzonejs/dropzonejs.js')}}"></script>--}}
+    {{--    <script src="{{asset('assets/js/custom/documentation/forms/dropzonejs.js')}}"></script>--}}
+    {{--    <script src="{{asset('assets/js/custom/documentation/forms/dropzonejs.js.map')}}"></script>--}}
+
     <script>
         document.querySelector("#files").addEventListener("change", (e) => { //CHANGE EVENT FOR UPLOADING PHOTOS
             if (window.File && window.FileReader && window.FileList && window.Blob) { //CHECK IF FILE API IS SUPPORTED
@@ -204,4 +226,5 @@
             }
         });
     </script>
+
 @endsection

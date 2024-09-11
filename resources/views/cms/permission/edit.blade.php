@@ -115,39 +115,39 @@
                             </thead>
                             <tbody>
                             <tr>
-                                <td>{{trans('dashboard_trans.Industrial Sectors')}}</td>
-                                <td><input type="checkbox" name="name[category][can-add]"
-                                           @if(isset($permissions['name']['category']['can-add']))checked
+                                <td>{{trans('dashboard_trans.Projects')}}</td>
+                                <td><input type="checkbox" name="name[project][can-add]"
+                                           @if(isset($permissions['name']['project']['can-add']))checked
                                            @endif value="1"></td>
-                                <td><input type="checkbox" name="name[category][can-edit]"
-                                           @if(isset($permissions['name']['category']['can-edit']))checked
+                                <td><input type="checkbox" name="name[project][can-edit]"
+                                           @if(isset($permissions['name']['project']['can-edit']))checked
                                            @endif value="1"></td>
-                                <td><input type="checkbox" name="name[category][can-delete]"
-                                           @if(isset($permissions['name']['category']['can-delete']))checked
+                                <td><input type="checkbox" name="name[project][can-delete]"
+                                           @if(isset($permissions['name']['project']['can-delete']))checked
                                            @endif value="1"></td>
-                                <td><input type="checkbox" name="name[category][can-view]"
-                                           @if(isset($permissions['name']['category']['can-view']))checked
+                                <td><input type="checkbox" name="name[project][can-view]"
+                                           @if(isset($permissions['name']['project']['can-view']))checked
                                            @endif value="1"></td>
-                                <td><input type="checkbox" name="name[category][can-list]"
-                                           @if(isset($permissions['name']['category']['can-list']))checked
+                                <td><input type="checkbox" name="name[project][can-list]"
+                                           @if(isset($permissions['name']['project']['can-list']))checked
                                            @endif value="1"></td>
                             </tr>
                             <tr>
-                                <td>{{trans('dashboard_trans.Subcategories')}}</td>
-                                <td><input type="checkbox" name="name[subcategory][can-add]"
-                                           @if(isset($permissions['name']['subcategory']['can-add']))checked
+                                <td>{{trans('dashboard_trans.Services')}}</td>
+                                <td><input type="checkbox" name="name[service][can-add]"
+                                           @if(isset($permissions['name']['service']['can-add']))checked
                                            @endif value="1"></td>
-                                <td><input type="checkbox" name="name[subcategory][can-edit]"
-                                           @if(isset($permissions['name']['subcategory']['can-edit']))checked
+                                <td><input type="checkbox" name="name[service][can-edit]"
+                                           @if(isset($permissions['name']['service']['can-edit']))checked
                                            @endif value="1"></td>
-                                <td><input type="checkbox" name="name[subcategory][can-delete]"
-                                           @if(isset($permissions['name']['subcategory']['can-delete']))checked
+                                <td><input type="checkbox" name="name[service][can-delete]"
+                                           @if(isset($permissions['name']['service']['can-delete']))checked
                                            @endif value="1"></td>
-                                <td><input type="checkbox" name="name[subcategory][can-view]"
-                                           @if(isset($permissions['name']['subcategory']['can-view']))checked
+                                <td><input type="checkbox" name="name[service][can-view]"
+                                           @if(isset($permissions['name']['service']['can-view']))checked
                                            @endif value="1"></td>
-                                <td><input type="checkbox" name="name[subcategory][can-list]"
-                                           @if(isset($permissions['name']['subcategory']['can-list']))checked
+                                <td><input type="checkbox" name="name[service][can-list]"
+                                           @if(isset($permissions['name']['service']['can-list']))checked
                                            @endif value="1"></td>
                             </tr>
                             <tr>
@@ -186,42 +186,7 @@
                                            @if(isset($permissions['name']['permission']['can-list']))checked
                                            @endif value="1"></td>
                             </tr>
-                            <tr>
-                                <td>{{trans('dashboard_trans.Products')}}</td>
-                                <td><input type="checkbox" name="name[product][can-add]"
-                                           @if(isset($permissions['name']['service']['can-add']))checked
-                                           @endif value="1"></td>
-                                <td><input type="checkbox" name="name[product][can-edit]"
-                                           @if(isset($permissions['name']['service']['can-edit']))checked
-                                           @endif value="1"></td>
-                                <td><input type="checkbox" name="name[product][can-delete]"
-                                           @if(isset($permissions['name']['service']['can-delete']))checked
-                                           @endif value="1"></td>
-                                <td><input type="checkbox" name="name[product][can-view]"
-                                           @if(isset($permissions['name']['service']['can-view']))checked
-                                           @endif value="1"></td>
-                                <td><input type="checkbox" name="name[product][can-list]"
-                                           @if(isset($permissions['name']['service']['can-list']))checked
-                                           @endif value="1"></td>
-                            </tr>
-                            <tr>
-                                <td>{{trans('dashboard_trans.Users')}}</td>
-                                <td><input type="checkbox" name="name[user][can-add]"
-                                           @if(isset($permissions['name']['user']['can-add']))checked @endif value="1">
-                                </td>
-                                <td><input type="checkbox" name="name[user][can-edit]"
-                                           @if(isset($permissions['name']['user']['can-edit']))checked @endif value="1">
-                                </td>
-                                <td><input type="checkbox" name="name[user][can-delete]"
-                                           @if(isset($permissions['name']['user']['can-delete']))checked
-                                           @endif value="1"></td>
-                                <td><input type="checkbox" name="name[user][can-view]"
-                                           @if(isset($permissions['name']['user']['can-view']))checked @endif value="1">
-                                </td>
-                                <td><input type="checkbox" name="name[user][can-list]"
-                                           @if(isset($permissions['name']['user']['can-list']))checked @endif value="1">
-                                </td>
-                            </tr>
+
                             <tr>
                                 <td>{{trans('dashboard_trans.Admins')}}</td>
                                 <td><input type="checkbox" name="name[admin][can-add]"
@@ -296,39 +261,31 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td>{{trans('dashboard_trans.Industries')}}</td>
-                                <td><input type="checkbox" name="name[industry][can-add]"
-                                           @if(isset($permissions['name']['industry']['can-add']))checked
+                                <td>{{trans('dashboard_trans.Settings')}}</td>
+                                <td><input type="checkbox" name="name[setting][can-add]"
+                                           @if(isset($permissions['name']['setting']['can-add']))checked
                                            @endif value="1"></td>
-                                <td><input type="checkbox" name="name[industry][can-edit]"
-                                           @if(isset($permissions['name']['industry']['can-edit']))checked
+                                <td><input type="checkbox" name="name[setting][can-edit]"
+                                           @if(isset($permissions['name']['setting']['can-edit']))checked
                                            @endif value="1"></td>
-                                <td><input type="checkbox" name="name[industry][can-delete]"
-                                           @if(isset($permissions['name']['industry']['can-delete']))checked
+                                <td><input type="checkbox" name="name[setting][can-delete]"
+                                           @if(isset($permissions['name']['setting']['can-delete']))checked
                                            @endif value="1"></td>
-                                <td><input type="checkbox" name="name[industry][can-view]"
-                                           @if(isset($permissions['name']['industry']['can-view']))checked
+                                <td><input type="checkbox" name="name[setting][can-view]"
+                                           @if(isset($permissions['name']['setting']['can-view']))checked
                                            @endif value="1"></td>
-                                <td><input type="checkbox" name="name[industry][can-list]"
-                                           @if(isset($permissions['name']['industry']['can-list']))checked
+                                <td><input type="checkbox" name="name[setting][can-list]"
+                                           @if(isset($permissions['name']['setting']['can-list']))checked
                                            @endif value="1"></td>
                             </tr>
-                            <tr>
-                                <td>{{trans('dashboard_trans.Industries Order')}}</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td><input type="checkbox" name="name[industries_order][can-view]" @if(isset($permissions['name']['industries_order']['can-view']))checked @endif value="1"></td>
-                                <td><input type="checkbox" name="name[industries_order][can-list]" @if(isset($permissions['name']['industries_order']['can-list']))checked @endif value="1"></td>
-                            </tr>
-                            <tr>
-                                <td>{{trans('dashboard_trans.Mail')}}</td>
-                                <td><input type="checkbox" name="name[mail][can-add]" @if(isset($permissions['name']['mail']['can-add']))checked @endif value="1"></td>
-                                <td></td>
-                                <td></td>
-                                <td><input type="checkbox" name="name[mail][can-view]" @if(isset($permissions['name']['mail']['can-view']))checked @endif value="1"></td>
-                                <td></td>
-                            </tr>
+{{--                            <tr>--}}
+{{--                                <td>{{trans('dashboard_trans.Mail')}}</td>--}}
+{{--                                <td><input type="checkbox" name="name[mail][can-add]" @if(isset($permissions['name']['mail']['can-add']))checked @endif value="1"></td>--}}
+{{--                                <td></td>--}}
+{{--                                <td></td>--}}
+{{--                                <td><input type="checkbox" name="name[mail][can-view]" @if(isset($permissions['name']['mail']['can-view']))checked @endif value="1"></td>--}}
+{{--                                <td></td>--}}
+{{--                            </tr>--}}
                             </tbody>
                         </table>
                     </div>

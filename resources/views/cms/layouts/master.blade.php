@@ -347,8 +347,6 @@
                                         @endif
                                     </div>
                                 </div>
-
-                            @if(isset(Auth()->user()->role->permission['name']['user']['can-view']))
                                     <div class="menu-item">
                                         <div class="menu-content pt-8 pb-2">
                                             <div class="separator mx-1 my-4">
@@ -375,7 +373,6 @@
 										<span class="menu-title">{{trans('dashboard_trans.Users')}}</span>
 										<span class="menu-arrow"></span>
 									</span>
-                                            @endif
                                             @if(isset(Auth()->user()->role->permission['name']['admin']['can-view']))
                                                 <div class="menu-sub menu-sub-accordion">
                                                     <div class="menu-item">
@@ -390,7 +387,7 @@
                                             @endif
                                         </div>
                                     </div>
-                                    @if(isset(Auth()->user()->role->permission['name']['admin']['can-view']))
+                                    @if(isset(Auth()->user()->role->permission['name']['setting']['can-view']))
                                         <div class="menu-item">
                                             <div class="menu-content">
                                                 <div class="separator mx-1 my-4">
@@ -416,7 +413,7 @@
 										</span>
 										<span class="menu-title">{{trans('dashboard_trans.Settings')}}</span>
                                         <span class="menu-arrow"></span>
-									</span>
+                                    </span>
                                                 <div class="menu-sub menu-sub-accordion">
                                                     <div class="menu-item">
                                                         <a class="menu-link" href="{{route('settings.index')}}">
@@ -427,6 +424,7 @@
                                                         </a>
                                                     </div>
                                                 </div>
+                                                @endif
                                                 @if(isset(Auth()->user()->role->permission['name']['role']['can-view']))
                                                     <div class="menu-sub menu-sub-accordion">
                                                         <div class="menu-item">
@@ -453,7 +451,6 @@
                                                 @endif
                                             </div>
                                         </div>
-                                    @endif
                             </div>
                             <!--end::Menu-->
                         </div>

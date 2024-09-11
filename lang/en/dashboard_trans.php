@@ -264,6 +264,7 @@ return [
     'Why Us' => 'Why Us',
     'Connected Accounts' => 'Connected Accounts',
     'Failed to upload image ' => 'Failed to upload image',
+    'Edit project' => 'Edit project',
 
 
 

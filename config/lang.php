@@ -1,6 +1,5 @@
 <?php
-
-if (config(app()->getLocale())=='ar'){
+if (config(app()->getLocale()) == 'ar'){
     return [
         'ar'=> 'العربية '  ,
         'en'=> 'الانجليزية' ,

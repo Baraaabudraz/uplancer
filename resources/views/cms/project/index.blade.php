@@ -98,7 +98,7 @@
                             <td>
                                 <div class="d-flex align-items-center">
                                     <div class="symbol symbol-30px me-5">
-                                        <img src="{{url('/images/project/'.json_decode($project->image)[0])}}" class="" alt="">
+                                        <img src="{{url('/images/projects/'.json_decode($project->images)[0])}}" class="" alt="">
                                     </div>
                                 </div>
                             </td>
@@ -106,7 +106,7 @@
                             <td>{{$project->name}}</td>
                             <td>{{$project->service->name}}</td>
                             <td>
-                                <a href="{{route('profile.edit' , $project)}}" class="btn btn-sm btn-light-primary">
+                                <a href="{{route('projects.edit' , $project->id)}}" class="btn btn-sm btn-light-primary">
                                     <!--begin::Svg Icon | path: icons/duotone/Communication/Add-user.svg-->
                                     <span class="svg-icon svg-icon-3">
 																	<svg xmlns="http://www.w3.org/2000/svg" width="24px"

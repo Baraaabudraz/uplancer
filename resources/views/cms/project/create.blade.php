@@ -120,6 +120,7 @@
                                             @enderror
                                         </div>
                                     @endforeach
+
                                         @foreach(config('lang') as $key => $lang)
                                     <div class="col-md-6 d-flex flex-column mb-8 fv-row">
                                         <!--begin::Label-->
@@ -134,7 +135,18 @@
                                         @enderror
                                     </div>
                                         @endforeach
-
+                                        <div class="col-md-6 d-flex flex-column mb-8 fv-row">
+                                            <label class="d-flex align-items-center fs-6 fw-bold mb-2">{{trans('dashboard_trans.Services')}}</label>
+                                            <select class="form-select" name="service_id" >
+                                                <option disabled hidden selected>{{trans('dashboard_trans.All services')}}</option>
+                                                @foreach($services as $service)
+                                                    <option value="{{$service->id}}">{{$service->name}}</option>
+                                                @endforeach
+                                            </select>
+                                            @error('service_id')
+                                            <span class="text-danger" role="alert">{{ $message }}</span>
+                                            @enderror
+                                        </div>
                                         <div  class="col-md-6 ">
                                             <!--begin::Label-->
                                             <label class="d-flex align-items-center fs-6 fw-bold mb-2">

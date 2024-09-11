@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Project;
+use App\Models\Service;
 use Illuminate\Http\Request;
 
 class ProjectController extends Controller
@@ -12,7 +13,7 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        $projects = Project::query()->paginate(10);
+        $projects = Project::query()->with('service')->paginate(10);
         return view('cms.project.index',compact('projects'));
     }
 
@@ -21,7 +22,8 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        return view('cms.project.create');
+        $services=Service::query()->get();
+        return view('cms.project.create',compact('services'));
     }
 
     /**
@@ -30,23 +32,26 @@ class ProjectController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'service_id'=>'required|int|exists:services',
+            'service_id'=>'required|int|exists:services,id',
             'name.*'=>'required|string',
             'description.*'=>'required|string',
+            'images.*'=>'required|image',
         ]);
         $data = $request->only([
             'name' ,'description' , 'service_id'
         ]);
-        if ($request->hasFile('images')){
-            foreach ($request->file('images') as $image){
-                $Image=$image;
-                $imageName=$Image->getClientOriginalName().'-'.$Image->getClientOriginalExtension();
-                $images[]=$imageName;
-                $Image->move('images/projects',$imageName);
+        if ($request->hasFile('images')) {
+            foreach ($request->file('images') as $image) {
+                $Image = $image;
+                $imageName = $Image->getClientOriginalName() . '_' . $Image->getClientOriginalExtension();
+                $images[] = $imageName;
+                $Image->move('images/projects', $imageName);
             }
         }
         $data['images'] = json_encode($images);
+
         $project = Project::query()->create($data);
+
         if ($project){
             session()->flash('alert-type','alert-success');
             session()->flash('message',trans('dashboard_trans.Project Created Successfully'));
@@ -64,7 +69,7 @@ class ProjectController extends Controller
      */
     public function show(string $id)
     {
-        //
+
     }
 
     /**
@@ -73,7 +78,8 @@ class ProjectController extends Controller
     public function edit(string $id)
     {
         $project = Project::query()->findOrFail($id);
-        return view('cms.project.edit',compact('project'));
+        $services=Service::query()->get();
+        return view('cms.project.edit',compact('project','services'));
     }
 
     /**
@@ -129,5 +135,6 @@ class ProjectController extends Controller
                 'text'=>trans('dashboard_trans.Failed to delete this project'),
             ]);
         }
+
     }
 }

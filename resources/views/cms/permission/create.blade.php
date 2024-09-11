@@ -123,20 +123,20 @@
                             </thead>
                             <tbody>
                             <tr>
-                                <td>{{trans('dashboard_trans.Industrial Sectors')}}</td>
-                                <td><input type="checkbox" name="name[category][can-add]" value="1"></td>
-                                <td><input type="checkbox" name="name[category][can-edit]" value="1"></td>
-                                <td><input type="checkbox" name="name[category][can-delete]" value="1"></td>
-                                <td><input type="checkbox" name="name[category][can-view]" value="1"></td>
-                                <td><input type="checkbox" name="name[category][can-list]" value="1"></td>
+                                <td>{{trans('dashboard_trans.Projects')}}</td>
+                                <td><input type="checkbox" name="name[project][can-add]" value="1"></td>
+                                <td><input type="checkbox" name="name[project][can-edit]" value="1"></td>
+                                <td><input type="checkbox" name="name[project][can-delete]" value="1"></td>
+                                <td><input type="checkbox" name="name[project][can-view]" value="1"></td>
+                                <td><input type="checkbox" name="name[project][can-list]" value="1"></td>
                             </tr>
                             <tr>
-                                <td>{{trans('dashboard_trans.Subcategories')}}</td>
-                                <td><input type="checkbox" name="name[subcategory][can-add]" value="1"></td>
-                                <td><input type="checkbox" name="name[subcategory][can-edit]" value="1"></td>
-                                <td><input type="checkbox" name="name[subcategory][can-delete]" value="1"></td>
-                                <td><input type="checkbox" name="name[subcategory][can-view]" value="1"></td>
-                                <td><input type="checkbox" name="name[subcategory][can-list]" value="1"></td>
+                                <td>{{trans('dashboard_trans.Services')}}</td>
+                                <td><input type="checkbox" name="name[service][can-add]" value="1"></td>
+                                <td><input type="checkbox" name="name[service][can-edit]" value="1"></td>
+                                <td><input type="checkbox" name="name[service][can-delete]" value="1"></td>
+                                <td><input type="checkbox" name="name[service][can-view]" value="1"></td>
+                                <td><input type="checkbox" name="name[service][can-list]" value="1"></td>
                             </tr>
                             <tr>
                                 <td>{{trans('dashboard_trans.Roles')}}</td>
@@ -154,22 +154,7 @@
                                 <td><input type="checkbox" name="name[permission][can-view]" value="1"></td>
                                 <td><input type="checkbox" name="name[permission][can-list]" value="1"></td>
                             </tr>
-                            <tr>
-                                <td>{{trans('dashboard_trans.Products')}}</td>
-                                <td><input type="checkbox" name="name[product][can-add]" value="1"></td>
-                                <td><input type="checkbox" name="name[product][can-edit]" value="1"></td>
-                                <td><input type="checkbox" name="name[product][can-delete]" value="1"></td>
-                                <td><input type="checkbox" name="name[product][can-view]" value="1"></td>
-                                <td><input type="checkbox" name="name[product][can-list]" value="1"></td>
-                            </tr>
-                            <tr>
-                                <td>{{trans('dashboard_trans.Users')}}</td>
-                                <td><input type="checkbox" name="name[user][can-add]" value="1"></td>
-                                <td><input type="checkbox" name="name[user][can-edit]" value="1"></td>
-                                <td><input type="checkbox" name="name[user][can-delete]" value="1"></td>
-                                <td><input type="checkbox" name="name[user][can-view]" value="1"></td>
-                                <td><input type="checkbox" name="name[user][can-list]" value="1"></td>
-                            </tr>
+
                             <tr>
                                 <td>{{trans('dashboard_trans.Admins')}}</td>
                                 <td><input type="checkbox" name="name[admin][can-add]" value="1"></td>
@@ -195,22 +180,7 @@
                                 <td><input type="checkbox" name="name[sponsor][can-view]" value="1"></td>
                                 <td><input type="checkbox" name="name[sponsor][can-list]" value="1"></td>
                             </tr>
-                            <tr>
-                                <td>{{trans('dashboard_trans.Industries')}}</td>
-                                <td><input type="checkbox" name="name[industry][can-add]" value="1"></td>
-                                <td><input type="checkbox" name="name[industry][can-edit]" value="1"></td>
-                                <td><input type="checkbox" name="name[industry][can-delete]" value="1"></td>
-                                <td><input type="checkbox" name="name[industry][can-view]" value="1"></td>
-                                <td><input type="checkbox" name="name[industry][can-list]" value="1"></td>
-                            </tr>
-                            <tr>
-                                <td>{{trans('dashboard_trans.Industries Order')}}</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td><input type="checkbox" name="name[industries_order][can-view]" value="1"></td>
-                                <td><input type="checkbox" name="name[industries_order][can-list]" value="1"></td>
-                            </tr>
+
                             <tr>
                                 <td>{{trans('dashboard_trans.Blog')}}</td>
                                 <td><input type="checkbox" name="name[blog][can-add]" value="1"></td>
@@ -220,13 +190,21 @@
                                 <td><input type="checkbox" name="name[blog][can-list]" value="1"></td>
                             </tr>
                             <tr>
-                                <td>{{trans('dashboard_trans.Mail')}}</td>
-                                <td><input type="checkbox" name="name[mail][can-add]" value="1"></td>
-                                <td></td>
-                                <td></td>
-                                <td><input type="checkbox" name="name[mail][can-view]" value="1"></td>
-                                <td></td>
+                                <td>{{trans('dashboard_trans.Settings')}}</td>
+                                <td><input type="checkbox" name="name[setting][can-add]" value="1"></td>
+                                <td><input type="checkbox" name="name[setting][can-edit]" value="1"></td>
+                                <td><input type="checkbox" name="name[setting][can-delete]" value="1"></td>
+                                <td><input type="checkbox" name="name[setting][can-view]" value="1"></td>
+                                <td><input type="checkbox" name="name[setting][can-list]" value="1"></td>
                             </tr>
+{{--                            <tr>--}}
+{{--                                <td>{{trans('dashboard_trans.Mail')}}</td>--}}
+{{--                                <td><input type="checkbox" name="name[mail][can-add]" value="1"></td>--}}
+{{--                                <td></td>--}}
+{{--                                <td></td>--}}
+{{--                                <td><input type="checkbox" name="name[mail][can-view]" value="1"></td>--}}
+{{--                                <td></td>--}}
+{{--                            </tr>--}}
                             </tbody>
                         </table>
                     </div>

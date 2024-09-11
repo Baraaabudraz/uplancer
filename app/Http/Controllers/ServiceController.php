@@ -66,7 +66,7 @@ class ServiceController extends Controller
      */
     public function show(string $id)
     {
-        //
+
     }
 
     /**
