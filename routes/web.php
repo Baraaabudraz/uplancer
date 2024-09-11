@@ -66,7 +66,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function()
 //    Route::post('mail',[MailController::class,'store'])->name('mail.store');
 
 });
-
+ 
 Route::prefix('dashboard')->group(function (){
     Route::post('/login',[AdminAuthController::class,'login'])->name('admin-login');
     Route::get('/login',[AdminAuthController::class,'showLoginView'])->name('admin.login_view');
