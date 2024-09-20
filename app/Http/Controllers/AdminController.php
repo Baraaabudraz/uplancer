@@ -13,8 +13,8 @@ class AdminController extends Controller
     public function index()
     {
         //
-        $admins=Admin::query()->with('role')->paginate(10);
-        return view('cms.user.admin.index',compact('admins'));
+        $admins = Admin::query()->with('role')->paginate(10);
+        return view('cms.user.admin.index', compact('admins'));
     }
 
     /**
@@ -25,14 +25,14 @@ class AdminController extends Controller
     public function create()
     {
         //
-        $roles=Role::all();
-        return view('cms.user.admin.create',compact('roles'));
+        $roles = Role::all();
+        return view('cms.user.admin.create', compact('roles'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -40,42 +40,42 @@ class AdminController extends Controller
         //
 //        dd($request->all());
         $request->validate([
-            'name'=>'required|string|min:3|max:30',
-            'email'=>'required|string|email|unique:admins',
-            'password'=>'required|string',
-            'address'=>'required|string|min:3|max:20',
-            'mobile_number'=>'required|string|unique:admins',
-            'role_id'=>'required|exists:roles,id',
-            'designation'=>'required|string|min:3|max:45',
+            'name' => 'required|string|min:3|max:30',
+            'email' => 'required|string|email|unique:admins',
+            'password' => 'required|string',
+            'address' => 'required|string|min:3|max:20',
+            'mobile_number' => 'required|string|unique:admins',
+            'role_id' => 'required|exists:roles,id',
+            'designation' => 'required|string|min:3|max:45',
             'gender' => 'required|string|in:Male,Female',
-            'status'=>'in:on',
-            'image'=>'',
+            'status' => 'in:on',
+            'image' => '',
         ]);
 
-        if ($request->hasFile('image')){
+        if ($request->hasFile('image')) {
             $image = $request->image->hashName();
-            $request->image->move(public_path('images/admin'),$image);
-        }else{
-            $image=$request->get('image');
+            $request->image->move(public_path('images/admin'), $image);
+        } else {
+            $image = $request->get('image');
         }
-        $admins= new Admin();
-        $admins->name=$request->name;
-        $admins->email=$request->email;
-        $admins->password=Hash::make($request->password);
-        $admins->address=$request->address;
-        $admins->mobile_number=$request->mobile_number;
-        $admins->role_id=$request->role_id;
-        $admins->designation=$request->designation;
-        $admins->status=$request->has('status') ?'Active': 'InActive';
-        $admins['image']=$image;
-        $isSaved=$admins->save();
-        if ($isSaved){
-            session()->flash('alert-type','alert-success');
-            session()->flash('message','Admin created successfully');
+        $admins = new Admin();
+        $admins->name = $request->name;
+        $admins->email = $request->email;
+        $admins->password = Hash::make($request->password);
+        $admins->address = $request->address;
+        $admins->mobile_number = $request->mobile_number;
+        $admins->role_id = $request->role_id;
+        $admins->designation = $request->designation;
+        $admins->status = $request->has('status') ? 'Active' : 'InActive';
+        $admins['image'] = $image;
+        $isSaved = $admins->save();
+        if ($isSaved) {
+            session()->flash('alert-type', 'alert-success');
+            session()->flash('message', 'Admin created successfully');
             return redirect()->back();
-        }else{
-            session()->flash('alert-type','alert-danger');
-            session()->flash('message','Failed to create admin');
+        } else {
+            session()->flash('alert-type', 'alert-danger');
+            session()->flash('message', 'Failed to create admin');
             return redirect()->back();
         }
 
@@ -85,7 +85,7 @@ class AdminController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -96,66 +96,64 @@ class AdminController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
         //
-        $roles=Role::all();
-        $admins=Admin::query()->findOrFail($id);
-        return view('cms.user.admin.edit',compact('admins','roles'));
+        $roles = Role::all();
+        $admins = Admin::query()->findOrFail($id);
+        return view('cms.user.admin.edit', compact('admins', 'roles'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
         //
 //        dd($request->all());
-        $request->request->add(['id'=>$id]);
+        $request->request->add(['id' => $id]);
         $request->validate([
-            'id'=>'required|integer|exists:admins,id',
-            'name'=>'required|string|min:3|max:30,'.$id,
-            'email'=>'required|string|email|unique:admins,email,'.$id,
-            'password'=>'required|string',
-            'address'=>'required|string|min:3|max:20',
-            'mobile_number'=>'required|string|unique:admins,mobile_number,'.$id,
-            'role_id'=>'required|exists:roles,id',
-            'designation'=>'required|string|min:3|max:45',
+            'id' => 'required|integer|exists:admins,id',
+            'name' => 'required|string|min:3|max:30,' . $id,
+            'email' => 'required|string|email|unique:admins,email,' . $id,
+            'password' => 'required|string',
+            'address' => 'required|string|min:3|max:20',
+            'mobile_number' => 'required|string|unique:admins,mobile_number,' . $id,
+            'role_id' => 'required|exists:roles,id',
+            'designation' => 'required|string|min:3|max:45',
             'gender' => 'required|string|in:Male,Female',
-            'status'=>'in:on',
-            'image'=>'',
+            'status' => 'in:on',
+            'image' => '',
         ]);
 
-        if ($request->hasFile('image')){
-            $image = $request->image->hashName();
-            $request->image->move(public_path('images/admin'),$image);
-            $admins['image']=$image;
-        }
+        $data = $request->only([
+            'name', 'email', 'password', 'address',
+            'mobile_number', 'designation', 'role_id', 'gender',
+        ]);
 
-        $admins=Admin::query()->find($id);
-        $admins->name=$request->name;
-        $admins->email=$request->email;
-        $admins->password=Hash::make($request->password);
-        $admins->address=$request->address;
-        $admins->mobile_number=$request->mobile_number;
-        $admins->role_id=$request->role_id;
-        $admins->designation=$request->designation;
-        $admins->status=$request->has('status') ?'Active': 'InActive';
-        $isUpdated=$admins->save();
-        if ($isUpdated){
-            session()->flash('alert-type','alert-success');
-            session()->flash('message','Admin updated successfully');
+        if ($request->hasFile('image')) {
+            $image = $request->image->hashName();
+            $request->image->move(public_path('images/admin'), $image);
+            $data['image'] = $image;
+        }
+        $data['status'] = $request->has('status') ? 'Active' : 'InActive';
+
+        $isUpdated = Admin::query()->find($id)->update($data);
+
+        if ($isUpdated) {
+            session()->flash('alert-type', 'alert-success');
+            session()->flash('message', 'Admin updated successfully');
             return redirect()->back();
-        }else{
-            session()->flash('alert-type','alert-danger');
-            session()->flash('message','Failed to update admin');
+        } else {
+            session()->flash('alert-type', 'alert-danger');
+            session()->flash('message', 'Failed to update admin');
             return redirect()->back();
         }
 
@@ -165,24 +163,24 @@ class AdminController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
         //
-        $isDeleted=Admin::destroy($id);
-        if($isDeleted){
+        $isDeleted = Admin::destroy($id);
+        if ($isDeleted) {
             return response()->json([
-                'title'=>'success',
-                'icon'=>'success',
-                'text'=>'Admin deleted successfully',
+                'title' => 'success',
+                'icon' => 'success',
+                'text' => 'Admin deleted successfully',
             ]);
-        }else{
+        } else {
             return response()->json([
-                'title'=>'error',
-                'icon'=>'error',
-                'text'=>'Failed to delete this admin!',
+                'title' => 'error',
+                'icon' => 'error',
+                'text' => 'Failed to delete this admin!',
             ]);
         }
     }
