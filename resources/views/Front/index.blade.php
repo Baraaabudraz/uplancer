@@ -178,7 +178,7 @@
                                 </div>
                                 <div>
                                     <h5>Long-Term Value</h5>
-                                    <p>We focus on scalability and long-term sustainability, helping your business grow without frequent redevelopments.</p>
+                                    <p>We focus on scalability and long-term mascustomization, helping your business grow without frequent redevelopments.</p>
                                 </div>
                             </div>
 
