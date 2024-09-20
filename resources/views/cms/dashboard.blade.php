@@ -116,9 +116,9 @@
 												</span>
                     <!--end::Svg Icon-->
                     <span class="svg-icon svg-icon-white svg-icon-3x ms-n1 float-end">
-                                       <div class="text-inverse-warning fw-bolder fs-1  mt-5">{{App\Models\User::count()}}</div>
+{{--                                       <div class="text-inverse-warning fw-bolder fs-1  mt-5">{{count_TeamMembers()}}</div>--}}
 												</span>
-                    <div class="text-inverse-success fw-bolder fs-2 mb-2 mt-5">{{trans('dashboard_trans.Users')}}</div>
+                    <div class="text-inverse-success fw-bolder fs-2 mb-2 mt-5">{{trans('dashboard_trans.Team Members')}}</div>
                 </div>
                 <!--end::Body-->
             </a>
