@@ -136,9 +136,9 @@ class AdminController extends Controller
         if ($request->hasFile('image')){
             $image = $request->image->hashName();
             $request->image->move(public_path('images/admin'),$image);
-        }else{
-            $image='avatar2.png';
+            $admins['image']=$image;
         }
+
         $admins=Admin::query()->find($id);
         $admins->name=$request->name;
         $admins->email=$request->email;
@@ -148,7 +148,6 @@ class AdminController extends Controller
         $admins->role_id=$request->role_id;
         $admins->designation=$request->designation;
         $admins->status=$request->has('status') ?'Active': 'InActive';
-        $admins['image']=$image;
         $isUpdated=$admins->save();
         if ($isUpdated){
             session()->flash('alert-type','alert-success');
