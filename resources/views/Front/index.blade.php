@@ -61,7 +61,7 @@
                             Empower Your Success with <span class="text-primary">Up Lancer</span> - Where Excellence Meets Innovation
                         </h1>
                         <p class="lead text-muted mb-4">
-                            {{$settings->about}}
+{{--                            {{$settings->about}}--}}
                         </p>
 
                         <div class="row mb-4">
