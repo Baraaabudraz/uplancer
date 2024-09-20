@@ -281,6 +281,8 @@ return [
     'Enter the name of the member' => 'Enter the name of the member',
     'Member' => 'Member',
     'position' => 'position',
+    'Icon' => 'Icon',
+    'Enter the name of the icon' => 'Enter the name of the icon',
 
 
 

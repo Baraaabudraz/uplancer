@@ -280,6 +280,10 @@ return [
     'You can browse the list of members' => 'يمكنك تصفح قائمة الاعضاء من',
     'Enter the name of the member' => 'أدخل اسم العضو',
     'Member' => 'العضو',
+    'Icon' => 'ايقونة',
+    'Enter the name of the icon' => 'ادخل اسم الايقونة',
+
+
 
 
 

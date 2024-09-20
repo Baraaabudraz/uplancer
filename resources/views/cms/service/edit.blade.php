@@ -135,6 +135,18 @@
                                         @enderror
                                     </div>
                                         @endforeach
+                                        <div class="col-md-6 d-flex flex-column mb-8 fv-row">
+                                            <label class="d-flex align-items-center fs-6 fw-bold mb-2">
+                                                <span class="required">{{trans('dashboard_trans.Icon')}}</span>
+                                                <i class="fas fa-exclamation-circle ms-2 fs-7"
+                                                   data-bs-toggle="tooltip"
+                                                   title="{{trans('dashboard_trans.Enter the name of the icon')}}"></i>
+                                            </label>
+                                            <input class="form-control form-control-solid" placeholder="{{trans('dashboard_trans.Enter the name of the icon')}}" name="icon" value="{{$service->icon}}" />
+                                            @error('icon')
+                                            <span class="text-danger">{{$message}}</span>
+                                            @enderror
+                                        </div>
                                     <div  class="col-md-6 ">
                                         <!--begin::Label-->
                                         <label class="d-flex align-items-center fs-6 fw-bold mb-2">

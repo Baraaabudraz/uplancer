@@ -87,44 +87,23 @@
         <div class="container">
             <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
                 <h6 class="section-title bg-white text-center text-primary px-3">{{trans('home_trans.Services')}}</h6>
-                <h1 class="display-6 mb-4">We Focuse On Making The Best In All Sectors</h1>
+                <h1 class="display-6 mb-4">We Focus On Making The Best In All Sectors</h1>
             </div>
             <div class="row g-4">
                 @foreach($services as $service)
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <a class="service-item d-block rounded text-center h-100 p-4" href="#">
-                        <img class="img-fluid rounded mb-4" src="{{asset('/images/services/'.$service->image)}}" alt="">
-                        <h4 class="mb-0">{{$service->name}}</h4>
-                    </a>
-                </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <a class="service-item d-block rounded text-center h-100 p-4" href="#" style="border: 1px solid #eee; transition: all 0.3s ease;">
+                            <div class="icon-box mb-4">
+                                <i class="fa- fa-{{ $service->icon }}" style="font-size: 40px; color: #007bff;"></i>
+                            </div>
+                            <h4 class="mb-0">{{$service->name}}</h4>
+                        </a>
+                    </div>
                 @endforeach
-{{--                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">--}}
-{{--                    <a class="service-item d-block rounded text-center h-100 p-4" href="#">--}}
-{{--                        <img class="img-fluid rounded mb-4" src="{{asset('/uplancer/img/service-3.jpg')}}" alt="">--}}
-{{--                        <h4 class="mb-0">SEO</h4>--}}
-{{--                    </a>--}}
-{{--                </div>--}}
-{{--                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">--}}
-{{--                    <a class="service-item d-block rounded text-center h-100 p-4" href="#">--}}
-{{--                        <img class="img-fluid rounded mb-4" src="{{asset('/uplancer/img/service-4.jpg')}}" alt="">--}}
-{{--                        <h4 class="mb-0">Social Media Marketing</h4>--}}
-{{--                    </a>--}}
-{{--                </div>--}}
-{{--                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">--}}
-{{--                    <a class="service-item d-block rounded text-center h-100 p-4" href="#">--}}
-{{--                        <img class="img-fluid rounded mb-4" src="{{asset('/uplancer/img/service-5.jpg')}}" alt="">--}}
-{{--                        <h4 class="mb-0">Graphic Design</h4>--}}
-{{--                    </a>--}}
-{{--                </div>--}}
-{{--                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">--}}
-{{--                    <a class="service-item d-block rounded text-center h-100 p-4" href="#">--}}
-{{--                        <img class="img-fluid rounded mb-4" src="{{asset('/uplancer/img/service-6.jpg')}}" alt="">--}}
-{{--                        <h4 class="mb-0">UI/UX Design</h4>--}}
-{{--                    </a>--}}
-{{--                </div>--}}
             </div>
         </div>
     </div>
+
     <!-- Service End -->
 
 

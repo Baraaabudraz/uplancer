@@ -13,16 +13,7 @@ class ServiceController extends Controller
     public function index()
     {
         $services = Service::query()->paginate(10);
-        return view('cms.service.index',compact('services'));
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        return view('cms.service.create');
-
+        return view('cms.service.index', compact('services'));
     }
 
     /**
@@ -33,32 +24,44 @@ class ServiceController extends Controller
         $request->validate([
             'name.*' => 'required|string|max:100',
             'description.*' => 'nullable|string',
+            'icon' => 'nullable|string',
+            'image' => 'nullable|image',
         ]);
 
         $data = $request->only([
-            'name' , 'description'
+            'name', 'description', 'icon'
         ]);
 
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $imageName = time() . '_' . $request->get('name.*') . '.' . $image->getClientOriginalExtension();
             $image->move('images/services', $imageName);
+            $data['image'] = $imageName;
+
         }
 
-        $data['image'] = $imageName;
 
         $service = Service::query()->create($data);
 
-        if ($service){
-            session()->flash('alert-type','alert-success');
-            session()->flash('message',trans('dashboard_trans.Service Created Successfully'));
+        if ($service) {
+            session()->flash('alert-type', 'alert-success');
+            session()->flash('message', trans('dashboard_trans.Service Created Successfully'));
             return redirect()->back();
-        }else{
-            session()->flash('alert-type','alert-danger');
-            session()->flash('message',trans('dashboard_trans.Failed to create service'));
+        } else {
+            session()->flash('alert-type', 'alert-danger');
+            session()->flash('message', trans('dashboard_trans.Failed to create service'));
             return redirect()->back();
 
         }
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
+    {
+        return view('cms.service.create');
+
     }
 
     /**
@@ -75,7 +78,7 @@ class ServiceController extends Controller
     public function edit(string $id)
     {
         $service = Service::query()->findOrFail($id);
-        return view('cms.service.edit',compact('service'));
+        return view('cms.service.edit', compact('service'));
     }
 
     /**
@@ -83,14 +86,16 @@ class ServiceController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $request->request->add(['id'=>$id]);
+        $request->request->add(['id' => $id]);
         $request->validate([
-            'id'=>'required|int|exists:services',
-            'name.*'   =>  'required|string',
-            'description.*'    =>  'nullable|string',
+            'id' => 'required|int|exists:services',
+            'name.*' => 'required|string',
+            'description.*' => 'nullable|string',
+            'icon' => 'nullable|string',
+            'image' => 'nullable|image',
         ]);
-        $data=$request->only([
-           'description'    ,   'name'
+        $data = $request->only([
+            'description', 'name', 'icon'
         ]);
         if ($request->hasFile('image')) {
             $image = $request->file('image');
@@ -98,15 +103,17 @@ class ServiceController extends Controller
             $image->move('images/services', $imageName);
             $data['image'] = $imageName;
         }
-        $service= Service::query()->find($id)->update($data);
-        if ($service){
-            session()->flash('alert-type','alert-success');
-            session()->flash('message',trans('dashboard_trans.Service Updated Successfully'));
+
+        $service = Service::query()->find($id)->update($data);
+
+        if ($service) {
+            session()->flash('alert-type', 'alert-success');
+            session()->flash('message', trans('dashboard_trans.Service Updated Successfully'));
             return redirect()->back();
 
-        }else{
-            session()->flash('alert-type','alert-danger');
-            session()->flash('message',trans('dashboard_trans.Failed to update service'));
+        } else {
+            session()->flash('alert-type', 'alert-danger');
+            session()->flash('message', trans('dashboard_trans.Failed to update service'));
         }
     }
 
@@ -116,17 +123,17 @@ class ServiceController extends Controller
     public function destroy(string $id)
     {
         $is_Deleted = Service::destroy($id);
-        if ($is_Deleted){
+        if ($is_Deleted) {
             return response()->json([
-               'title' => 'success',
-               'icon'   => 'success',
-               'text'   => trans('dashboard_trans.Service deleted Successfully')
+                'title' => 'success',
+                'icon' => 'success',
+                'text' => trans('dashboard_trans.Service deleted Successfully')
             ]);
-        }else{
+        } else {
             return response()->json([
                 'title' => 'error',
-                'icon'   => 'error',
-                'text'   => trans('dashboard_trans.Failed to delete this service!')
+                'icon' => 'error',
+                'text' => trans('dashboard_trans.Failed to delete this service!')
             ]);
         }
     }
