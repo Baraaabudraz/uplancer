@@ -264,6 +264,26 @@ return [
     'Connected Accounts' => 'حسابات التواصل',
     'Failed to upload image ' => 'لم يتم رفع الصورة',
     'Edit project' => 'تعديل المشروع',
+    'Team Members' => 'اعضاء الفريق',
+    'Employees Company' => 'موظفين الشركة',
+    'All Members' => 'كافة الاعضاء',
+    'Add new member' => 'إضافة عضو جديد',
+    'Edit member' => 'تعديل العضو',
+    'Member Deleted Successfully' => 'تم حذف العضو بنجاح',
+    'Failed to delete this member' => 'لم يتم حذف العضو',
+    'Member update successfully' => 'تم تحديث العضو بنجاح',
+    'Failed to update member' => 'لم يتم تحديث العضو',
+    'Member add successfully' => 'تم اضافة العضو بنجاح',
+    'Failed to add member' => 'لم يتم اضافة العضو',
+    'Position' => 'المهنة',
+    'position' => 'المهنة',
+    'You can browse the list of members' => 'يمكنك تصفح قائمة الاعضاء من',
+    'Enter the name of the member' => 'أدخل اسم العضو',
+    'Member' => 'العضو',
+
+
+
+
 
 
 

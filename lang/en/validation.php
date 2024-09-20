@@ -170,12 +170,14 @@ return [
     */
 
     'attributes' => [
-        'name.ar'               =>'Arabic Name',
-        'name.en'               =>'English Name',
-        'description.ar'        =>'Arabic description',
-        'description.en'        =>'English description',
-        'additional_info.ar'    =>'Arabic additional information',
-        'additional_info.en'    =>'English additional information',
+        'name.ar'               => 'Arabic Name',
+        'name.en'               => 'English Name',
+        'position.en'           => 'English Position',
+        'position.ar'           => 'Arabic Position',
+        'description.ar'        => 'Arabic description',
+        'description.en'        => 'English description',
+        'additional_info.ar'    => 'Arabic additional information',
+        'additional_info.en'    => 'English additional information',
     ],
 
 ];

@@ -265,6 +265,26 @@ return [
     'Connected Accounts' => 'Connected Accounts',
     'Failed to upload image ' => 'Failed to upload image',
     'Edit project' => 'Edit project',
+    'Team Members' => 'Team Members',
+    'Employees Company' => 'Employees Company',
+    'All Members' => 'All Members',
+    'Add new member' => 'Add new member',
+    'Edit member' => 'Edit member',
+    'Member Deleted Successfully' => 'Member Deleted Successfully',
+    'Failed to delete this member' => 'Failed to delete this member',
+    'Member update successfully' => 'Member update successfully',
+    'Failed to update member' => 'Failed to update member',
+    'Member add successfully' => 'Member add successfully',
+    'Failed to add member' => 'Failed to add member',
+    'Position' => 'Position',
+    'You can browse the list of members' => 'You can browse the list of members',
+    'Enter the name of the member' => 'Enter the name of the member',
+    'Member' => 'Member',
+    'position' => 'position',
+
+
+
+
 
 
 
