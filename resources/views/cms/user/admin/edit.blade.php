@@ -154,7 +154,7 @@
                                                  style="background-image: url({{asset('assets/media/avatars/dummy.png')}});object-fit: cover">
                                                 <!--begin::Preview existing avatar-->
                                                 <div class="image-input-wrapper w-400px h-300px"
-                                                     style="background-image: url({{asset('images/admin/',$admins->image)}});object-fit: cover"></div>
+                                                     style="background-image: url({{asset('images/admin/'.$admins->image)}});object-fit: cover"></div>
                                                 <!--end::Preview existing avatar-->
                                                 <!--begin::Label-->
                                                 <label
