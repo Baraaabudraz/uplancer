@@ -36,12 +36,11 @@
 
 <body>
 <!-- Spinner Start -->
-{{--<div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">--}}
-{{--    <div class="spinner-border position-relative text-primary" style="width: 6rem; height: 6rem;" role="status"></div>--}}
-{{--    <img src="{{asset('uplancer/logo/up lancer team logo.svg')}}" style="width: 70px; height: 70px" class="fa fa-laptop-code fa-2x text-primary position-absolute top-50 start-50 translate-middle" alt="">--}}
-{{--</div>--}}
+<div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+    <div class="spinner-border position-relative text-primary" style="width: 6rem; height: 6rem;" role="status"></div>
+    <img src="{{asset('uplancer/logo/up lancer team logo.svg')}}" style="width: 70px; height: 70px" class="fa fa-laptop-code fa-2x text-primary position-absolute top-50 start-50 translate-middle" alt="">
+</div>
 <!-- Spinner End -->
-
 
 <!-- Topbar Start -->
 <div class="container-fluid bg-light px-0 wow fadeIn" data-wow-delay="0.1s">
@@ -200,9 +199,9 @@
             </div>
             <div class="col-lg-3 col-md-6">
                 <h5 class="text-light mb-4">Keep In Touch</h5>
-                <p>Tap into the power of effective communication by contacting us today. Together, we can transform your ideas into remarkable&nbsp;achievements</p>
+                <p>Tap into the power of effective communication by contacting us today.</p>
                 <div class="position-relative mx-auto" style="max-width: 400px;">
-                    <!--                    <input class="form-control bg-transparent border-secondary w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">-->
+{{--                    <input class="form-control bg-transparent border-secondary w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">--}}
                     <a href="https://wa.me/+970597644664" type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2" target="_blank"><i class="fas fa-fw  fa-phone-alt me-2"></i>Contact Now</a>
                 </div>
             </div>

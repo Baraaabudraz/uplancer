@@ -2,7 +2,8 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Auth\AdminAuthController;
-use App\Http\Controllers\Front\Front\HomeController;
+use App\Http\Controllers\Front\Front\FrontController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
@@ -12,6 +13,7 @@ use App\Http\Controllers\SectionController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\SliderController;
+use App\Http\Controllers\TeamController;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
@@ -33,7 +35,7 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 Route::group(['prefix' => LaravelLocalization::setLocale()], function()
 {
-    Route::get('/',[HomeController::class,'index'])->name('home');
+    Route::get('/',[FrontController::class,'index'])->name('home');
     Route::view('about','Front.about')->name('about');
     Route::view('contact','Front.contact')->name('contact');
     Route::view('projects','Front.project')->name('projects');
@@ -41,7 +43,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function()
     Route::view('teams','Front.team')->name('teams');
 
     Route::prefix('cms/admin')->middleware(['auth:admin','has.permission'])->group(function (){
-    Route::view('/','cms.dashboard')->name('dashboard');
+    Route::get('/',[HomeController::class,'index'])->name('dashboard');
     Route::resource('admins',AdminController::class);
     Route::resource('roles',RoleController::class);
     Route::resource('permissions',PermissionController::class);
@@ -52,6 +54,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function()
     Route::resource('projects',ProjectController::class);
     Route::resource('settings',SettingController::class);
     Route::resource('sliders',SliderController::class);
+    Route::resource('members',TeamController::class);
 
 
 //    Route::resource('sponsors',SponsorController::class);
@@ -66,7 +69,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function()
 //    Route::post('mail',[MailController::class,'store'])->name('mail.store');
 
 });
- 
+
 Route::prefix('dashboard')->group(function (){
     Route::post('/login',[AdminAuthController::class,'login'])->name('admin-login');
     Route::get('/login',[AdminAuthController::class,'showLoginView'])->name('admin.login_view');

@@ -65,15 +65,15 @@
 
                         <h1 class="display-6 mb-4"># Empower Your Success with <span class="text-primary">Up Lancer</span>- Where Excellence Meets Innovation </h1>
                         <p>{{$settings->about}}</p>
-                        <!--                        <p class="mb-4"></p>-->
-                        <!--                        <div class="d-flex align-items-center mb-4 pb-2">-->
-                        <!--                            <img class="flex-shrink-0 " src="/uplancer/logo/up-lancer-team-logo.png" alt="" style="width: 80px; height: 50px;">-->
-                        <!--&lt;!&ndash;                            <div class="ps-4">&ndash;&gt;-->
-                        <!--&lt;!&ndash;                                <h6>Jhon Doe</h6>&ndash;&gt;-->
-                        <!--&lt;!&ndash;                                <small>SEO & Founder</small>&ndash;&gt;-->
-                        <!--&lt;!&ndash;                            </div>&ndash;&gt;-->
-                        <!--                        </div>-->
-                        <!--                        <a class="btn btn-primary rounded-pill py-3 px-5" href="">Read More</a>-->
+                        <p class="mb-4"></p>
+{{--                        <div class="d-flex align-items-center mb-4 pb-2">--}}
+{{--                            <img class="flex-shrink-0 rounded-circle" src="{{asset('uplancer/img/Dev&founder avatar.png')}}" alt="" style="width: 50px; height: 50px;">--}}
+{{--                            <div class="ps-4">--}}
+{{--                                <h6>Baraa Mohammad</h6>--}}
+{{--                                <small>Developer &amp; Founder</small>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <a class="btn btn-primary rounded-pill py-3 px-5" href="">Read More</a>--}}
                     </div>
                 </div>
             </div>
@@ -207,23 +207,8 @@
                     <h6>B Store</h6>
                     <span>An online store application to purchase products.</span>
                 </div>
+
                 <div class="project-item border rounded h-100 p-4" data-dot="04">
-                    <div class="position-relative mb-4">
-                        <img class="img-fluid rounded" src="{{asset('/uplancer/portfolio/seo/2022-12-30_17h07_15.png')}}" style="object-fit: cover; height: 155px" alt="">
-                        <a href="{{asset('/uplancer/portfolio/seo/2022-12-30_17h07_15.png')}}" data-lightbox="project"><i class="fa fa-eye fa-2x"></i></a>
-                    </div>
-                    <h6>On-page and Technical SEO</h6>
-                    <span>In the past 28 days, we successfully improved the number of organic clicks and impressions for an ecommerce store.</span>
-                </div>
-                <div class="project-item border rounded h-100 p-4" data-dot="05">
-                    <div class="position-relative mb-4">
-                        <img class="img-fluid rounded" src="{{asset('/uplancer/portfolio/seo/2023-01-13_21h22_33.png')}}" style="object-fit: cover; height: 155px" alt="">
-                        <a href="{{asset('/uplancer/portfolio/seo/2023-01-13_21h22_33.png')}}" data-lightbox="project"><i class="fa fa-eye fa-2x"></i></a>
-                    </div>
-                    <h6>Keyword Research and On-page SEO for Ecommerce Stores</h6>
-                    <span>In the past 28 days, we achieved remarkable results for an ecommerce store by increasing the total revenue by 278.6% and boosting the conversion rate by 49.5%.</span>
-                </div>
-                <div class="project-item border rounded h-100 p-4" data-dot="06">
                     <div class="position-relative mb-4">
                         <img class="img-fluid rounded" src="{{asset('/uplancer/portfolio/Web/EMS.jpg')}}" style="object-fit: cover; height: 155px" alt="">
                         <a href="{{asset('/uplancer/portfolio/Web/EMS Dashboard.png')}}" data-lightbox="project"><i class="fa fa-eye fa-2x"></i></a>
@@ -231,7 +216,7 @@
                     <h6>Employee Management System (Web App)</h6>
                     <span>Web system for Employee Management</span>
                 </div>
-                <div class="project-item border rounded h-100 p-4" data-dot="07">
+                <div class="project-item border rounded h-100 p-4" data-dot="05">
                     <div class="position-relative mb-4">
                         <img class="img-fluid rounded" src="{{asset('/uplancer/img/project-10.jpg')}}" style="object-fit: cover; height: 155px" alt="">
                         <a href="{{asset('/uplancer/img/project-10.jpg')}}" data-lightbox="project"><i class="fa fa-eye fa-2x"></i></a>
@@ -246,60 +231,88 @@
 
 
     <!-- Team Start -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+                <h6 class="section-title bg-white text-center text-primary px-3">Our Team</h6>
+                <h1 class="display-6 mb-4">We Are A Creative Team For Your Dream Project</h1>
+            </div>
+            <div class="row g-4">
+                @foreach($members as $member)
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="team-item text-center p-4">
+                        <img class="img-fluid border rounded-circle w-75 p-2 mb-4" src="{{asset('images/members/'.$member->image)}}" style="width: 80px; height: 220px" alt="">
+                        <div class="team-text">
+                            <div class="team-title">
+                                <h5>{{$member->name}}</h5>
+                                <span class="text-primary">{{$member->position}}</span>
+                            </div>
+                            <div class="team-social">
+                                <a class="btn btn-square btn-primary rounded-circle" href="{{$member->linkedin}}"><i class="fab fa-linkedin-in"></i></a>
+                                <a class="btn btn-square btn-primary rounded-circle" href="{{$member->github}}"><i class="fab fa-github"></i></a>
+                                <a class="btn btn-square btn-primary rounded-circle" href="{{$member->facebook}}"><i class="fab fa-facebook-f"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+            </div>
 
+        </div>
+    </div>
     <!-- Team End -->
 
     <!-- Testimonial Start -->
-    <!--    <div class="container-xxl py-5">-->
-    <!--        <div class="container">-->
-    <!--            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">-->
-    <!--                <h6 class="section-title bg-white text-center text-primary px-3">Testimonial</h6>-->
-    <!--                <h1 class="display-6 mb-4">What Our Clients Say!</h1>-->
-    <!--            </div>-->
-    <!--            <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.1s">-->
-    <!--                <div class="testimonial-item bg-light rounded p-4">-->
-    <!--                    <div class="d-flex align-items-center mb-4">-->
-    <!--                        <img class="flex-shrink-0 rounded-circle border p-1" src="/uplancer/img/testimonial-1.jpg" alt="">-->
-    <!--                        <div class="ms-4">-->
-    <!--                            <h5 class="mb-1">Client Name</h5>-->
-    <!--                            <span>Profession</span>-->
-    <!--                        </div>-->
-    <!--                    </div>-->
-    <!--                    <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>-->
-    <!--                </div>-->
-    <!--                <div class="testimonial-item bg-light rounded p-4">-->
-    <!--                    <div class="d-flex align-items-center mb-4">-->
-    <!--                        <img class="flex-shrink-0 rounded-circle border p-1" src="/uplancer/img/testimonial-2.jpg" alt="">-->
-    <!--                        <div class="ms-4">-->
-    <!--                            <h5 class="mb-1">Client Name</h5>-->
-    <!--                            <span>Profession</span>-->
-    <!--                        </div>-->
-    <!--                    </div>-->
-    <!--                    <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>-->
-    <!--                </div>-->
-    <!--                <div class="testimonial-item bg-light rounded p-4">-->
-    <!--                    <div class="d-flex align-items-center mb-4">-->
-    <!--                        <img class="flex-shrink-0 rounded-circle border p-1" src="/uplancer/img/testimonial-3.jpg" alt="">-->
-    <!--                        <div class="ms-4">-->
-    <!--                            <h5 class="mb-1">Client Name</h5>-->
-    <!--                            <span>Profession</span>-->
-    <!--                        </div>-->
-    <!--                    </div>-->
-    <!--                    <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>-->
-    <!--                </div>-->
-    <!--                <div class="testimonial-item bg-light rounded p-4">-->
-    <!--                    <div class="d-flex align-items-center mb-4">-->
-    <!--                        <img class="flex-shrink-0 rounded-circle border p-1" src="/uplancer/img/testimonial-4.jpg" alt="">-->
-    <!--                        <div class="ms-4">-->
-    <!--                            <h5 class="mb-1">Client Name</h5>-->
-    <!--                            <span>Profession</span>-->
-    <!--                        </div>-->
-    <!--                    </div>-->
-    <!--                    <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>-->
-    <!--                </div>-->
-    <!--            </div>-->
-    <!--        </div>-->
-    <!--    </div>-->
+{{--  <div class="container-xxl py-5">--}}
+{{--      <div class="container">--}}
+{{--          <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">--}}
+{{--              <h6 class="section-title bg-white text-center text-primary px-3">Testimonial</h6>--}}
+{{--              <h1 class="display-6 mb-4">What Our Clients Say!</h1>--}}
+{{--          </div>--}}
+{{--          <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.1s">--}}
+{{--              <div class="testimonial-item bg-light rounded p-4">--}}
+{{--                  <div class="d-flex align-items-center mb-4">--}}
+{{--                      <img class="flex-shrink-0 rounded-circle border p-1" src="/uplancer/img/testimonial-1.jpg" alt="">--}}
+{{--                      <div class="ms-4">--}}
+{{--                          <h5 class="mb-1">Client Name</h5>--}}
+{{--                          <span>Profession</span>--}}
+{{--                      </div>--}}
+{{--                  </div>--}}
+{{--                  <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>--}}
+{{--              </div>--}}
+{{--              <div class="testimonial-item bg-light rounded p-4">--}}
+{{--                  <div class="d-flex align-items-center mb-4">--}}
+{{--                      <img class="flex-shrink-0 rounded-circle border p-1" src="/uplancer/img/testimonial-2.jpg" alt="">--}}
+{{--                      <div class="ms-4">--}}
+{{--                          <h5 class="mb-1">Client Name</h5>--}}
+{{--                          <span>Profession</span>--}}
+{{--                      </div>--}}
+{{--                  </div>--}}
+{{--                  <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>--}}
+{{--              </div>--}}
+{{--              <div class="testimonial-item bg-light rounded p-4">--}}
+{{--                  <div class="d-flex align-items-center mb-4">--}}
+{{--                      <img class="flex-shrink-0 rounded-circle border p-1" src="/uplancer/img/testimonial-3.jpg" alt="">--}}
+{{--                      <div class="ms-4">--}}
+{{--                          <h5 class="mb-1">Client Name</h5>--}}
+{{--                          <span>Profession</span>--}}
+{{--                      </div>--}}
+{{--                  </div>--}}
+{{--                  <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>--}}
+{{--              </div>--}}
+{{--              <div class="testimonial-item bg-light rounded p-4">--}}
+{{--                  <div class="d-flex align-items-center mb-4">--}}
+{{--                      <img class="flex-shrink-0 rounded-circle border p-1" src="/uplancer/img/testimonial-4.jpg" alt="">--}}
+{{--                      <div class="ms-4">--}}
+{{--                          <h5 class="mb-1">Client Name</h5>--}}
+{{--                          <span>Profession</span>--}}
+{{--                      </div>--}}
+{{--                  </div>--}}
+{{--                  <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>--}}
+{{--              </div>--}}
+{{--          </div>--}}
+{{--      </div>--}}
+{{--  </div>--}}
     <!-- Testimonial End -->
 
 
