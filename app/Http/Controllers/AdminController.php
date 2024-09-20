@@ -144,7 +144,7 @@ class AdminController extends Controller
             $data['image'] = $image;
         }
         $data['status'] = $request->has('status') ? 'Active' : 'InActive';
-
+        $data['password']=Hash::make($request->password);
         $isUpdated = Admin::query()->find($id)->update($data);
 
         if ($isUpdated) {
