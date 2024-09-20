@@ -94,7 +94,7 @@
                     <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                         <a class="service-item d-block rounded text-center h-100 p-4" href="#" style="border: 1px solid #eee; transition: all 0.3s ease;">
                             <div class="icon-box mb-4">
-                                <i class="fa- fa-{{ $service->icon }}" style="font-size: 40px; color: #007bff;"></i>
+                                <i class="fa fa-{{ $service->icon }}" style="font-size: 40px; color: #007bff;"></i>
                             </div>
                             <h4 class="mb-0">{{$service->name}}</h4>
                         </a>
@@ -297,5 +297,5 @@
 
 @endsection
 @section('scripts')
-    
+
 @endsection
