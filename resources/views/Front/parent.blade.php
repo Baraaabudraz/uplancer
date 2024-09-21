@@ -33,24 +33,6 @@
     <!-- Template Stylesheet -->
     <link href="{{asset('/uplancer/css/style.css')}}" rel="stylesheet">
 
-    <style>
-
-        .icon-circle {
-            padding: 8px;
-            border-radius: 50%;
-            box-shadow: 5px 4px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .hover-grow:hover {
-            transform: scale(1.1);
-            transition: 0.3s ease;
-        }
-        .bg-gradient-primary {
-            background: linear-gradient(135deg, #5D3991, #9E59E2);
-        }
-
-
-    </style>
 </head>
 
 <body>
@@ -81,8 +63,6 @@
     </div>
 </div>
 <!-- Topbar End -->
-
-
 
 
 <!-- Brand & Contact Start -->

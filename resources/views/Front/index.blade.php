@@ -225,53 +225,79 @@
                 <h6 class="section-title bg-white text-center text-primary px-3">Our Projects</h6>
                 <h1 class="display-6 mb-4">Learn More About Our Complete Projects</h1>
             </div>
-            <div class="owl-carousel project-carousel wow fadeInUp" data-wow-delay="0.1s">
-                <div class="project-item border rounded h-100 p-4" data-dot="01" >
-                    <div class="position-relative mb-4">
-                        <img class="img-fluid rounded" src="{{asset('images/projects/WhatsApp Image 2023-05-25 at 15.01.32.jpg')}}" style="object-fit: cover; height: 155px" alt="">
-                        <a href="{{asset('/images/projects/WhatsApp Image 2023-05-25 at 15.01.32.jpg')}}" data-lightbox="project"><i class="fa fa-eye fa-2x"></i></a>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="project-item shadow-lg rounded p-3 h-100">
+                        <div class="position-relative mb-3">
+                            <img class="img-fluid rounded" src="{{asset('images/projects/WhatsApp Image 2023-05-25 at 15.01.32.jpg')}}" alt="">
+                            <div class="overlay">
+                                <a href="{{asset('images/projects/WhatsApp Image 2023-05-25 at 15.01.32.jpg')}}" class="view-icon" data-lightbox="project"><i class="fa fa-eye fa-2x"></i></a>
+                            </div>
+                        </div>
+                        <h5 class="mb-1">Elektra Store</h5>
+                        <p>Thousands of products with free home delivery.</p>
                     </div>
-                    <h6>Elektra Store (Mobile App)</h6>
-                    <span>Thousands of products with free home delivery.</span>
-                </div>
-                <div class="project-item border rounded h-100 p-4" data-dot="02">
-                    <div class="position-relative mb-4">
-                        <img class="img-fluid rounded" src="{{asset('/images/projects/WhatsApp Image 2023-05-25 at 15.01.51.jpg')}}" style="object-fit: cover; height: 155px" alt="">
-                        <a href="{{asset('images/projects/WhatsApp Image 2023-05-25 at 15.01.51.jpg')}}" data-lightbox="project"><i class="fa fa-eye fa-2x"></i></a>
-                    </div>
-                    <h6>Budget Planner (Mobile App)</h6>
-                    <span>App It allows you to create a personalized monthly budget that helps you control your finances.</span>
-                </div>
-                <div class="project-item border rounded h-100 p-4" data-dot="03">
-                    <div class="position-relative mb-4">
-                        <img class="img-fluid rounded" src="{{asset('/images/projects/WhatsApp Image 2023-05-25 at 15.02.12.jpg')}}" style="object-fit: cover; height: 155px" alt="">
-                        <a href="{{asset('/images/projects/WhatsApp Image 2023-05-25 at 15.02.12.jpg')}}" data-lightbox="project"><i class="fa fa-eye fa-2x"></i></a>
-                    </div>
-                    <h6>B Store</h6>
-                    <span>An online store application to purchase products.</span>
                 </div>
 
-                <div class="project-item border rounded h-100 p-4" data-dot="04">
-                    <div class="position-relative mb-4">
-                        <img class="img-fluid rounded" src="{{asset('/images/projects/EMS.webp')}}" style="object-fit: cover; height: 155px" alt="">
-                        <a href="{{asset('/images/projects/EMS Dashboard.webp')}}" data-lightbox="project"><i class="fa fa-eye fa-2x"></i></a>
+                <div class="col-md-4">
+                    <div class="project-item shadow-lg rounded p-3 h-100">
+                        <div class="position-relative mb-3">
+                            <img class="img-fluid rounded" src="{{asset('images/projects/WhatsApp Image 2023-05-25 at 15.01.51.jpg')}}" alt="">
+                            <div class="overlay">
+                                <a href="{{asset('images/projects/WhatsApp Image 2023-05-25 at 15.01.51.jpg')}}" class="view-icon" data-lightbox="project"><i class="fa fa-eye fa-2x"></i></a>
+                            </div>
+                        </div>
+                        <h5 class="mb-1">Budget Planner</h5>
+                        <p>Create a personalized monthly budget to control your finances.</p>
                     </div>
-                    <h6>Employee Management System (Web App)</h6>
-                    <span>Web system for Employee Management</span>
                 </div>
-                <div class="project-item border rounded h-100 p-4" data-dot="05">
-                    <div class="position-relative mb-4">
-                        <img class="img-fluid rounded" src="{{asset('/uplancer/img/project-10.jpg')}}" style="object-fit: cover; height: 155px" alt="">
-                        <a href="{{asset('/uplancer/img/project-10.jpg')}}" data-lightbox="project"><i class="fa fa-eye fa-2x"></i></a>
+
+                <div class="col-md-4">
+                    <div class="project-item shadow-lg rounded p-3 h-100">
+                        <div class="position-relative mb-3">
+                            <img class="img-fluid rounded" src="{{asset('images/projects/WhatsApp Image 2023-05-25 at 15.02.12.jpg')}}" alt="">
+                            <div class="overlay">
+                                <a href="{{asset('images/projects/WhatsApp Image 2023-05-25 at 15.02.12.jpg')}}" class="view-icon" data-lightbox="project"><i class="fa fa-eye fa-2x"></i></a>
+                            </div>
+                        </div>
+                        <h5 class="mb-1">B Store</h5>
+                        <p>Online store application to purchase products.</p>
                     </div>
-                    <h6>UI / UX Design</h6>
-                    <span>Digital agency website design and development</span>
                 </div>
+
+                <div class="col-md-4">
+                    <div class="project-item shadow-lg rounded p-3 h-100">
+                        <div class="position-relative mb-3">
+                            <img class="img-fluid rounded" src="{{asset('images/projects/EMS Mouckup.webp')}}" alt="">
+                            <div class="overlay">
+                                <a href="{{asset('/images/projects/EMS Dashboard.webp')}}" class="view-icon" data-lightbox="project"><i class="fa fa-eye fa-2x"></i></a>
+                            </div>
+                        </div>
+                        <h5 class="mb-1">Employee Management System</h5>
+                        <p>Web system for Employee Management.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="project-item shadow-lg rounded p-3 h-100">
+                        <div class="position-relative mb-3">
+                            <img class="img-fluid rounded" src="{{asset('uplancer/img/project-10.jpg')}}" alt="">
+                            <div class="overlay">
+                                <a href="{{asset('/uplancer/img/project-10.jpg')}}" class="view-icon" data-lightbox="project"><i class="fa fa-eye fa-2x"></i></a>
+                            </div>
+                        </div>
+                        <h5 class="mb-1">UI / UX Design</h5>
+                        <p>Digital agency website design and development.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-5">
+                <a href="{{route('projects')}}" class="btn btn-primary rounded-pill py-3 px-5">View All Projects</a>
             </div>
         </div>
     </div>
     <!-- Project End -->
-
+    
 
     <!-- Team Start -->
     <div class="container-xxl py-5">
