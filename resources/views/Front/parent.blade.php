@@ -169,7 +169,7 @@
                 <h5 class="text-light mb-4">Gallery</h5>
                 <div class="row g-2">
                     <div class="col-4">
-                        <img class="img-fluid rounded" src="{{asset('images/projects/EMS.webp')}}" alt="Image">
+                        <img class="img-fluid rounded" src="{{asset('images/projects/EMS Mouckup.webp')}}" alt="Image">
                     </div>
                     <div class="col-4">
                         <img class="img-fluid rounded" src="{{asset('images/projects/WhatsApp Image 2023-05-25 at 15.01.32.jpg')}}" alt="Image">
