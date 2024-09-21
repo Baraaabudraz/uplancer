@@ -38,7 +38,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function()
     Route::get('/',[FrontController::class,'index'])->name('home');
     Route::view('about','Front.about')->name('about');
     Route::view('contact','Front.contact')->name('contact');
-    Route::view('projects','Front.project')->name('projects');
+    Route::get('projects',[FrontController::class,'projects'])->name('projects');
     Route::view('services','Front.service')->name('services');
     Route::view('teams','Front.team')->name('teams');
 
