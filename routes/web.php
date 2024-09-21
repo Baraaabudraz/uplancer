@@ -39,7 +39,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function()
     Route::view('about','Front.about')->name('about');
     Route::view('contact','Front.contact')->name('contact');
     Route::get('projects',[FrontController::class,'projects'])->name('projects');
-    Route::view('services','Front.service')->name('services');
+    Route::get('services',[FrontController::class,'services'])->name('services');
     Route::view('teams','Front.team')->name('teams');
 
     Route::prefix('cms/admin')->middleware(['auth:admin','has.permission'])->group(function (){
