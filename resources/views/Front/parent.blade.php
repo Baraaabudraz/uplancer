@@ -32,6 +32,25 @@
 
     <!-- Template Stylesheet -->
     <link href="{{asset('/uplancer/css/style.css')}}" rel="stylesheet">
+
+    <style>
+
+        .icon-circle {
+            padding: 8px;
+            border-radius: 50%;
+            box-shadow: 5px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .hover-grow:hover {
+            transform: scale(1.1);
+            transition: 0.3s ease;
+        }
+        .bg-gradient-primary {
+            background: linear-gradient(135deg, #5D3991, #9E59E2);
+        }
+
+
+    </style>
 </head>
 
 <body>
@@ -43,62 +62,69 @@
 <!-- Spinner End -->
 
 <!-- Topbar Start -->
-<div class="container-fluid py-2 px-4 wow fadeIn" data-wow-delay="0.1s" style="background: linear-gradient(90deg, rgba(93,57,145,1) 0%, rgba(45,155,203,1) 100%); color: #fff;">
+<div class="container-fluid bg-white py-2 px-4" style="border-bottom: 1px solid #eaeaea;">
     <div class="row align-items-center">
-        <div class="col-lg-6 text-start">
-            <nav class="small d-flex">
-                <a class="text-white me-4" href="#"><i class="fas fa-home me-2"></i>Home</a>
-                <a class="text-white me-4" href="#"><i class="fas fa-briefcase me-2"></i>Career</a>
-                <a class="text-white me-4" href="#"><i class="fas fa-file-contract me-2"></i>Terms</a>
-                <a class="text-white" href="#"><i class="fas fa-user-shield me-2"></i>Privacy</a>
+        <div class="col-lg-6 d-none d-lg-flex">
+            <nav class="breadcrumb mb-0">
+                <a class="breadcrumb-item small text-muted" href="#">Home</a>
+                <a class="breadcrumb-item small text-muted" href="#">Career</a>
+                <a class="breadcrumb-item small text-muted" href="#">Terms</a>
+                <a class="breadcrumb-item small text-muted" href="#">Privacy</a>
             </nav>
         </div>
-        <div class="col-lg-6 text-end">
-            <small class="me-3">Follow us:</small>
-            <div class="d-inline-flex align-items-center">
-                <a class="btn btn-outline-light btn-sm mx-1 rounded-circle" href="https://www.facebook.com/uplancerps" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                <a class="btn btn-outline-light btn-sm mx-1 rounded-circle" href="https://twitter.com/uplancerps" target="_blank"><i class="fab fa-twitter"></i></a>
-                <a class="btn btn-outline-light btn-sm mx-1 rounded-circle" href="https://www.linkedin.com/company/uplancerps" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-            </div>
+        <div class="col-lg-6 text-lg-end text-center">
+            <span class="small text-muted">Follow us: </span>
+            <a class="text-muted mx-2" href="https://www.facebook.com/uplancerps"><i class="fab fa-facebook-f"></i></a>
+            <a class="text-muted mx-2" href="https://twitter.com/uplancerps"><i class="fab fa-twitter"></i></a>
+            <a class="text-muted mx-2" href="https://www.linkedin.com/company/uplancerps"><i class="fab fa-linkedin-in"></i></a>
         </div>
     </div>
 </div>
 <!-- Topbar End -->
 
+
+
+
 <!-- Brand & Contact Start -->
-<div class="container-fluid py-4 wow fadeIn" data-wow-delay="0.1s">
+<div class="container-fluid py-4 px-5 wow fadeIn" data-wow-delay="0.1s" style="background-color: #f9f9f9; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.1);">
     <div class="row align-items-center">
         <div class="col-lg-4 col-md-12 text-center text-lg-start">
-            <a href="" class="navbar-brand">
-                <img src="{{asset('uplancer/logo/up-lancer-team-logo.png')}}" style="height: 80px" alt="Logo">
+            <a href="" class="navbar-brand m-0 p-0">
+                <img src="{{asset('uplancer/logo/up-lancer-team-logo.png')}}" style="height: 80px;" alt="Logo" class="hover-grow">
             </a>
         </div>
-        <div class="col-lg-8 col-md-12">
-            <div class="row justify-content-end">
-                <div class="col-lg-4 col-md-6">
+        <div class="col-lg-8 col-md-7 d-none d-lg-block">
+            <div class="row">
+                <div class="col-4">
                     <div class="d-flex align-items-center justify-content-end">
-                        <i class="far fa-clock fa-2x text-primary"></i>
-                        <div class="ms-3">
-                            <p class="mb-0" style="font-size: 14px; color: #555;">Opening Hour</p>
-                            <h6 class="mb-0" style="font-size: 16px;">Sat - Thu, 8:00 - 5:00</h6>
+                        <div class="icon-circle bg-gradient-primary text-white">
+                            <i class="far fa-clock fa-2x"></i>
+                        </div>
+                        <div class="ps-3">
+                            <p class="mb-1 text-muted">Opening Hour</p>
+                            <h6 class="mb-0">Sat - Thu, 8:00 am - 5:00</h6>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6">
+                <div class="col-4">
                     <div class="d-flex align-items-center justify-content-end">
-                        <i class="fa fa-phone-alt fa-2x text-primary"></i>
-                        <div class="ms-3">
-                            <p class="mb-0" style="font-size: 14px; color: #555;">Call Us</p>
-                            <h6 class="mb-0" style="font-size: 16px;">+970 597644 664</h6>
+                        <div class="icon-circle bg-gradient-primary text-white">
+                            <i class="fa fa-phone fa-2x"></i>
+                        </div>
+                        <div class="ps-3">
+                            <p class="mb-1 text-muted">Call Us</p>
+                            <h6 class="mb-0">+970 597644 664</h6>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6">
+                <div class="col-4">
                     <div class="d-flex align-items-center justify-content-end">
-                        <i class="far fa-envelope fa-2x text-primary"></i>
-                        <div class="ms-3">
-                            <p class="mb-0" style="font-size: 14px; color: #555;">Email Us</p>
-                            <h6 class="mb-0" style="font-size: 16px;">info@uplancerps.com</h6>
+                        <div class="icon-circle bg-gradient-primary text-white">
+                            <i class="far fa-envelope fa-2x"></i>
+                        </div>
+                        <div class="ps-3">
+                            <p class="mb-1 text-muted">Email Us</p>
+                            <h6 class="mb-0">info@uplancerps.com</h6>
                         </div>
                     </div>
                 </div>
@@ -108,23 +134,28 @@
 </div>
 <!-- Brand & Contact End -->
 
+
+
 <!-- Navbar Start -->
-<nav class="navbar navbar-expand-lg navbar-dark sticky-top py-lg-0 px-lg-5 wow fadeIn" data-wow-delay="0.1s" style="background-color: #3E1E68; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);">
+<nav class="navbar navbar-expand-lg bg-primary navbar-dark sticky-top py-lg-0 px-lg-5 wow fadeIn shadow-lg" data-wow-delay="0.1s" style="background: linear-gradient(45deg, #5D3991, #8D61E2);">
     <a href="#" class="navbar-brand d-lg-none">MENU</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+    <button type="button" class="navbar-toggler me-3" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
-        <div class="navbar-nav me-auto">
-            <a href="{{route('home')}}" class="nav-item nav-link active" style="transition: all 0.3s;">Home</a>
-            <a href="{{route('about')}}" class="nav-item nav-link" style="transition: all 0.3s;">About Us</a>
-            <a href="{{route('services')}}" class="nav-item nav-link" style="transition: all 0.3s;">Services</a>
-            <a href="{{route('projects')}}" class="nav-item nav-link" style="transition: all 0.3s;">Projects</a>
-            <a href="{{route('contact')}}" class="nav-item nav-link" style="transition: all 0.3s;">Contact Us</a>
+        <div class="navbar-nav me-auto p-3 p-lg-0">
+            <a href="{{route('home')}}" class="nav-item nav-link active">Home</a>
+            <a href="{{route('about')}}" class="nav-item nav-link">About Us</a>
+            <a href="{{route('services')}}" class="nav-item nav-link">Services</a>
+            <a href="{{route('projects')}}" class="nav-item nav-link">Projects</a>
+            <a href="{{route('contact')}}" class="nav-item nav-link">Contact Us</a>
         </div>
     </div>
 </nav>
 <!-- Navbar End -->
+
+
+
 
 
 @yield('content')
