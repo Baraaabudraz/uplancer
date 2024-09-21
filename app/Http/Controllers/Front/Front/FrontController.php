@@ -14,12 +14,19 @@ class FrontController extends Controller
     public function index()
     {
         $settings = Setting::query()->first();
-        $projects = Project::query()->with('service')->get();
+        $projects = Project::query()->with('service')->limit(6)->get();
         $services = Service::query()->orderBy('name','asc')->get();
         $sliders  = Slider::query()->get();
         $members  = Team::query()->get();
 
         return view('Front.index',compact('services','projects','settings','sliders','members'));
+    }
+
+    public function projects(){
+
+        $projects =Project::query()->with('service')->paginate(20);
+        return view('Front.project',compact('projects'));
+
     }
 
 }
