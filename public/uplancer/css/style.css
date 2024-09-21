@@ -50,7 +50,6 @@
 .view-icon:hover {
     color: #5D3991;
 }
-/* تصميم زر عرض كافة المشاريع */
 .btn-primary {
     border: none;
     transition: background-color 0.3s ease, transform 0.3s ease;
