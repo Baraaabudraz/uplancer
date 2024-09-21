@@ -612,13 +612,13 @@
                                                     <!--end::Avatar-->
                                                     <!--begin::Username-->
                                                     <div class="d-flex flex-column">
-                                                        <div class="fw-bolder d-flex align-items-center fs-5">
+                                                        <div class="fw-bolder d-flex align-items-center text-hover-primary fs-5">
                                                             {{Auth()->user()->name}}
                                                         </div>
-                                                        <div class="fw-lighter d-flex align-items-center fs-8">
+                                                        <div class="fw-lighter d-flex align-items-center fs-6">
                                                             {{Auth()->user()->email}}
                                                         </div>
-                                                        <a href="#" class="fw-bold text-muted text-hover-primary fs-7">{{Auth()->user()->user_name}}</a>
+                                                        <a href="#" class="fw-bold text-muted text-hover-primary fs-7"></a>
                                                     </div>
                                                     <!--end::Username-->
                                                 </div>

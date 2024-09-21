@@ -85,6 +85,7 @@
                     <tr class="fw-bolder fs-6 text-gray-800 px-7">
                         <th>#</th>
                         <th>{{trans('dashboard_trans.Image')}}</th>
+                        <th>{{trans('dashboard_trans.Icon')}}</th>
                         <th>{{trans('dashboard_trans.Name')}}</th>
                         <th>{{trans('dashboard_trans.Actions')}}</th>
                     </tr>
@@ -93,15 +94,29 @@
                     @foreach($services as $key=>$service)
                         <tr>
                             <td>{{$key+1}}</td>
-
+                            @if($service->image && !$service->icon)
                             <td>
                                 <div class="d-flex align-items-center">
                                     <div class="symbol symbol-30px me-5">
-                                        <img src="{{url('/images/services/',$service->image)}}" class="" alt="Service">                                    </div>
+                                        <img src="{{url('/images/services/',$service->image)}}" class="" alt="Service">
+                                    </div>
                                 </div>
                             </td>
+                            @else
+                                <td>
+                                    <div class="symbol symbol-30px me-5">
+                                        <img src="{{asset('assets/media/avatars/blank.png')}}" class="" alt="project">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="icon-box mb-4">
+                                        <i class="fa fa-{{ $service->icon }}" style="font-size: 20px; color: #007bff;"></i>
+                                    </div>
+                                </td>
 
-                            <td>{{$service->name}}</td>
+                            @endif
+
+                            <td class="text-primary">{{$service->name}}</td>
                             <td>
                                 <a href="{{route('services.edit' , $service)}}" class="btn btn-sm btn-light-primary">
                                     <!--begin::Svg Icon | path: icons/duotone/Communication/Add-user.svg-->

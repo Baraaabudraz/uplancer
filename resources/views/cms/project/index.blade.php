@@ -98,13 +98,21 @@
                             <td>
                                 <div class="d-flex align-items-center">
                                     <div class="symbol symbol-30px me-5">
+                                        @if($project->images)
                                         <img src="{{url('/images/projects/'.json_decode($project->images)[0])}}" class="" alt="">
+                                        @else
+                                            <img src="{{asset('assets/media/avatars/dummy.png')}}" class="" alt="project">
+                                        @endif
                                     </div>
                                 </div>
                             </td>
 
-                            <td>{{$project->name}}</td>
-                            <td>{{$project->service->name}}</td>
+                            <td class="text-primary">{{$project->name}}</td>
+                            @if($project->service)
+                            <td><span class="badge badge-info">{{$project->service->name}}</span></td>
+                            @else
+                                <td class="text-info">No Service Found</td>
+                            @endif
                             <td>
                                 <a href="{{route('projects.edit' , $project->id)}}" class="btn btn-sm btn-light-primary">
                                     <!--begin::Svg Icon | path: icons/duotone/Communication/Add-user.svg-->

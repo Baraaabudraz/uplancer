@@ -89,7 +89,7 @@ class ProjectController extends Controller
     {
         $request->request->add(['id'=>$id]);
         $request->validate([
-            'service_id'=>'required|int|exists:services',
+            'service_id'=>'required|int|exists:services,id',
             'name.*'=>'required|string',
             'description.*'=>'required|string',
         ]);
@@ -110,9 +110,13 @@ class ProjectController extends Controller
         if ($project){
             session()->flash('alert-type','alert-success');
             session()->flash('message',trans('dashboard_trans.Project Created Successfully'));
+            return redirect()->back();
+
         }else{
             session()->flash('alert-type','alert-danger');
             session()->flash('message',trans('dashboard_trans.Failed to create project'));
+            return redirect()->back();
+
         }
     }
 

@@ -43,71 +43,62 @@
 <!-- Spinner End -->
 
 <!-- Topbar Start -->
-<div class="container-fluid bg-light px-0 wow fadeIn" data-wow-delay="0.1s">
-    <div class="row gx-0 align-items-center d-none d-lg-flex">
-        <div class="col-lg-6 px-5 text-start">
-            <ol class="breadcrumb mb-0">
-                <li class="breadcrumb-item"><a class="small text-secondary" href="#">Home</a></li>
-                <li class="breadcrumb-item"><a class="small text-secondary" href="#">Career</a></li>
-                <li class="breadcrumb-item"><a class="small text-secondary" href="#">Terms</a></li>
-                <li class="breadcrumb-item"><a class="small text-secondary" href="#">Privacy</a></li>
-            </ol>
+<div class="container-fluid py-2 px-4 wow fadeIn" data-wow-delay="0.1s" style="background: linear-gradient(90deg, rgba(93,57,145,1) 0%, rgba(45,155,203,1) 100%); color: #fff;">
+    <div class="row align-items-center">
+        <div class="col-lg-6 text-start">
+            <nav class="small d-flex">
+                <a class="text-white me-4" href="#"><i class="fas fa-home me-2"></i>Home</a>
+                <a class="text-white me-4" href="#"><i class="fas fa-briefcase me-2"></i>Career</a>
+                <a class="text-white me-4" href="#"><i class="fas fa-file-contract me-2"></i>Terms</a>
+                <a class="text-white" href="#"><i class="fas fa-user-shield me-2"></i>Privacy</a>
+            </nav>
         </div>
-        <div class="col-lg-6 px-6 text-end">
-            <small>Follow us:</small>
-            <div class="h-100 d-inline-flex align-items-center">
-                <a class="btn-square text-primary border-end rounded-0" href="https://www.facebook.com/uplancerps" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                <a class="btn-square text-primary border-end rounded-0" href="https://twitter.com/uplancerps" target="_blank"><i class="fab fa-twitter"></i></a>
-                <a class="btn-square text-primary border-end rounded-0" href="https://www.linkedin.com/company/uplancerps" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-
+        <div class="col-lg-6 text-end">
+            <small class="me-3">Follow us:</small>
+            <div class="d-inline-flex align-items-center">
+                <a class="btn btn-outline-light btn-sm mx-1 rounded-circle" href="https://www.facebook.com/uplancerps" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a class="btn btn-outline-light btn-sm mx-1 rounded-circle" href="https://twitter.com/uplancerps" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a class="btn btn-outline-light btn-sm mx-1 rounded-circle" href="https://www.linkedin.com/company/uplancerps" target="_blank"><i class="fab fa-linkedin-in"></i></a>
             </div>
         </div>
     </div>
 </div>
 <!-- Topbar End -->
 
-
 <!-- Brand & Contact Start -->
-<div class="container-fluid py-4 px-5 wow fadeIn" data-wow-delay="0.1s">
-    <div class="row align-items-center top-bar">
+<div class="container-fluid py-4 wow fadeIn" data-wow-delay="0.1s">
+    <div class="row align-items-center">
         <div class="col-lg-4 col-md-12 text-center text-lg-start">
-            <a href="" class="navbar-brand m-0 p-0">
-
-                <img src="{{asset('uplancer/logo/up-lancer-team-logo.png')}}" style="height: 100px" alt="Logo">
+            <a href="" class="navbar-brand">
+                <img src="{{asset('uplancer/logo/up-lancer-team-logo.png')}}" style="height: 80px" alt="Logo">
             </a>
         </div>
-        <div class="col-lg-8 col-md-7 d-none d-lg-block">
-            <div class="row">
-                <div class="col-4">
+        <div class="col-lg-8 col-md-12">
+            <div class="row justify-content-end">
+                <div class="col-lg-4 col-md-6">
                     <div class="d-flex align-items-center justify-content-end">
-                        <div class="flex-shrink-0 btn-lg-square border rounded-circle">
-                            <i class="far fa-clock text-primary"></i>
-                        </div>
-                        <div class="ps-3">
-                            <p class="mb-2">Opening Hour</p>
-                            <h6 class="mb-0">Sat - Thu, 8:00 am - 5:00</h6>
+                        <i class="far fa-clock fa-2x text-primary"></i>
+                        <div class="ms-3">
+                            <p class="mb-0" style="font-size: 14px; color: #555;">Opening Hour</p>
+                            <h6 class="mb-0" style="font-size: 16px;">Sat - Thu, 8:00 - 5:00</h6>
                         </div>
                     </div>
                 </div>
-                <div class="col-4">
+                <div class="col-lg-4 col-md-6">
                     <div class="d-flex align-items-center justify-content-end">
-                        <div class="flex-shrink-0 btn-lg-square border rounded-circle">
-                            <i class="fa fa-phone text-primary"></i>
-                        </div>
-                        <div class="ps-3">
-                            <p class="mb-2">Call Us</p>
-                            <h6 class="mb-0">+970 597644 664</h6>
+                        <i class="fa fa-phone-alt fa-2x text-primary"></i>
+                        <div class="ms-3">
+                            <p class="mb-0" style="font-size: 14px; color: #555;">Call Us</p>
+                            <h6 class="mb-0" style="font-size: 16px;">+970 597644 664</h6>
                         </div>
                     </div>
                 </div>
-                <div class="col-4">
+                <div class="col-lg-4 col-md-6">
                     <div class="d-flex align-items-center justify-content-end">
-                        <div class="flex-shrink-0 btn-lg-square border rounded-circle">
-                            <i class="far fa-envelope text-primary"></i>
-                        </div>
-                        <div class="ps-3">
-                            <p class="mb-2">Email Us</p>
-                            <h6 class="mb-0">info@uplancerps.com</h6>
+                        <i class="far fa-envelope fa-2x text-primary"></i>
+                        <div class="ms-3">
+                            <p class="mb-0" style="font-size: 14px; color: #555;">Email Us</p>
+                            <h6 class="mb-0" style="font-size: 16px;">info@uplancerps.com</h6>
                         </div>
                     </div>
                 </div>
@@ -117,31 +108,20 @@
 </div>
 <!-- Brand & Contact End -->
 
-
 <!-- Navbar Start -->
-<nav class="navbar navbar-expand-lg bg-primary navbar-dark sticky-top py-lg-0 px-lg-5 wow fadeIn" data-wow-delay="0.1s" style="background: #5D3991 !important;">
-    <a href="#" class="navbar-brand ms-3 d-lg-none">MENU</a>
-    <button type="button" class="navbar-toggler me-3" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top py-lg-0 px-lg-5 wow fadeIn" data-wow-delay="0.1s" style="background-color: #3E1E68; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);">
+    <a href="#" class="navbar-brand d-lg-none">MENU</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
-        <div class="navbar-nav me-auto p-3 p-lg-0">
-            <a href="{{route('home')}}" class="nav-item nav-link active">Home</a>
-            <a href="{{route('about')}}" class="nav-item nav-link">About Us</a>
-            <a href="{{route('services')}}" class="nav-item nav-link">Services</a>
-            <a href="{{route('projects')}}" class="nav-item nav-link">Projects</a>
-            <!--            <div class="nav-item dropdown">-->
-            <!--                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>-->
-            <!--                <div class="dropdown-menu border-0 rounded-0 rounded-bottom m-0">-->
-            <!--                    <a href="feature.blade.php" class="dropdown-item">Features</a>-->
-            <!--                    <a href="team.blade.php" class="dropdown-item">Our Team</a>-->
-            <!--                    <a href="testimonial.blade.php" class="dropdown-item">Testimonial</a>-->
-            <!--                    <a href="404.html" class="dropdown-item">404 Page</a>-->
-            <!--                </div>-->
-            <!--            </div>-->
-            <a href="{{route('contact')}}" class="nav-item nav-link">Contact Us</a>
+        <div class="navbar-nav me-auto">
+            <a href="{{route('home')}}" class="nav-item nav-link active" style="transition: all 0.3s;">Home</a>
+            <a href="{{route('about')}}" class="nav-item nav-link" style="transition: all 0.3s;">About Us</a>
+            <a href="{{route('services')}}" class="nav-item nav-link" style="transition: all 0.3s;">Services</a>
+            <a href="{{route('projects')}}" class="nav-item nav-link" style="transition: all 0.3s;">Projects</a>
+            <a href="{{route('contact')}}" class="nav-item nav-link" style="transition: all 0.3s;">Contact Us</a>
         </div>
-
     </div>
 </nav>
 <!-- Navbar End -->
@@ -168,9 +148,9 @@
             </div>
             <div class="col-lg-3 col-md-6">
                 <h5 class="text-light mb-4">Quick Links</h5>
-                <a class="btn btn-link" href="/about">About Us</a>
-                <a class="btn btn-link" href="/contact">Contact Us</a>
-                <a class="btn btn-link" href="/service">Our Services</a>
+                <a class="btn btn-link" href="{{route('about')}}">About Us</a>
+                <a class="btn btn-link" href="{{route('contact')}}">Contact Us</a>
+                <a class="btn btn-link" href="{{route('services')}}">Our Services</a>
                 <a class="btn btn-link" href="#">Terms &amp; Condition</a>
                 <a class="btn btn-link" href="#">Support</a>
             </div>
@@ -178,16 +158,16 @@
                 <h5 class="text-light mb-4">Gallery</h5>
                 <div class="row g-2">
                     <div class="col-4">
-                        <img class="img-fluid rounded" src="{{asset('uplancer/portfolio/Web/EMS.jpg')}}" alt="Image">
+                        <img class="img-fluid rounded" src="{{asset('images/projects/EMS.webp')}}" alt="Image">
                     </div>
                     <div class="col-4">
-                        <img class="img-fluid rounded" src="{{asset('uplancer/portfolio/mobile%20app/WhatsApp%20Image%202023-05-25%20at%2015.02.12.jpg')}}" alt="Image">
+                        <img class="img-fluid rounded" src="{{asset('images/projects/WhatsApp Image 2023-05-25 at 15.01.32.jpg')}}" alt="Image">
                     </div>
                     <div class="col-4">
-                        <img class="img-fluid rounded" src="{{asset('uplancer/portfolio/mobile%20app/WhatsApp%20Image%202023-05-25%20at%2015.01.51.jpg')}}" alt="Image">
+                        <img class="img-fluid rounded" src="{{asset('images/projects/WhatsApp Image 2023-05-25 at 15.01.51.jpg')}}" alt="Image">
                     </div>
                     <div class="col-4">
-                        <img class="img-fluid rounded" src="{{asset('uplancer/portfolio/mobile%20app/WhatsApp%20Image%202023-05-25%20at%2015.01.32.jpg')}}" alt="Image">
+                        <img class="img-fluid rounded" src="{{asset('images/projects/WhatsApp Image 2023-05-25 at 15.02.12.jpg')}}" alt="Image">
                     </div>
                     <div class="col-4">
                         <img class="img-fluid rounded" src="{{asset('uplancer/img/project-5.jpg')}}" alt="Image">

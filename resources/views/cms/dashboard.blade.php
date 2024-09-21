@@ -45,7 +45,7 @@
     <div class="row g-5 g-xl-8">
         <div class="col-xl-6">
             <!--begin::Statistics Widget 5-->
-            <a href="" class="card bg-danger hoverable card-xl-stretch mb-xl-8">
+            <a href="{{route('services.index')}}" class="card bg-danger hoverable card-xl-stretch mb-xl-8">
                 <!--begin::Body-->
                 <div class="card-body">
                     <!--begin::Svg Icon | path: icons/duotone/Shopping/Cart3.svg-->
@@ -70,7 +70,7 @@
         </div>
         <div class="col-xl-6">
             <!--begin::Statistics Widget 5-->
-            <a href="" class="card bg-primary hoverable card-xl-stretch mb-xl-8">
+            <a href="{{route('projects.index')}}" class="card bg-primary hoverable card-xl-stretch mb-xl-8">
                 <!--begin::Body-->
                 <div class="card-body">
                     <!--begin::Svg Icon | path: icons/duotone/Home/Building.svg-->
@@ -99,7 +99,7 @@
         </div>
         <div class="col-xl-6">
             <!--begin::Statistics Widget 5-->
-            <a href="" class="card bg-warning hoverable card-xl-stretch mb-xl-8">
+            <a href="{{route('members.index')}}" class="card bg-warning hoverable card-xl-stretch mb-xl-8">
                 <!--begin::Body-->
                 <div class="card-body">
                     <!--begin::Svg Icon | path: icons/duotone/Communication/Group.svg-->
@@ -128,7 +128,7 @@
         </div>
         <div class="col-xl-6">
             <!--begin::Statistics Widget 5-->
-            <a href="" class="card bg-success hoverable card-xl-stretch mb-5 mb-xl-8">
+            <a href="#" class="card bg-success hoverable card-xl-stretch mb-5 mb-xl-8">
                 <!--begin::Body-->
                 <div class="card-body">
                     <!--begin::Svg Icon | path: icons/duotone/Shopping/Chart-bar1.svg-->

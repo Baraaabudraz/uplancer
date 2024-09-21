@@ -98,11 +98,16 @@
                             <td>
                                 <div class="d-flex align-items-center">
                                     <div class="symbol symbol-30px me-5">
-                                        <img src="{{url('/images/members/',$member->image)}}" class="" alt="Service">                                    </div>
+                                        @if($member->image)
+                                        <img src="{{url('/images/members/',$member->image)}}" class="" alt="Service">
+                                        @else
+                                        <img src="{{asset('assets/media/avatars/blank.png')}}" class="" alt="Service">
+                                        @endif
+                                    </div>
                                 </div>
                             </td>
 
-                            <td>{{$member->name}}</td>
+                            <td class="text-primary">{{$member->name}}</td>
                             <td><span class="badge badge-light-info">{{$member->position}}</span></td>
                             <td>
                                 <a href="{{route('members.edit' , $member)}}" class="btn btn-sm btn-light-primary">

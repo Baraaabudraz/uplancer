@@ -158,7 +158,7 @@
                                         <!--end::Label-->
 
                                         {{--                                            <div class="dz-default dz-message" >قم بإسقاط الصور هنا أو إضغط للرفع</div>--}}
-                                        <input id="files" type="file" class="dropzone" name="images[]" multiple="multiple" accept="image/jpeg, image/png, image/jpg">
+                                        <input id="files" type="file" class="dropzone" name="images[]" multiple="multiple" accept="image/jpeg, image/png, image/jpg,image/webp">
                                     </div>
                                     <output id="result">
                                         @foreach(json_decode($project->images) as $key => $image)
@@ -178,7 +178,7 @@
                             </button>
 
                             <button type="submit" class="addUserBtn1 btn btn-success me-2">
-                                {{trans('dashboard_trans.Create')}}
+                                {{trans('dashboard_trans.Save Edit')}}
                             </button>
                         </div>
                         <!--end::Actions-->
