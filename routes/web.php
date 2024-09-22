@@ -32,15 +32,23 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 //    return view('Front.index');
 //});
 
+Route::prefix('emails')->group(function (){
+
+    Route::get('contact-us', function () {
+        return new App\Mail\Contact();
+    });
+
+});
 
 Route::group(['prefix' => LaravelLocalization::setLocale()], function()
 {
     Route::get('/',[FrontController::class,'index'])->name('home');
-    Route::view('about','Front.about')->name('about');
-    Route::view('contact','Front.contact')->name('contact');
+    Route::get('about',[FrontController::class,'about'])->name('about');
+    Route::get('contact',[FrontController::class,'contact'])->name('contact');
     Route::get('projects',[FrontController::class,'projects'])->name('projects');
     Route::get('services',[FrontController::class,'services'])->name('services');
     Route::view('teams','Front.team')->name('teams');
+    Route::post('/send-contact', [FrontController::class, 'sendContactForm'])->name('send-contact-form');
 
     Route::prefix('cms/admin')->middleware(['auth:admin','has.permission'])->group(function (){
     Route::get('/',[HomeController::class,'index'])->name('dashboard');
