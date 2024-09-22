@@ -142,7 +142,7 @@
                         <!-- WhatsApp Contact -->
                         <div class="col-12 text-center mt-4">
                             <a class="btn btn-success rounded-pill py-3 px-5" href="https://wa.me/+970597644664" target="_blank">
-                                <i class="fa fa-whatsapp me-3"></i>Contact Us on WhatsApp
+                                <i class="fa fa-phone-square-alt me-3"></i>Contact Us on WhatsApp
                             </a>
                         </div>
                     </div>
