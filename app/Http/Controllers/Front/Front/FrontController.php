@@ -3,11 +3,14 @@
 namespace App\Http\Controllers\Front\Front;
 
 use App\Http\Controllers\Controller;
+use App\Mail\Contact;
 use App\Models\Project;
 use App\Models\Service;
 use App\Models\Setting;
 use App\Models\Slider;
 use App\Models\Team;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class FrontController extends Controller
 {
@@ -31,6 +34,33 @@ class FrontController extends Controller
     public function services(){
         $services =Service::query()->with('projects')->paginate(20);
         return view('Front.service',compact('services'));
+    }
+    public function about(){
+        $settings =Setting::query()->first();
+        return view('Front.about',compact('settings'));
+    }
+
+    public function contact(){
+        $settings =Setting::query()->first();
+        return view('Front.contact',compact('settings'));
+    }
+
+    public function sendContactForm(Request $request){
+        $request->validate([
+           'name' =>'required|string|max:100',
+           'email'=>'required|email',
+           'tobic'=>'required|string|min:3|max:45',
+           'message' =>'required|string',
+        ]);
+
+        Mail::to('info@uplancerps.com')->send(new Contact(
+            $request->name,
+            $request->email,
+            $request->tobic,
+            $request->message,
+        ));
+        return redirect()->back()->with('success','Your message has been sent successfully!');
+
     }
 
 }
