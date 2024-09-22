@@ -226,70 +226,21 @@
                 <h1 class="display-6 mb-4">Learn More About Our Complete Projects</h1>
             </div>
             <div class="row g-4">
+                @foreach($projects as $project)
                 <div class="col-md-4">
                     <div class="project-item shadow-lg rounded p-3 h-100">
                         <div class="position-relative mb-3">
-                            <img class="img-fluid rounded" src="{{asset('images/projects/WhatsApp Image 2023-05-25 at 15.01.32.jpg')}}" alt="">
+                            <img class="img-fluid rounded" src="{{asset('images/projects/'.json_decode($project->images)[0])}}" alt="">
                             <div class="overlay">
-                                <a href="{{asset('images/projects/WhatsApp Image 2023-05-25 at 15.01.32.jpg')}}" class="view-icon" data-lightbox="project"><i class="fa fa-eye fa-2x"></i></a>
+                                <a href="{{asset('images/projects/'.json_decode($project->images)[1])}}" class="view-icon" data-lightbox="project"><i class="fa fa-eye fa-2x"></i></a>
                             </div>
                         </div>
-                        <h5 class="mb-1">Elektra Store</h5>
-                        <p>Thousands of products with free home delivery.</p>
-                    </div>
+                        <a href="{{route('project-show',$project->id)}}">
+                        <h6 class="text-primary">{{$project->name}}</h6>
+                        </a>
+                            <span>{{Str::limit($project->description,120)}}</span>
                 </div>
-
-                <div class="col-md-4">
-                    <div class="project-item shadow-lg rounded p-3 h-100">
-                        <div class="position-relative mb-3">
-                            <img class="img-fluid rounded" src="{{asset('images/projects/WhatsApp Image 2023-05-25 at 15.01.51.jpg')}}" alt="">
-                            <div class="overlay">
-                                <a href="{{asset('images/projects/WhatsApp Image 2023-05-25 at 15.01.51.jpg')}}" class="view-icon" data-lightbox="project"><i class="fa fa-eye fa-2x"></i></a>
-                            </div>
-                        </div>
-                        <h5 class="mb-1">Budget Planner</h5>
-                        <p>Create a personalized monthly budget to control your finances.</p>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="project-item shadow-lg rounded p-3 h-100">
-                        <div class="position-relative mb-3">
-                            <img class="img-fluid rounded" src="{{asset('images/projects/WhatsApp Image 2023-05-25 at 15.02.12.jpg')}}" alt="">
-                            <div class="overlay">
-                                <a href="{{asset('images/projects/WhatsApp Image 2023-05-25 at 15.02.12.jpg')}}" class="view-icon" data-lightbox="project"><i class="fa fa-eye fa-2x"></i></a>
-                            </div>
-                        </div>
-                        <h5 class="mb-1">B Store</h5>
-                        <p>Online store application to purchase products.</p>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="project-item shadow-lg rounded p-3 h-100">
-                        <div class="position-relative mb-3">
-                            <img class="img-fluid rounded" src="{{asset('images/projects/EMS Mouckup.webp')}}" alt="">
-                            <div class="overlay">
-                                <a href="{{asset('/images/projects/EMS Dashboard.webp')}}" class="view-icon" data-lightbox="project"><i class="fa fa-eye fa-2x"></i></a>
-                            </div>
-                        </div>
-                        <h5 class="mb-1">Employee Management System</h5>
-                        <p>Web system for Employee Management.</p>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="project-item shadow-lg rounded p-3 h-100">
-                        <div class="position-relative mb-3">
-                            <img class="img-fluid rounded" src="{{asset('uplancer/img/project-10.jpg')}}" alt="">
-                            <div class="overlay">
-                                <a href="{{asset('/uplancer/img/project-10.jpg')}}" class="view-icon" data-lightbox="project"><i class="fa fa-eye fa-2x"></i></a>
-                            </div>
-                        </div>
-                        <h5 class="mb-1">UI / UX Design</h5>
-                        <p>Digital agency website design and development.</p>
-                    </div>
-                </div>
+                @endforeach
             </div>
             <div class="text-center mt-5">
                 <a href="{{route('projects')}}" class="btn btn-primary rounded-pill py-3 px-5">View All Projects</a>

@@ -49,6 +49,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function()
     Route::get('services',[FrontController::class,'services'])->name('services');
     Route::view('teams','Front.team')->name('teams');
     Route::post('/send-contact', [FrontController::class, 'sendContactForm'])->name('send-contact-form');
+    Route::get('show-project/{id}',[FrontController::class,'showProject'])->name('project-show');
 
     Route::prefix('cms/admin')->middleware(['auth:admin','has.permission'])->group(function (){
     Route::get('/',[HomeController::class,'index'])->name('dashboard');
