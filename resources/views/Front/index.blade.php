@@ -280,6 +280,7 @@
 
         </div>
     </div>
+    </div>
     <!-- Team End -->
 
     <!-- Testimonial Start -->
