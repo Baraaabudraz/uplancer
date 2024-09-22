@@ -208,8 +208,8 @@
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
                     <div class="bg-white p-5 rounded shadow-lg text-center">
                         <h3 class="mb-4 text-primary">Why Trust Us?</h3>
-                        <p class="text-muted">Our commitment to innovation, quality, and long-term value is backed by our secure and collaborative approach, ensuring that your business thrives in today's digital landscape.</p>
-                        <a href="#" class="btn btn-primary rounded-pill py-3 px-5">Learn More</a>
+                        <p class="text-muted">{{$settings->why_us}}</p>
+                        <a href="{{route('about')}}" class="btn btn-primary rounded-pill py-3 px-5">Learn More</a>
                     </div>
                 </div>
             </div>

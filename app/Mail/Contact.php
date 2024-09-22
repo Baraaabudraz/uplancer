@@ -15,7 +15,7 @@ class Contact extends Mailable
     public $name;
 
     public $email;
-    public $tobic;
+    public $topic;
 
     public $message;
 
@@ -23,11 +23,11 @@ class Contact extends Mailable
     /**
      * Create a new message instance.
      */
-    public function __construct($name, $email, $tobic, $message)
+    public function __construct($name, $email, $topic, $message)
     {
         $this->name    = $name;
         $this->email   = $email;
-        $this->tobic   = $tobic;
+        $this->topic   = $topic;
         $this->message = $message;
 
     }
@@ -52,7 +52,7 @@ class Contact extends Mailable
             with: [
                 'name'=>$this->name,
                 'email'=>$this->email,
-                'tobic'=>$this->tobic,
+                'topic'=>$this->topic,
                 'message'=>$this->message,
             ],
         );

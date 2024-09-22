@@ -8,7 +8,7 @@ You have received a new contact request from the website.
 
 **Email:** {{ $email }}
 
-**Subject:** {{ $tobic }}
+**Subject:** {{ $topic }}
 
 **Message:**
 

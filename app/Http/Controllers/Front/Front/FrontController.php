@@ -49,14 +49,14 @@ class FrontController extends Controller
         $request->validate([
            'name' =>'required|string|max:100',
            'email'=>'required|email',
-           'tobic'=>'required|string|min:3|max:45',
+           'topic'=>'required|string|min:3|max:45',
            'message' =>'required|string',
         ]);
 
         Mail::to('info@uplancerps.com')->send(new Contact(
             $request->name,
             $request->email,
-            $request->tobic,
+            $request->topic,
             $request->message,
         ));
         return redirect()->back()->with('success','Your message has been sent successfully!');

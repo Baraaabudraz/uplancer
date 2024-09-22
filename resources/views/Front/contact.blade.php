@@ -117,7 +117,7 @@
                                 </div>
                                 <div class="col-12">
                                     <div class="form-floating">
-                                        <input type="text" name="tobic" class="form-control" id="tobic" placeholder="Subject">
+                                        <input type="text" name="topic" class="form-control" id="topic" placeholder="Subject">
                                         <label for="subject">Subject</label>
                                     </div>
                                     @error('subject')
