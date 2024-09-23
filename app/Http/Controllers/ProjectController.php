@@ -97,7 +97,7 @@ class ProjectController extends Controller
             'service_id'=>'required|int|exists:services,id',
             'name.*'=>'required|string',
             'description.*'=>'required|string',
-            'features.*'=>'required|string',
+            'features.*'=>'nullable|string',
             'technology'=>'required|string',
 
         ]);
