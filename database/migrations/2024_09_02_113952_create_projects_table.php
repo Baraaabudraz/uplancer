@@ -17,6 +17,8 @@ return new class extends Migration
             $table->foreign('service_id')->on('services')->references('id')->cascadeOnDelete();
             $table->json('name');
             $table->json('description');
+            $table->json('features');
+            $table->string('technology');
             $table->json('images');
             $table->timestamps();
         });
