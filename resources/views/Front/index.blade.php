@@ -10,7 +10,7 @@
             <div class="carousel-indicators">
                 @foreach($sliders as $key => $slider)
                     <button type="button" data-bs-target="#header-carousel" data-bs-slide-to="{{$key}}" class="{{$key == 0 ? 'active' : ''}}" aria-current="{{$key == 0 ? 'true' : ''}}" aria-label="Slide {{$key + 1}}">
-                        <img class="img-fluid" src="{{asset('images/sliders/'.$slider->image)}}" alt="Image">
+                        <img class="img-fluid" src="{{url('images/sliders/',$slider->image)}}" alt="Image">
                     </button>
                 @endforeach
             </div>
@@ -19,7 +19,7 @@
             <div class="carousel-inner">
                 @foreach($sliders as $key => $slider)
                     <div class="carousel-item {{$key == 0 ? 'active' : ''}}">
-                        <img class="w-100" src="{{asset('images/sliders/'.$slider->image)}}" alt="Image">
+                        <img class="w-100" src="{{url('images/sliders/',$slider->image)}}" alt="Image">
                         <div class="carousel-caption">
                             <div class="p-3" style="max-width: 1500px;">
                                 <h4 class="text-white text-uppercase mb-4 animated zoomIn"></h4>
