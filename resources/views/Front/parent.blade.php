@@ -143,7 +143,7 @@
 <div class="container-fluid py-4 px-5 wow fadeIn" data-wow-delay="0.1s" style="background-color: #f9f9f9; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.1);">
     <div class="row align-items-center">
         <div class="col-lg-4 col-md-12 text-center text-lg-start">
-            <a href="" class="navbar-brand m-0 p-0">
+            <a href="{{route('home')}}" class="navbar-brand m-0 p-0">
                 <img src="{{asset('uplancer/logo/up-lancer-team-logo.png')}}" style="height: 80px;" alt="Logo" class="hover-grow">
             </a>
         </div>
