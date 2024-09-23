@@ -76,11 +76,11 @@
                     <div class="project-item shadow-lg rounded p-3 h-100">
                         <div class="position-relative mb-3">
                             <img class="img-fluid rounded" src="{{url('images/projects/'.json_decode($project->images)[0])}}" alt="Project">
-                          @if(isset(json_decode($project->images)[1]))
                             <div class="overlay">
-                                <a href="{{url('images/projects/'.json_decode($project->images)[1])}}" class="view-icon" data-lightbox="project"><i class="fa fa-eye fa-2x"></i></a>
+                                <a href="{{route('project-show',$project->id)}}" class="view-icon" data-lightbox="project">
+                                    <i class="fa fa-eye fa-2x"></i>
+                                </a>
                             </div>
-                            @endif
                         </div>
                         <h6 class="mb-2">{{$project->name}}</h6>
                         <p>{{$project->description}}</p>
