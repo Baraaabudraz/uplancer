@@ -240,31 +240,8 @@
                 <a class="btn btn-link" href="#">Support</a>
             </div>
             <div class="col-lg-3 col-md-6">
-                <h5 class="text-light mb-4">Gallery</h5>
-                <div class="row g-2">
-                    <div class="col-4">
-                        <img class="img-fluid rounded" src="{{asset('images/projects/EMS Mouckup.webp')}}" alt="Image">
-                    </div>
-                    <div class="col-4">
-                        <img class="img-fluid rounded" src="{{asset('images/projects/WhatsApp Image 2023-05-25 at 15.01.32.jpg')}}" alt="Image">
-                    </div>
-                    <div class="col-4">
-                        <img class="img-fluid rounded" src="{{asset('images/projects/WhatsApp Image 2023-05-25 at 15.01.51.jpg')}}" alt="Image">
-                    </div>
-                    <div class="col-4">
-                        <img class="img-fluid rounded" src="{{asset('images/projects/WhatsApp Image 2023-05-25 at 15.02.12.jpg')}}" alt="Image">
-                    </div>
-                    <div class="col-4">
-                        <img class="img-fluid rounded" src="{{asset('uplancer/img/project-5.jpg')}}" alt="Image">
-                    </div>
-                    <div class="col-4">
-                        <img class="img-fluid rounded" src="{{asset('uplancer/img/project-6.jpg')}}" alt="Image">
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
                 <h5 class="text-light mb-4">Keep In Touch</h5>
-                <p>Tap into the power of effective communication by contacting us today.</p>
+                <p>Contact us today and discover how we can help you reach your goals.</p>
                 <div class="position-relative mx-auto" style="max-width: 400px;">
 {{--                    <input class="form-control bg-transparent border-secondary w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">--}}
                     <a href="https://wa.me/+970597644664" type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2" target="_blank"><i class="fas fa-fw  fa-phone-alt me-2"></i>Contact Now</a>

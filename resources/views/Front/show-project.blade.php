@@ -1,5 +1,19 @@
 @extends('Front.parent')
 @section('title', $project->name)
+@section('styles')
+    <style>
+        .project-image img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .project-image:hover img {
+            transform: scale(1.05);
+        }
+    </style>
+@endsection
 @section('content')
     <!-- Project Details Start -->
     <div class="container-xxl py-5">
@@ -26,20 +40,30 @@
 {{--                        <li><strong>Client:</strong> </li>--}}
                         <li><strong>Date:</strong> {{ $project->created_at->format('F j, Y') }}</li>
                         <li><strong>Category:</strong> {{ $project->service->name }}</li>
-                        <li><strong>Technology:</strong> Php - Laravel</li>
+                        <li><strong>Technology:</strong> {{ $project->technology }}</li>
                     </ul>
 
 {{--                    <a href="#" class="btn btn-primary rounded-pill py-3 px-5" target="_blank">Visit Project</a>--}}
                 </div>
             </div>
 
-            <!-- تفاصيل إضافية أو مميزات المشروع -->
-{{--            <div class="row g-5 mt-5">--}}
-{{--                <div class="col-lg-12 wow fadeInUp" data-wow-delay="0.3s">--}}
-{{--                    <h2 class="mb-4">Project Features</h2>--}}
-{{--                    <p></p>--}}
-{{--                </div>--}}
-{{--            </div>--}}
+            <div class="row g-5 mt-5">
+                <div class="col-lg-12 wow fadeInUp" data-wow-delay="0.3s">
+                    <h2 class="mb-4">Project Features</h2>
+                    @if(json_decode($project->features))
+                        <ul class="list-group list-group-flush">
+                            @foreach(json_decode($project->features) as $feature)
+                                <li class="list-group-item">
+                                    {{$feature}}
+                                </li>
+                            @endforeach
+                        </ul>
+                    @else
+                        <p>No features available for this project.</p>
+                    @endif
+                </div>
+            </div>
+
         </div>
     </div>
     <!-- Project Details End -->

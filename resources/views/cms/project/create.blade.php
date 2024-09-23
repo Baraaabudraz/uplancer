@@ -161,6 +161,66 @@
                                         </div>
                                         <output id="result"></output>
                                 </div>
+                                <div class="card mb-5 mb-xl-10">
+                                    <!--begin::Card header-->
+                                    <div class="card-header border-0 cursor-pointer" role="button" data-bs-toggle="collapse" data-bs-target="#kt_account_notifications" aria-expanded="true" aria-controls="kt_account_notifications">
+                                        <div class="card-title m-0">
+                                            <h3 class="fw-bolder m-0">{{trans('dashboard_trans.Additional information')}}</h3>
+                                        </div>
+                                    </div>
+                                    <!--begin::Card header-->
+                                    <!--begin::Content-->
+                                    <div id="kt_account_notifications" class="collapse show">
+                                        <!--begin::Form-->
+                                        <!--begin::Card body-->
+                                        <div class="card-body border-top px-9 pt-3 pb-4">
+                                            <div class="row mb-8">
+                                                <!--begin::Col-->
+                                                <div class="col-xl-3">
+                                                    <div class="fs-6 fw-bold mt-2 mb-3">{{trans('dashboard_trans.Project Features')}}</div>
+                                                </div>
+                                                <!--end::Col-->
+                                                <!--begin::Col-->
+                                                <div class="col-xl-9 fv-row fv-plugins-icon-container">
+                                                    <div id="features-container">
+                                                        <div class="feature-input d-flex mb-3">
+                                                            <input type="text" name="features[]" class="form-control form-control-solid" placeholder="{{trans('dashboard_trans.Features')}}" value="{{old('features')}}">
+                                                        </div>
+                                                    </div>
+                                                    <!-- زر إضافة خاصية جديدة -->
+                                                    <button type="button" id="add-feature-btn" class="btn btn-light-primary mt-3">{{trans('dashboard_trans.Add Feature')}}</button>
+                                                    <div class="fv-plugins-message-container invalid-feedback"></div>
+                                                </div>
+                                                <!--end::Col-->
+
+                                            </div>
+                                            <div class="row mb-8">
+                                                <!--begin::Col-->
+                                                <div class="col-xl-3">
+                                                    <div class="fs-6 fw-bold mt-2 mb-3">{{trans('dashboard_trans.Technology')}}</div>
+                                                </div>
+                                                <!--end::Col-->
+                                                <!--begin::Col-->
+                                                <div class="col-xl-9 fv-row fv-plugins-icon-container">
+                                                    <div id="features-container">
+                                                        <div class="feature-input d-flex mb-3">
+                                                            <input type="text" name="technology" class="form-control form-control-solid" placeholder="{{trans('dashboard_trans.Technology')}}" value="{{old('technology')}}">
+                                                        </div>
+                                                    </div>
+                                                    <div class="fv-plugins-message-container invalid-feedback"></div>
+                                                    @error('technology')
+                                                    <span class="text-danger">{{$message}}</span>
+                                                    @enderror
+                                                </div>
+                                                <!--end::Col-->
+
+                                            </div>
+
+                                        </div>
+                                        <!--end::Card body--><!--end::Form-->
+                                    </div>
+                                    <!--end::Content-->
+                                </div>
                             </div>
                         </div>
 
@@ -192,8 +252,8 @@
 
 @endsection
 @section('scripts')
-    <script src="{{asset('assets/js/custom/uppy/uppy.bundle.js')}}"></script>
-    <script src="{{asset('assets/js/custom/uppy/uppy.js')}}"></script>
+{{--    <script src="{{asset('assets/js/custom/uppy/uppy.bundle.js')}}"></script>--}}
+{{--    <script src="{{asset('assets/js/custom/uppy/uppy.js')}}"></script>--}}
 {{--    <script src="{{asset('assets/js/custom/dropzonejs/dropzonejs.js')}}"></script>--}}
 {{--    <script src="{{asset('assets/js/custom/documentation/forms/dropzonejs.js')}}"></script>--}}
 {{--    <script src="{{asset('assets/js/custom/documentation/forms/dropzonejs.js.map')}}"></script>--}}
@@ -218,6 +278,46 @@
             } else {
                 alert("Your browser does not support File API");
             }
+        });
+    </script>
+
+    <script>
+        document.getElementById('add-feature-btn').addEventListener('click', function() {
+            // إنشاء حقل إدخال جديد مع زر حذف
+            var newFeatureGroup = document.createElement('div');
+            newFeatureGroup.classList.add('feature-input', 'd-flex', 'mb-3');
+
+            // إنشاء حقل الإدخال الجديد
+            var newFeatureInput = document.createElement('input');
+            newFeatureInput.type = 'text';
+            newFeatureInput.name = 'features[]';
+            newFeatureInput.classList.add('form-control', 'form-control-solid');
+            newFeatureInput.placeholder = "{{trans('dashboard_trans.Features')}}";
+
+            // إنشاء زر الحذف للحقل الجديد
+            var deleteButton = document.createElement('button');
+            deleteButton.type = 'button';
+            deleteButton.classList.add('btn', 'btn-danger', 'btn-sm', 'ms-2', 'remove-feature-btn');
+            deleteButton.textContent = "{{trans('dashboard_trans.Delete')}}";
+
+            // إضافة حقل الإدخال وزر الحذف للمجموعة
+            newFeatureGroup.appendChild(newFeatureInput);
+            newFeatureGroup.appendChild(deleteButton);
+
+            // إضافة المجموعة الجديدة إلى حاوية الخصائص
+            document.getElementById('features-container').appendChild(newFeatureGroup);
+
+            // إضافة وظيفة الحذف لزر الحذف الجديد
+            deleteButton.addEventListener('click', function() {
+                newFeatureGroup.remove();
+            });
+        });
+
+        // إضافة وظيفة الحذف لأزرار الحذف الموجودة مسبقًا (في حال كانت هناك حقول مسبقة مضافة)
+        document.querySelectorAll('.remove-feature-btn').forEach(function(button) {
+            button.addEventListener('click', function() {
+                button.parentElement.remove();
+            });
         });
     </script>
 
