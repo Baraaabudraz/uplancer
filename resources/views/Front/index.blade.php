@@ -231,15 +231,12 @@
                     <div class="project-item shadow-lg rounded p-3 h-100">
                         <div class="position-relative mb-3">
                             <img class="img-fluid rounded" src="{{asset('images/projects/'.json_decode($project->images)[0])}}" alt="">
-                            @if(isset(json_decode($project->images)[1]))
                                 <div class="overlay">
-                                    <a href="{{asset('images/projects/'.json_decode($project->images)[1])}}" class="view-icon" data-lightbox="project">
+                                    <a href="{{route('project-show',$project->id)}}" class="view-icon" data-lightbox="project">
                                         <i class="fa fa-eye fa-2x"></i>
                                     </a>
                                 </div>
-                            @endif
                         </div>
-                        <a href="{{route('project-show',$project->id)}}">
                         <h6 class="text-primary">{{$project->name}}</h6>
                         </a>
                             <span>{{Str::limit($project->description,120)}}</span>
