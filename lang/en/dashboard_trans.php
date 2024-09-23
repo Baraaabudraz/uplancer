@@ -283,7 +283,11 @@ return [
     'position' => 'position',
     'Icon' => 'Icon',
     'Enter the name of the icon' => 'Enter the name of the icon',
-
+    'Project Features'=>'Project Features',
+    'Features'=>'Features',
+    'Add Feature'=>'Add Feature',
+    'Technology'=>'Technology',
+    'Project not found'=>'Project not found',
 
 
 

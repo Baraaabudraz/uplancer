@@ -282,6 +282,15 @@ return [
     'Member' => 'العضو',
     'Icon' => 'ايقونة',
     'Enter the name of the icon' => 'ادخل اسم الايقونة',
+    'Project Features'=>'مميزات المشروع',
+    'Features'=>'مميزات',
+    'Add Feature'=>'اضافة ميزة',
+    'Technology'=>'التقنية',
+    'Project not found'=>'المشروع غير موجود',
+
+
+
+
 
 
 
