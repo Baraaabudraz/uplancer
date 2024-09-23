@@ -35,10 +35,13 @@ class ProjectController extends Controller
             'service_id'=>'required|int|exists:services,id',
             'name.*'=>'required|string',
             'description.*'=>'required|string',
+            'features.*'=>'nullable|string',
             'images.*'=>'required|image',
+            'technology'=>'required|string',
+
         ]);
         $data = $request->only([
-            'name' ,'description' , 'service_id'
+            'name' ,'description' , 'service_id' , 'features' ,'technology'
         ]);
         if ($request->hasFile('images')) {
             foreach ($request->file('images') as $image) {
@@ -49,6 +52,8 @@ class ProjectController extends Controller
             }
         }
         $data['images'] = json_encode($images);
+
+        $data['features'] = json_encode($request->get('features'));
 
         $project = Project::query()->create($data);
 
@@ -92,9 +97,12 @@ class ProjectController extends Controller
             'service_id'=>'required|int|exists:services,id',
             'name.*'=>'required|string',
             'description.*'=>'required|string',
+            'features.*'=>'required|string',
+            'technology'=>'required|string',
+
         ]);
         $data = $request->only([
-            'name' ,'description' ,'service_id'
+            'name' ,'description' ,'service_id' , 'features' ,'technology'
         ]);
         if ($request->hasFile('images')){
             foreach ($request->file('images') as $image){
@@ -105,6 +113,7 @@ class ProjectController extends Controller
             }
             $data['images'] = json_encode($images);
         }
+        $data['features'] = json_encode($request->get('features'));
 
         $project = Project::query()->find($id)->update($data);
         if ($project){
@@ -125,18 +134,41 @@ class ProjectController extends Controller
      */
     public function destroy(string $id)
     {
-        $is_Deleted = Project::destroy($id);
-        if($is_Deleted){
+
+        $project = Project::find($id);
+
+        if ($project) {
+            $images = json_decode($project->images, true);
+
+            if (is_array($images)) {
+                foreach ($images as $image) {
+
+                    $imagePath = public_path('images/projects/' . $image);
+                    if (file_exists($imagePath)) {
+                        unlink($imagePath);
+                    }
+                }
+            }
+            $is_Deleted = $project->delete();
+
+            if ($is_Deleted) {
+                return response()->json([
+                    'title' => 'success',
+                    'icon' => 'success',
+                    'text' => trans('dashboard_trans.Project deleted successfully'),
+                ]);
+            } else {
+                return response()->json([
+                    'title' => 'error',
+                    'icon' => 'error',
+                    'text' => trans('dashboard_trans.Failed to delete this project'),
+                ]);
+            }
+        } else {
             return response()->json([
-                'title'=>'success',
-                'icon'=>'success',
-                'text'=>trans('dashboard_trans.Project deleted successfully'),
-            ]);
-        }else{
-            return response()->json([
-                'title'=>'error',
-                'icon'=>'error',
-                'text'=>trans('dashboard_trans.Failed to delete this project'),
+                'title' => 'warning',
+                'icon' => 'warning',
+                'text' => trans('dashboard_trans.Project not found'),
             ]);
         }
 
