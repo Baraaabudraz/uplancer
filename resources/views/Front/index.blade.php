@@ -230,7 +230,7 @@
                 <div class="col-md-4">
                     <div class="project-item shadow-lg rounded p-3 h-100">
                         <div class="position-relative mb-3">
-                            <img class="img-fluid rounded" src="{{asset('images/projects/'.json_decode($project->images)[0])}}" alt="">
+                            <img class="img-fluid rounded" src="{{url('images/projects/',json_decode($project->images)[0])}}" alt="">
                                 <div class="overlay">
                                     <a href="{{route('project-show',$project->id)}}" class="view-icon">
                                         <i class="fa fa-eye fa-2x"></i>
@@ -262,7 +262,7 @@
                 @foreach($members as $member)
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="team-item text-center p-4">
-                        <img class="img-fluid border rounded-circle w-75 p-2 mb-4" src="{{asset('images/members/'.$member->image)}}" style="width: 80px; height: 220px" alt="">
+                        <img class="img-fluid border rounded-circle w-75 p-2 mb-4" src="{{url('images/members/',$member->image)}}" style="width: 80px; height: 220px" alt="">
                         <div class="team-text">
                             <div class="team-title">
                                 <h5>{{$member->name}}</h5>
