@@ -236,8 +236,8 @@
                 <a class="btn btn-link" href="{{route('about')}}">About Us</a>
                 <a class="btn btn-link" href="{{route('contact')}}">Contact Us</a>
                 <a class="btn btn-link" href="{{route('services')}}">Our Services</a>
-                <a class="btn btn-link" href="#">Terms &amp; Condition</a>
-                <a class="btn btn-link" href="#">Support</a>
+                <a class="btn btn-link" href="{{route('terms')}}">Terms &amp; Condition</a>
+                <a class="btn btn-link" href="{{route('privacy')}}">Privacy</a>
             </div>
             <div class="col-lg-3 col-md-6">
                 <h5 class="text-light mb-4">Keep In Touch</h5>
