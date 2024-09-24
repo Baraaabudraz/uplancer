@@ -59,13 +59,21 @@ class FrontController extends Controller
            'message' =>'required|string',
         ]);
 
-        Mail::to('info@uplancerps.com')->send(new Contact(
+      $send = Mail::to('info@uplancerps.com')->send(new Contact(
             $request->name,
             $request->email,
             $request->topic,
             $request->message,
         ));
-        return redirect()->back()->with('success','Your message has been sent successfully!');
+
+      if ($send){
+          session()->flash('alert-type','alert-success');
+          session()->flash('message','Your message has been sent successfully!');
+      }else{
+          session()->flash('alert-type','alert-danger');
+          session()->flash('message','Failed to sent message!');
+      }
+        return redirect()->back();
 
     }
 

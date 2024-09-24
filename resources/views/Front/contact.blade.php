@@ -64,6 +64,12 @@
                 <h6 class="section-title bg-white text-center text-primary px-3">Get In Touch</h6>
                 <h1 class="display-6 mb-4">We'd Love To Hear From You!</h1>
             </div>
+            @if(session()->has('alert-type'))
+                <div class="alert {{session()->get('alert-type')}} alert-custom alert-notice alert-light-primary fade show" role="alert">
+                    <div class="alert-icon"><i class="flaticon-warning"></i></div>
+                    <div class="alert-text"> {{session()->get('message')}}</div>
+                </div>
+            @endif
             <div class="row g-5">
                 <!-- Contact Info -->
                 <div class="col-lg-4">
