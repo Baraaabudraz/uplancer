@@ -25,7 +25,7 @@
     <!-- Libraries Stylesheet -->
     <link href="{{asset('uplancer/lib/animate/animate.min.css')}}" rel="stylesheet">
     <link href="{{asset('uplancer/lib/owlcarousel/assets/owl.carousel.min.css')}}" rel="stylesheet">
-    <link href="{{asset('uplancer/lib/lightbox/css/lightbox.min.css')}}" rel="stylesheet">
+{{--    <link href="{{asset('uplancer/lib/lightbox/css/lightbox.min.css')}}" rel="stylesheet">--}}
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="{{asset('uplancer/css/bootstrap.min.css')}}" rel="stylesheet">
