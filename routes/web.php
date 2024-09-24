@@ -48,6 +48,8 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function()
     Route::get('projects',[FrontController::class,'projects'])->name('projects');
     Route::get('services',[FrontController::class,'services'])->name('services');
     Route::view('teams','Front.team')->name('teams');
+    Route::view('terms','Front.terms')->name('terms');
+    Route::view('privacy','Front.privacy')->name('privacy');
     Route::post('/send-contact', [FrontController::class, 'sendContactForm'])->name('send-contact-form');
     Route::get('show-project/{id}',[FrontController::class,'showProject'])->name('project-show');
 

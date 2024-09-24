@@ -58,10 +58,10 @@
                                 </li>
                             @endforeach
                         </ul>
-                    @else
-                        <p>No features available for this project.</p>
-                    @endif
                 </div>
+                @else
+                    <p>No features available for this project.</p>
+                @endif
             </div>
 
         </div>

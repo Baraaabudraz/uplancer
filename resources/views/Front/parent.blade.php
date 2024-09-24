@@ -16,7 +16,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Icon Font Stylesheet -->
+{{--    <!-- Icon Font Stylesheet -->--}}
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
@@ -122,10 +122,10 @@
     <div class="row align-items-center">
         <div class="col-lg-6 d-none d-lg-flex">
             <nav class="breadcrumb mb-0">
-                <a class="breadcrumb-item small text-muted" href="#">Home</a>
-                <a class="breadcrumb-item small text-muted" href="#">Career</a>
-                <a class="breadcrumb-item small text-muted" href="#">Terms</a>
-                <a class="breadcrumb-item small text-muted" href="#">Privacy</a>
+                <a class="breadcrumb-item small text-muted" href="{{route('home')}}">Home</a>
+{{--                <a class="breadcrumb-item small text-muted" href="#">Career</a>--}}
+                <a class="breadcrumb-item small text-muted" href="{{route('terms')}}">Terms</a>
+                <a class="breadcrumb-item small text-muted" href="{{route('privacy')}}">Privacy</a>
             </nav>
         </div>
         <div class="col-lg-6 text-lg-end text-center">
