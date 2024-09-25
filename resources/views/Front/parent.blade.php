@@ -25,7 +25,6 @@
     <!-- Libraries Stylesheet -->
     <link href="{{asset('uplancer/lib/animate/animate.min.css')}}" rel="stylesheet">
 {{--    <link href="{{asset('uplancer/lib/owlcarousel/assets/owl.carousel.min.css')}}" rel="stylesheet">--}}
-    <link href="{{asset('uplancer/lib/lightbox/css/lightbox.min.css')}}" rel="stylesheet">
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="{{asset('uplancer/css/bootstrap.min.css')}}" rel="stylesheet">
@@ -279,7 +278,6 @@
 {{--<script src="{{asset('uplancer/lib/waypoints/waypoints.min.js')}}"></script>--}}
 {{--<script src="{{asset('uplancer/lib/counterup/counterup.min.js')}}"></script>--}}
 {{--<script src="{{asset('uplancer/lib/owlcarousel/owl.carousel.min.js')}}"></script>--}}
-<script src="{{asset('uplancer/lib/lightbox/js/lightbox.min.js')}}"></script>
 
 <!-- Template Javascript -->
 <script src="{{asset('uplancer/js/main.js')}}"></script>

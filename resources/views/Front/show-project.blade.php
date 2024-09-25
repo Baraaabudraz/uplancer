@@ -1,6 +1,7 @@
 @extends('Front.parent')
 @section('title', $project->name)
 @section('styles')
+    <link href="{{asset('uplancer/lib/lightbox/css/lightbox.min.css')}}" rel="stylesheet">
     <style>
         .project-image img {
             width: 100%;
@@ -68,4 +69,7 @@
     </div>
     <!-- Project Details End -->
 
+@endsection
+@section('scripts')
+    <script src="{{asset('uplancer/lib/lightbox/js/lightbox.min.js')}}"></script>
 @endsection
