@@ -77,7 +77,7 @@
                         <!--end::Title-->
                         <!--begin::Description-->
                         <div class="text-gray-400 fw-bold fs-5">{{trans('dashboard_trans.You can browse the list of admin')}}
-                            <a href="#" class="fw-bolder link-primary">{{trans('dashboard_trans.here')}}</a>.
+                            <a href="{{ route('admins.index') }}" class="fw-bolder link-primary">{{trans('dashboard_trans.here')}}</a>.
                         </div>
                         <!--end::Description-->
                     </div>
