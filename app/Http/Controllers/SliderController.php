@@ -50,7 +50,19 @@ class SliderController extends Controller
        }
 
     public function destroy($id){
-        $isDeleted=Slider::destroy($id);
+        $slider= Slider::query()->find($id);
+
+        if ($slider) {
+            $image = $slider->image;
+
+            if ($image) {
+                $imagePath = public_path('images/sliders/' . $image);
+                if (file_exists($imagePath)) {
+                    unlink($imagePath);
+                }
+            }
+        }
+        $isDeleted = Slider::destroy($id);
         if ($isDeleted){
             return response()->json([
                 'title'=>'success',
