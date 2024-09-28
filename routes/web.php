@@ -51,6 +51,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function()
     Route::view('terms','Front.terms')->name('terms');
     Route::view('privacy','Front.privacy')->name('privacy');
     Route::post('/send-contact', [FrontController::class, 'sendContactForm'])->name('send-contact-form');
+    Route::post('/get-started', [FrontController::class, 'getStarted'])->name('get-started');
     Route::get('show-project/{id}',[FrontController::class,'showProject'])->name('project-show');
 
     Route::prefix('cms/admin')->middleware(['auth:admin','has.permission'])->group(function (){
