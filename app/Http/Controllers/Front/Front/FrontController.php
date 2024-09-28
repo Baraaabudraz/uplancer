@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Front\Front;
 
 use App\Http\Controllers\Controller;
 use App\Mail\Contact;
+use App\Mail\GetStarted;
 use App\Models\Project;
 use App\Models\Service;
 use App\Models\Setting;
@@ -73,6 +74,33 @@ class FrontController extends Controller
           session()->flash('alert-type','alert-danger');
           session()->flash('message','Failed to sent message!');
       }
+        return redirect()->back();
+
+    }
+    public function getStarted(Request $request){
+
+        $request->validate([
+            'company_name'=>'required|string',
+            'name'=>'required|string',
+            'email'=>'required|string|email',
+            'phone'=>'required|numeric',
+            'service'=>'required',
+            'message' => 'required|string',
+            'budget' => 'required',
+            'hear' => 'required|string',
+        ]);
+        $formData = $request->all();
+
+        $send = Mail::to('info@uplancerps.com')->send(new GetStarted($formData));
+
+
+        if ($send){
+            session()->flash('alert-type','alert-success');
+            session()->flash('message','Your message has been sent successfully!');
+        }else{
+            session()->flash('alert-type','alert-danger');
+            session()->flash('message','Failed to sent message!');
+        }
         return redirect()->back();
 
     }
