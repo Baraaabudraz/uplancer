@@ -126,13 +126,13 @@
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" name="service" id="Radios1"  value="option1">
                                         <label class="form-check-label" for="Radios1">
-                                            Create an Amazing New Product 🚀
+                                            Create an Amazing New Product
                                         </label>
                                     </div>
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" name="service" id="Radios2" value="option2" >
                                         <label class="form-check-label" for="Radios2">
-                                            Make my great product even greater 💪
+                                            Make my great product even greater
                                         </label>
                                     </div>
                                     <div class="form-check">
