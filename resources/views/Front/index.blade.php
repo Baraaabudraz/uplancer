@@ -50,7 +50,7 @@
                 <div class="col-lg-6">
                     <h1 class="display-4 font-weight-bold ">Software Development for Businesses & Founders</h1>
                     <p class="lead mt-4"></p>
-                    <ul class="list-unstyled mt-4">
+                    <ul class="list-unstyled  mt-4">
                         <li class="mb-2">
                             <i class="fa fa-check-circle text-primary"></i> Skilled in development, design, & marketing
                         </li>
@@ -210,7 +210,7 @@
 
 
     <!-- About Start -->
-    <div class="container-xxl bg-light">
+    <div class="container-xxxl bg-light">
         <div class="container">
             <div class="row g-5 align-items-center">
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
@@ -303,7 +303,7 @@
 
 
     <!-- Feature Start -->
-    <div class="container-xxl py-5 bg-light">
+    <div class="container-xxxl py-5 bg-light">
         <div class="container">
             <div class="row g-5 align-items-center">
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
