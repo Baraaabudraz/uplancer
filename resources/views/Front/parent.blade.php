@@ -128,12 +128,12 @@
                 <a class="breadcrumb-item small text-muted" href="{{route('privacy')}}">Privacy</a>
             </nav>
         </div>
-        <div class="col-lg-6 text-lg-end text-center">
-            <span class="small text-muted">Follow us: </span>
-            <a class="text-muted mx-2" href="https://www.facebook.com/uplancerps"><i class="fab fa-facebook-f"></i></a>
-            <a class="text-muted mx-2" href="https://twitter.com/uplancerps"><i class="fab fa-twitter"></i></a>
-            <a class="text-muted mx-2" href="https://www.linkedin.com/company/uplancerps"><i class="fab fa-linkedin-in"></i></a>
-        </div>
+{{--        <div class="col-lg-6 text-lg-end text-center">--}}
+{{--            <span class="small text-muted">Follow us: </span>--}}
+{{--            <a class="text-muted mx-2" href="https://www.facebook.com/uplancerps"><i class="fab fa-facebook-f"></i></a>--}}
+{{--            <a class="text-muted mx-2" href="https://twitter.com/uplancerps"><i class="fab fa-twitter"></i></a>--}}
+{{--            <a class="text-muted mx-2" href="https://www.linkedin.com/company/uplancerps"><i class="fab fa-linkedin-in"></i></a>--}}
+{{--        </div>--}}
     </div>
 </div>
 <!-- Topbar End -->
