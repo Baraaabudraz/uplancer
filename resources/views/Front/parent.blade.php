@@ -118,24 +118,24 @@
 <!-- Spinner End -->
 
 <!-- Topbar Start -->
-<div class="container-fluid bg-white py-2 px-4" style="border-bottom: 1px solid #eaeaea;">
-    <div class="row align-items-center">
-        <div class="col-lg-6 d-none d-lg-flex">
-            <nav class="breadcrumb mb-0">
-                <a class="breadcrumb-item small text-muted" href="{{route('home')}}">Home</a>
+{{--<div class="container-fluid bg-white py-2 px-4" style="border-bottom: 1px solid #eaeaea;">--}}
+{{--    <div class="row align-items-center">--}}
+{{--        <div class="col-lg-6 d-none d-lg-flex">--}}
+{{--            <nav class="breadcrumb mb-0">--}}
+{{--                <a class="breadcrumb-item small text-muted" href="{{route('home')}}">Home</a>--}}
 {{--                <a class="breadcrumb-item small text-muted" href="#">Career</a>--}}
-                <a class="breadcrumb-item small text-muted" href="{{route('terms')}}">Terms</a>
-                <a class="breadcrumb-item small text-muted" href="{{route('privacy')}}">Privacy</a>
-            </nav>
-        </div>
+{{--                <a class="breadcrumb-item small text-muted" href="{{route('terms')}}">Terms</a>--}}
+{{--                <a class="breadcrumb-item small text-muted" href="{{route('privacy')}}">Privacy</a>--}}
+{{--            </nav>--}}
+{{--        </div>--}}
 {{--        <div class="col-lg-6 text-lg-end text-center">--}}
 {{--            <span class="small text-muted">Follow us: </span>--}}
 {{--            <a class="text-muted mx-2" href="https://www.facebook.com/uplancerps"><i class="fab fa-facebook-f"></i></a>--}}
 {{--            <a class="text-muted mx-2" href="https://twitter.com/uplancerps"><i class="fab fa-twitter"></i></a>--}}
 {{--            <a class="text-muted mx-2" href="https://www.linkedin.com/company/uplancerps"><i class="fab fa-linkedin-in"></i></a>--}}
 {{--        </div>--}}
-    </div>
-</div>
+{{--    </div>--}}
+{{--</div>--}}
 <!-- Topbar End -->
 
 
@@ -221,7 +221,7 @@
         <div class="row g-5">
             <div class="col-lg-3 col-md-6">
                 <h5 class="text-light mb-4">Address</h5>
-                <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>GAZA,PALESTINE</p>
+                <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>PALESTINE</p>
                 <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+970597644 664</p>
                 <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@uplancerps.com</p>
                 <div class="d-flex pt-2">
