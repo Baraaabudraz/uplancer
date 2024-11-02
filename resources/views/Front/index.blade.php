@@ -50,15 +50,15 @@
                 <div class="col-lg-6">
                     <h1 class="display-4 font-weight-bold ">Software Development for Businesses & Founders</h1>
                     <p class="lead mt-4"></p>
-                    <ul class="list-unstyled  mt-4">
+                    <ul class="list-unstyled  mt-4" style="font-size: 22px; color: black">
                         <li class="mb-2">
-                            <i class="fa fa-check-circle text-primary"></i> Skilled in development, design, & marketing
+                            <i class="fa fa-check-circle text-primary"></i> Skilled in development, design, & marketing.
                         </li>
                         <li class="mb-2">
-                            <i class="fa fa-check-circle text-primary"></i> Acquire a high-performing distributed team
+                            <i class="fa fa-check-circle text-primary"></i> Acquire a high-performing distributed team.
                         </li>
                         <li class="mb-2">
-                            <i class="fa fa-check-circle text-primary"></i> Trusted by founders for cost-effective solutions
+                            <i class="fa fa-check-circle text-primary"></i> Trusted by founders for cost-effective solutions.
                         </li>
                     </ul>
                     <button type="button" class="btn btn-primary btn-lg mt-3" data-toggle="modal" data-target="#exampleModal">Get Started</button>
