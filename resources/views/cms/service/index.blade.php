@@ -94,7 +94,7 @@
                     @foreach($services as $key=>$service)
                         <tr>
                             <td>{{$key+1}}</td>
-                            @if($service->image && !$service->icon)
+                            @if($service->image)
                             <td>
                                 <div class="d-flex align-items-center">
                                     <div class="symbol symbol-30px me-5">
@@ -108,13 +108,12 @@
                                         <img src="{{asset('assets/media/avatars/blank.png')}}" class="" alt="project">
                                     </div>
                                 </td>
-                                <td>
-                                    <div class="icon-box mb-4">
-                                        <i class="fa fa-{{ $service->icon }}" style="font-size: 20px; color: #007bff;"></i>
-                                    </div>
-                                </td>
-
                             @endif
+                            <td>
+                                <div class="icon-box mb-4">
+                                    <i class="fa fa-{{ $service->icon }}" style="font-size: 20px; color: #007bff;"></i>
+                                </div>
+                            </td>
 
                             <td class="text-primary">{{$service->name}}</td>
                             <td>
