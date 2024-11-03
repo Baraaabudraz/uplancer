@@ -37,7 +37,6 @@ class ServiceController extends Controller
             $imageName = time() . '_' . $request->get('name.*') . '.' . $image->getClientOriginalExtension();
             $image->move('images/services', $imageName);
             $data['image'] = $imageName;
-
         }
 
 
@@ -97,16 +96,28 @@ class ServiceController extends Controller
         $data = $request->only([
             'description', 'name', 'icon'
         ]);
-        if ($request->hasFile('image')) {
-            $image = $request->file('image');
-            $imageName = time() . '_' . $request->get('name.*') . '.' . $image->getClientOriginalExtension();
-            $image->move('images/services', $imageName);
-            $data['image'] = $imageName;
+
+        $service = Service::query()->find($id);
+        if ($service){
+            $image = $service->image ;
+            if ($image){
+                $imagePath = public_path('images/services/' . $image);
+                if (file_exists($imagePath)){
+                    unlink($imagePath);
+                }
+                if ($request->hasFile('image')) {
+                    $image = $request->file('image');
+                    $imageName = time() . '_' . $request->get('name.*') . '.' . $image->getClientOriginalExtension();
+                    $image->move('images/services', $imageName);
+                    $data['image'] = $imageName;
+                }
+
+            }
         }
 
-        $service = Service::query()->find($id)->update($data);
+       $isUpdated= $service->update($data);
 
-        if ($service) {
+        if ($isUpdated) {
             session()->flash('alert-type', 'alert-success');
             session()->flash('message', trans('dashboard_trans.Service Updated Successfully'));
             return redirect()->back();
@@ -122,7 +133,18 @@ class ServiceController extends Controller
      */
     public function destroy(string $id)
     {
-        $is_Deleted = Service::destroy($id);
+        $service = Service::query()->find($id);
+        if ($service){
+            $image = $service->image ;
+            if ($image){
+                $imagePath = public_path('images/services/' . $image);
+                if (file_exists($imagePath)){
+                    unlink($imagePath);
+                }
+            }
+        }
+        $is_Deleted = $service->delete();
+
         if ($is_Deleted) {
             return response()->json([
                 'title' => 'success',
