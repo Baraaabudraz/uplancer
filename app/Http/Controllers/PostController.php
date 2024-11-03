@@ -87,15 +87,25 @@ class PostController extends Controller
         $data=$request->only([
             'name', 'post', 'section_id',
         ]);
-            if ($request->hasFile('image')) {
-                $Image = $request->file('image');
-                $imageName = time(). '_' . $request->get('name.*') . '.' . $Image->getClientOriginalExtension();
-                $Image->move('images/post',$imageName);
-                $data['image']=$imageName;
+        $post = Post::query()->find($id);
+        if ($post){
+            if ($request->hasFile('image')){
+                // إذا كان هناك صورة جديدة، احذف القديمة وقم بتحديث الصورة
+                $imagePath = public_path('images/post/' . $post->image);
+                if (file_exists($imagePath)){
+                    unlink($imagePath);
+                }
+                $newImage = $request->image->hashName();
+                $request->image->move(public_path('images/post'), $newImage);
+                $data['image'] = $newImage;
+            }else{
+                // احتفظ بالصورة القديمة في حالة عدم تحميل صورة جديدة
+                $data['image']=$post->image;
             }
+        }
 
-            $posts=Post::query()->find($id)->update($data);
-            if ($posts){
+            $isUpdated = $post->update($data);
+            if ($isUpdated){
                 session()->flash('alert-type','alert-success');
                 session()->flash('message',trans('dashboard_trans.Post updated successfully'));
                 return redirect()->back();
@@ -109,7 +119,18 @@ class PostController extends Controller
     public function destroy($id)
     {
         //
-        $isDeleted=Post::destroy($id);
+        $post = Post::query()->find($id);
+        if ($post){
+            $image = $post->image ;
+            if ($image){
+                $imagePath = public_path('images/post/' . $image);
+                if (file_exists($imagePath)){
+                    unlink($imagePath);
+                }
+            }
+        }
+        $isDeleted = $post->delete();
+
         if ($isDeleted){
             return response()->json([
                 'title'=>'success',
