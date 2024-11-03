@@ -39,6 +39,7 @@ class SettingController extends Controller
             'name', 'logo', 'phone', 'email', 'linkedin', 'company_site',
             'facebook', 'instagram', 'x' , 'desc_contact' , 'about' , 'why_us'
         ]);
+
         if ($request->hasFile('logo')) {
             $logo = $request->file('logo');
             $logoName = time() . '_' . $request->get('name') . '.' . $logo->getClientOriginalExtension();
@@ -90,14 +91,23 @@ class SettingController extends Controller
             'facebook', 'instagram', 'x' , 'desc_contact' , 'about' , 'why_us'
         ]);
 
-
-
-        if ($request->hasFile('logo')) {
-            $logo = $request->file('logo');
-            $logoName = time() . '_' . $request->get('name') . '.' . $logo->getClientOriginalExtension();
-            $logo->move('images/settings/logo', $logoName);
-            $data['logo'] = $logoName;
+        $settings = Setting::query()->first();
+        if ($settings){
+            if ($request->hasFile('logo')){
+                $imagePath = public_path('images/settings/logo/' . $settings->logo);
+                if (file_exists($imagePath)){
+                    unlink($imagePath);
+                }
+                $newLogo= $request->image->hashName();
+                $request->image->move(public_path('images/settings/logo'), $newLogo);
+                $data['logo'] = $newLogo;
+            }else{
+                // احتفظ بالصورة القديمة في حالة عدم تحميل صورة جديدة
+                $data['image']=$settings->image;
+            }
         }
+
+
 
         $website_settings = Setting::query()->update($data);
 
@@ -115,11 +125,18 @@ class SettingController extends Controller
 
     public function destroy(string $id){
 
-        $is_Deleted = Setting::destroy($id);
-
+        $settings = Setting::find($id);
+        if ($settings){
+            $logo = $settings->logo ;
+            if ($logo){
+                $imagePath = public_path('images/settings/logo/' . $logo);
+                if (file_exists($imagePath)){
+                    unlink($imagePath);
+                }
+            }
+        }
+        $is_Deleted = $settings->delete();
         if ($is_Deleted){
-//            \File::delete(public_path($is_Deleted->logo));
-//            $is_Deleted->delete();
             return response()->json([
                 'title' => 'success',
                 'icon'   => 'success',
