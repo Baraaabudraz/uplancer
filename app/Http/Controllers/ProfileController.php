@@ -88,14 +88,25 @@ class ProfileController extends Controller
             $data = $request->only([
                 'name', 'email', 'password', 'address', 'mobile_num', 'gender',
             ]);
-            if ($request->hasFile('image')) {
-                $adminImage = $request->file('image');
-                $imageName = time() . '_' . $request->get('name') . '.' . $adminImage->getClientOriginalExtension();
-                $adminImage->move(public_path('images/admin'), $imageName);
-                $data['image'] = $imageName;
+            $admin= Admin::query()->find($id);
+            if ($admin){
+                if ($request->hasFile('image')){
+                    // إذا كان هناك صورة جديدة، احذف القديمة وقم بتحديث الصورة
+                    $imagePath = public_path('images/admin/' . $admin->image);
+                    if (file_exists($imagePath)){
+                        unlink($imagePath);
+                    }
+                    $newImage = $request->image->hashName();
+                    $request->image->move(public_path('images/admin'), $newImage);
+                    $data['image'] = $newImage;
+                }else{
+                    // احتفظ بالصورة القديمة في حالة عدم تحميل صورة جديدة
+                    $data['image']=$admin->image;
+                }
             }
+
             $data['password'] = Hash::make($request->get('password'));
-            $isUpdated = Admin::query()->find($id)->update($data);
+            $isUpdated = $admin->update($data);
             if ($isUpdated) {
                 session()->flash('alert-type', 'alert-success');
                 session()->flash('message', 'تم تعديل  بيانات المستخدم بنجاح');
