@@ -90,12 +90,25 @@ class TeamController extends Controller
             'position', 'github', 'whatsapp'
         ]);
 
-        if ($request->hasFile('image')){
-            $image = $request->file('image');
-            $imageName = time() . ('_') . $data['name'] . ('.') . $image->getClientOriginalExtension();
-            $image->move('images/members',$imageName);
-            $data['image'] = $imageName;
+        $team = Team::query()->find($id);
+        if ($team){
+            if ($request->hasFile('image')){
+                // إذا كان هناك صورة جديدة، احذف القديمة وقم بتحديث الصورة
+                $imagePath = public_path('images/members/' . $team->image);
+                if (file_exists($imagePath)){
+                    unlink($imagePath);
+                }
+                $newImage = $request->image->hashName();
+                $request->image->move(public_path('images/members'), $newImage);
+                $data['image'] = $newImage;
+
+            }else{
+                // احتفظ بالصورة القديمة في حالة عدم تحميل صورة جديدة
+                $data['image']=$team->image;
+            }
         }
+
+
 
 
         $is_Updated = Team::query()->find($id)->update($data);
@@ -114,7 +127,17 @@ class TeamController extends Controller
 
     public function destroy($id)
     {
-        $is_Deleted = Team::destroy($id);
+        $team = Team::find($id);
+        if ($team){
+            $image = $team->image ;
+            if ($image){
+                $imagePath = public_path('images/members/' . $image);
+                if (file_exists($imagePath)){
+                    unlink($imagePath);
+                }
+            }
+        }
+        $is_Deleted = $team->delete();
 
         if ($is_Deleted){
             return response()->json([
