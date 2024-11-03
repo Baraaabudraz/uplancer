@@ -92,85 +92,112 @@ class ProjectController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $request->request->add(['id'=>$id]);
+        $request->request->add(['id' => $id]);
         $request->validate([
-            'service_id'=>'required|int|exists:services,id',
-            'name.*'=>'required|string',
-            'description.*'=>'required|string',
-            'features.*'=>'nullable|string',
-            'technology'=>'required|string',
+            'service_id' => 'required|int|exists:services,id',
+            'name.*' => 'required|string',
+            'description.*' => 'required|string',
+            'features.*' => 'nullable|string',
+            'technology' => 'required|string',
 
         ]);
         $data = $request->only([
-            'name' ,'description' ,'service_id' , 'features' ,'technology'
+            'name', 'description', 'service_id', 'features', 'technology'
         ]);
-        if ($request->hasFile('images')){
-            foreach ($request->file('images') as $image){
-                $Image=$image;
-                $imageName=$Image->getClientOriginalName().'-'.$Image->getClientOriginalExtension();
-                $images[]=$imageName;
-                $Image->move('images/projects',$imageName);
-            }
-            $data['images'] = json_encode($images);
-        }
-        $data['features'] = json_encode($request->get('features'));
-
-        $project = Project::query()->find($id)->update($data);
-        if ($project){
-            session()->flash('alert-type','alert-success');
-            session()->flash('message',trans('dashboard_trans.Project Created Successfully'));
-            return redirect()->back();
-
-        }else{
-            session()->flash('alert-type','alert-danger');
-            session()->flash('message',trans('dashboard_trans.Failed to create project'));
-            return redirect()->back();
-
-        }
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-
         $project = Project::find($id);
 
         if ($project) {
+            // الحصول على الصور الحالية من قاعدة البيانات
             $images = json_decode($project->images, true);
 
-            if (is_array($images)) {
-                foreach ($images as $image) {
-
-                    $imagePath = public_path('images/projects/' . $image);
-                    if (file_exists($imagePath)) {
-                        unlink($imagePath);
+            // تحقق من وجود صور جديدة في الطلب
+            if ($request->hasFile('images')) {
+                // إذا كانت هناك صور جديدة، احذف الصور القديمة أولاً
+                if (is_array($images)) {
+                    foreach ($images as $image) {
+                        $imagePath = public_path('images/projects/' . $image);
+                        if (file_exists($imagePath)) {
+                            unlink($imagePath);
+                        }
                     }
                 }
-            }
-            $is_Deleted = $project->delete();
 
-            if ($is_Deleted) {
-                return response()->json([
-                    'title' => 'success',
-                    'icon' => 'success',
-                    'text' => trans('dashboard_trans.Project deleted successfully'),
-                ]);
+                // الآن قم بتحديث قائمة الصور بالصور الجديدة
+                $newImages = [];
+                foreach ($request->file('images') as $image) {
+                    $imageName = time() . '-' . uniqid() . '.' . $image->getClientOriginalExtension();
+                    $image->move(public_path('images/projects'), $imageName);
+                    $newImages[] = $imageName;
+                }
+
+                // تعيين الصور الجديدة إلى المتغير data لتحديث قاعدة البيانات
+                $data['images'] = json_encode($newImages);
             } else {
-                return response()->json([
-                    'title' => 'error',
-                    'icon' => 'error',
-                    'text' => trans('dashboard_trans.Failed to delete this project'),
-                ]);
+                // إذا لم يتم تحميل صور جديدة، احتفظ بالصور القديمة كما هي
+                $data['images'] = $project->images;
             }
-        } else {
-            return response()->json([
-                'title' => 'warning',
-                'icon' => 'warning',
-                'text' => trans('dashboard_trans.Project not found'),
-            ]);
         }
 
-    }
+
+        $data['features'] = json_encode($request->get('features'));
+
+            $project = Project::query()->find($id)->update($data);
+            if ($project) {
+                session()->flash('alert-type', 'alert-success');
+                session()->flash('message', trans('dashboard_trans.Project Created Successfully'));
+                return redirect()->back();
+
+            } else {
+                session()->flash('alert-type', 'alert-danger');
+                session()->flash('message', trans('dashboard_trans.Failed to create project'));
+                return redirect()->back();
+
+            }
+        }
+
+        /**
+         * Remove the specified resource from storage.
+         */
+        public
+        function destroy(string $id)
+        {
+
+            $project = Project::find($id);
+
+            if ($project) {
+                $images = json_decode($project->images, true);
+
+                if (is_array($images)) {
+                    foreach ($images as $image) {
+
+                        $imagePath = public_path('images/projects/'.$image);
+                        if (file_exists($imagePath)) {
+                            unlink($imagePath);
+                        }
+                    }
+                }
+                $is_Deleted = $project->delete();
+
+                if ($is_Deleted) {
+                    return response()->json([
+                        'title' => 'success',
+                        'icon' => 'success',
+                        'text' => trans('dashboard_trans.Project deleted successfully'),
+                    ]);
+                } else {
+                    return response()->json([
+                        'title' => 'error',
+                        'icon' => 'error',
+                        'text' => trans('dashboard_trans.Failed to delete this project'),
+                    ]);
+                }
+            } else {
+                return response()->json([
+                    'title' => 'warning',
+                    'icon' => 'warning',
+                    'text' => trans('dashboard_trans.Project not found'),
+                ]);
+            }
+
+        }
 }
