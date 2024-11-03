@@ -138,15 +138,31 @@ class AdminController extends Controller
             'mobile_number', 'designation', 'role_id', 'gender',
         ]);
 
-        if ($request->hasFile('image')) {
-            $image = $request->image->hashName();
-            $request->image->move(public_path('images/admin'), $image);
-            $data['image'] = $image;
+        $admin = Admin::query()->find($id);
+        if ($admin) {
+            if ($request->hasFile('image')) {
+                // إذا كان هناك صورة جديدة، احذف القديمة وقم بتحديث الصورة
+                if ($admin->image) {
+                    $imagePath = public_path('images/admin/' . $admin->image);
+                    if (file_exists($imagePath)) {
+                        unlink($imagePath);
+                    }
+                }
+                $newImage = $request->image->hashName();
+                $request->image->move(public_path('images/admin'), $newImage);
+                $data['image'] = $newImage;
+            } else {
+                // احتفظ بالصورة القديمة في حالة عدم تحميل صورة جديدة
+                $data['image'] = $admin->image;
+            }
         }
-        $data['status'] = $request->has('status') ? 'Active' : 'InActive';
-        $data['password']=Hash::make($request->password);
-        $isUpdated = Admin::query()->find($id)->update($data);
 
+
+
+        $data['status'] = $request->has('status') ? 'Active' : 'InActive';
+        $data['password'] = Hash::make($request->password);
+
+        $isUpdated  =  $admin->update($data);
         if ($isUpdated) {
             session()->flash('alert-type', 'alert-success');
             session()->flash('message', 'Admin updated successfully');
@@ -169,7 +185,17 @@ class AdminController extends Controller
     public function destroy($id)
     {
         //
-        $isDeleted = Admin::destroy($id);
+        $admin = Admin::query()->find($id);
+        if ($admin){
+            $image = $admin->image ;
+            if ($image){
+                $imagePath = public_path('images/admin/' . $image);
+                if (file_exists($imagePath)){
+                    unlink($imagePath);
+                }
+            }
+        }
+        $isDeleted  =  $admin->delete();
         if ($isDeleted) {
             return response()->json([
                 'title' => 'success',
