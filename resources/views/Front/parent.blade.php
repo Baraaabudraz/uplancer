@@ -280,7 +280,7 @@
 {{--<script src="{{asset('uplancer/lib/counterup/counterup.min.js')}}"></script>--}}
 {{--<script src="{{asset('uplancer/lib/owlcarousel/owl.carousel.min.js')}}"></script>--}}
 <script src="{{asset('uplancer/lib/lightbox/js/lightbox.min.js')}}"></script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js" async></script>
 <!-- Template Javascript -->
 <script src="{{asset('uplancer/js/main.js')}}"></script>
 </body>
