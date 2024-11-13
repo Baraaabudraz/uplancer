@@ -86,7 +86,7 @@
                                 <td><a href="#">{{$key+1}}</a></td>
 
                                 <td>
-                                        <img src="{{url('images/sliders/',$slider->image)}}" class="" width="100" alt="">
+                                    <img src="{{url('images/sliders/',$slider->image)}}" class="" width="100" alt="">
                                 </td>
                                 <td>
                                     <a href="{{route('sliders.edit' , $slider->id)}}" class="btn btn-sm btn-light-primary">
