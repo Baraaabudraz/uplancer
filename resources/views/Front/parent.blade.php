@@ -18,9 +18,7 @@
 
 {{--    <!-- Icon Font Stylesheet -->--}}
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.1/font/bootstrap-icons.css" rel="stylesheet">
-{{--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">--}}
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
     @yield('styles')
 
@@ -113,7 +111,7 @@
             width:60px;
             height:60px;
             bottom:40px;
-            left:10px;
+            right:40px;
             background-color:#25d366;
             color:#FFF;
             border-radius:50px;
