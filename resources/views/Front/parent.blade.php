@@ -109,7 +109,7 @@
             background: linear-gradient(135deg, #5D3991, #9E59E2);
         }
 
-        .float{
+        .whats{
             position:fixed;
             width:60px;
             height:60px;
@@ -124,7 +124,7 @@
             z-index:100;
         }
 
-        .my-float{
+        .my-whats{
             margin-top:16px;
         }
     </style>
@@ -278,8 +278,8 @@
     </div>
 </div><!-- Footer End -->
 
-<a href="https://api.whatsapp.com/send?phone=+970597644664&text=مرحبا لدي استفسار%21%20." class="float" target="_blank">
-    <i class="fa fa-whatsapp my-float" aria-hidden="true"></i>
+<a href="https://api.whatsapp.com/send?phone=+970597644664&text=مرحبا لدي استفسار%21%20." class="whats" target="_blank">
+    <i class="fa fa-whatsapp my-whats" aria-hidden="true"></i>
 </a>
 <!-- Back to Top -->
 <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
