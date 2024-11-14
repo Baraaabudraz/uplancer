@@ -17,11 +17,9 @@
     <link href='https://fonts.googleapis.com/css?family=Cairo' rel='stylesheet'>
 
 {{--    <!-- Icon Font Stylesheet -->--}}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-{{--    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">--}}
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
-
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.1/font/bootstrap-icons.css" rel="stylesheet">
 
     @yield('styles')
 
@@ -109,7 +107,7 @@
             background: linear-gradient(135deg, #5D3991, #9E59E2);
         }
 
-        .whats{
+        .float{
             position:fixed;
             width:60px;
             height:60px;
@@ -124,7 +122,7 @@
             z-index:100;
         }
 
-        .my-whats{
+        .my-float{
             margin-top:16px;
         }
     </style>
@@ -278,8 +276,8 @@
     </div>
 </div><!-- Footer End -->
 
-<a href="https://api.whatsapp.com/send?phone=+970597644664&text=مرحبا لدي استفسار%21%20." class="whats" target="_blank">
-    <i class="fa fa-whatsapp my-whats" aria-hidden="true"></i>
+<a href="https://api.whatsapp.com/send?phone=+970597644664&text=مرحبا لدي استفسار%21%20." class="float" target="_blank">
+    <i class="fa fa-whatsapp my-float"></i>
 </a>
 <!-- Back to Top -->
 <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
