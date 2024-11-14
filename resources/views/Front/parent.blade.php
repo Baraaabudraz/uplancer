@@ -105,6 +105,25 @@
         .bg-gradient-primary {
             background: linear-gradient(135deg, #5D3991, #9E59E2);
         }
+
+        .float{
+            position:fixed;
+            width:60px;
+            height:60px;
+            bottom:40px;
+            right:40px;
+            background-color:#25d366;
+            color:#FFF;
+            border-radius:50px;
+            text-align:center;
+            font-size:30px;
+            box-shadow: 2px 2px 3px #999;
+            z-index:100;
+        }
+
+        .my-float{
+            margin-top:16px;
+        }
     </style>
 
 </head>
@@ -256,7 +275,9 @@
     </div>
 </div><!-- Footer End -->
 
-
+<a href="https://api.whatsapp.com/send?phone=+970597644664&text=مرحبا لدي استفسار%21%20." class="float" target="_blank">
+    <i class="fa fa-whatsapp my-float"></i>
+</a>
 <!-- Back to Top -->
 <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
 
