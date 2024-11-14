@@ -210,7 +210,7 @@
 
 
     <!-- About Start -->
-    <div class="container-xxxl bg-light">
+    <div class="container-fluid bg-light">
         <div class="container">
             <div class="row g-5 align-items-center">
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
@@ -258,13 +258,13 @@
                     <div class="h-100 d-flex flex-column justify-content-center">
                         <div class="p-4 bg-white shadow-lg rounded mb-4">
                             <h3 class="text-primary mb-3">Our Vision</h3>
-                            <p class="text-muted">
+                            <p class="text-dark">
                                 At Up Lancer, our vision is to redefine the standards of quality and innovation in every sector we serve. We believe in creating impactful solutions that not only meet the needs of today but anticipate the challenges of tomorrow.
                             </p>
                         </div>
                         <div class="p-4 bg-white shadow-lg rounded">
                             <h3 class="text-primary mb-3">Our Mission</h3>
-                            <p class="text-muted">
+                            <p class="text-dark">
                                 Our mission is to empower businesses to reach their full potential by providing expert solutions that are innovative, reliable, and tailored to meet the unique goals of each client.
                             </p>
                         </div>
@@ -303,7 +303,7 @@
 
 
     <!-- Feature Start -->
-    <div class="container-xxxl py-5 bg-light">
+    <div class="container-fluid py-5 bg-light">
         <div class="container">
             <div class="row g-5 align-items-center">
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
@@ -317,7 +317,7 @@
                                 </div>
                                 <div>
                                     <h5>Innovative Solutions</h5>
-                                    <p>At UP Lancer, we don’t just follow trends – we set them. Our team is committed to innovation, delivering cutting-edge web and mobile solutions.</p>
+                                    <p class="text-muted">At UP Lancer, we don’t just follow trends – we set them. Our team is committed to innovation, delivering cutting-edge web and mobile solutions.</p>
                                 </div>
                             </div>
 
@@ -327,7 +327,7 @@
                                 </div>
                                 <div>
                                     <h5>Quality-Driven Processes</h5>
-                                    <p>Our development process ensures timely delivery and the highest standards of quality.</p>
+                                    <p class="text-muted">Our development process ensures timely delivery and the highest standards of quality.</p>
                                 </div>
                             </div>
 
@@ -337,7 +337,7 @@
                                 </div>
                                 <div>
                                     <h5>Long-Term Value</h5>
-                                    <p>We focus on mas-customization and long-term, helping your business grow without frequent redevelopments.</p>
+                                    <p class="text-muted">We focus on mas-customization and long-term, helping your business grow without frequent redevelopments.</p>
                                 </div>
                             </div>
 
@@ -347,7 +347,7 @@
                                 </div>
                                 <div>
                                     <h5>Collaborative Partnership</h5>
-                                    <p>We work closely with our clients to tailor solutions to their needs and business goals.</p>
+                                    <p class="text-muted">We work closely with our clients to tailor solutions to their needs and business goals.</p>
                                 </div>
                             </div>
 
@@ -357,7 +357,7 @@
                                 </div>
                                 <div>
                                     <h5>Security & Reliability</h5>
-                                    <p>We provide secure and robust solutions to protect your data and operations.</p>
+                                    <p class="text-muted">We provide secure and robust solutions to protect your data and operations.</p>
                                 </div>
                             </div>
                         </div>
@@ -367,7 +367,7 @@
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
                     <div class="bg-white p-5 rounded shadow-lg text-center">
                         <h3 class="mb-4 text-primary">Why Trust Us?</h3>
-                        <p class="text-muted">{{$settings->why_us}}</p>
+                        <p class="text-dark">{{$settings->why_us}}</p>
                         <a href="{{route('about')}}" class="btn btn-primary rounded-pill py-3 px-5">Learn More</a>
                     </div>
                 </div>
@@ -380,7 +380,7 @@
     <!-- Project Start -->
     <div class="container-xxl py-5">
         <div class="container">
-            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s">
                 <h6 class="section-title bg-white text-center text-primary px-3">Our Projects</h6>
                 <h1 class="display-6 mb-4">Learn More About Our Complete Projects</h1>
             </div>
@@ -389,7 +389,7 @@
                 <div class="col-md-4">
                     <div class="project-item shadow-lg rounded p-3 h-100">
                         <div class="position-relative mb-3">
-                            <img class="lazyload img-fluid rounded"   src="{{url('images/projects/',json_decode($project->images)[0])}}" alt="">
+                            <img class="img-fluid rounded lazyload"   src="{{url('images/projects/',json_decode($project->images)[0])}}" alt="">
                                 <div class="overlay">
                                     <a href="{{route('project-show',$project->id)}}" class="view-icon">
                                         <i class="fa fa-eye fa-2x"></i>
@@ -444,7 +444,7 @@
     <div class="container-fluid bg-light py-5 mt-5 wow fadeInUp" data-wow-delay="0.1s" style="border-top: 1px solid #eaeaea;">
         <div class="container text-center">
             <h2 class="mb-4 display-5 text-primary">You’re going to love your Up Lancer</h2>
-            <p class="text-muted mb-5">Including the people behind the scenes.</p>
+            <p class="text-dark mb-5">Including the people behind the scenes.</p>
 
             <div class="row g-5 text-start align-items-center justify-content-center">
                 <!-- Step 1 -->
@@ -501,10 +501,10 @@
                     <h2 class="display-4 fw-bold text-primary mb-4">
                         Plug in Up Lancer
                     </h2>
-                    <p class="lead text-muted mb-4">
+                    <p class="lead text-dark mb-4">
                         We’ve refined our process from product prototyping to continuous quality.
                     </p>
-                    <p class="text-muted mb-4">
+                    <p class="text-dark mb-4">
                         Get a new product that works reliably so you can bring it to market quickly and with confidence. Or add a Up Lancer to your distributed team to help lighten your load for an important feature add-on, API product or internal project.
                     </p>
                     <!-- Get Started Button -->
