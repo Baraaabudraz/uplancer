@@ -2,7 +2,7 @@
 @section('title','About')
 @section('content')
     <!-- About Start -->
-    <div class="container-xxl py-5 bg-light">
+    <div class="container-fluid py-5 bg-light">
         <div class="container">
             <div class="row g-5 align-items-center">
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
@@ -68,7 +68,7 @@
     <!-- About End -->
 
     <!-- Feature Start -->
-    <div class="container-xxl py-5 bg-light">
+    <div class="container-fluid py-5 bg-light">
         <div class="container">
             <div class="row g-5 align-items-center">
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
