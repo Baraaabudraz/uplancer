@@ -187,9 +187,6 @@
     </div>
 </div>
 <!-- Brand & Contact End -->
-
-
-
 <!-- Navbar Start -->
 <nav class="navbar navbar-expand-lg bg-primary navbar-dark sticky-top py-lg-0 px-lg-5 wow fadeIn shadow-lg" data-wow-delay="0.1s" style="background: linear-gradient(45deg, #5D3991, #8D61E2);">
     <a href="#" class="navbar-brand d-lg-none">MENU</a>
@@ -208,15 +205,10 @@
 </nav>
 <!-- Navbar End -->
 
-
-
-
-
 @yield('content')
 
-
 <!-- Footer Start -->
-<div class="container-fluid bg-dark text-body footer mt-5 pt-5 wow fadeIn" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeIn;">
+<div class="container-fluid bg-dark text-body footer pt-5 wow fadeIn" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeIn;">
     <div class="container py-5">
         <div class="row g-5">
             <div class="col-lg-3 col-md-6">
