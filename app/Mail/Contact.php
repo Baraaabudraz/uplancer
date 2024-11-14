@@ -39,6 +39,7 @@ class Contact extends Mailable
     {
         return new Envelope(
             subject: 'New Contact Request',
+            from: $this->email,
         );
     }
 
@@ -55,6 +56,7 @@ class Contact extends Mailable
                 'topic'=>$this->topic,
                 'message'=>$this->message,
             ],
+
         );
     }
 
