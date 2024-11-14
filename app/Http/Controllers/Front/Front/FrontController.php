@@ -18,7 +18,7 @@ class FrontController extends Controller
     public function index()
     {
         $settings = Setting::query()->first();
-        $projects = Project::query()->with('service')->latest()->limit(12)->get();
+        $projects = Project::query()->with('service')->inRandomOrder()->latest()->limit(12)->get();
         $services = Service::query()->orderBy('name','asc')->get();
         $sliders  = Slider::query()->latest()->get();
         $members  = Team::query()->get();
