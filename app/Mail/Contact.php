@@ -40,9 +40,6 @@ class Contact extends Mailable
     {
         return new Envelope(
             subject: 'New Contact Request',
-            replyTo: [
-                new Address($this->email),
-            ],
         );
     }
 
