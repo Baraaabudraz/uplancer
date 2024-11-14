@@ -277,7 +277,7 @@
 </div><!-- Footer End -->
 
 <a href="https://api.whatsapp.com/send?phone=+970597644664&text=مرحبا لدي استفسار%21%20." class="float" target="_blank">
-<i class="fa fa-whatsapp my-float"></i>
+    <i class="fa-brands fa-whatsapp my-float"></i>
 </a>
 <!-- Back to Top -->
 <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
