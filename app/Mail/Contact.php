@@ -2,6 +2,7 @@
 
 namespace App\Mail;
 
+use Faker\Provider\Address;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
@@ -39,7 +40,10 @@ class Contact extends Mailable
     {
         return new Envelope(
             subject: 'New Contact Request',
-            from: $this->email,
+            from: new Address($this->email),
+            replyTo: [
+                new Address($this->email),
+            ],
         );
     }
 
