@@ -42,7 +42,7 @@
     <link href="{{asset('uplancer/css/bootstrap.min.css')}}" rel="stylesheet">
 
     <!-- Template Stylesheet -->
-    <link href="{{asset('/uplancer/css/style.css')}}" rel="stylesheet">
+    <link href="{{asset('/uplancer/css/style-rtl.css')}}" rel="stylesheet">
     <style>
         .project-item {
             transition: all 0.3s ease;
