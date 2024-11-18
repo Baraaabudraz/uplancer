@@ -146,6 +146,10 @@
                                             <span class="text-danger">{{$message}}</span>
                                             @enderror
                                         </div>
+                                        <div class="col-md-6 d-flex flex-column mb-8 fv-row">
+                                            <!-- Input for the slug (can be hidden or shown) -->
+                                            <input class="form-control form-control-solid" placeholder="Slug" name="slug" id="slug" value="" readonly>
+                                        </div>
                                         <div  class="col-md-6 ">
                                             <!--begin::Label-->
                                             <label class="d-flex align-items-center fs-6 fw-bold mb-2">
@@ -219,5 +223,24 @@
             }
         });
     </script>
+    <script>
+        document.querySelectorAll('input[name]').forEach(function(input) {
+            input.addEventListener('input', function() {
+                // Check if the input field's name is "name[en]"
+                if (this.name === 'name[en]') {
+                    let projectName = this.value;
+                    let slug = projectName
+                        .toLowerCase() // Convert to lowercase
+                        .trim() // Remove leading and trailing spaces
+                        .replace(/[\s\W-]+/g, '-') // Replace spaces and non-word characters with dashes
+                        .replace(/^-+|-+$/g, ''); // Remove leading and trailing dashes
 
+                    // Set the slug value in the slug input field
+                    document.getElementById('slug').value = slug;
+                }
+            });
+        });
+
+
+    </script>
 @endsection
