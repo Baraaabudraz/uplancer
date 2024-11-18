@@ -1,8 +1,8 @@
 @extends('Front.parent')
 @section('title','Home')
-@section('meta_title',setting()->meta_title)
-@section('meta_description',setting()->meta_description)
-@section('meta_keywords',setting()->meta_keyword)
+@section('meta_title',setting()->meta_title ?? '')
+@section('meta_description',setting()->meta_description ?? '')
+@section('meta_keywords',setting()->meta_keyword ?? '')
 @section('og:image',asset('uplancer/logo/up lancer team logo.svg'))
 @section('styles')
 <style>
