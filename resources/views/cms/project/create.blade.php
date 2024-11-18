@@ -136,36 +136,6 @@
                                     </div>
                                         @endforeach
 
-                                        @foreach(config('lang') as $key => $lang)
-                                            <div class="col-md-6 d-flex flex-column mb-8 fv-row">
-                                                <label class="d-flex align-items-center fs-6 fw-bold mb-2">
-                                                    <span class="required">{{trans('dashboard_trans.Meta Keywords')}} ({{$lang}})</span>
-                                                    <i class="fas fa-exclamation-circle ms-2 fs-7"
-                                                       data-bs-toggle="tooltip"
-                                                       title="{{trans('dashboard_trans.Meta Keywords')}}"></i>
-                                                </label>
-                                                <input class="form-control form-control-solid" placeholder="{{trans('dashboard_trans.Meta Keywords')}} " name="meta_keyword[{{$key}}]" value="{{old('meta_keyword.'.$key)}}" />
-                                                <span class="text-muted" style="font-size: 15px">قم بفصل كل كلمة عن الاخرى بعلامة (,)</span>
-                                            </div>
-                                        @endforeach
-
-
-                                        @foreach(config('lang') as $key => $lang)
-                                            <div class="col-md-6 d-flex flex-column mb-8 fv-row">
-                                                <!--begin::Label-->
-                                                <label class="d-flex align-items-center fs-6 fw-bold mb-2">
-                                                    <span class="required">{{trans('dashboard_trans.Meta Description')}} ({{$lang}})</span>
-                                                    <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="{{trans('dashboard_trans.Meta Description')}}"></i>
-                                                </label>
-                                                <!--end::Label-->
-                                                <textarea name="meta_description[{{$key}}]" class="form-control @error('meta_description') is-invalid @enderror">{{old('meta_description.'.$key)}}</textarea>
-                                                @error('meta_description.'.$key)
-                                                <span class="text-danger">{{$message}}</span>
-                                                @enderror
-                                            </div>
-                                        @endforeach
-
-
                                         <div class="col-md-6 d-flex flex-column mb-8 fv-row">
                                             <label class="d-flex align-items-center fs-6 fw-bold mb-2">{{trans('dashboard_trans.Services')}}</label>
                                             <select class="form-select" name="service_id" >
@@ -178,7 +148,12 @@
                                             <span class="text-danger" role="alert">{{ $message }}</span>
                                             @enderror
                                         </div>
-                                        <div  class="col-md-6 ">
+                                        <div class="col-md-6 d-flex flex-column mb-8 fv-row">
+                                            <!-- Input for the slug (can be hidden or shown) -->
+                                            <input class="form-control form-control-solid" placeholder="Slug" name="slug" id="slug" value="" readonly>
+                                        </div>
+
+                                        <div class="col-md-6 ">
                                             <!--begin::Label-->
                                             <label class="d-flex align-items-center fs-6 fw-bold mb-2">
                                                 <span class="required">{{trans('dashboard_trans.Image')}}</span>
@@ -191,12 +166,6 @@
                                             <input id="files" type="file" class="dropzone" name="images[]" multiple="multiple" accept="image/jpeg, image/png, image/jpg,image/webp">
                                         </div>
                                         <output id="result"></output>
-
-                                        <div  class="col-md-6 ">
-                                            <!-- Input for the slug (can be hidden or shown) -->
-                                            <input class="form-control form-control-solid" placeholder="Slug" name="slug" id="slug" value="" readonly>
-                                        </div>
-
                                 </div>
                                 <div class="card mb-5 mb-xl-10">
                                     <!--begin::Card header-->
