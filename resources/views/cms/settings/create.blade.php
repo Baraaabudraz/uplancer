@@ -217,6 +217,63 @@
                     </div>
                     <!--end::Content-->
                 </div>
+
+                <div class="card mb-5 mb-xl-10">
+                    <!--begin::Card header-->
+                    <div class="card-header border-0 cursor-pointer" role="button" data-bs-toggle="collapse" data-bs-target="#kt_account_notifications" aria-expanded="true" aria-controls="kt_account_notifications">
+                        <div class="card-title m-0">
+                            <h3 class="fw-bolder m-0">{{trans('dashboard_trans.Meta Settings')}}</h3>
+                        </div>
+                    </div>
+                    <!--begin::Card header-->
+                    <!--begin::Content-->
+                    <div id="kt_account_notifications" class="collapse show">
+                        <!--begin::Form-->
+                        <!--begin::Card body-->
+                        <div class="card-body border-top px-9 pt-3 pb-4">
+                            <div class="row mb-8">
+                                <!--begin::Col-->
+                                <div class="col-xl-3">
+                                    <div class="fs-6 fw-bold mt-2 mb-3">{{trans('dashboard_trans.Meta Title')}}</div>
+                                </div>
+                                <!--end::Col-->
+                                <!--begin::Col-->
+                                <div class="col-xl-9 fv-row fv-plugins-icon-container">
+                                    <textarea type="text" name="meta_title" class="form-control form-control-solid" placeholder="{{trans('dashboard_trans.Meta Title')}}">{{old('meta_title')}}</textarea>
+                                    <div class="fv-plugins-message-container invalid-feedback"></div></div>
+                                <!--begin::Col-->
+                            </div>
+                            <div class="row mb-8">
+                                <!--begin::Col-->
+                                <div class="col-xl-3">
+                                    <div class="fs-6 fw-bold mt-2 mb-3">{{trans('dashboard_trans.Meta Description')}}</div>
+                                </div>
+                                <!--end::Col-->
+                                <!--begin::Col-->
+                                <div class="col-xl-9 fv-row fv-plugins-icon-container">
+                                    <textarea type="text" name="meta_description" class="form-control form-control-solid" placeholder="{{trans('dashboard_trans.Meta Description')}}">{{old('meta_description')}}</textarea>
+                                    <div class="fv-plugins-message-container invalid-feedback"></div></div>
+                                <!--begin::Col-->
+                            </div>
+                            <div class="row mb-8">
+                                <!--begin::Col-->
+                                <div class="col-xl-3">
+                                    <div class="fs-6 fw-bold mt-2 mb-3">{{trans('dashboard_trans.Meta Keywords')}}</div>
+                                </div>
+                                <!--end::Col-->
+                                <!--begin::Col-->
+                                <div class="col-xl-9 fv-row fv-plugins-icon-container">
+                                    <textarea type="text" name="meta_keyword" class="form-control form-control-solid" placeholder="{{trans('dashboard_trans.Meta Keywords')}}">{{old('meta_keyword')}}</textarea>
+                                    <div class="fv-plugins-message-container invalid-feedback"></div></div>
+                                <!--begin::Col-->
+                            </div>
+                        </div>
+                        <!--end::Card body--><!--end::Form-->
+                    </div>
+                    <!--end::Content-->
+                </div>
+
+
                 <div class="card mb-5 mb-xl-10">
                     <!--begin::Card header-->
                     <div class="card-header border-0 cursor-pointer" role="button" data-bs-toggle="collapse" data-bs-target="#kt_account_connected_accounts" aria-expanded="true" aria-controls="kt_account_connected_accounts">

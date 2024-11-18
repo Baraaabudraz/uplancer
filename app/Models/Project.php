@@ -10,7 +10,7 @@ class Project extends Model
 {
     protected $guarded=[];
     use HasTranslations;
-    protected $translatable  = ['name'  , 'description' ];
+    protected $translatable  = ['name'  , 'description' ,'meta_keyword' ,'meta_description'];
 
     public function service(){
         return $this->belongsTo(Service::class,'service_id','id');

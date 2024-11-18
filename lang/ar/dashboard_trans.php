@@ -287,6 +287,10 @@ return [
     'Add Feature'=>'اضافة ميزة',
     'Technology'=>'التقنية',
     'Project not found'=>'المشروع غير موجود',
+    'Meta Keywords'=>'ميتا الكلمات المفتاحية',
+    'Meta Description'=>'ميتا الوصف',
+    'Meta Settings'=>'إعدادات الميتا والسيو',
+    'Meta Title'=>'ميتا العنوان',
 
 
 

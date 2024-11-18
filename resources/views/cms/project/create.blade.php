@@ -114,7 +114,7 @@
                                                    data-bs-toggle="tooltip"
                                                    title="{{trans('dashboard_trans.Enter the name of the project')}}"></i>
                                             </label>
-                                            <input class="form-control form-control-solid" placeholder="{{trans('dashboard_trans.Enter the name of the project')}} " name="name[{{$key}}]" value="{{old('name.'.$key)}}" />
+                                            <input class="form-control form-control-solid" placeholder="{{trans('dashboard_trans.Enter the name of the project')}} " name="name[{{$key}}]" id="name" value="{{old('name.'.$key)}}" />
                                             @error('name.'.$key)
                                             <span class="text-danger">{{$message}}</span>
                                             @enderror
@@ -135,6 +135,37 @@
                                         @enderror
                                     </div>
                                         @endforeach
+
+                                        @foreach(config('lang') as $key => $lang)
+                                            <div class="col-md-6 d-flex flex-column mb-8 fv-row">
+                                                <label class="d-flex align-items-center fs-6 fw-bold mb-2">
+                                                    <span class="required">{{trans('dashboard_trans.Meta Keywords')}} ({{$lang}})</span>
+                                                    <i class="fas fa-exclamation-circle ms-2 fs-7"
+                                                       data-bs-toggle="tooltip"
+                                                       title="{{trans('dashboard_trans.Meta Keywords')}}"></i>
+                                                </label>
+                                                <input class="form-control form-control-solid" placeholder="{{trans('dashboard_trans.Meta Keywords')}} " name="meta_keyword[{{$key}}]" value="{{old('meta_keyword.'.$key)}}" />
+                                                <span class="text-muted" style="font-size: 15px">قم بفصل كل كلمة عن الاخرى بعلامة (,)</span>
+                                            </div>
+                                        @endforeach
+
+
+                                        @foreach(config('lang') as $key => $lang)
+                                            <div class="col-md-6 d-flex flex-column mb-8 fv-row">
+                                                <!--begin::Label-->
+                                                <label class="d-flex align-items-center fs-6 fw-bold mb-2">
+                                                    <span class="required">{{trans('dashboard_trans.Meta Description')}} ({{$lang}})</span>
+                                                    <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="{{trans('dashboard_trans.Meta Description')}}"></i>
+                                                </label>
+                                                <!--end::Label-->
+                                                <textarea name="meta_description[{{$key}}]" class="form-control @error('meta_description') is-invalid @enderror">{{old('meta_description.'.$key)}}</textarea>
+                                                @error('meta_description.'.$key)
+                                                <span class="text-danger">{{$message}}</span>
+                                                @enderror
+                                            </div>
+                                        @endforeach
+
+
                                         <div class="col-md-6 d-flex flex-column mb-8 fv-row">
                                             <label class="d-flex align-items-center fs-6 fw-bold mb-2">{{trans('dashboard_trans.Services')}}</label>
                                             <select class="form-select" name="service_id" >
@@ -160,6 +191,12 @@
                                             <input id="files" type="file" class="dropzone" name="images[]" multiple="multiple" accept="image/jpeg, image/png, image/jpg,image/webp">
                                         </div>
                                         <output id="result"></output>
+
+                                        <div  class="col-md-6 ">
+                                            <!-- Input for the slug (can be hidden or shown) -->
+                                            <input class="form-control form-control-solid" placeholder="Slug" name="slug" id="slug" value="" readonly>
+                                        </div>
+
                                 </div>
                                 <div class="card mb-5 mb-xl-10">
                                     <!--begin::Card header-->
@@ -321,4 +358,24 @@
         });
     </script>
 
+    <script>
+        document.querySelectorAll('input[name]').forEach(function(input) {
+            input.addEventListener('input', function() {
+                // Check if the input field's name is "name[en]"
+                if (this.name === 'name[en]') {
+                    let projectName = this.value;
+                    let slug = projectName
+                        .toLowerCase() // Convert to lowercase
+                        .trim() // Remove leading and trailing spaces
+                        .replace(/[\s\W-]+/g, '-') // Replace spaces and non-word characters with dashes
+                        .replace(/^-+|-+$/g, ''); // Remove leading and trailing dashes
+
+                    // Set the slug value in the slug input field
+                    document.getElementById('slug').value = slug;
+                }
+            });
+        });
+
+
+    </script>
 @endsection

@@ -37,7 +37,7 @@ class SettingController extends Controller
         ]);
         $data = $request->only([
             'name', 'logo', 'phone', 'email', 'linkedin', 'company_site',
-            'facebook', 'instagram', 'x' , 'desc_contact' , 'about' , 'why_us'
+            'facebook', 'instagram', 'x' , 'desc_contact' , 'about' , 'why_us' , 'meta_title' , 'meta_description' , 'meta_keyword'
         ]);
 
         if ($request->hasFile('logo')) {
@@ -88,7 +88,7 @@ class SettingController extends Controller
         ]);
         $data = $request->only([
             'name', 'phone', 'email', 'linkedin', 'company_site' ,
-            'facebook', 'instagram', 'x' , 'desc_contact' , 'about' , 'why_us'
+            'facebook', 'instagram', 'x' , 'desc_contact' , 'about' , 'why_us', 'meta_title' , 'meta_description' , 'meta_keyword'
         ]);
 
         $settings = Setting::query()->first();

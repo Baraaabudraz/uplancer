@@ -181,7 +181,7 @@
             @endif
         </div>
 
-            <a href="#"  onclick="confirmDelete (this, '{{ $website_settings->id }}')"
+            <a href="#"  onclick="confirmDelete (this, '{{ $website_settings->id ?? '' }}')"
                class="btn btn-sm btn-light-danger">
                 <!--begin::Svg Icon | path: icons/duotone/General/Trash.svg-->
                 <span class="svg-icon svg-icon-3">

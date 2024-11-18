@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Setting;
 use App\Models\Team;
 
 function count_TeamMembers(){
@@ -10,3 +11,7 @@ function count_TeamMembers(){
 
 }
 
+ function setting()
+{
+    return Setting::query()->first();
+}

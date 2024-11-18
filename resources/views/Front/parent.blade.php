@@ -5,9 +5,19 @@
     <meta charset="utf-8">
     <title>Up Lancer | @yield('title')</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="" name="keywords">
-    <meta content="" name="description">
+    <meta name="application-name" content="Uplancer | Software Development for Businesses & Founders">
+    <meta name="author" content="Uplancer">
+    <meta property="og:title" content="@yield('meta_title')">
+    <meta content="@yield('meta_keywords')" name="keywords">
+    <meta content="@yield('meta_description')" name="description">
 
+    <meta property="og:keywords" content="@yield('meta_keywords')">
+    <meta property="og:description" content="@yield('meta_description')">
+    <meta property="og:image" content="@yield('og:image')">
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Uplancer | Software Development for Businesses & Founders">
+    <meta property="og:url" content="https://uplancerps.com">
     <!-- Favicon -->
     <link href="{{asset('uplancer/logo/up lancer team logo.svg')}}" rel="icon">
 

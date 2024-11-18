@@ -1,5 +1,9 @@
 @extends('Front.parent')
 @section('title','Home')
+@section('meta_title',setting()->meta_title)
+@section('meta_description',setting()->meta_description)
+@section('meta_keywords',setting()->meta_keyword)
+@section('og:image',asset('uplancer/logo/up lancer team logo.svg'))
 @section('styles')
 <style>
     .process-step {
@@ -367,7 +371,7 @@
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
                     <div class="bg-white p-5 rounded shadow-lg text-center">
                         <h3 class="mb-4 text-primary">Why Trust Us?</h3>
-                        <p class="text-dark">{{$settings->why_us}}</p>
+                        <p class="text-dark">{{$settings->why_us ?? ''}}</p>
                         <a href="{{route('about')}}" class="btn btn-primary rounded-pill py-3 px-5">Learn More</a>
                     </div>
                 </div>
@@ -391,7 +395,7 @@
                         <div class="position-relative mb-3">
                             <img class="img-fluid rounded lazyload"   src="{{url('images/projects/',json_decode($project->images)[0])}}" alt="">
                                 <div class="overlay">
-                                    <a href="{{route('project-show',$project->id)}}" class="view-icon">
+                                    <a href="{{route('project-show',$project->slug)}}" class="view-icon">
                                         <i class="fa fa-eye fa-2x"></i>
                                     </a>
                                 </div>

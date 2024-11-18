@@ -32,9 +32,9 @@ class FrontController extends Controller
         return view('Front.project',compact('projects'));
 
     }
-    public function showProject($id){
+    public function showProject($slug){
 
-        $project = Project::query()->with('service')->findOrFail($id);
+        $project = Project::query()->with('service')->where('slug',$slug)->first();
         return view('Front.show-project',compact('project'));
 
     }

@@ -41,7 +41,7 @@ class ProjectController extends Controller
 
         ]);
         $data = $request->only([
-            'name' ,'description' , 'service_id' , 'features' ,'technology'
+            'name' ,'description' , 'service_id' , 'features' ,'technology','slug','meta_keyword' ,'meta_description'
         ]);
         if ($request->hasFile('images')) {
             foreach ($request->file('images') as $image) {
@@ -102,7 +102,7 @@ class ProjectController extends Controller
 
         ]);
         $data = $request->only([
-            'name', 'description', 'service_id', 'features', 'technology'
+            'name', 'description', 'service_id', 'features', 'technology','slug','meta_keyword' ,'meta_description'
         ]);
         $project = Project::find($id);
 

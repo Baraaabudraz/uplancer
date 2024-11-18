@@ -288,7 +288,9 @@ return [
     'Add Feature'=>'Add Feature',
     'Technology'=>'Technology',
     'Project not found'=>'Project not found',
-
+    'Meta Keywords'=>'Meta Keywords',
+    'Meta Description'=>'Meta Description',
+    'Meta Title'=>'Meta Title',
 
 
 

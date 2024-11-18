@@ -1,5 +1,9 @@
 @extends('Front.parent')
 @section('title', $project->name)
+@section('meta_title', $project->name)
+@section('meta_description', $project->meta_description)
+@section('meta_keywords', $project->meta_keyword)
+@section('og:image',asset('images/projects/'.json_decode($project->images)[0]))
 @section('styles')
     <style>
         .project-image img {
