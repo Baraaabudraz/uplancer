@@ -78,14 +78,14 @@
                             <i class="fa fa-phone-alt fa-3x text-primary"></i>
                         </div>
                         <h5 class="mb-3">Call Us</h5>
-                        <p class="mb-2">{{$settings->phone}}</p>
+                        <p class="mb-2">{{$settings->phone ?? ''}}</p>
                     </div>
                     <div class="contact-info text-center rounded p-4 shadow wow fadeInUp" data-wow-delay="0.4s">
                         <div class="icon mb-4">
                             <i class="fa fa-envelope fa-3x text-primary"></i>
                         </div>
                         <h5 class="mb-3">Email Us</h5>
-                        <p class="mb-2">{{$settings->email}}</p>
+                        <p class="mb-2">{{$settings->email ?? ''}}</p>
                     </div>
 {{--                    <div class="contact-info text-center rounded p-4 shadow wow fadeInUp" data-wow-delay="0.6s">--}}
 {{--                        <div class="icon mb-4">--}}
