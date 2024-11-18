@@ -26,10 +26,11 @@ class ServiceController extends Controller
             'description.*' => 'nullable|string',
             'icon' => 'nullable|string',
             'image' => 'nullable|image',
+            'slug' => 'string|unique:services,slug',
         ]);
 
         $data = $request->only([
-            'name', 'description', 'icon'
+            'name', 'description', 'icon' ,'slug'
         ]);
 
         if ($request->hasFile('image')) {
@@ -92,9 +93,11 @@ class ServiceController extends Controller
             'description.*' => 'nullable|string',
             'icon' => 'nullable|string',
             'image' => 'nullable|image',
+            'slug' => 'string|unique:services,slug',
+
         ]);
         $data = $request->only([
-            'description', 'name', 'icon'
+            'description', 'name', 'icon' ,'slug'
         ]);
 
         $service = Service::query()->find($id);
