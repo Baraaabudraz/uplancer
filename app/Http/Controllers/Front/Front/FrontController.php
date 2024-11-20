@@ -35,6 +35,7 @@ class FrontController extends Controller
     public function showProject($slug){
 
         $project = Project::query()->with('service')->where('slug',$slug)->first();
+//        dd(array($project->features));
         return view('Front.show-project',compact('project'));
 
     }
