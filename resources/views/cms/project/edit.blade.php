@@ -184,18 +184,19 @@
                                         <!--begin::Form-->
                                         <!--begin::Card body-->
                                         <div class="card-body border-top px-9 pt-3 pb-4">
+                                            @foreach(config('lang') as $key => $lang)
                                             <div class="row mb-8">
                                                 <!--begin::Col-->
                                                 <div class="col-xl-3">
-                                                    <div class="fs-6 fw-bold mt-2 mb-3">{{trans('dashboard_trans.Project Features')}}</div>
+                                                    <div class="fs-6 fw-bold mt-2 mb-3">{{trans('dashboard_trans.Project Features')}} ({{$lang}})</div>
                                                 </div>
                                                 <!--end::Col-->
                                                 <!--begin::Col-->
                                                 <div class="col-xl-9 fv-row fv-plugins-icon-container">
                                                     <div id="features-container">
-                                                        @foreach(json_decode($project->features) as $features)
+                                                        @foreach($project->features as $feature)
                                                         <div class="feature-input d-flex mb-3">
-                                                            <input type="text" name="features[]" class="form-control form-control-solid" placeholder="{{trans('dashboard_trans.Features')}}" value="{{$features}}">
+                                                            <input type="text" name="features[{{$key}}]" class="form-control form-control-solid" placeholder="{{trans('dashboard_trans.Features')}}" value="{{$feature}}">
                                                         </div>
                                                         @endforeach
                                                     </div>
@@ -204,8 +205,8 @@
                                                     <div class="fv-plugins-message-container invalid-feedback"></div>
                                                 </div>
                                                 <!--end::Col-->
-
                                             </div>
+                                            @endforeach
                                             <div class="row mb-8">
                                                 <!--begin::Col-->
                                                 <div class="col-xl-3">
