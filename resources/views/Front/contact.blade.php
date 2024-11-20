@@ -61,8 +61,8 @@
     <div class="container-xxl py-5">
         <div class="container">
             <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-                <h6 class="section-title bg-white text-center text-primary px-3">Get In Touch</h6>
-                <h1 class="display-6 mb-4">We'd Love To Hear From You!</h1>
+                <h6 class="section-title bg-white text-center text-primary px-3">{{trans('home_trans.Get In Touch')}}</h6>
+                <h1 class="display-6 mb-4">{{trans('home_trans.We Would Love To Hear From You!')}}</h1>
             </div>
             @if(session()->has('alert-type'))
                 <div class="alert {{session()->get('alert-type')}} alert-custom alert-notice alert-light-primary fade show" role="alert">
@@ -77,14 +77,14 @@
                         <div class="icon mb-4">
                             <i class="fa fa-phone-alt fa-3x text-primary"></i>
                         </div>
-                        <h5 class="mb-3">Call Us</h5>
+                        <h5 class="mb-3">{{trans('home_trans.Call Us')}}</h5>
                         <p class="mb-2">{{$settings->phone ?? ''}}</p>
                     </div>
                     <div class="contact-info text-center rounded p-4 shadow wow fadeInUp" data-wow-delay="0.4s">
                         <div class="icon mb-4">
                             <i class="fa fa-envelope fa-3x text-primary"></i>
                         </div>
-                        <h5 class="mb-3">Email Us</h5>
+                        <h5 class="mb-3">{{trans('home_trans.Email Us')}}</h5>
                         <p class="mb-2">{{$settings->email ?? ''}}</p>
                     </div>
 {{--                    <div class="contact-info text-center rounded p-4 shadow wow fadeInUp" data-wow-delay="0.6s">--}}
@@ -99,14 +99,14 @@
                 <!-- Contact Form -->
                 <div class="col-lg-8">
                     <div class="wow fadeInUp" data-wow-delay="0.5s">
-                        <p class="text-center mb-4">Get in touch with us now to start your journey towards success. Our team is ready to assist you with your inquiries and provide the best solutions for your needs.</p>
+                        <p class="text-center mb-4">{{trans('home_trans.Get in touch with us now to start your journey towards success. Our team is ready to assist you with your inquiries and provide the best solutions for your needs.')}}</p>
                         <form action="{{route('send-contact-form')}}" method="post">
                             @csrf
                             <div class="row g-3">
                                 <div class="col-md-6">
                                     <div class="form-floating">
                                         <input type="text" name="name" class="form-control" id="name" placeholder="Your Name">
-                                        <label for="name">Your Name</label>
+                                        <label for="name">{{trans('home_trans.Your Name')}}</label>
                                     </div>
                                     @error('name')
                                     <span class="text-danger" role="alert">{{ $message }}</span>
@@ -115,7 +115,7 @@
                                 <div class="col-md-6">
                                     <div class="form-floating">
                                         <input type="email" name="email" class="form-control" id="email" placeholder="Your Email">
-                                        <label for="email">Your Email</label>
+                                        <label for="email">{{trans('home_trans.Email')}}</label>
                                     </div>
                                     @error('email')
                                     <span class="text-danger" role="alert">{{ $message }}</span>
@@ -124,7 +124,7 @@
                                 <div class="col-12">
                                     <div class="form-floating">
                                         <input type="text" name="topic" class="form-control" id="topic" placeholder="Subject">
-                                        <label for="subject">Subject</label>
+                                        <label for="subject">{{trans('home_trans.Subject')}}</label>
                                     </div>
                                     @error('subject')
                                     <span class="text-danger" role="alert">{{ $message }}</span>
@@ -133,14 +133,14 @@
                                 <div class="col-12">
                                     <div class="form-floating">
                                         <textarea class="form-control" name="message" placeholder="Leave a message here" id="message" style="height: 200px"></textarea>
-                                        <label for="message">Message</label>
+                                        <label for="message">{{trans('home_trans.Message')}}</label>
                                     </div>
                                     @error('message')
                                     <span class="text-danger" role="alert">{{ $message }}</span>
                                     @enderror
                                 </div>
                                 <div class="col-12 text-center">
-                                    <button class="btn btn-primary rounded-pill py-3 px-5" type="submit">Send Message</button>
+                                    <button class="btn btn-primary rounded-pill py-3 px-5" type="submit">{{trans('home_trans.Send Message')}}</button>
                                 </div>
                             </div>
                         </form>
@@ -148,7 +148,7 @@
                         <!-- WhatsApp Contact -->
                         <div class="col-12 text-center mt-4">
                             <a class="btn btn-success rounded-pill py-3 px-5" href="https://wa.me/+970597644664" target="_blank">
-                                <i class="fa fa-phone-square-alt me-3"></i>Contact Us on WhatsApp
+                                <i class="fa fa-phone-square-alt ms-3"></i>{{trans('home_trans.Contact Us on WhatsApp')}}
                             </a>
                         </div>
                     </div>
