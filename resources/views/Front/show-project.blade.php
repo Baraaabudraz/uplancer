@@ -42,9 +42,9 @@
 
                     <ul class="list-unstyled mb-4">
 {{--                        <li><strong>Client:</strong> </li>--}}
-                        <li><strong>Date:</strong> {{ $project->created_at->format('F j, Y') }}</li>
-                        <li><strong>Category:</strong> {{ $project->service->name }}</li>
-                        <li><strong>Technology:</strong> {{ $project->technology }}</li>
+                        <li><strong>{{trans('home_trans.Date')}}:</strong> {{ $project->created_at->format('F j, Y') }}</li>
+                        <li><strong>{{trans('home_trans.Category')}}:</strong> {{ $project->service->name }}</li>
+                        <li><strong>{{trans('home_trans.Technology')}}:</strong> {{ $project->technology }}</li>
                     </ul>
 
 {{--                    <a href="#" class="btn btn-primary rounded-pill py-3 px-5" target="_blank">Visit Project</a>--}}
@@ -53,22 +53,26 @@
 
             <div class="row g-5 mt-5">
                 <div class="col-lg-12 wow fadeInUp" data-wow-delay="0.3s">
-                    <h2 class="mb-4">Project Features</h2>
-                    @if(json_decode($project->features))
+                    <h2 class="mb-4">{{trans('home_trans.Project Features')}}</h2>
+                    @if($project && $project->features)
                         <ul class="list-group list-group-flush">
-                            @foreach(json_decode($project->features) as $feature)
+                            @foreach($project->features as $feature)
                                 <li class="list-group-item">
-                                    {{$feature}}
+                                    <p>
+                                        {{$feature}}
+                                    </p>
                                 </li>
                             @endforeach
                         </ul>
-                </div>
-                @else
+                    @else
+
                     <p>No features available for this project.</p>
                 @endif
             </div>
+            </div>
 
         </div>
+
     </div>
     <!-- Project Details End -->
 
