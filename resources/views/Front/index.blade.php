@@ -52,20 +52,20 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6">
-                    <h1 class="display-4 font-weight-bold ">Software Development for Businesses & Founders</h1>
+                    <h1 class="display-4 font-weight-bold ">{{trans('home_trans.Software Development for Businesses & Founders')}}</h1>
                     <p class="lead mt-4"></p>
                     <ul class="list-unstyled  mt-4" style="font-size: 22px; color: black">
                         <li class="mb-2">
-                            <i class="fa fa-check-circle text-primary"></i> Skilled in development, design, & marketing.
+                            <i class="fa fa-check-circle text-primary"></i> {{trans('home_trans.Skilled in development, design, & marketing')}}
                         </li>
                         <li class="mb-2">
-                            <i class="fa fa-check-circle text-primary"></i> Acquire a high-performing distributed team.
+                            <i class="fa fa-check-circle text-primary"></i> {{trans('home_trans.Acquire a high-performing distributed team')}}
                         </li>
                         <li class="mb-2">
-                            <i class="fa fa-check-circle text-primary"></i> Trusted by founders for cost-effective solutions.
+                            <i class="fa fa-check-circle text-primary"></i> {{trans('home_trans.Trusted by founders for cost-effective solutions')}}
                         </li>
                     </ul>
-                    <button type="button" class="btn btn-primary btn-lg mt-3" data-toggle="modal" data-target="#exampleModal">Get Started</button>
+                    <button type="button" class="btn btn-primary btn-lg mt-3" data-toggle="modal" data-target="#exampleModal">{{trans('home_trans.Start with Up Lancer')}}</button>
                 </div>
                 <div class="col-lg-6">
                     <img src="{{asset('images/site/hero-team.svg')}}" alt="Business Illustration" class="img-fluid">
@@ -79,7 +79,7 @@
                 @csrf
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Let's talk</h5>
+                        <h5 class="modal-title">{{trans('home_trans.Lets talk')}}</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -87,7 +87,7 @@
                     <div class="row modal-body">
                         <div class="col-md-6 d-flex flex-column mb-8 fv-row">
                             <label class="d-flex align-items-center fs-6 fw-bold mb-2">
-                                <span class="required">Company Name</span>
+                                <span class="required">{{trans('home_trans.Company Name')}}</span>
                             </label>
                             <input class="form-control form-control-solid" placeholder="" name="company_name" value="" >
                             @error('company_name')
@@ -96,7 +96,7 @@
                         </div>
                         <div class="col-md-6 d-flex flex-column mb-8 fv-row">
                             <label class="d-flex align-items-center fs-6 fw-bold mb-2">
-                                <span class="required">Name</span>
+                                <span class="required">{{trans('home_trans.Your Name')}}</span>
                             </label>
                             <input class="form-control form-control-solid" placeholder="" name="name" value="" >
                             @error('name')
@@ -105,7 +105,7 @@
                         </div>
                         <div class="col-md-12 d-flex flex-column mb-8 fv-row">
                             <label class="d-flex align-items-center fs-6 fw-bold mb-2">
-                                <span class="required">Email</span>
+                                <span class="required">{{trans('home_trans.Email')}}</span>
                             </label>
                             <input class="form-control form-control-solid" placeholder="" name="email" value="" >
                             @error('email')
@@ -114,7 +114,7 @@
                         </div>
                         <div class="col-md-12 d-flex flex-column mb-8 fv-row py-2">
                             <label class="d-flex align-items-center fs-6 fw-bold mb-2">
-                                <span class="required">Phone Number</span>
+                                <span class="required">{{trans('home_trans.Phone Number')}}</span>
                             </label>
                             <input class="form-control form-control-solid" placeholder="" name="phone" value="" >
                             @error('phone')
@@ -124,25 +124,25 @@
                         <fieldset class="form-group">
                             <div class="row">
                                 <label class="d-flex align-items-center fs-6 fw-bold mb-2">
-                                    <span class="required">What can Up Lancer do for you?</span>
+                                    <span class="required">{{trans('home_trans.What can Up Lancer do for you?')}}</span>
                                 </label>
                                 <div class="col-sm-10">
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" name="service" id="Radios1"  value="option1">
                                         <label class="form-check-label" for="Radios1">
-                                            Create an Amazing New Product
+                                            {{trans('home_trans.Create an Amazing New Product')}}
                                         </label>
                                     </div>
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" name="service" id="Radios2" value="option2" >
                                         <label class="form-check-label" for="Radios2">
-                                            Make my great product even greater
+                                            {{trans('home_trans.Make my great product even greater')}}
                                         </label>
                                     </div>
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" name="service" id="Radios3" value="option3">
                                         <label class="form-check-label" for="Radios3">
-                                            Something else
+                                            {{trans('home_trans.Something else')}}
                                         </label>
                                     </div>
                                 </div>
@@ -150,7 +150,7 @@
                         </fieldset>
                         <div class="col-md-12 d-flex flex-column mb-8 fv-row py-2">
                             <label class="d-flex align-items-center fs-6 fw-bold mb-2">
-                                <span class="required">Can you tell us more about that?</span>
+                                <span class="required">{{trans('home_trans.Can you tell us more about that?')}}</span>
                             </label>
                             <textarea class="form-control form-control-solid" placeholder="" name="message" ></textarea>
                             @error('message')
@@ -160,7 +160,7 @@
                         <fieldset class="form-group">
                             <div class="row">
                                 <label class="d-flex align-items-center fs-6 fw-bold mb-2">
-                                    <span class="required">What is your budget?</span>
+                                    <span class="required">{{trans('home_trans.What is your budget?')}}</span>
                                 </label>
                                 <div class="col-sm-10">
                                     <div class="form-check">
@@ -192,7 +192,7 @@
                         </fieldset>
                         <div class="col-md-12 d-flex flex-column mb-8 fv-row py-2">
                             <label class="d-flex align-items-center fs-6 fw-bold mb-2">
-                                <span class="required">How did you hear about Up Lancer?</span>
+                                <span class="required">{{trans('home_trans.How did you hear about Up Lancer?')}}</span>
                             </label>
                             <input class="form-control form-control-solid" placeholder="" name="hear" value="">
                             @error('hear')
@@ -201,7 +201,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary ">Submit</button>
+                        <button type="submit" class="btn btn-primary ">{{trans('home_trans.Submit')}}</button>
                     </div>
                 </div>
             </form>
@@ -219,9 +219,9 @@
             <div class="row g-5 align-items-center">
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="h-100">
-                        <h6 class="section-title text-start text-primary">About Us</h6>
+                        <h6 class="section-title text-start text-primary">{{trans('home_trans.Discover Our Story')}}</h6>
                         <h1 class="display-6 mb-4">
-                            Empower Your Success with <span class="text-primary">Up Lancer</span> - Where Excellence Meets Innovation
+                            {{trans('home_trans.Empower Your Success with')}} <span class="text-primary">{{trans('home_trans.Up Lancer')}}</span> - {{trans('home_trans.Where Excellence Meets Innovation')}}
                         </h1>
                         <p class="lead text-muted mb-4">
 {{--                            {{$settings->about}}--}}
@@ -232,13 +232,13 @@
                                 <div class="bg-white rounded-circle p-3 shadow-sm mb-3" style="width: 80px; height: 80px; margin: 0 auto;">
                                     <i class="fas fa-lightbulb fa-2x text-primary"></i>
                                 </div>
-                                <h5 class="mb-0">Innovative Solutions</h5>
+                                <h5 class="mb-0">{{trans('home_trans.Innovative Solutions')}}</h5>
                             </div>
                             <div class="col-6 text-center">
                                 <div class="bg-white rounded-circle p-3 shadow-sm mb-3" style="width: 80px; height: 80px; margin: 0 auto;">
                                     <i class="fas fa-award fa-2x text-primary"></i>
                                 </div>
-                                <h5 class="mb-0">Award-Winning Expertise</h5>
+                                <h5 class="mb-0">{{trans('home_trans.Award-Winning Expertise')}}</h5>
                             </div>
                         </div>
 
@@ -247,13 +247,13 @@
                                 <div class="bg-white rounded-circle p-3 shadow-sm mb-3" style="width: 80px; height: 80px; margin: 0 auto;">
                                     <i class="fas fa-users fa-2x text-primary"></i>
                                 </div>
-                                <h5 class="mb-0">Customer-Centric</h5>
+                                <h5 class="mb-0">{{trans('home_trans.Customer-Centric')}}</h5>
                             </div>
                             <div class="col-6 text-center">
                                 <div class="bg-white rounded-circle p-3 shadow-sm mb-3" style="width: 80px; height: 80px; margin: 0 auto;">
                                     <i class="fas fa-shield-alt fa-2x text-primary"></i>
                                 </div>
-                                <h5 class="mb-0">Security & Trust</h5>
+                                <h5 class="mb-0">{{trans('home_trans.Security & Trust')}}</h5>
                             </div>
                         </div>
                     </div>
@@ -261,15 +261,15 @@
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
                     <div class="h-100 d-flex flex-column justify-content-center">
                         <div class="p-4 bg-white shadow-lg rounded mb-4">
-                            <h3 class="text-primary mb-3">Our Vision</h3>
+                            <h3 class="text-primary mb-3">{{trans('home_trans.Our Vision')}}</h3>
                             <p class="text-dark">
-                                At Up Lancer, our vision is to redefine the standards of quality and innovation in every sector we serve. We believe in creating impactful solutions that not only meet the needs of today but anticipate the challenges of tomorrow.
+                                {{trans('home_trans.At Up Lancer, our vision is to redefine the standards of quality and innovation in every sector we serve. We believe in creating impactful solutions that not only meet the needs of today but anticipate the challenges of tomorrow.')}}
                             </p>
                         </div>
                         <div class="p-4 bg-white shadow-lg rounded">
-                            <h3 class="text-primary mb-3">Our Mission</h3>
+                            <h3 class="text-primary mb-3">{{trans('home_trans.Our Mission')}}</h3>
                             <p class="text-dark">
-                                Our mission is to empower businesses to reach their full potential by providing expert solutions that are innovative, reliable, and tailored to meet the unique goals of each client.
+                                {{trans('home_trans.Our mission is to empower businesses to reach their full potential by providing expert solutions that are innovative, reliable, and tailored to meet the unique goals of each client.')}}
                             </p>
                         </div>
                     </div>
@@ -286,7 +286,7 @@
         <div class="container">
             <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
                 <h6 class="section-title bg-white text-center text-primary px-3">{{trans('home_trans.Services')}}</h6>
-                <h1 class="display-6 mb-4">We Focus On Making The Best In All Sectors</h1>
+                <h1 class="display-6 mb-4">{{trans('home_trans.We Focus On Making The Best In All Sectors')}}</h1>
             </div>
             <div class="row g-4">
                 @foreach($services as $service)
@@ -312,56 +312,56 @@
             <div class="row g-5 align-items-center">
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="h-100">
-                        <h6 class="section-title text-start text-primary">Why Choose Us</h6>
-                        <h1 class="display-6 mb-4">Why People Trust Us?</h1>
+                        <h6 class="section-title text-start text-primary">{{trans('home_trans.Why Up Lancer?')}}</h6>
+                        <h1 class="display-6 mb-4">{{trans('home_trans.Why People Trust Us?')}}</h1>
                         <div class="why-us-content">
                             <div class="why-item mb-4 d-flex align-items-start" data-animate="fade-up">
-                                <div class="icon-wrapper bg-primary text-white rounded-circle p-3 me-3">
-                                    <i class="fas fa-lightbulb fa-2x"></i>
+                                <div class="icon-wrapper bg-primary text-white rounded-circle p-3 ms-3">
+                                        <i class="fas fa-lightbulb fa-2x"></i>
                                 </div>
                                 <div>
-                                    <h5>Innovative Solutions</h5>
-                                    <p class="text-muted">At UP Lancer, we don’t just follow trends – we set them. Our team is committed to innovation, delivering cutting-edge web and mobile solutions.</p>
+                                    <h5>{{trans('home_trans.Innovative Solutions')}}</h5>
+                                    <p class="text-muted">{{trans('home_trans.At UP Lancer, we don’t just follow trends – we set them. Our team is committed to innovation, delivering cutting-edge web and mobile solutions.')}}</p>
                                 </div>
                             </div>
 
                             <div class="why-item mb-4 d-flex align-items-start" data-animate="fade-up">
-                                <div class="icon-wrapper bg-primary text-white rounded-circle p-3 me-3">
+                                <div class="icon-wrapper bg-primary text-white rounded-circle p-3 ms-3">
                                     <i class="fas fa-check-circle fa-2x"></i>
                                 </div>
                                 <div>
-                                    <h5>Quality-Driven Processes</h5>
-                                    <p class="text-muted">Our development process ensures timely delivery and the highest standards of quality.</p>
+                                    <h5>{{trans('home_trans.Quality-Driven Processes')}}</h5>
+                                    <p class="text-muted">{{trans('home_trans.Our development process ensures timely delivery and the highest standards of quality.')}}</p>
                                 </div>
                             </div>
 
                             <div class="why-item mb-4 d-flex align-items-start" data-animate="fade-up">
-                                <div class="icon-wrapper bg-primary text-white rounded-circle p-3 me-3">
+                                <div class="icon-wrapper bg-primary text-white rounded-circle p-3 ms-3">
                                     <i class="fas fa-leaf fa-2x"></i>
                                 </div>
                                 <div>
-                                    <h5>Long-Term Value</h5>
-                                    <p class="text-muted">We focus on mas-customization and long-term, helping your business grow without frequent redevelopments.</p>
+                                    <h5>{{trans('home_trans.Long-Term Value')}}</h5>
+                                    <p class="text-muted">{{trans('home_trans.We focus on mas-customization and long-term, helping your business grow without frequent redevelopments.')}}</p>
                                 </div>
                             </div>
 
                             <div class="why-item mb-4 d-flex align-items-start" data-animate="fade-up">
-                                <div class="icon-wrapper bg-primary text-white rounded-circle p-3 me-3">
+                                <div class="icon-wrapper bg-primary text-white rounded-circle p-3 ms-3">
                                     <i class="fas fa-users fa-2x"></i>
                                 </div>
                                 <div>
-                                    <h5>Collaborative Partnership</h5>
-                                    <p class="text-muted">We work closely with our clients to tailor solutions to their needs and business goals.</p>
+                                    <h5>{{trans('home_trans.Collaborative Partnership')}}</h5>
+                                    <p class="text-muted">{{trans('home_trans.We work closely with our clients to tailor solutions to their needs and business goals.')}}</p>
                                 </div>
                             </div>
 
                             <div class="why-item d-flex align-items-start" data-animate="fade-up">
-                                <div class="icon-wrapper bg-primary text-white rounded-circle p-3 me-3">
+                                <div class="icon-wrapper bg-primary text-white rounded-circle p-3 ms-3">
                                     <i class="fas fa-lock fa-2x"></i>
                                 </div>
                                 <div>
-                                    <h5>Security & Reliability</h5>
-                                    <p class="text-muted">We provide secure and robust solutions to protect your data and operations.</p>
+                                    <h5>{{trans('home_trans.Security & Reliability')}}</h5>
+                                    <p class="text-muted">{{trans('home_trans.We provide secure and robust solutions to protect your data and operations.')}}</p>
                                 </div>
                             </div>
                         </div>
@@ -370,9 +370,9 @@
 
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
                     <div class="bg-white p-5 rounded shadow-lg text-center">
-                        <h3 class="mb-4 text-primary">Why Trust Us?</h3>
+                        <h3 class="mb-4 text-primary">{{trans('home_trans.Why Trust Up Lancer?')}}</h3>
                         <p class="text-dark">{{$settings->why_us ?? ''}}</p>
-                        <a href="{{route('about')}}" class="btn btn-primary rounded-pill py-3 px-5">Learn More</a>
+                        <a href="{{route('about')}}" class="btn btn-primary rounded-pill py-3 px-5">{{trans('home_trans.Learn More')}}</a>
                     </div>
                 </div>
             </div>
@@ -385,8 +385,8 @@
     <div class="container-xxl py-5">
         <div class="container">
             <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s">
-                <h6 class="section-title bg-white text-center text-primary px-3">Our Projects</h6>
-                <h1 class="display-6 mb-4">Learn More About Our Complete Projects</h1>
+                <h6 class="section-title bg-white text-center text-primary px-3">{{trans('home_trans.Our Projects')}}</h6>
+                <h1 class="display-6 mb-4">{{trans('home_trans.Learn More About Our Complete Projects')}}</h1>
             </div>
             <div class="row g-4">
                 @foreach($projects as $project)
@@ -406,7 +406,7 @@
             </div>
                 @endforeach
             <div class="text-center mt-5">
-                <a href="{{route('projects')}}" class="btn btn-primary rounded-pill py-3 px-5">View All Projects</a>
+                <a href="{{route('projects')}}" class="btn btn-primary rounded-pill py-3 px-5">{{trans('home_trans.View All Projects')}}</a>
             </div>
         </div>
     </div>
@@ -447,8 +447,8 @@
     <!-- Start: Up Lancer Process Section -->
     <div class="container-fluid bg-light py-5 mt-5 wow fadeInUp" data-wow-delay="0.1s" style="border-top: 1px solid #eaeaea;">
         <div class="container text-center">
-            <h2 class="mb-4 display-5 text-primary">You’re going to love your Up Lancer</h2>
-            <p class="text-dark mb-5">Including the people behind the scenes.</p>
+            <h2 class="mb-4 display-5 text-primary">{{trans('home_trans.You’re going to love your Up Lancer')}}</h2>
+            <p class="text-dark mb-5">{{trans('home_trans.Including the people behind the scenes')}}</p>
 
             <div class="row g-5 text-start align-items-center justify-content-center">
                 <!-- Step 1 -->
@@ -457,8 +457,8 @@
                         <div class="step-icon mb-4">
                             <i class="fas fa-pencil-ruler fa-3x text-primary"></i>
                         </div>
-                        <h5 class="mb-3">Tell us about your product</h5>
-                        <p class="text-muted">Share your ideas, and we'll turn them into reality. We'll gather all your needs to start crafting the perfect solution.</p>
+                        <h5 class="mb-3">{{trans('home_trans.Tell us about your product')}}</h5>
+                        <p class="text-muted">{{trans('home_trans.Share your ideas, and we will turn them into reality. We will gather all your needs to start crafting the perfect solution.')}}</p>
                     </div>
                 </div>
 
@@ -468,8 +468,8 @@
                         <div class="step-icon mb-4">
                             <i class="fas fa-laptop-code fa-3x text-primary"></i>
                         </div>
-                        <h5 class="mb-3">Kick things off with a prototype</h5>
-                        <p class="text-muted">We begin with a working prototype, allowing you to visualize your product and test its core features before moving forward.</p>
+                        <h5 class="mb-3">{{trans('home_trans.Kick things off with a prototype')}}</h5>
+                        <p class="text-muted">{{trans('home_trans.We begin with a working prototype, allowing you to visualize your product and test its core features before moving forward.')}}</p>
                     </div>
                 </div>
 
@@ -479,8 +479,8 @@
                         <div class="step-icon mb-4">
                             <i class="fas fa-edit fa-3x text-primary"></i>
                         </div>
-                        <h5 class="mb-3">Make changes before we build</h5>
-                        <p class="text-muted">Once the prototype is reviewed, you can suggest changes. We’ll fine-tune everything to ensure it’s just right.</p>
+                        <h5 class="mb-3">{{trans('home_trans.Make changes before we build')}}</h5>
+                        <p class="text-muted">{{trans('home_trans.Once the prototype is reviewed, you can suggest changes. We’ll fine-tune everything to ensure it’s just right.')}}</p>
                     </div>
                 </div>
 
@@ -490,8 +490,8 @@
                         <div class="step-icon mb-4">
                             <i class="fas fa-check-circle fa-3x text-primary"></i>
                         </div>
-                        <h5 class="mb-3">Get the exact product your users need</h5>
-                        <p class="text-muted">Once all changes are made, we deliver a flawless final product that’s ready to provide an excellent user experience.</p>
+                        <h5 class="mb-3">{{trans('home_trans.Get the exact product your users need')}}</h5>
+                        <p class="text-muted">{{trans('home_trans.Once all changes are made, we deliver a flawless final product that’s ready to provide an excellent user experience.')}}</p>
                     </div>
                 </div>
             </div>
@@ -503,17 +503,17 @@
                 <!-- Left Text Section -->
                 <div class="col-lg-6 mb-5 mb-lg-0">
                     <h2 class="display-4 fw-bold text-primary mb-4">
-                        Plug in Up Lancer
+                        {{trans('home_trans.Plug in Up Lancer')}}
                     </h2>
                     <p class="lead text-dark mb-4">
-                        We’ve refined our process from product prototyping to continuous quality.
+                        {{trans('home_trans.We’ve refined our process from product prototyping to continuous quality.')}}
                     </p>
                     <p class="text-dark mb-4">
-                        Get a new product that works reliably so you can bring it to market quickly and with confidence. Or add a Up Lancer to your distributed team to help lighten your load for an important feature add-on, API product or internal project.
+                        {{trans('home_trans.Get a new product that works reliably so you can bring it to market quickly and with confidence. Or add a Up Lancer to your distributed team to help lighten your load for an important feature add-on, API product or internal project.')}}
                     </p>
                     <!-- Get Started Button -->
                     <button type="button" class="btn btn-primary px-4 py-2 rounded-pill text-white" data-toggle="modal" data-target="#exampleModal">
-                        Get Started
+                        {{trans('home_trans.Start with Up Lancer')}}
                     </button>
                 </div>
                 <!-- Right Image Section -->
