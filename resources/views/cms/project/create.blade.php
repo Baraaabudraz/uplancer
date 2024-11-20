@@ -95,7 +95,7 @@
                         <!--end::Title-->
                         <!--begin::Description-->
                         <div class="text-gray-400 fw-bold fs-5">{{trans('dashboard_trans.You can browse the list of projects')}}
-                            <a href="{{ route('services.index') }}" class="fw-bolder link-primary">{{trans('dashboard_trans.here')}}</a>.
+                            <a href="{{ route('projects.index') }}" class="fw-bolder link-primary">{{trans('dashboard_trans.here')}}</a>.
                         </div>
                         <!--end::Description-->
                     </div>
@@ -198,49 +198,50 @@
                                         <!--begin::Form-->
                                         <!--begin::Card body-->
                                         <div class="card-body border-top px-9 pt-3 pb-4">
-                                            <div class="row mb-8">
-                                                <!--begin::Col-->
-                                                <div class="col-xl-3">
-                                                    <div class="fs-6 fw-bold mt-2 mb-3">{{trans('dashboard_trans.Project Features')}}</div>
-                                                </div>
-                                                <!--end::Col-->
-                                                <!--begin::Col-->
-                                                <div class="col-xl-9 fv-row fv-plugins-icon-container">
-                                                    <div id="features-container">
-                                                        <div class="feature-input d-flex mb-3">
-                                                            <input type="text" name="features[]" class="form-control form-control-solid" placeholder="{{trans('dashboard_trans.Features')}}" value="{{old('features')}}">
+                                            @foreach(config('lang') as $key => $lang)
+                                                <div class="row mb-8">
+                                                    <!--begin::Col-->
+                                                    <div class="col-xl-3">
+                                                        <div class="fs-6 fw-bold mt-2 mb-3">
+                                                            {{ trans('dashboard_trans.Project Features') }} ({{ $lang }})
                                                         </div>
                                                     </div>
-                                                    <!-- زر إضافة خاصية جديدة -->
-                                                    <button type="button" id="add-feature-btn" class="btn btn-light-primary mt-3">{{trans('dashboard_trans.Add Feature')}}</button>
-                                                    <div class="fv-plugins-message-container invalid-feedback"></div>
+                                                    <!--end::Col-->
+                                                    <!--begin::Col-->
+                                                    <div class="col-xl-9 fv-row fv-plugins-icon-container">
+                                                        <div id="features-container-{{ $key }}">
+                                                            <!-- Dynamic feature inputs -->
+                                                            <div class="feature-input d-flex mb-3">
+                                                                <input type="text" name="features[{{ $key }}]" class="form-control form-control-solid"
+                                                                       placeholder="{{ trans('dashboard_trans.Features') }}" value="">
+                                                            </div>
+                                                        </div>
+                                                        <!-- Add Feature Button -->
+                                                        <button type="button" class="btn btn-light-primary mt-3 add-feature-btn" data-lang="{{ $key }}">
+                                                            {{ trans('dashboard_trans.Add Feature') }}
+                                                        </button>
+                                                    </div>
                                                 </div>
-                                                <!--end::Col-->
+                                            @endforeach
 
-                                            </div>
                                             <div class="row mb-8">
                                                 <!--begin::Col-->
                                                 <div class="col-xl-3">
-                                                    <div class="fs-6 fw-bold mt-2 mb-3">{{trans('dashboard_trans.Technology')}}</div>
+                                                    <div class="fs-6 fw-bold mt-2 mb-3">{{ trans('dashboard_trans.Technology') }}</div>
                                                 </div>
                                                 <!--end::Col-->
                                                 <!--begin::Col-->
                                                 <div class="col-xl-9 fv-row fv-plugins-icon-container">
-                                                    <div id="features-container">
-                                                        <div class="feature-input d-flex mb-3">
-                                                            <input type="text" name="technology" class="form-control form-control-solid" placeholder="{{trans('dashboard_trans.Technology')}}" value="{{old('technology')}}">
-                                                        </div>
-                                                    </div>
-                                                    <div class="fv-plugins-message-container invalid-feedback"></div>
+                                                    <input type="text" name="technology" class="form-control form-control-solid"
+                                                           placeholder="{{ trans('dashboard_trans.Technology') }}" value="{{ old('technology') }}">
                                                     @error('technology')
-                                                    <span class="text-danger">{{$message}}</span>
+                                                    <span class="text-danger">{{ $message }}</span>
                                                     @enderror
                                                 </div>
                                                 <!--end::Col-->
-
                                             </div>
-
                                         </div>
+
                                         <!--end::Card body--><!--end::Form-->
                                     </div>
                                     <!--end::Content-->
@@ -306,43 +307,33 @@
     </script>
 
     <script>
-        document.getElementById('add-feature-btn').addEventListener('click', function() {
-            // إنشاء حقل إدخال جديد مع زر حذف
-            var newFeatureGroup = document.createElement('div');
-            newFeatureGroup.classList.add('feature-input', 'd-flex', 'mb-3');
+        document.addEventListener("DOMContentLoaded", function () {
+            const featureButtons = document.querySelectorAll(".add-feature-btn");
 
-            // إنشاء حقل الإدخال الجديد
-            var newFeatureInput = document.createElement('input');
-            newFeatureInput.type = 'text';
-            newFeatureInput.name = 'features[]';
-            newFeatureInput.classList.add('form-control', 'form-control-solid');
-            newFeatureInput.placeholder = "{{trans('dashboard_trans.Features')}}";
+            featureButtons.forEach((button) => {
+                button.addEventListener("click", function () {
+                    const lang = this.dataset.lang; // Get the language code
+                    const container = document.getElementById(`features-container-${lang}`); // Find the corresponding container
 
-            // إنشاء زر الحذف للحقل الجديد
-            var deleteButton = document.createElement('button');
-            deleteButton.type = 'button';
-            deleteButton.classList.add('btn', 'btn-danger', 'btn-sm', 'ms-2', 'remove-feature-btn');
-            deleteButton.textContent = "{{trans('dashboard_trans.Delete')}}";
+                    // Create a new input field
+                    const newFeatureInput = document.createElement("div");
+                    newFeatureInput.className = "feature-input d-flex mb-3";
+                    newFeatureInput.innerHTML = `
+                <input type="text" name="features[${lang}][]" class="form-control form-control-solid" placeholder="Enter feature">
+                <button type="button" class="btn btn-danger ms-2 remove-feature-btn">X</button>
+            `;
 
-            // إضافة حقل الإدخال وزر الحذف للمجموعة
-            newFeatureGroup.appendChild(newFeatureInput);
-            newFeatureGroup.appendChild(deleteButton);
+                    // Add the new input to the container
+                    container.appendChild(newFeatureInput);
 
-            // إضافة المجموعة الجديدة إلى حاوية الخصائص
-            document.getElementById('features-container').appendChild(newFeatureGroup);
-
-            // إضافة وظيفة الحذف لزر الحذف الجديد
-            deleteButton.addEventListener('click', function() {
-                newFeatureGroup.remove();
+                    // Add event listener to remove the feature input
+                    newFeatureInput.querySelector(".remove-feature-btn").addEventListener("click", function () {
+                        newFeatureInput.remove();
+                    });
+                });
             });
         });
 
-        // إضافة وظيفة الحذف لأزرار الحذف الموجودة مسبقًا (في حال كانت هناك حقول مسبقة مضافة)
-        document.querySelectorAll('.remove-feature-btn').forEach(function(button) {
-            button.addEventListener('click', function() {
-                button.parentElement.remove();
-            });
-        });
     </script>
 
     <script>
