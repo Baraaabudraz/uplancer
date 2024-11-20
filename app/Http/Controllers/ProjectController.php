@@ -31,43 +31,49 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
+
+//        dd($request);
+
         $request->validate([
-            'service_id'=>'required|int|exists:services,id',
-            'name.*'=>'required|string',
-            'description.*'=>'required|string',
-            'features.*'=>'nullable|string',
-            'images.*'=>'required|image',
-            'technology'=>'required|string',
-
+            'service_id' => 'required|int|exists:services,id',
+            'name.*' => 'required|string',
+            'description.*' => 'required|string',
+            'features.*' => 'nullable',
+            'images.*' => 'required|image',
+            'technology' => 'required|string',
         ]);
+
         $data = $request->only([
-            'name' ,'description' , 'service_id' , 'features' ,'technology','slug','meta_keyword' ,'meta_description'
+            'name', 'description', 'service_id', 'technology', 'slug', 'meta_keyword', 'meta_description', 'features'
         ]);
+
+        // Handle images
         if ($request->hasFile('images')) {
+            $images = [];
             foreach ($request->file('images') as $image) {
-                $Image = $image;
-                $imageName = $Image->getClientOriginalName() . '_' . $Image->getClientOriginalExtension();
+                $imageName = $image->hashName();
+                $image->move(public_path('images/projects'), $imageName);
                 $images[] = $imageName;
-                $Image->move('images/projects', $imageName);
             }
+            $data['images'] = json_encode($images);
         }
-        $data['images'] = json_encode($images);
 
-        $data['features'] = json_encode($request->get('features'));
 
-        $project = Project::query()->create($data);
+        $request->features = array(json_encode($request->features));
 
-        if ($project){
-            session()->flash('alert-type','alert-success');
-            session()->flash('message',trans('dashboard_trans.Project Created Successfully'));
+        $project = Project::create($data);
+
+        if ($project) {
+            session()->flash('alert-type', 'alert-success');
+            session()->flash('message', trans('dashboard_trans.Project Created Successfully'));
             return redirect()->back();
-        }else{
-            session()->flash('alert-type','alert-danger');
-            session()->flash('message',trans('dashboard_trans.Failed to create project'));
+        } else {
+            session()->flash('alert-type', 'alert-danger');
+            session()->flash('message', trans('dashboard_trans.Failed to create project'));
             return redirect()->back();
-
         }
     }
+
 
     /**
      * Display the specified resource.
@@ -97,7 +103,7 @@ class ProjectController extends Controller
             'service_id' => 'required|int|exists:services,id',
             'name.*' => 'required|string',
             'description.*' => 'required|string',
-            'features.*' => 'nullable|string',
+            'features.*' => 'nullable',
             'technology' => 'required|string',
 
         ]);
@@ -139,7 +145,7 @@ class ProjectController extends Controller
         }
 
 
-        $data['features'] = json_encode($request->get('features'));
+        $request->features = array(json_encode($request->features));
 
             $project = Project::query()->find($id)->update($data);
             if ($project) {
