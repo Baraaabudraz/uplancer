@@ -1,12 +1,13 @@
 @extends('Front.parent')
 @section('title','Services')
 @section('content')
+
     <!-- Service Start -->
     <div class="container-xxl py-5">
         <div class="container">
             <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
                 <h6 class="section-title bg-white text-center text-primary px-3">{{trans('home_trans.Services')}}</h6>
-                <h1 class="display-6 mb-4">We Focus On Making The Best In All Sectors</h1>
+                <h1 class="display-6 mb-4">{{trans('home_trans.We Focus On Making The Best In All Sectors')}}</h1>
             </div>
             <div class="row g-4">
                 @foreach($services as $service)
