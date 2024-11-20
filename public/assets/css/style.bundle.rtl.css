@@ -234,7 +234,7 @@ kbd,
 samp {
   font-family: var(--bs-font-monospace);
   font-size: 1em;
-  direction: ltr ;
+  direction: rtl ;
   unicode-bidi: bidi-override;
 }
 
@@ -422,7 +422,7 @@ legend + * {
 [type="url"],
 [type="email"],
 [type="number"] {
-  direction: ltr;
+  direction: rtl;
 }
 ::-webkit-search-decoration {
   -webkit-appearance: none;
