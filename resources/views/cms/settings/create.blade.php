@@ -176,42 +176,48 @@
                         <!--begin::Form-->
                             <!--begin::Card body-->
                             <div class="card-body border-top px-9 pt-3 pb-4">
+                                @foreach(config('lang') as $key => $lang)
                                 <div class="row mb-8">
                                     <!--begin::Col-->
                                     <div class="col-xl-3">
-                                        <div class="fs-6 fw-bold mt-2 mb-3">{{trans('dashboard_trans.About')}}</div>
+                                        <div class="fs-6 fw-bold mt-2 mb-3">{{trans('dashboard_trans.About')}} ({{$lang}})</div>
                                     </div>
                                     <!--end::Col-->
                                     <!--begin::Col-->
                                     <div class="col-xl-9 fv-row fv-plugins-icon-container">
-                                        <textarea type="text" name="about" class="form-control form-control-solid" placeholder="{{trans('dashboard_trans.About')}}">{{old('about')}}</textarea>
+                                        <textarea type="text" name="about[{{$key}}]" class="form-control form-control-solid" placeholder="{{trans('dashboard_trans.About')}}">{{old('about.'.$key)}}</textarea>
                                         <div class="fv-plugins-message-container invalid-feedback"></div></div>
                                     <!--begin::Col-->
                                 </div>
+                                @endforeach
+                                @foreach(config('lang') as $key => $lang)
                                 <div class="row mb-8">
                                     <!--begin::Col-->
                                     <div class="col-xl-3">
-                                        <div class="fs-6 fw-bold mt-2 mb-3">{{trans('dashboard_trans.Contact Description')}}</div>
+                                        <div class="fs-6 fw-bold mt-2 mb-3">{{trans('dashboard_trans.Contact Description')}} ({{$lang}})</div>
                                     </div>
                                     <!--end::Col-->
                                     <!--begin::Col-->
                                     <div class="col-xl-9 fv-row fv-plugins-icon-container">
-                                        <textarea type="text" name="desc_contact" class="form-control form-control-solid" placeholder="{{trans('dashboard_trans.Contact Description')}}">{{old('desc_contact')}}</textarea>
+                                        <textarea type="text" name="desc_contact[{{$key}}]" class="form-control form-control-solid" placeholder="{{trans('dashboard_trans.Contact Description')}}">{{old('desc_contact.'.$key)}}</textarea>
                                         <div class="fv-plugins-message-container invalid-feedback"></div></div>
                                     <!--begin::Col-->
                                 </div>
+                                    @endforeach
+                                    @foreach(config('lang') as $key => $lang)
                                 <div class="row mb-8">
                                     <!--begin::Col-->
                                     <div class="col-xl-3">
-                                        <div class="fs-6 fw-bold mt-2 mb-3">{{trans('dashboard_trans.Why Us')}}</div>
+                                        <div class="fs-6 fw-bold mt-2 mb-3">{{trans('dashboard_trans.Why Us')}} ({{$lang}})</div>
                                     </div>
                                     <!--end::Col-->
                                     <!--begin::Col-->
                                     <div class="col-xl-9 fv-row fv-plugins-icon-container">
-                                        <textarea type="text" name="why_us" class="form-control form-control-solid" placeholder="{{trans('dashboard_trans.Why Us')}}">{{old('why_us')}}</textarea>
+                                        <textarea type="text" name="why_us[{{$key}}]" class="form-control form-control-solid" placeholder="{{trans('dashboard_trans.Why Us')}}">{{old('why_us.'.$key)}}</textarea>
                                         <div class="fv-plugins-message-container invalid-feedback"></div></div>
                                     <!--begin::Col-->
                                 </div>
+                                    @endforeach
                             </div>
                             <!--end::Card body--><!--end::Form-->
                     </div>
@@ -231,6 +237,7 @@
                         <!--begin::Form-->
                         <!--begin::Card body-->
                         <div class="card-body border-top px-9 pt-3 pb-4">
+
                             <div class="row mb-8">
                                 <!--begin::Col-->
                                 <div class="col-xl-3">
@@ -243,18 +250,20 @@
                                     <div class="fv-plugins-message-container invalid-feedback"></div></div>
                                 <!--begin::Col-->
                             </div>
+                            @foreach(config('lang') as $key => $lang)
                             <div class="row mb-8">
                                 <!--begin::Col-->
                                 <div class="col-xl-3">
-                                    <div class="fs-6 fw-bold mt-2 mb-3">{{trans('dashboard_trans.Meta Description')}}</div>
+                                    <div class="fs-6 fw-bold mt-2 mb-3">{{trans('dashboard_trans.Meta Description')}} ({{$lang}})</div>
                                 </div>
                                 <!--end::Col-->
                                 <!--begin::Col-->
                                 <div class="col-xl-9 fv-row fv-plugins-icon-container">
-                                    <textarea type="text" name="meta_description" class="form-control form-control-solid" placeholder="{{trans('dashboard_trans.Meta Description')}}">{{old('meta_description')}}</textarea>
+                                    <textarea type="text" name="meta_description[{{$key}}]" class="form-control form-control-solid" placeholder="{{trans('dashboard_trans.Meta Description')}}">{{old('meta_description.'.$key)}}</textarea>
                                     <div class="fv-plugins-message-container invalid-feedback"></div></div>
                                 <!--begin::Col-->
                             </div>
+                            @endforeach
                             <div class="row mb-8">
                                 <!--begin::Col-->
                                 <div class="col-xl-3">
