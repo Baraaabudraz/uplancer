@@ -17,9 +17,9 @@ return new class extends Migration
             $table->string('logo');
             $table->string('phone');
             $table->string('email');
-            $table->text('about');
-            $table->text('why_us');
-            $table->text('desc_contact');
+            $table->json('about');
+            $table->json('why_us');
+            $table->json('desc_contact');
             $table->string('company_site');
             $table->string('linkedin');
             $table->string('facebook');
