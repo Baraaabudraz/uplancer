@@ -177,42 +177,48 @@
                     <!--begin::Form-->
                     <!--begin::Card body-->
                     <div class="card-body border-top px-9 pt-3 pb-4">
-                        <div class="row mb-8">
-                            <!--begin::Col-->
-                            <div class="col-xl-3">
-                                <div class="fs-6 fw-bold mt-2 mb-3">{{trans('dashboard_trans.About')}}</div>
+                        @foreach(config('lang') as $key => $lang)
+                            <div class="row mb-8">
+                                <!--begin::Col-->
+                                <div class="col-xl-3">
+                                    <div class="fs-6 fw-bold mt-2 mb-3">{{trans('dashboard_trans.About')}} ({{$lang}})</div>
+                                </div>
+                                <!--end::Col-->
+                                <!--begin::Col-->
+                                <div class="col-xl-9 fv-row fv-plugins-icon-container">
+                                    <textarea type="text" name="about[{{$key}}]" class="form-control form-control-solid" placeholder="{{trans('dashboard_trans.About')}}">{{$website_settings->getTranslation('about',$key)}}</textarea>
+                                    <div class="fv-plugins-message-container invalid-feedback"></div></div>
+                                <!--begin::Col-->
                             </div>
-                            <!--end::Col-->
-                            <!--begin::Col-->
-                            <div class="col-xl-9 fv-row fv-plugins-icon-container">
-                                <textarea type="text" name="about" class="form-control form-control-solid" placeholder="{{trans('dashboard_trans.About')}}">{{$website_settings->about}}</textarea>
-                                <div class="fv-plugins-message-container invalid-feedback"></div></div>
-                            <!--begin::Col-->
-                        </div>
-                        <div class="row mb-8">
-                            <!--begin::Col-->
-                            <div class="col-xl-3">
-                                <div class="fs-6 fw-bold mt-2 mb-3">{{trans('dashboard_trans.Contact Description')}}</div>
+                        @endforeach
+                        @foreach(config('lang') as $key => $lang)
+                            <div class="row mb-8">
+                                <!--begin::Col-->
+                                <div class="col-xl-3">
+                                    <div class="fs-6 fw-bold mt-2 mb-3">{{trans('dashboard_trans.Contact Description')}} ({{$lang}})</div>
+                                </div>
+                                <!--end::Col-->
+                                <!--begin::Col-->
+                                <div class="col-xl-9 fv-row fv-plugins-icon-container">
+                                    <textarea type="text" name="desc_contact[{{$key}}]" class="form-control form-control-solid" placeholder="{{trans('dashboard_trans.Contact Description')}}">{{$website_settings->getTranslation('desc_contact',$key)}}</textarea>
+                                    <div class="fv-plugins-message-container invalid-feedback"></div></div>
+                                <!--begin::Col-->
                             </div>
-                            <!--end::Col-->
-                            <!--begin::Col-->
-                            <div class="col-xl-9 fv-row fv-plugins-icon-container">
-                                <textarea type="text" name="desc_contact" class="form-control form-control-solid" placeholder="{{trans('dashboard_trans.Contact Description')}}">{{$website_settings->desc_contact}}</textarea>
-                                <div class="fv-plugins-message-container invalid-feedback"></div></div>
-                            <!--begin::Col-->
-                        </div>
-                        <div class="row mb-8">
-                            <!--begin::Col-->
-                            <div class="col-xl-3">
-                                <div class="fs-6 fw-bold mt-2 mb-3">{{trans('dashboard_trans.Why Us')}}</div>
+                        @endforeach
+                        @foreach(config('lang') as $key => $lang)
+                            <div class="row mb-8">
+                                <!--begin::Col-->
+                                <div class="col-xl-3">
+                                    <div class="fs-6 fw-bold mt-2 mb-3">{{trans('dashboard_trans.Why Us')}} ({{$lang}})</div>
+                                </div>
+                                <!--end::Col-->
+                                <!--begin::Col-->
+                                <div class="col-xl-9 fv-row fv-plugins-icon-container">
+                                    <textarea type="text" name="why_us[{{$key}}]" class="form-control form-control-solid" placeholder="{{trans('dashboard_trans.Why Us')}}">{{$website_settings->getTranslation('why_us',$key)}}</textarea>
+                                    <div class="fv-plugins-message-container invalid-feedback"></div></div>
+                                <!--begin::Col-->
                             </div>
-                            <!--end::Col-->
-                            <!--begin::Col-->
-                            <div class="col-xl-9 fv-row fv-plugins-icon-container">
-                                <textarea type="text" name="why_us" class="form-control form-control-solid" placeholder="{{trans('dashboard_trans.Why Us')}}">{{$website_settings->why_us}}</textarea>
-                                <div class="fv-plugins-message-container invalid-feedback"></div></div>
-                            <!--begin::Col-->
-                        </div>
+                        @endforeach
                     </div>
                     <!--end::Card body--><!--end::Form-->
                 </div>
