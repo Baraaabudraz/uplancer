@@ -171,6 +171,138 @@ return[
     'Sign in with Google'=>'تسجيل باستخدام جوجل',
     'Sponsors'=>'شركائنا',
     'Services'=>'الخدمات',
+    'Opening Hours'=>'ساعات العمل',
+    'Call Us'=>'اتصل بنا',
+    'Projects'=>'المشاريع',
+    'About Up Lancer'=>'عن اب لانسر',
+    'Contact Us'=>'تواصل معنا',
+    'Terms & Condition'=>'الشروط والاحكام',
+    'Privacy'=>'الخصوصية',
+    'All Right Reserved'=>'جميع الحقوق محفوظة',
+    'Designed By'=>'صٌمم بواسطة',
+    'Software Development for Businesses & Founders'=>'تطوير البرمجيات لدعم روّاد الأعمال والشركات',
+    'Skilled in development, design, & marketing'=>'خبرة في التطوير والتصميم والتسويق',
+    'Acquire a high-performing distributed team'=>'احصل على فريق موزع عالي الأداء',
+    'Trusted by founders for cost-effective solutions'=>'محط ثقة رواد الأعمال لحلول مبتكرة وفعّالة من حيث التكلفة',
+    'Start with Up Lancer'=>'ابدأ مع اب لانسر',
+    'Discover Our Story'=>'اكتشف قصتنا',
+    'Empower Your Success with'=>'عزز نجاحك مع',
+    'Up Lancer'=>'أب لانسر',
+    'Where Excellence Meets Innovation'=>'حيث يلتقي التميز بالابتكار',
+    'MENU'=>'القائمة',
+    'We Focus On Making The Best In All Sectors'=>'نحن نركز على صنع الأفضل في جميع القطاعات',
+    'Innovative Solutions'=>'حلول مبتكرة',
+    'Award-Winning Expertise'=>'خبرة حائزة على جوائز',
+    'Customer-Centric'=>'نركز على العميل',
+    'Security & Trust'=>'الامان والثقة',
+    'Our Vision'=>'رؤيتنا',
+    'At Up Lancer, our vision is to redefine the standards of quality and innovation in every sector we serve. We believe in creating impactful solutions that not only meet the needs of today but anticipate the challenges of tomorrow.'=>'في أب لانسر، نسعى إلى إعادة تعريف معايير الجودة والابتكار في كل قطاع نخدمه. نحن نؤمن بابتكار حلول مؤثرة لا تقتصر على تلبية احتياجات اليوم فحسب، بل تتطلع أيضًا إلى مواجهة تحديات الغد بثقة وإبداع.',
+    'Our Mission'=>'مهمتنا',
+    'Our mission is to empower businesses to reach their full potential by providing expert solutions that are innovative, reliable, and tailored to meet the unique goals of each client.'=>'مهمتنا في أب لانسر هي تمكين الشركات من تحقيق أقصى إمكانياتها من خلال تقديم حلول احترافية مبتكرة وموثوقة، مصممة خصيصًا لتلبية الأهداف الفريدة لكل عميل.',
+    'Why Up Lancer?'=>'لماذا أب لانسر؟',
+    'Why People Trust Us?'=>'لماذا يثق العملاء بنا؟',
+    'At UP Lancer, we don’t just follow trends – we set them. Our team is committed to innovation, delivering cutting-edge web and mobile solutions.'=>'في أب لانسر، لا نتبع الاتجاهات فقط - بل نصنعها. يلتزم فريقنا بالابتكار من خلال تقديم حلول متطورة للويب والتطبيقات المحمولة.',
+    'Quality-Driven Processes'=>'جودة مدفوعة بالتميز',
+    'Our development process ensures timely delivery and the highest standards of quality.'=>'عمليات التطوير لدينا تضمن التسليم في الوقت المحدد مع تحقيق أعلى معايير الجودة.',
+    'Long-Term Value'=>'قيمة طويلة الأمد',
+    'We focus on mas-customization and long-term, helping your business grow without frequent redevelopments.'=>'نركز على التخصيص الفعّال والحلول المستدامة التي تساعد عملك على النمو دون الحاجة إلى إعادة التطوير بشكل متكرر.',
+    'Collaborative Partnership'=>'شراكة تعاونية',
+    'We work closely with our clients to tailor solutions to their needs and business goals.'=>'نعمل عن قرب مع عملائنا لتصميم حلول مخصصة تتماشى مع احتياجاتهم وأهداف أعمالهم.',
+    'Security & Reliability'=>'الأمان والموثوقية',
+    'We provide secure and robust solutions to protect your data and operations.'=>'نوفر حلولًا آمنة وقوية لحماية بياناتك وعملياتك التشغيلية، مما يضمن استمرارية عملك بثقة.',
+    'Why Trust Up Lancer?'=>'لماذا تثق في أب لانسر؟',
+    'Learn More'=>'تعرف أكثر',
+    'Our Projects'=>'مشاريعنا',
+    'Learn More About Our Complete Projects'=>'تعرّف على المزيد حول مشاريعنا المكتملة',
+    'View All Projects'=>'عرض كافة المشاريع',
+    'You’re going to love your Up Lancer'=>'ستعشق العمل مع Up Lancer',
+    'Including the people behind the scenes'=>'لأننا نهتم ليس فقط بالنتائج، بل أيضًا بالفريق الرائع الذي يعمل خلف الكواليس',
+    'Tell us about your product'=>'أخبرنا عن منتجك',
+    'Share your ideas, and we will turn them into reality. We will gather all your needs to start crafting the perfect solution.'=>'شاركنا أفكارك، وسنحولها إلى واقع. سنجمع جميع متطلباتك لنبني الحل الأمثل الذي يناسب احتياجاتك.',
+    'Kick things off with a prototype'=>'ابدأ بالتصميم الأولي',
+    'We begin with a working prototype, allowing you to visualize your product and test its core features before moving forward.'=>'نبدأ بنموذج أولي عملي، يمنحك فرصة لتصور منتجك واختبار ميزاته الأساسية قبل المضي قدمًا.',
+    'Make changes before we build'=>'قم بالتعديلات قبل التنفيذ',
+    'Once the prototype is reviewed, you can suggest changes. We’ll fine-tune everything to ensure it’s just right.'=>'بعد مراجعة النموذج الأولي، يمكنك اقتراح التعديلات التي تراها مناسبة. سنعمل على تحسين كل التفاصيل لضمان رضاك التام.',
+    'Get the exact product your users need'=>'احصل على المنتج المثالي لمستخدميك',
+    'Once all changes are made, we deliver a flawless final product that’s ready to provide an excellent user experience.'=>'بعد تنفيذ جميع التعديلات، نقدم لك منتجًا نهائيًا متقنًا وجاهزًا لتقديم تجربة مستخدم متميزة.',
+    'Plug in Up Lancer'=>'أدمج Up Lancer في نجاحك',
+    'We’ve refined our process from product prototyping to continuous quality.'=>'لقد قمنا بتطوير عملية عملنا بدءًا من النماذج الأولية للمنتجات وصولًا إلى ضمان الجودة المستمر.',
+    'Get a new product that works reliably so you can bring it to market quickly and with confidence. Or add a Up Lancer to your distributed team to help lighten your load for an important feature add-on, API product or internal project.'=>'احصل على منتج جديد يعمل بكفاءة وموثوقية، مما يتيح لك إطلاقه في السوق بسرعة وبثقة. أو قم بإضافة فريق Up Lancer إلى فريقك الموزع لتخفيف العبء في تطوير ميزة مهمة، منتج API، أو مشروع داخلي. نحن هنا لدعمك في كل خطوة نحو النجاح. 🚀',
+    'Keep In Touch'=>'تواصل معنا',
+    'Contact us today and discover how we can help you reach your goals.'=>'تواصل معنا اليوم واكتشف كيف يمكننا مساعدتك في تحقيق أهدافك بنجاح. 🚀',
+    'Kingdom of Saudi Arabia'=>'المملكة العربية السعودية',
+    'Quick Links'=>'روابط سريعة',
+    'Get In Touch'=>'تواصل معنا',
+    'We Would Love To Hear From You!'=>'نحن هنا لسماعك!',
+    'Get in touch with us now to start your journey towards success. Our team is ready to assist you with your inquiries and provide the best solutions for your needs.'=>'ابدأ رحلتك نحو النجاح اليوم! فريقنا مستعد للإجابة على استفساراتك وتقديم أفضل الحلول لتلبية احتياجاتك.',
+    'Your Name'=>'اسمك بالكامل',
+    'Subject'=>'الموضوع',
+    'Message'=>'الرسالة',
+    'Send Message'=>'ارسال الرسالة',
+    'Contact Us on WhatsApp'=>'تواصل معناعلى الواتس اب',
+    'Email Us'=>'راسلنا عبر البريد الإلكتروني',
+    'Lets talk'=>'دعنا نتحدث!',
+    'What can Up Lancer do for you?'=>'ماذا يمكن أن تقدم لك أب لانسر؟',
+    'Create an Amazing New Product'=>'إنشاء منتج جديد مذهل',
+    'Make my great product even greater'=>'تحسين منتجك الرائع ليصبح أفضل',
+    'Something else'=>'أشياء أخرى؟',
+    'Can you tell us more about that?'=>'هل يمكنك إخبارنا بالمزيد عن ذلك؟',
+    'What is your budget?'=>'ما هي ميزانيتك؟',
+    'How did you hear about Up Lancer?'=>'كيف سمعت عن أب لانسر؟',
+    'Submit'=>'تأكيد',
+    'Project Features'=>'مميزات المشروع',
+    'Date'=>'التاريخ',
+    'Category'=>'القسم',
+    'Technology'=>'التقنية',
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
