@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
-
+<html lang="{{App::getLocale() == 'ar' ? 'ar':'en'}}" dir="{{App::getLocale() == 'ar' ? 'rtl' : 'ltr'}}">
 <head>
     <meta charset="utf-8">
     <title>Up Lancer | @yield('title')</title>
@@ -37,12 +36,20 @@
     <link href="{{asset('uplancer/lib/animate/animate.min.css')}}" rel="stylesheet">
 {{--    <link href="{{asset('uplancer/lib/owlcarousel/assets/owl.carousel.min.css')}}" rel="stylesheet">--}}
     <link href="{{asset('uplancer/lib/lightbox/css/lightbox.min.css')}}" rel="stylesheet">
-
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="{{asset('uplancer/css/bootstrap.min.css')}}" rel="stylesheet">
+
+    @if(App::getLocale() == 'ar')
+        <link href="{{asset('/uplancer/css/style-rtl.css')}}" rel="stylesheet">
+        <link href="{{asset('uplancer/css/bootstrap-rtl.min.css')}}" rel="stylesheet">
+
+    @else
+        <link href="{{asset('/uplancer/css/style.css')}}" rel="stylesheet">
+        <link href="{{asset('uplancer/css/bootstrap.min.css')}}" rel="stylesheet">
+
+    @endif
+
 
     <!-- Template Stylesheet -->
-    <link href="{{asset('/uplancer/css/style-rtl.css')}}" rel="stylesheet">
     <style>
         .project-item {
             transition: all 0.3s ease;
@@ -184,8 +191,8 @@
                         <div class="icon-circle bg-gradient-primary text-white">
                             <i class="far fa-clock fa-2x"></i>
                         </div>
-                        <div class="ps-3">
-                            <p class="mb-1 text-muted">Opening Hour</p>
+                        <div class="ps-3 me-2">
+                            <p class="mb-1 text-muted">{{trans('home_trans.Opening Hours')}}</p>
                             <h6 class="mb-0">Sat - Thu, 8:00 am - 5:00</h6>
                         </div>
                     </div>
@@ -195,9 +202,9 @@
                         <div class="icon-circle bg-gradient-primary text-white">
                             <i class="fa fa-phone fa-2x"></i>
                         </div>
-                        <div class="ps-3">
-                            <p class="mb-1 text-muted">Call Us</p>
-                            <h6 class="mb-0">+970 597644 664</h6>
+                        <div class="ps-3 me-2">
+                            <p class="mb-1 text-muted">{{trans('home_trans.Call Us')}}</p>
+                            <h6 class="mb-0">970-597-644-664</h6>
                         </div>
                     </div>
                 </div>
@@ -206,8 +213,8 @@
                         <div class="icon-circle bg-gradient-primary text-white">
                             <i class="far fa-envelope fa-2x"></i>
                         </div>
-                        <div class="ps-3">
-                            <p class="mb-1 text-muted">Email Us</p>
+                        <div class="ps-3 me-2">
+                            <p class="mb-1 text-muted">{{trans('home_trans.Email')}}</p>
                             <h6 class="mb-0">info@uplancerps.com</h6>
                         </div>
                     </div>
@@ -219,17 +226,17 @@
 <!-- Brand & Contact End -->
 <!-- Navbar Start -->
 <nav class="navbar navbar-expand-lg bg-primary navbar-dark sticky-top py-lg-0 px-lg-5 wow fadeIn shadow-lg" data-wow-delay="0.1s" style="background: linear-gradient(45deg, #5D3991, #8D61E2);">
-    <a href="#" class="navbar-brand d-lg-none">MENU</a>
+    <a href="#" class="navbar-brand d-lg-none">{{trans('home_trans.MENU')}}</a>
     <button type="button" class="navbar-toggler me-3" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <div class="navbar-nav me-auto p-3 p-lg-0">
-            <a href="{{route('home')}}" class="nav-item nav-link active">Home</a>
-            <a href="{{route('about')}}" class="nav-item nav-link">About Us</a>
-            <a href="{{route('services')}}" class="nav-item nav-link">Services</a>
-            <a href="{{route('projects')}}" class="nav-item nav-link">Projects</a>
-            <a href="{{route('contact')}}" class="nav-item nav-link">Contact Us</a>
+            <a href="{{route('home')}}" class="nav-item nav-link active">{{trans('home_trans.Home')}}</a>
+            <a href="{{route('about')}}" class="nav-item nav-link">{{trans('home_trans.About Up Lancer')}}</a>
+            <a href="{{route('services')}}" class="nav-item nav-link">{{trans('home_trans.Services')}}</a>
+            <a href="{{route('projects')}}" class="nav-item nav-link">{{trans('home_trans.Projects')}}</a>
+            <a href="{{route('contact')}}" class="nav-item nav-link">{{trans('home_trans.Contact us')}}</a>
         </div>
     </div>
 </nav>
@@ -242,10 +249,10 @@
     <div class="container py-5">
         <div class="row g-5">
             <div class="col-lg-3 col-md-6">
-                <h5 class="text-light mb-4">Address</h5>
-                <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>PALESTINE</p>
-                <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+970597644 664</p>
-                <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@uplancerps.com</p>
+                <h5 class="text-light mb-4">{{trans('home_trans.Address')}}</h5>
+                <p class="mb-2"><i class="fa fa-map-marker-alt ms-2"></i>{{trans('home_trans.Kingdom of Saudi Arabia')}}</p>
+                <p class="mb-2"><i class="fa fa-phone-alt ms-2"></i>00970-597-644-664</p>
+                <p class="mb-2"><i class="fa fa-envelope ms-2"></i>info@uplancerps.com</p>
                 <div class="d-flex pt-2">
                     <a class="btn btn-square btn-outline-secondary rounded-circle me-1" href="https://twitter.com/uplancerps" target="_blank"><i class="fab fa-twitter"></i></a>
                     <a class="btn btn-square btn-outline-secondary rounded-circle me-1" href="https://www.facebook.com/uplancerps" target="_blank"><i class="fab fa-facebook-f"></i></a>
@@ -254,19 +261,19 @@
                 </div>
             </div>
             <div class="col-lg-3 col-md-6">
-                <h5 class="text-light mb-4">Quick Links</h5>
-                <a class="btn btn-link" href="{{route('about')}}">About Us</a>
-                <a class="btn btn-link" href="{{route('contact')}}">Contact Us</a>
-                <a class="btn btn-link" href="{{route('services')}}">Our Services</a>
-                <a class="btn btn-link" href="{{route('terms')}}">Terms &amp; Condition</a>
-                <a class="btn btn-link" href="{{route('privacy')}}">Privacy</a>
+                <h5 class="text-light mb-4">{{trans('home_trans.Quick Links')}}</h5>
+                <a class="btn btn-link" href="{{route('about')}}">{{trans('home_trans.About Up Lancer')}}</a>
+                <a class="btn btn-link" href="{{route('contact')}}">{{trans('home_trans.Contact Us')}}</a>
+                <a class="btn btn-link" href="{{route('services')}}">{{trans('home_trans.Services')}}</a>
+                <a class="btn btn-link" href="{{route('terms')}}">{{trans('home_trans.Terms & Condition')}}</a>
+                <a class="btn btn-link" href="{{route('privacy')}}">{{trans('home_trans.Privacy')}}</a>
             </div>
             <div class="col-lg-3 col-md-6">
-                <h5 class="text-light mb-4">Keep In Touch</h5>
-                <p>Contact us today and discover how we can help you reach your goals.</p>
+                <h5 class="text-light mb-4">{{trans('home_trans.Keep In Touch')}}</h5>
+                <p>{{trans('home_trans.Contact us today and discover how we can help you reach your goals.')}}</p>
                 <div class="position-relative mx-auto" style="max-width: 400px;">
 {{--                    <input class="form-control bg-transparent border-secondary w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">--}}
-                    <a href="https://wa.me/+970597644664" type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2" target="_blank"><i class="fas fa-fw  fa-phone-alt me-2"></i>Contact Now</a>
+                    <a href="https://wa.me/+970597644664" type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2" target="_blank"><i class="fas fa-fw  fa-phone-alt ms-2"></i>{{trans('home_trans.Contact us')}}</a>
                 </div>
             </div>
         </div>
@@ -275,11 +282,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                    © <a href="#">Up Lancer</a>, All Right Reserved.
+                    © <a href="#">Up Lancer</a>, {{trans('home_trans.All Right Reserved')}}.
                 </div>
                 <div class="col-md-6 text-center text-md-end">
                     <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-                    Designed By <a href="#">Up Lancer</a>
+                    {{trans('home_trans.Designed By')}} <a href="#">Up Lancer</a>
                 </div>
             </div>
         </div>
