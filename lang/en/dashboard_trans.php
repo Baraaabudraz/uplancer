@@ -291,6 +291,8 @@ return [
     'Meta Keywords'=>'Meta Keywords',
     'Meta Description'=>'Meta Description',
     'Meta Title'=>'Meta Title',
+    'Project Updated Successfully'=>'Project Updated Successfully',
+    'Failed to updated project'=>'Failed to updated project',
 
 
 
