@@ -212,7 +212,7 @@
                                                         <div id="features-container-{{ $key }}">
                                                             <!-- Dynamic feature inputs -->
                                                             <div class="feature-input d-flex mb-3">
-                                                                <input type="text" name="features[{{ $key }}]" class="form-control form-control-solid"
+                                                                <input type="text" name="features[{{ $key }}][]" class="form-control form-control-solid"
                                                                        placeholder="{{ trans('dashboard_trans.Features') }}" value="">
                                                             </div>
                                                         </div>
