@@ -223,7 +223,7 @@
                         </div>
                         <div class="ps-3 me-2">
                             <p class="mb-1 text-muted">{{trans('home_trans.Call Us')}}</p>
-                            <h6 class="mb-0">970-597-644-664</h6>
+                            <h6 class="mb-0">{{setting()->phone ?? ''}}</h6>
                         </div>
                     </div>
                 </div>
@@ -234,7 +234,7 @@
                         </div>
                         <div class="ps-3 me-2">
                             <p class="mb-1 text-muted">{{trans('home_trans.Email')}}</p>
-                            <h6 class="mb-0">info@uplancerps.com</h6>
+                            <h6 class="mb-0">{{setting()->email ?? ''}}</h6>
                         </div>
                     </div>
                 </div>
@@ -270,8 +270,8 @@
             <div class="col-lg-3 col-md-6">
                 <h5 class="text-light mb-4">{{trans('home_trans.Address')}}</h5>
                 <p class="mb-2"><i class="fa fa-map-marker-alt ms-2"></i>{{trans('home_trans.Kingdom of Saudi Arabia')}}</p>
-                <p class="mb-2"><i class="fa fa-phone-alt ms-2"></i>00970-597-644-664</p>
-                <p class="mb-2"><i class="fa fa-envelope ms-2"></i>info@uplancerps.com</p>
+                <p class="mb-2"><i class="fa fa-phone-alt ms-2"></i>{{setting()->phone ?? ''}}</p>
+                <p class="mb-2"><i class="fa fa-envelope ms-2"></i>{{setting()->email ?? ''}}</p>
                 <div class="d-flex pt-2">
                     <a class="btn btn-square btn-outline-secondary rounded-circle me-1" href="https://twitter.com/uplancerps" target="_blank"><i class="fab fa-twitter"></i></a>
                     <a class="btn btn-square btn-outline-secondary rounded-circle me-1" href="https://www.facebook.com/uplancerps" target="_blank"><i class="fab fa-facebook-f"></i></a>
