@@ -43,6 +43,13 @@
     .display-5 {
         font-size: 2.5rem;
     }
+    .hero h1 {
+        line-height: 1.3; /* تحسين التباعد بين أسطر العنوان */
+    }
+
+    .hero ul li span {
+        font-weight: 500; /* جعل النصوص أكثر وضوحًا */
+    }
 
 </style>
 @endsection
@@ -51,28 +58,39 @@
     <section class="hero bg-light py-5">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <h1 class="display-4 font-weight-bold ">{{trans('home_trans.Software Development for Businesses & Founders')}}</h1>
-                    <p class="lead mt-4"></p>
-                    <ul class="list-unstyled  mt-4" style="font-size: 22px; color: black">
-                        <li class="mb-2">
-                            <i class="fa fa-check-circle text-primary"></i> {{trans('home_trans.Skilled in development, design, & marketing')}}
+                <!-- Text Content -->
+                <div class="col-lg-6 text-center text-lg-start mb-4 mb-lg-0">
+                    <h1 class="display-4 fw-bold mb-4">
+                        {{ trans('home_trans.Software Development for Businesses & Founders') }}
+                    </h1>
+                    <ul class="list-unstyled fs-5 mt-4">
+                        <li class="mb-3 d-flex align-items-center">
+                            <i class="fa fa-check-circle text-primary ms-1 me-2 fs-4"></i>
+                            <span class="text-dark">{{ trans('home_trans.Skilled in development, design, & marketing') }}</span>
                         </li>
-                        <li class="mb-2">
-                            <i class="fa fa-check-circle text-primary"></i> {{trans('home_trans.Acquire a high-performing distributed team')}}
+                        <li class="mb-3 d-flex align-items-center">
+                            <i class="fa fa-check-circle text-primary ms-1 me-2 fs-4"></i>
+                            <span class="text-dark">{{ trans('home_trans.Acquire a high-performing distributed team') }}</span>
                         </li>
-                        <li class="mb-2">
-                            <i class="fa fa-check-circle text-primary"></i> {{trans('home_trans.Trusted by founders for cost-effective solutions')}}
+                        <li class="mb-3 d-flex align-items-center">
+                            <i class="fa fa-check-circle text-primary ms-1 me-2 fs-4"></i>
+                            <span class="text-dark">{{ trans('home_trans.Trusted by founders for cost-effective solutions') }}</span>
                         </li>
                     </ul>
-                    <button type="button" class="btn btn-primary btn-lg mt-3" data-toggle="modal" data-target="#exampleModal">{{trans('home_trans.Start with Up Lancer')}}</button>
+                    <button type="button" class="btn btn-primary btn-lg mt-4">
+                        {{ trans('home_trans.Start with Up Lancer') }}
+                    </button>
                 </div>
-                <div class="col-lg-6">
-                    <img src="{{asset('images/site/hero-team.svg')}}" alt="Business Illustration" class="img-fluid">
+
+                <!-- Image Content -->
+                <div class="col-lg-6 text-center">
+                    <img src="{{ asset('images/site/hero-team.svg') }}" alt="Business Illustration" class="img-fluid w-100 max-height-400">
                 </div>
             </div>
         </div>
     </section>
+
+
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <form action="{{route('get-started')}}" method="POST">
