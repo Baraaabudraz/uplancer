@@ -150,12 +150,12 @@ class ProjectController extends Controller
             $project = Project::query()->find($id)->update($data);
             if ($project) {
                 session()->flash('alert-type', 'alert-success');
-                session()->flash('message', trans('dashboard_trans.Project Created Successfully'));
+                session()->flash('message', trans('dashboard_trans.Project Updated Successfully'));
                 return redirect()->back();
 
             } else {
                 session()->flash('alert-type', 'alert-danger');
-                session()->flash('message', trans('dashboard_trans.Failed to create project'));
+                session()->flash('message', trans('dashboard_trans.Failed to updated project'));
                 return redirect()->back();
 
             }
