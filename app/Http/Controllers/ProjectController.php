@@ -59,7 +59,7 @@ class ProjectController extends Controller
         }
 
 
-        $request->features = array(json_encode($request->features));
+        $request->features = json_encode(array($request->features));
 
         $project = Project::create($data);
 
