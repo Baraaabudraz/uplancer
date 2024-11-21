@@ -19,7 +19,7 @@ class FrontController extends Controller
     {
         $settings = Setting::query()->first();
         $projects = Project::query()->with('service')->inRandomOrder()->latest()->limit(12)->get();
-        $services = Service::query()->with('projects')->latest()->get();
+        $services = Service::query()->with('projects')->get();
 //        $members  = Team::query()->get();
 
         return view('Front.index',compact('services','projects','settings'));
