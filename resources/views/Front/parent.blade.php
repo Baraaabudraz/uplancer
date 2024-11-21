@@ -292,7 +292,7 @@
                 <p>{{trans('home_trans.Contact us today and discover how we can help you reach your goals.')}}</p>
                 <div class="position-relative mx-auto" style="max-width: 400px;">
 {{--                    <input class="form-control bg-transparent border-secondary w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">--}}
-                    <a href="https://wa.me/+970597644664" type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2" target="_blank"><i class="fas fa-fw  fa-phone-alt ms-2"></i>{{trans('home_trans.Contact us')}}</a>
+                    <a href="https://wa.me/+966549289484" type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2" target="_blank"><i class="fas fa-fw  fa-phone-alt ms-2"></i>{{trans('home_trans.Contact us')}}</a>
                 </div>
             </div>
         </div>
