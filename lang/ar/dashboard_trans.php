@@ -291,6 +291,10 @@ return [
     'Meta Description'=>'ميتا الوصف',
     'Meta Settings'=>'إعدادات الميتا والسيو',
     'Meta Title'=>'ميتا العنوان',
+    'Project Updated Successfully'=>'تم تعديل المشروع بنجاح',
+    'Failed to updated project'=>'لم يتم تعديل المشروع',
+
+
 
 
 
