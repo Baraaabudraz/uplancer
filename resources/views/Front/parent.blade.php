@@ -155,8 +155,8 @@
 <!-- Spinner End -->
 
 <!-- Topbar Start -->
-{{--<div class="container-fluid bg-white py-2 px-4" style="border-bottom: 1px solid #eaeaea;">--}}
-{{--    <div class="row align-items-center">--}}
+<div class="container-fluid bg-white py-2 px-4" style="border-bottom: 1px solid #eaeaea;">
+    <div class="row align-items-center">
 {{--        <div class="col-lg-6 d-none d-lg-flex">--}}
 {{--            <nav class="breadcrumb mb-0">--}}
 {{--                <a class="breadcrumb-item small text-muted" href="{{route('home')}}">Home</a>--}}
@@ -165,14 +165,33 @@
 {{--                <a class="breadcrumb-item small text-muted" href="{{route('privacy')}}">Privacy</a>--}}
 {{--            </nav>--}}
 {{--        </div>--}}
-{{--        <div class="col-lg-6 text-lg-end text-center">--}}
-{{--            <span class="small text-muted">Follow us: </span>--}}
-{{--            <a class="text-muted mx-2" href="https://www.facebook.com/uplancerps"><i class="fab fa-facebook-f"></i></a>--}}
-{{--            <a class="text-muted mx-2" href="https://twitter.com/uplancerps"><i class="fab fa-twitter"></i></a>--}}
-{{--            <a class="text-muted mx-2" href="https://www.linkedin.com/company/uplancerps"><i class="fab fa-linkedin-in"></i></a>--}}
-{{--        </div>--}}
-{{--    </div>--}}
-{{--</div>--}}
+        <div class="col-lg-6 text-lg-end text-center">
+            <span class="small text-muted">{{ trans('home_trans.Language') }}: </span>
+            <div class="dropdown d-inline-block">
+                <!-- Trigger Button for Language Dropdown -->
+                <button class="btn btn-light btn-sm dropdown-toggle" type="button" id="languageDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                    {{ LaravelLocalization::getCurrentLocaleNative() }}
+                </button>
+
+                <!-- Dropdown Menu -->
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="languageDropdown">
+                    @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                        <li>
+                            <a href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}"
+                                hreflang="{{ $localeCode }}"
+                                class="dropdown-item d-flex align-items-center">
+                        <span class="symbol symbol-20px me-3">
+                        </span>
+                                {{ $properties['native'] }}
+                            </a>
+                        </li>
+                    @endforeach
+                </ul>
+            </div>
+        </div>
+
+    </div>
+    </div>
 <!-- Topbar End -->
 
 
