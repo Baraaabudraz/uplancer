@@ -312,7 +312,7 @@
     </div>
 </div><!-- Footer End -->
 
-<a href="https://api.whatsapp.com/send?phone=+970597644664&text=مرحبا لدي استفسار%21%20." class="float" target="_blank">
+<a href="https://api.whatsapp.com/send?phone=+966549289484&text=مرحبا لدي استفسار%21%20." class="float" target="_blank">
     <i class="fa-brands fa-whatsapp my-float"></i>
 </a>
 <!-- Back to Top -->
