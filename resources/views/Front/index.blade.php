@@ -409,7 +409,7 @@
             <div class="row g-4">
                 @foreach($projects as $project)
                 <div class="col-md-4">
-                    <div class="project-item shadow-lg rounded p-3 h-100">
+                    <div class="project-item shadow-lg rounded p-3 h-100" style="height: 100px">
                         <div class="position-relative mb-3">
                             <img class="img-fluid rounded lazyload"   src="{{url('images/projects/',json_decode($project->images)[0])}}" alt="">
                                 <div class="overlay">
