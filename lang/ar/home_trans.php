@@ -215,7 +215,7 @@ return[
     'Our Projects'=>'مشاريعنا',
     'Learn More About Our Complete Projects'=>'تعرّف على المزيد حول مشاريعنا المكتملة',
     'View All Projects'=>'عرض كافة المشاريع',
-    'You’re going to love your Up Lancer'=>'ستعشق العمل مع Up Lancer',
+    'You’re going to love your Up Lancer'=>'ستجد في Up Lancer ما يعزز تجربتك بشكل لا مثيل له',
     'Including the people behind the scenes'=>'لأننا نهتم ليس فقط بالنتائج، بل أيضًا بالفريق الرائع الذي يعمل خلف الكواليس',
     'Tell us about your product'=>'أخبرنا عن منتجك',
     'Share your ideas, and we will turn them into reality. We will gather all your needs to start crafting the perfect solution.'=>'شاركنا أفكارك، وسنحولها إلى واقع. سنجمع جميع متطلباتك لنبني الحل الأمثل الذي يناسب احتياجاتك.',
