@@ -42,7 +42,7 @@
 
                     <ul class="list-unstyled mb-4">
 {{--                        <li><strong>Client:</strong> </li>--}}
-                        <li><strong>{{trans('home_trans.Date')}}:</strong> {{ $project->created_at->format('F j, Y') }}</li>
+{{--                        <li><strong>{{trans('home_trans.Date')}}:</strong> {{ $project->created_at->format('F j, Y') }}</li>--}}
                         <li><strong>{{trans('home_trans.Category')}}:</strong> {{ $project->service->name }}</li>
                         <li><strong>{{trans('home_trans.Technology')}}:</strong> {{ $project->technology }}</li>
                     </ul>
