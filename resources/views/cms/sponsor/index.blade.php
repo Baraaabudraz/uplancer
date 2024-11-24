@@ -1,9 +1,5 @@
 @extends('cms.layouts.master')
-
-@section('title')
-    {{trans('dashboard_trans.Sponsors')}}
-@endsection
-
+@section('title',trans('dashboard_trans.Sponsors'))
 @section('content')
     <!--begin::Toolbar-->
     <div class="toolbar" id="kt_toolbar">
@@ -32,7 +28,7 @@
                     </li>
 
                     <li class="breadcrumb-item text-muted">
-                        <a href="{{route('categories.index')}}" class="text-muted text-hover-primary"> {{trans('dashboard_trans.Sponsors')}}</a>
+                        <a href="{{route('sponsors.index')}}" class="text-muted text-hover-primary"> {{trans('dashboard_trans.Sponsors')}}</a>
                     </li>
                     <!--end::Item-->
                     <!--begin::Item-->
@@ -104,7 +100,7 @@
                             <td>
                                 <div class="d-flex align-items-center">
                                     <div class="symbol symbol-30px me-5">
-                                        <img src="{{url('/images/sponsor/'.$sponsor->image)}}" class="" alt="">
+                                        <img src="{{url('/images/sponsors/'.$sponsor->image)}}" class="" alt="">
                                     </div>
                                 </div>
                             </td>
