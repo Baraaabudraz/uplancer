@@ -77,7 +77,7 @@
                             <span class="text-dark">{{ trans('home_trans.Trusted by founders for cost-effective solutions') }}</span>
                         </li>
                     </ul>
-                    <button type="button" class="btn btn-primary btn-lg mt-4">
+                    <button type="button"  class="btn btn-primary btn-lg mt-4 px-4 py-2 rounded-pill text-white" data-toggle="modal" data-target="#exampleModal">
                         {{ trans('home_trans.Start with Up Lancer') }}
                     </button>
                 </div>
