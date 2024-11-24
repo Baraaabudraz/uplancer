@@ -165,14 +165,14 @@
                             </button>
                         </div>
                         <!--end::Actions-->
-                    </form>
-
 
                 </div>
+                    </form>
                 <!--end::Body-->
             </div>
             <!--end::List Widget 6-->
 
+        </div>
         </div>
 
 
@@ -182,7 +182,6 @@
 
 @endsection
 @section('page-scripts')
-
     <script src="{{asset('cms/assets/plugins/custom/uppy/uppy.bundle.js')}}" type="text/javascript"></script>
     <script src="{{asset('cms/assets/js/pages/crud/file-upload/uppy.js')}}" type="text/javascript"></script>
 @endsection
