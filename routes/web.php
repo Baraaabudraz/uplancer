@@ -13,6 +13,7 @@ use App\Http\Controllers\SectionController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\SliderController;
+use App\Http\Controllers\SponsorController;
 use App\Http\Controllers\TeamController;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
@@ -67,9 +68,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function()
     Route::resource('settings',SettingController::class);
     Route::resource('sliders',SliderController::class);
     Route::resource('members',TeamController::class);
-
-
-//    Route::resource('sponsors',SponsorController::class);
+    Route::resource('sponsors',SponsorController::class);
 
     Route::get('get_roles', [AdminController::class, 'loadRoles'])->name('get_roles');
     Route::put('update-settings',[SettingController::class,'updateSettings'])->name('update-settings');
