@@ -103,13 +103,13 @@ class SettingController extends Controller
                 $data['logo'] = $newLogo;
             }else{
                 // احتفظ بالصورة القديمة في حالة عدم تحميل صورة جديدة
-                $data['image']=$settings->image;
+                $data['logo']=$settings->logo;
             }
         }
 
 
 
-        $website_settings = Setting::query()->first()->update($data);
+        $website_settings = $settings->update($data);
 
         if ($website_settings) {
             session()->flash('alert-type', 'alert-success');
