@@ -136,6 +136,20 @@
                                             @enderror
                                         </div>
                                     @endforeach
+                                        @foreach(config('lang') as $key => $lang)
+                                            <div class="col-md-6 d-flex flex-column mb-8 fv-row">
+                                                <!--begin::Label-->
+                                                <label class="d-flex align-items-center fs-6 fw-bold mb-2">
+                                                    <span class="required">{{trans('dashboard_trans.Meta Description')}} ({{$lang}})</span>
+                                                    <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="{{trans('dashboard_trans.Meta Description')}}"></i>
+                                                </label>
+                                                <!--end::Label-->
+                                                <textarea name="meta_description[{{$key}}]" class="form-control @error('meta_description') is-invalid @enderror">{{$project->getTranslation('meta_description',$key)}}</textarea>
+                                                @error('meta_description.'.$key)
+                                                <span class="text-danger">{{$message}}</span>
+                                                @enderror
+                                            </div>
+                                        @endforeach
                                     <div class="col-md-6 d-flex flex-column mb-8 fv-row">
                                         <label class="d-flex align-items-center fs-6 fw-bold mb-2">{{trans('dashboard_trans.Services')}}</label>
                                         <select class="form-select" name="service_id" >
