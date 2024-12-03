@@ -191,6 +191,21 @@
                                 <!--begin::Col-->
                             </div>
                         @endforeach
+                            <div class="card-body border-top px-9 pt-3 pb-4">
+                                @foreach(config('lang') as $key => $lang)
+                                    <div class="row mb-8">
+                                        <!--begin::Col-->
+                                        <div class="col-xl-3">
+                                            <div class="fs-6 fw-bold mt-2 mb-3">{{trans('dashboard_trans.Meta Description')}} ({{$lang}})</div>
+                                        </div>
+                                        <!--end::Col-->
+                                        <!--begin::Col-->
+                                        <div class="col-xl-9 fv-row fv-plugins-icon-container">
+                                            <textarea type="text" name="meta_description[{{$key}}]" class="form-control form-control-solid" placeholder="{{trans('dashboard_trans.Meta Description')}}">{{$website_settings->getTranslation('meta_description',$key)}}</textarea>
+                                            <div class="fv-plugins-message-container invalid-feedback"></div></div>
+                                        <!--begin::Col-->
+                                    </div>
+                                @endforeach
                         @foreach(config('lang') as $key => $lang)
                             <div class="row mb-8">
                                 <!--begin::Col-->
