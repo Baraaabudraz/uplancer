@@ -109,7 +109,7 @@ class SettingController extends Controller
 
 
 
-        $website_settings = $settings->update($data);
+        $website_settings = Setting::query()->first()->update($data);
 
         if ($website_settings) {
             session()->flash('alert-type', 'alert-success');
