@@ -53,9 +53,10 @@
 
 </style>
 @endsection
+
 @section('content')
     <!-- Hero Section -->
-    <section class="hero bg-light py-5">
+    <section class="container-fluid hero bg-light py-5">
         <div class="container">
             <div class="row align-items-center">
                 <!-- Text Content -->
@@ -498,6 +499,7 @@
 {{--        </div>--}}
 {{--    </div>--}}
     </div>
+
     <!-- Start: Up Lancer Process Section -->
     <div class="container-fluid bg-light py-5 mt-5 wow fadeInUp" data-wow-delay="0.1s" style="border-top: 1px solid #eaeaea;">
         <div class="container text-center">
@@ -551,6 +553,7 @@
             </div>
         </div>
     </div>
+
     <section class="bg-light py-5">
         <div class="container px-4 sm:px-20 lg:px-28">
             <div class="row align-items-center justify-content-between">
