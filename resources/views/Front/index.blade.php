@@ -327,75 +327,74 @@
     <!-- Feature Start -->
     <div class="container-fluid py-5 bg-light">
         <div class="container">
-            <div class="row g-5 align-items-center">
-                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="h-100">
-                        <h6 class="section-title text-start text-primary">{{trans('home_trans.Why Up Lancer?')}}</h6>
-                        <h1 class="display-6 mb-4">{{trans('home_trans.Why People Trust Us?')}}</h1>
-                        <div class="why-us-content">
-                            <div class="why-item mb-4 d-flex align-items-start" data-animate="fade-up">
-                                <div class="icon-wrapper bg-primary text-white rounded-circle p-3 ms-3">
-                                        <i class="fas fa-lightbulb fa-2x"></i>
-                                </div>
-                                <div>
-                                    <h5>{{trans('home_trans.Innovative Solutions')}}</h5>
-                                    <p class="text-muted">{{trans('home_trans.At UP Lancer, we don’t just follow trends – we set them. Our team is committed to innovation, delivering cutting-edge web and mobile solutions.')}}</p>
-                                </div>
-                            </div>
+            <!-- Section Header -->
+            <div class="text-center mb-5">
+                <h6 class="section-title text-uppercase text-primary mb-2">{{ trans('home_trans.Why Up Lancer?') }}</h6>
+                <h2 class="display-5 fw-bold">{{ trans('home_trans.Why People Trust Us?') }}</h2>
+            </div>
 
-                            <div class="why-item mb-4 d-flex align-items-start" data-animate="fade-up">
-                                <div class="icon-wrapper bg-primary text-white rounded-circle p-3 ms-3">
-                                    <i class="fas fa-check-circle fa-2x"></i>
-                                </div>
-                                <div>
-                                    <h5>{{trans('home_trans.Quality-Driven Processes')}}</h5>
-                                    <p class="text-muted">{{trans('home_trans.Our development process ensures timely delivery and the highest standards of quality.')}}</p>
-                                </div>
-                            </div>
-
-                            <div class="why-item mb-4 d-flex align-items-start" data-animate="fade-up">
-                                <div class="icon-wrapper bg-primary text-white rounded-circle p-3 ms-3">
-                                    <i class="fas fa-leaf fa-2x"></i>
-                                </div>
-                                <div>
-                                    <h5>{{trans('home_trans.Long-Term Value')}}</h5>
-                                    <p class="text-muted">{{trans('home_trans.We focus on mas-customization and long-term, helping your business grow without frequent redevelopments.')}}</p>
-                                </div>
-                            </div>
-
-                            <div class="why-item mb-4 d-flex align-items-start" data-animate="fade-up">
-                                <div class="icon-wrapper bg-primary text-white rounded-circle p-3 ms-3">
-                                    <i class="fas fa-users fa-2x"></i>
-                                </div>
-                                <div>
-                                    <h5>{{trans('home_trans.Collaborative Partnership')}}</h5>
-                                    <p class="text-muted">{{trans('home_trans.We work closely with our clients to tailor solutions to their needs and business goals.')}}</p>
-                                </div>
-                            </div>
-
-                            <div class="why-item d-flex align-items-start" data-animate="fade-up">
-                                <div class="icon-wrapper bg-primary text-white rounded-circle p-3 ms-3">
-                                    <i class="fas fa-lock fa-2x"></i>
-                                </div>
-                                <div>
-                                    <h5>{{trans('home_trans.Security & Reliability')}}</h5>
-                                    <p class="text-muted">{{trans('home_trans.We provide secure and robust solutions to protect your data and operations.')}}</p>
-                                </div>
-                            </div>
+            <!-- Content Cards -->
+            <div class="row g-4 justify-content-center text-center">
+                <!-- Card 1 -->
+                <div class="col-md-4 col-sm-6">
+                    <div class="card h-100 border-0 shadow-sm p-4 rounded-4 bg-white">
+                        <div class="icon-wrapper mx-auto mb-3">
+                            <i class="fas fa-lightbulb fa-3x text-primary"></i>
                         </div>
+                        <h5 class="fw-bold">{{ trans('home_trans.Innovative Solutions') }}</h5>
                     </div>
                 </div>
 
-                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="bg-white p-5 rounded shadow-lg text-center">
-                        <h3 class="mb-4 text-primary">{{trans('home_trans.Why Trust Up Lancer?')}}</h3>
-                        <p class="text-dark">{{$settings->why_us ?? ''}}</p>
-                        <a href="{{route('about')}}" class="btn btn-primary rounded-pill py-3 px-5">{{trans('home_trans.Learn More')}}</a>
+                <!-- Card 2 -->
+                <div class="col-md-4 col-sm-6">
+                    <div class="card h-100 border-0 shadow-sm p-4 rounded-4 bg-white">
+                        <div class="icon-wrapper mx-auto mb-3">
+                            <i class="fas fa-check-circle fa-3x text-primary"></i>
+                        </div>
+                        <h5 class="fw-bold">{{ trans('home_trans.Quality-Driven Processes') }}</h5>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="col-md-4 col-sm-6">
+                    <div class="card h-100 border-0 shadow-sm p-4 rounded-4 bg-white">
+                        <div class="icon-wrapper mx-auto mb-3">
+                            <i class="fas fa-leaf fa-3x text-primary"></i>
+                        </div>
+                        <h5 class="fw-bold">{{ trans('home_trans.Long-Term Value') }}</h5>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="col-md-4 col-sm-6">
+                    <div class="card h-100 border-0 shadow-sm p-4 rounded-4 bg-white">
+                        <div class="icon-wrapper mx-auto mb-3">
+                            <i class="fas fa-users fa-3x text-primary"></i>
+                        </div>
+                        <h5 class="fw-bold">{{ trans('home_trans.Collaborative Partnership') }}</h5>
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="col-md-4 col-sm-6">
+                    <div class="card h-100 border-0 shadow-sm p-4 rounded-4 bg-white">
+                        <div class="icon-wrapper mx-auto mb-3">
+                            <i class="fas fa-lock fa-3x text-primary"></i>
+                        </div>
+                        <h5 class="fw-bold">{{ trans('home_trans.Security & Reliability') }}</h5>
                     </div>
                 </div>
             </div>
+
+            <!-- Call-to-Action -->
+            <div class="text-center mt-5">
+                <a href="{{ route('about') }}" class="btn btn-primary btn-lg rounded-pill px-5">
+                    {{ trans('home_trans.Learn More') }}
+                </a>
+            </div>
         </div>
     </div>
+
 
     <!-- Feature End -->
 
