@@ -257,6 +257,8 @@ return[
     'Projects Completed'=>'Projects Completed',
     'Satisfied Customers'=>'Satisfied Customers',
     'Visitor'=>'Visitor',
+    'Welcome to Up Lancer'=>'Welcome to Up Lancer',
+    'Transforming Visions into Reality with Innovative Solutions'=>'Transforming Visions into Reality with Innovative Solutions',
 
 
 
