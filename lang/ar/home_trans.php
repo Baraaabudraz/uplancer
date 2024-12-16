@@ -254,6 +254,12 @@ return[
     'Date'=>'التاريخ',
     'Category'=>'القسم',
     'Technology'=>'التقنية',
+    'Projects Completed'=>'مشاريع مُنجزة',
+    'Satisfied Customers'=>'عميل راضي',
+    'Visitor'=>'زائر',
+
+
+
 
 
 
