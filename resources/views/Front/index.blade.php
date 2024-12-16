@@ -230,63 +230,99 @@
 
     <!-- Facts End -->
 
+    <!-- Section: Statistics Counter -->
+    <div class="container-fluid py-5 bg-light">
+        <div class="container text-center">
+            <div class="row g-4">
+                <!-- Projects Completed -->
+                <div class="col-md-4">
+                    <div class="counter-item d-flex flex-column align-items-center">
+                        <div class="icon-wrapper bg-primary text-white rounded-circle d-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
+                            <i class="fas fa-tasks fa-2x"></i>
+                        </div>
+                        <h2 class="display-5 fw-bold text-primary mb-1" data-target1="150">0</h2>
+                        <p class="text-muted mb-0">{{ trans('home_trans.Projects Completed') }}</p>
+                    </div>
+                </div>
+                <!-- Happy Clients -->
+                <div class="col-md-4">
+                    <div class="counter-item d-flex flex-column align-items-center">
+                        <div class="icon-wrapper bg-success text-white rounded-circle d-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
+                            <i class="fas fa-smile fa-2x"></i>
+                        </div>
+                        <h2 class="display-5 fw-bold text-success mb-1" data-target1="120">0</h2>
+                        <p class="text-muted mb-0">{{ trans('home_trans.Satisfied Customers') }}</p>
+                    </div>
+                </div>
+                <!-- Website Visitors -->
+                <div class="col-md-4">
+                    <div class="counter-item d-flex flex-column align-items-center">
+                        <div class="icon-wrapper bg-warning text-white rounded-circle d-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
+                            <i class="fas fa-users fa-2x"></i>
+                        </div>
+                        <h2 class="display-5 fw-bold text-warning mb-1" data-target1="600">0</h2>
+                        <p class="text-muted mb-0">{{ trans('home_trans.Visitor') }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Section: Statistics Counter -->
 
     <!-- About Start -->
-    <div class="container-fluid bg-light">
+    <section class="bg-light py-5">
         <div class="container">
             <div class="row g-5 align-items-center">
-                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="h-100">
-                        <h6 class="section-title text-start text-primary">{{trans('home_trans.Discover Our Story')}}</h6>
-                        <h1 class="display-6 mb-4">
-                            {{trans('home_trans.Empower Your Success with')}} <span class="text-primary">{{trans('home_trans.Up Lancer')}}</span> - {{trans('home_trans.Where Excellence Meets Innovation')}}
+                <!-- Left Content -->
+                <div class="col-lg-6">
+                    <div>
+                        <h6 class="section-title text-start text-primary mb-3">{{trans('home_trans.Discover Our Story')}}</h6>
+                        <h1 class="display-5 fw-bold mb-4">
+                            {{trans('home_trans.Empower Your Success with')}}
+                            <span class="text-primary">{{trans('home_trans.Up Lancer')}}</span> -
+                            {{trans('home_trans.Where Excellence Meets Innovation')}}
                         </h1>
-                        <p class="lead text-muted mb-4">
-{{--                            {{$settings->about}}--}}
-                        </p>
-
-                        <div class="row mb-4">
-                            <div class="col-6 text-center">
-                                <div class="bg-white rounded-circle p-3 shadow-sm mb-3" style="width: 80px; height: 80px; margin: 0 auto;">
-                                    <i class="fas fa-lightbulb fa-2x text-primary"></i>
+                        <div class="row text-center">
+                            <div class="col-6 mb-4">
+                                <div class="feature-icon bg-primary text-white rounded-circle mx-auto d-flex align-items-center justify-content-center" style="width: 90px; height: 90px;">
+                                    <i class="fas fa-lightbulb fa-2x"></i>
                                 </div>
-                                <h5 class="mb-0">{{trans('home_trans.Innovative Solutions')}}</h5>
+                                <h6 class="mt-3 fw-bold">{{trans('home_trans.Innovative Solutions')}}</h6>
                             </div>
-                            <div class="col-6 text-center">
-                                <div class="bg-white rounded-circle p-3 shadow-sm mb-3" style="width: 80px; height: 80px; margin: 0 auto;">
-                                    <i class="fas fa-award fa-2x text-primary"></i>
+                            <div class="col-6 mb-4">
+                                <div class="feature-icon bg-primary text-white rounded-circle mx-auto d-flex align-items-center justify-content-center" style="width: 90px; height: 90px;">
+                                    <i class="fas fa-award fa-2x"></i>
                                 </div>
-                                <h5 class="mb-0">{{trans('home_trans.Award-Winning Expertise')}}</h5>
+                                <h6 class="mt-3 fw-bold">{{trans('home_trans.Award-Winning Expertise')}}</h6>
                             </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-6 text-center">
-                                <div class="bg-white rounded-circle p-3 shadow-sm mb-3" style="width: 80px; height: 80px; margin: 0 auto;">
-                                    <i class="fas fa-users fa-2x text-primary"></i>
+                            <div class="col-6">
+                                <div class="feature-icon bg-primary text-white rounded-circle mx-auto d-flex align-items-center justify-content-center" style="width: 90px; height: 90px;">
+                                    <i class="fas fa-users fa-2x"></i>
                                 </div>
-                                <h5 class="mb-0">{{trans('home_trans.Customer-Centric')}}</h5>
+                                <h6 class="mt-3 fw-bold">{{trans('home_trans.Customer-Centric')}}</h6>
                             </div>
-                            <div class="col-6 text-center">
-                                <div class="bg-white rounded-circle p-3 shadow-sm mb-3" style="width: 80px; height: 80px; margin: 0 auto;">
-                                    <i class="fas fa-shield-alt fa-2x text-primary"></i>
+                            <div class="col-6">
+                                <div class="feature-icon bg-primary text-white rounded-circle mx-auto d-flex align-items-center justify-content-center" style="width: 90px; height: 90px;">
+                                    <i class="fas fa-shield-alt fa-2x"></i>
                                 </div>
-                                <h5 class="mb-0">{{trans('home_trans.Security & Trust')}}</h5>
+                                <h6 class="mt-3 fw-bold">{{trans('home_trans.Security & Trust')}}</h6>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="h-100 d-flex flex-column justify-content-center">
-                        <div class="p-4 bg-white shadow-lg rounded mb-4">
+
+                <!-- Right Content -->
+                <div class="col-lg-6">
+                    <div class="h-100">
+                        <div class="bg-white p-4 shadow-lg rounded mb-4">
                             <h3 class="text-primary mb-3">{{trans('home_trans.Our Vision')}}</h3>
-                            <p class="text-dark">
+                            <p class="text-muted">
                                 {{trans('home_trans.At Up Lancer, our vision is to redefine the standards of quality and innovation in every sector we serve. We believe in creating impactful solutions that not only meet the needs of today but anticipate the challenges of tomorrow.')}}
                             </p>
                         </div>
-                        <div class="p-4 bg-white shadow-lg rounded">
+                        <div class="bg-white p-4 shadow-lg rounded">
                             <h3 class="text-primary mb-3">{{trans('home_trans.Our Mission')}}</h3>
-                            <p class="text-dark">
+                            <p class="text-muted">
                                 {{trans('home_trans.Our mission is to empower businesses to reach their full potential by providing expert solutions that are innovative, reliable, and tailored to meet the unique goals of each client.')}}
                             </p>
                         </div>
@@ -294,7 +330,8 @@
                 </div>
             </div>
         </div>
-    </div>
+    </section>
+
 
     <!-- About End -->
 
@@ -609,5 +646,26 @@
     </script>
     <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <!-- JavaScript for Counter Animation -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const counters = document.querySelectorAll("[data-target1]");
+            counters.forEach(counter => {
+                const updateCount = () => {
+                    const target = +counter.getAttribute("data-target1");
+                    const count = +counter.innerText;
 
+                    const increment = target / 200; // Adjust speed here
+
+                    if (count < target) {
+                        counter.innerText = Math.ceil(count + increment);
+                        setTimeout(updateCount, 20); // Update every 20ms
+                    } else {
+                        counter.innerText = target;
+                    }
+                };
+                updateCount();
+            });
+        });
+    </script>
 @endsection
