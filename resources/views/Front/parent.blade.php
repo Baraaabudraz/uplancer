@@ -157,12 +157,29 @@
 <!-- Navbar Start -->
 <!-- Navbar with Sticky Feature -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top" style="background: linear-gradient(45deg, #5D3991, #8D61E2); box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);">
-    <div class="container">
-        <!-- Logo and Language Dropdown -->
+    <div class="container d-flex justify-content-between align-items-center">
+        <!-- Logo -->
         <a href="{{ route('home') }}" class="navbar-brand d-flex align-items-center">
-            <img src="{{ asset('uplancer/logo/up_lancer_logo_light.png') }}" alt="Up Lancer Logo" class="img-fluid me-2" style="height: 50px;">
-{{--            <span class="text-white fw-bold">Up Lancer</span>--}}
+            <img src="{{ asset('uplancer/logo/up_lancer_logo_light.png') }}" alt="Up Lancer Logo" class="img-fluid" style="height: 50px;">
         </a>
+
+        <!-- Language Dropdown (Positioned to the right in all screens) -->
+        <div class="dropdown d-lg-none ms-auto me-3">
+            <button class="btn btn-light btn-sm dropdown-toggle" type="button" id="languageDropdownMobile" data-bs-toggle="dropdown" aria-expanded="false">
+                {{ LaravelLocalization::getCurrentLocaleNative() }}
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="languageDropdownMobile">
+                @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                    <li>
+                        <a href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}"
+                           hreflang="{{ $localeCode }}"
+                           class="dropdown-item">
+                            {{ $properties['native'] }}
+                        </a>
+                    </li>
+                @endforeach
+            </ul>
+        </div>
 
         <!-- Toggler for Mobile -->
         <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -188,9 +205,27 @@
                     <a href="{{ route('contact') }}" class="nav-link">{{ trans('home_trans.Contact us') }}</a>
                 </li>
             </ul>
+
+            <!-- Language Dropdown for Larger Screens -->
+            <div class="dropdown d-none d-lg-block ms-3">
+                <button class="btn btn-light btn-sm dropdown-toggle" type="button" id="languageDropdownDesktop" data-bs-toggle="dropdown" aria-expanded="false">
+                    {{ LaravelLocalization::getCurrentLocaleNative() }}
+                </button>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="languageDropdownDesktop">
+                    @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                        <li>
+                            <a href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}"
+                               hreflang="{{ $localeCode }}" class="dropdown-item">
+                                {{ $properties['native'] }}
+                            </a>
+                        </li>
+                    @endforeach
+                </ul>
+            </div>
         </div>
     </div>
 </nav>
+
 
 <!-- Navbar End -->
 
