@@ -254,6 +254,9 @@ return[
     'Date'=>'Date',
     'Category'=>'Category',
     'Technology'=>'Technology',
+    'Projects Completed'=>'Projects Completed',
+    'Satisfied Customers'=>'Satisfied Customers',
+    'Visitor'=>'Visitor',
 
 
 
