@@ -257,6 +257,10 @@ return[
     'Projects Completed'=>'مشاريع مُنجزة',
     'Satisfied Customers'=>'عميل راضي',
     'Visitor'=>'زائر',
+    'Welcome to Up Lancer'=>'مرحبا بك في أب لانسر',
+    'Transforming Visions into Reality with Innovative Solutions'=>'تحويل الرؤى إلى واقع من خلال الحلول المبتكرة',
+
+
 
 
 
