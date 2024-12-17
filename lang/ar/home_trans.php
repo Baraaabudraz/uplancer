@@ -229,7 +229,7 @@ return[
     'We’ve refined our process from product prototyping to continuous quality.'=>'لقد قمنا بتطوير عملية عملنا بدءًا من النماذج الأولية للمنتجات وصولًا إلى ضمان الجودة المستمر.',
     'Get a new product that works reliably so you can bring it to market quickly and with confidence. Or add a Up Lancer to your distributed team to help lighten your load for an important feature add-on, API product or internal project.'=>'احصل على منتج جديد يعمل بكفاءة وموثوقية، مما يتيح لك إطلاقه في السوق بسرعة وبثقة. أو قم بإضافة فريق Up Lancer إلى فريقك الموزع لتخفيف العبء في تطوير ميزة مهمة، منتج API، أو مشروع داخلي. نحن هنا لدعمك في كل خطوة نحو النجاح. 🚀',
     'Keep In Touch'=>'تواصل معنا',
-    'Contact us today and discover how we can help you reach your goals.'=>'تواصل معنا اليوم واكتشف كيف يمكننا مساعدتك في تحقيق أهدافك بنجاح. 🚀',
+    'Contact us today and discover how we can help you reach your goals.'=>'تواصل معنا اليوم واكتشف كيف يمكننا مساعدتك في تحقيق أهدافك بنجاح.',
     'Kingdom of Saudi Arabia'=>'المملكة العربية السعودية',
     'Quick Links'=>'روابط سريعة',
     'Get In Touch'=>'تواصل معنا',
