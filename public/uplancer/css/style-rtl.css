@@ -70,7 +70,7 @@
 .navbar .dropdown-toggle::after {
     border: none;
     content: "\f107";
-    font-family: "Cairo", sans-serif;
+    font-family: "Font Awesome 5 Free",sans-serif;
     font-weight: 900;
     vertical-align: middle;
     margin-left: 8px;
@@ -454,7 +454,7 @@
     display: block;
     margin-bottom: 5px;
     padding: 0;
-    text-align: left;
+    text-align: right;
     color: var(--secondary);
     font-weight: normal;
     text-transform: capitalize;
@@ -468,6 +468,7 @@
     font-weight: 900;
     color: var(--secondary);
     margin-right: 10px;
+    padding-left: 5px;
 }
 
 .footer .btn.btn-link:hover {
