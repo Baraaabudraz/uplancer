@@ -232,55 +232,85 @@
 @yield('content')
 
 <!-- Footer Start -->
-<div class="container-fluid bg-dark text-body footer pt-5 wow fadeIn" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeIn;">
-    <div class="container py-5">
-        <div class="row g-5">
-            <div class="col-lg-3 col-md-6">
-                <h5 class="text-light mb-4">{{trans('home_trans.Address')}}</h5>
-                <p class="mb-2"><i class="fa fa-map-marker-alt ms-2"></i>{{trans('home_trans.Kingdom of Saudi Arabia')}}</p>
-                <p class="mb-2"><i class="fa fa-phone-alt ms-2"></i>{{setting()->phone ?? ''}}</p>
-                <p class="mb-2"><i class="fa fa-envelope ms-2"></i>{{setting()->email ?? ''}}</p>
+<!-- Modern and Sleek Footer Redesign -->
+<footer class="container-fluid bg-dark footer wow fadeIn text-white py-5">
+    <div class="container">
+        <div class="row g-4">
+            <!-- Address Section -->
+            <div class="col-lg-4 col-md-6">
+                <h5 class="fw-bold mb-4 text-white">{{ trans('home_trans.Address') }}</h5>
+                <ul class="list-unstyled">
+                    <li class="mb-2 d-flex align-items-center">
+                        <i class="fa fa-map-marker-alt ms-2 me-2 text-primary"></i>
+                        <span class="text-white-50">{{ trans('home_trans.Kingdom of Saudi Arabia') }}</span>
+                    </li>
+                    <li class="mb-2 d-flex align-items-center">
+                        <i class="fa fa-phone-alt ms-2 me-2 text-primary"></i>
+                        <span class="text-white-50">{{ setting()->phone ?? '' }}</span>
+                    </li>
+                    <li class="mb-2 d-flex align-items-center">
+                        <i class="fa fa-envelope ms-2 me-2 text-primary"></i>
+                        <span class="text-white-50">{{ setting()->email ?? '' }}</span>
+                    </li>
+                </ul>
+                <div class="d-flex">
+                    <a class="btn btn-sm btn-outline-light rounded-circle me-2" style="color: #F7931E !important; border-color: #F7931E !important"  href="https://twitter.com/uplancerps" target="_blank">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a class="btn btn-sm btn-outline-light rounded-circle me-2" style="color: #F7931E !important; border-color: #F7931E !important" href="https://www.facebook.com/uplancerps" target="_blank">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a class="btn btn-sm btn-outline-light rounded-circle me-2" style="color: #F7931E !important; border-color: #F7931E !important" href="https://www.linkedin.com/company/uplancerps" target="_blank">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                </div>
+            </div>
 
-                <div class="d-flex pt-2">
-                    <a class="btn btn-square btn-outline-secondary rounded-circle me-1" href="https://twitter.com/uplancerps" target="_blank"><i class="fab fa-twitter"></i></a>
-                    <a class="btn btn-square btn-outline-secondary rounded-circle me-1" href="https://www.facebook.com/uplancerps" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                    <!--                    <a class="btn btn-square btn-outline-secondary rounded-circle me-1" href=""><i class="fab fa-youtube"></i></a>-->
-                    <a class="btn btn-square btn-outline-secondary rounded-circle me-0" href="https://www.linkedin.com/company/uplancerps" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                </div>
+            <!-- Quick Links Section -->
+            <div class="col-lg-2 col-md-6">
+                <h5 class="fw-bold mb-4 text-white">{{ trans('home_trans.Quick Links') }}</h5>
+                <ul class="list-unstyled">
+                    <li class="mb-2">
+                        <a class="btn btn-link  text-decoration-none" href="{{ route('about') }}">{{ trans('home_trans.About Up Lancer') }}</a>
+                    </li>
+                    <li class="mb-2">
+                        <a class="btn btn-link  text-decoration-none" href="{{ route('contact') }}">{{ trans('home_trans.Contact Us') }}</a>
+                    </li>
+                    <li class="mb-2">
+                        <a class="btn btn-link  text-decoration-none" href="{{ route('services') }}">{{ trans('home_trans.Services') }}</a>
+                    </li>
+                    <li class="mb-2">
+                        <a class="btn btn-link  text-decoration-none" href="{{ route('terms') }}">{{ trans('home_trans.Terms & Condition') }}</a>
+                    </li>
+                    <li>
+                        <a class="btn btn-link  text-decoration-none" href="{{ route('privacy') }}">{{ trans('home_trans.Privacy') }}</a>
+                    </li>
+                </ul>
             </div>
-            <div class="col-lg-3 col-md-6">
-                <h5 class="text-light mb-4">{{trans('home_trans.Quick Links')}}</h5>
-                <a class="btn btn-link" href="{{route('about')}}">{{trans('home_trans.About Up Lancer')}}</a>
-                <a class="btn btn-link" href="{{route('contact')}}">{{trans('home_trans.Contact Us')}}</a>
-                <a class="btn btn-link" href="{{route('services')}}">{{trans('home_trans.Services')}}</a>
-                <a class="btn btn-link" href="{{route('terms')}}">{{trans('home_trans.Terms & Condition')}}</a>
-                <a class="btn btn-link" href="{{route('privacy')}}">{{trans('home_trans.Privacy')}}</a>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <h5 class="text-light mb-4">{{trans('home_trans.Keep In Touch')}}</h5>
-                <p>{{trans('home_trans.Contact us today and discover how we can help you reach your goals.')}}</p>
-                <div class="position-relative mx-auto" style="max-width: 400px;">
-{{--                    <input class="form-control bg-transparent border-secondary w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">--}}
-                    <a href="https://wa.me/+966549289484" type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2" target="_blank"><i class="fas fa-fw  fa-phone-alt ms-2"></i>{{trans('home_trans.Contact us')}}</a>
-                </div>
+
+            <!-- Contact Us Section -->
+            <div class="col-lg-4 col-md-6">
+                <h5 class="fw-bold mb-4 text-white">{{ trans('home_trans.Keep In Touch') }}</h5>
+                <p class="text-white-50 mb-4">{{ trans('home_trans.Contact us today and discover how we can help you reach your goals.') }}</p>
+                <a href="https://wa.me/+966549289484" class="btn btn-primary px-4 py-2" target="_blank">
+                    {{ trans('home_trans.Contact us') }}
+                </a>
             </div>
         </div>
     </div>
 
-    <div class="container-fluid copyright">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                    © <a href="#">Up Lancer</a>, {{trans('home_trans.All Right Reserved')}}.
-                </div>
-                <div class="col-md-6 text-center text-md-end">
-                    <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-                    {{trans('home_trans.Designed By')}} <a href="#">Up Lancer</a>
-                </div>
+    <!-- Footer Bottom -->
+    <div class="container border-top mt-4 pt-4">
+        <div class="row align-items-center">
+            <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                &copy; <span class="text-primary">Up Lancer</span>, {{ trans('home_trans.All Right Reserved') }}.
+            </div>
+            <div class="col-md-6 text-center text-md-end">
+                {{ trans('home_trans.Designed By') }} <span class="text-primary">Up Lancer</span>
             </div>
         </div>
     </div>
-</div>
+</footer>
 <!-- Footer End -->
 
 <a href="https://api.whatsapp.com/send?phone=+966549289484&text=مرحبا لدي استفسار%21%20." class="float" target="_blank">
