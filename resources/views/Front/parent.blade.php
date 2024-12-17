@@ -289,7 +289,7 @@
             </div>
 
             <!-- Contact Us Section -->
-            <div class="col-lg-4 col-md-6">
+            <div class="col-lg-3 col-md-6">
                 <h5 class="fw-bold mb-4 text-white">{{ trans('home_trans.Keep In Touch') }}</h5>
                 <p class="text-white-50 mb-4">{{ trans('home_trans.Contact us today and discover how we can help you reach your goals.') }}</p>
                 <a href="https://wa.me/+966549289484" class="btn btn-primary px-4 py-2" target="_blank">
