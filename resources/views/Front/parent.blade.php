@@ -267,7 +267,7 @@
             </div>
 
             <!-- Quick Links Section -->
-            <div class="col-lg-2 col-md-6">
+            <div class="col-lg-3 col-md-6">
                 <h5 class="fw-bold mb-4 text-white">{{ trans('home_trans.Quick Links') }}</h5>
                 <ul class="list-unstyled">
                     <li class="mb-2">
