@@ -170,7 +170,7 @@
         </div>
 
         <!-- Language Dropdown -->
-        <div class="dropdown ms-auto">
+        <div class="dropdown ms-2">
             <button class="btn btn-light btn-sm dropdown-toggle" type="button" id="languageDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                 {{ LaravelLocalization::getCurrentLocaleNative() }}
             </button>
