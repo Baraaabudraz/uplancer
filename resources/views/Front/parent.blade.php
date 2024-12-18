@@ -213,7 +213,7 @@
 <!-- Footer Start -->
 <!-- Modern and Sleek Footer Redesign -->
 <!-- Redesigned Footer -->
-<footer class="bg-dark text-white footer wow fadeIn pt-5 pb-4">
+<footer class="bg-dark text-white footer wow fadeIn pt-5 pb-4" style="background-color: #2f164c !important;">
     <div class="container">
         <div class="row">
             <!-- Footer About -->
@@ -224,11 +224,11 @@
                 <p>{{ trans('home_trans.Transforming your ideas into achievements with innovative solutions, tailored to meet your needs and drive your business towards success.') }}</p>
             </div>
             <div class="col-lg-3 col-md-6">
-                <h5 class="fw-bold mb-4 text-white">العنوان</h5>
+                <h5 class="fw-bold mb-4 text-white">{{trans('home_trans.Address')}}</h5>
                 <ul class="list-unstyled">
                     <li class="mb-2 d-flex align-items-center">
                         <i class="fa fa-map-marker-alt ms-2 me-2 text-primary"></i>
-                        <span class="text-white-50">المملكة العربية السعودية</span>
+                        <span class="text-white-50">{{trans('home_trans.Kingdom of Saudi Arabia')}}</span>
                     </li>
                     <li class="mb-2 d-flex align-items-center">
                         <i class="fa fa-phone-alt ms-2 me-2 text-primary"></i>
@@ -245,10 +245,10 @@
             <div class="col-lg-3 col-md-6 mb-4">
                 <h5 class="fw-bold text-white">{{ trans('home_trans.Quick Links') }}</h5>
                 <ul class="list-unstyled">
-                    <li><a href="{{ route('home') }}" class="btn btn-link text-decoration-none">{{ trans('home_trans.Home') }}</a></li>
+                    <li><a href="{{ route('home') }}" class="btn btn-link text-decoration-none ">{{ trans('home_trans.Home') }}</a></li>
                     <li><a href="{{ route('about') }}" class="btn btn-link text-decoration-none">{{ trans('home_trans.About Up Lancer') }}</a></li>
                     <li><a href="{{ route('services') }}" class="btn btn-link text-decoration-none">{{ trans('home_trans.Services') }}</a></li>
-                    <li><a href="{{ route('projects') }}" class="btn btn-link text-decoration-none">{{ trans('home_trans.Projects') }}</a></li>
+                    <li><a href="{{ route('projects') }}" class="btn btn-link text-decoration-none ">{{ trans('home_trans.Projects') }}</a></li>
                     <li><a href="{{ route('contact') }}" class="btn btn-link text-decoration-none">{{ trans('home_trans.Contact us') }}</a></li>
                 </ul>
             </div>
