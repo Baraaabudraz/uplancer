@@ -232,7 +232,7 @@
     <!-- Facts End -->
 
     <!-- Section: Statistics Counter -->
-    <div class="container-fluid py-5 bg-light">
+    <div class="container-fluid py-5 bg-light wow fadeInUp">
         <div class="container text-center">
             <div class="row g-4">
                 <!-- Projects Completed -->
@@ -363,7 +363,7 @@
 
 
     <!-- Feature Start -->
-    <div class="container-fluid py-5 bg-light">
+    <div class="container-fluid py-5 bg-light wow fadeInUp">
         <div class="container">
             <!-- Section Header -->
             <div class="text-center mb-5">
@@ -374,8 +374,8 @@
             <!-- Content Cards -->
             <div class="row g-4 justify-content-center text-center">
                 <!-- Card 1 -->
-                <div class="col-md-4 col-sm-6">
-                    <div class="card h-100 border-0 shadow-sm p-4 rounded-4 bg-white">
+                <div class="col-md-4 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="card h-100 border-0 shadow-sm p-4 rounded-4 bg-white" >
                         <div class="icon-wrapper mx-auto mb-3">
                             <i class="fas fa-lightbulb fa-3x text-primary"></i>
                         </div>
@@ -384,7 +384,7 @@
                 </div>
 
                 <!-- Card 2 -->
-                <div class="col-md-4 col-sm-6">
+                <div class="col-md-4 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="card h-100 border-0 shadow-sm p-4 rounded-4 bg-white">
                         <div class="icon-wrapper mx-auto mb-3">
                             <i class="fas fa-check-circle fa-3x text-primary"></i>
@@ -394,7 +394,7 @@
                 </div>
 
                 <!-- Card 3 -->
-                <div class="col-md-4 col-sm-6">
+                <div class="col-md-4 col-sm-6  wow fadeInUp" data-wow-delay="0.1s">
                     <div class="card h-100 border-0 shadow-sm p-4 rounded-4 bg-white">
                         <div class="icon-wrapper mx-auto mb-3">
                             <i class="fas fa-leaf fa-3x text-primary"></i>
@@ -404,7 +404,7 @@
                 </div>
 
                 <!-- Card 4 -->
-                <div class="col-md-4 col-sm-6">
+                <div class="col-md-4 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="card h-100 border-0 shadow-sm p-4 rounded-4 bg-white">
                         <div class="icon-wrapper mx-auto mb-3">
                             <i class="fas fa-users fa-3x text-primary"></i>
@@ -414,7 +414,7 @@
                 </div>
 
                 <!-- Card 5 -->
-                <div class="col-md-4 col-sm-6">
+                <div class="col-md-4 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="card h-100 border-0 shadow-sm p-4 rounded-4 bg-white">
                         <div class="icon-wrapper mx-auto mb-3">
                             <i class="fas fa-lock fa-3x text-primary"></i>
