@@ -260,6 +260,9 @@ return[
     'Welcome to Up Lancer'=>'Welcome to Up Lancer',
     'Transforming Visions into Reality with Innovative Solutions'=>'Transforming Visions into Reality with Innovative Solutions',
     'Programming & Designed By'=>'Programming & Designed By',
+    'Stay Connected'=>'Stay Connected',
+    'Transforming your ideas into achievements with innovative solutions, tailored to meet your needs and drive your business towards success.'=>'Transforming your ideas into achievements with innovative solutions, tailored to meet your needs and drive your business towards success.',
+
 
 
 
