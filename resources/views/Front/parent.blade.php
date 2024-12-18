@@ -88,14 +88,7 @@
             opacity: 1;
         }
 
-        .view-icon {
-            color: #fff;
-            font-size: 1.5rem;
-        }
 
-        .view-icon:hover {
-            color: #5D3991;
-        }
         .btn-primary {
             border: none;
             transition: background-color 0.3s ease, transform 0.3s ease;
@@ -108,20 +101,6 @@
 
         .btn-primary:active {
             transform: translateY(0px);
-        }
-
-        .icon-circle {
-            padding: 8px;
-            border-radius: 50%;
-            box-shadow: 5px 4px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .hover-grow:hover {
-            transform: scale(1.1);
-            transition: 0.3s ease;
-        }
-        .bg-gradient-primary {
-            background: linear-gradient(135deg, #5D3991, #9E59E2);
         }
 
         .float{
@@ -306,7 +285,7 @@
                 &copy; <span class="text-primary">Up Lancer</span>, {{ trans('home_trans.All Right Reserved') }}.
             </div>
             <div class="col-md-6 text-center text-md-end">
-                {{ trans('home_trans.Designed By') }} <span class="text-primary">Up Lancer</span>
+                {{ trans('home_trans.Programming & Designed By') }} <span class="text-primary">Up Lancer</span>
             </div>
         </div>
     </div>
