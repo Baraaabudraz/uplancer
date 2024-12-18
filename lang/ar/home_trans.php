@@ -260,6 +260,8 @@ return[
     'Welcome to Up Lancer'=>'مرحبا بك في أب لانسر',
     'Transforming Visions into Reality with Innovative Solutions'=>'تحويل الرؤى إلى واقع من خلال الحلول المبتكرة',
     'Programming & Designed By'=>'برمجة وتصميم',
+    'Stay Connected'=>'ابقى على اتصال',
+    'Transforming your ideas into achievements with innovative solutions, tailored to meet your needs and drive your business towards success.'=>'نحول أفكارك إلى إنجازات من خلال حلول مبتكرة، مصممة خصيصًا لتلبية احتياجاتك ودفع أعمالك نحو النجاح.',
 
 
 
