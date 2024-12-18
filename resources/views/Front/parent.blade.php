@@ -135,72 +135,54 @@
 
 <!-- Navbar Start -->
 <!-- Navbar with Sticky Feature -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top" style="background: linear-gradient(45deg, #5D3991, #8D61E2); box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);">
-    <div class="container d-flex justify-content-between align-items-center">
+<!-- Navbar Modern Design -->
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background: #5D3991; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);">
+    <div class="container">
         <!-- Logo -->
         <a href="{{ route('home') }}" class="navbar-brand d-flex align-items-center">
-            <img src="{{ asset('uplancer/logo/up_lancer_logo_light.png') }}" alt="Up Lancer Logo" class="img-fluid" style="height: 50px;">
+            <img src="{{ asset('uplancer/logo/up_lancer_logo_light.png') }}" alt="Logo" class="img-fluid" style="height: 50px;">
         </a>
 
-        <!-- Language Dropdown (Positioned to the right in all screens) -->
-        <div class="dropdown d-lg-none ms-auto me-3">
-            <button class="btn btn-light btn-sm dropdown-toggle" type="button" id="languageDropdownMobile" data-bs-toggle="dropdown" aria-expanded="false">
+        <!-- Toggler Button for Mobile -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navbar Links -->
+        <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+            <ul class="navbar-nav gap-4">
+                <li class="nav-item">
+                    <a href="{{ route('home') }}" class="nav-link fw-semibold text-primary">{{ trans('home_trans.Home') }}</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('about') }}" class="nav-link  fw-semibold">{{ trans('home_trans.About Up Lancer') }}</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('services') }}" class="nav-link fw-semibold">{{ trans('home_trans.Services') }}</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('projects') }}" class="nav-link fw-semibold">{{ trans('home_trans.Projects') }}</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('contact') }}" class="nav-link fw-semibold">{{ trans('home_trans.Contact us') }}</a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Language Dropdown -->
+        <div class="dropdown ms-auto">
+            <button class="btn btn-light btn-sm dropdown-toggle" type="button" id="languageDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                 {{ LaravelLocalization::getCurrentLocaleNative() }}
             </button>
-            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="languageDropdownMobile">
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="languageDropdown">
                 @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
                     <li>
-                        <a href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}"
-                           hreflang="{{ $localeCode }}"
-                           class="dropdown-item">
+                        <a class="dropdown-item" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
                             {{ $properties['native'] }}
                         </a>
                     </li>
                 @endforeach
             </ul>
-        </div>
-
-        <!-- Toggler for Mobile -->
-        <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <!-- Navbar Links -->
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a href="{{ route('home') }}" class="nav-link active">{{ trans('home_trans.Home') }}</a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ route('about') }}" class="nav-link">{{ trans('home_trans.About Up Lancer') }}</a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ route('services') }}" class="nav-link">{{ trans('home_trans.Services') }}</a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ route('projects') }}" class="nav-link">{{ trans('home_trans.Projects') }}</a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ route('contact') }}" class="nav-link">{{ trans('home_trans.Contact us') }}</a>
-                </li>
-            </ul>
-
-            <!-- Language Dropdown for Larger Screens -->
-            <div class="dropdown d-none d-lg-block ms-3">
-                <button class="btn btn-light btn-sm dropdown-toggle" type="button" id="languageDropdownDesktop" data-bs-toggle="dropdown" aria-expanded="false">
-                    {{ LaravelLocalization::getCurrentLocaleNative() }}
-                </button>
-                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="languageDropdownDesktop">
-                    @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
-                        <li>
-                            <a href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}"
-                               hreflang="{{ $localeCode }}" class="dropdown-item">
-                                {{ $properties['native'] }}
-                            </a>
-                        </li>
-                    @endforeach
-                </ul>
-            </div>
         </div>
     </div>
 </nav>
@@ -213,7 +195,7 @@
 <!-- Footer Start -->
 <!-- Modern and Sleek Footer Redesign -->
 <!-- Redesigned Footer -->
-<footer class="bg-dark text-white footer wow fadeIn pt-5 pb-4" style="background-color: #2f164c !important;">
+<footer class="bg-dark text-white footer wow fadeIn pt-5 pb-4" style="background-color: #3a2c50 !important;">
     <div class="container">
         <div class="row">
             <!-- Footer About -->
