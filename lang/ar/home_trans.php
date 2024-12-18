@@ -259,6 +259,8 @@ return[
     'Visitor'=>'زائر',
     'Welcome to Up Lancer'=>'مرحبا بك في أب لانسر',
     'Transforming Visions into Reality with Innovative Solutions'=>'تحويل الرؤى إلى واقع من خلال الحلول المبتكرة',
+    'Programming & Designed By'=>'برمجة وتصميم',
+
 
 
 
