@@ -259,6 +259,7 @@ return[
     'Visitor'=>'Visitor',
     'Welcome to Up Lancer'=>'Welcome to Up Lancer',
     'Transforming Visions into Reality with Innovative Solutions'=>'Transforming Visions into Reality with Innovative Solutions',
+    'Programming & Designed By'=>'Programming & Designed By',
 
 
 
