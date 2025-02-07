@@ -78,7 +78,12 @@
                             <i class="fa fa-phone-alt fa-3x text-primary"></i>
                         </div>
                         <h5 class="mb-3">{{trans('home_trans.Call Us')}}</h5>
-                        <p class="mb-2">{{$settings->phone ?? ''}}</p>
+                        @if(App::getLocale() == 'ar')
+                        <p class="mb-2">{{$settings->phone ?? ''}}{{'+'}}</p>
+                        @else
+                            <p class="mb-2">{{'+'}}{{$settings->phone ?? ''}}</p>
+
+                        @endif
                     </div>
                     <div class="contact-info text-center rounded p-4 shadow wow fadeInUp" data-wow-delay="0.4s">
                         <div class="icon mb-4">
