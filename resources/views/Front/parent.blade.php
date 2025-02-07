@@ -210,15 +210,15 @@
                 <ul class="list-unstyled">
                     <li class="mb-2 d-flex align-items-center">
                         <i class="fa fa-map-marker-alt ms-2 me-2 text-primary"></i>
-                        <span class="text-white-50">{{trans('home_trans.Kingdom of Saudi Arabia')}}</span>
+{{--                        <span class="text-white-50">{{trans('home_trans.Kingdom of Saudi Arabia')}}</span>--}}
                     </li>
                     <li class="mb-2 d-flex align-items-center">
                         <i class="fa fa-phone-alt ms-2 me-2 text-primary"></i>
-                        <span class="text-white-50">00966549289484</span>
+                        <span class="text-white-50">{{setting()->phone}}</span>
                     </li>
                     <li class="mb-2 d-flex align-items-center">
                         <i class="fa fa-envelope ms-2 me-2 text-primary"></i>
-                        <span class="text-white-50">info@uplancerps.com</span>
+                        <span class="text-white-50">{{setting()->email}}</span>
                     </li>
                 </ul>
             </div>
