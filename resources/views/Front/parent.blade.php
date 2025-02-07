@@ -208,10 +208,10 @@
             <div class="col-lg-3 col-md-6">
                 <h5 class="fw-bold mb-4 text-white">{{trans('home_trans.Address')}}</h5>
                 <ul class="list-unstyled">
-                    <li class="mb-2 d-flex align-items-center">
-                        <i class="fa fa-map-marker-alt ms-2 me-2 text-primary"></i>
+{{--                    <li class="mb-2 d-flex align-items-center">--}}
+{{--                        <i class="fa fa-map-marker-alt ms-2 me-2 text-primary"></i>--}}
 {{--                        <span class="text-white-50">{{trans('home_trans.Kingdom of Saudi Arabia')}}</span>--}}
-                    </li>
+{{--                    </li>--}}
                     <li class="mb-2 d-flex align-items-center">
                         <i class="fa fa-phone-alt ms-2 me-2 text-primary"></i>
                         <span class="text-white-50">{{setting()->phone}}</span>
