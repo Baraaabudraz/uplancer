@@ -262,7 +262,20 @@ return[
     'Programming & Designed By'=>'Programming & Designed By',
     'Stay Connected'=>'Stay Connected',
     'Transforming your ideas into achievements with innovative solutions, tailored to meet your needs and drive your business towards success.'=>'Transforming your ideas into achievements with innovative solutions, tailored to meet your needs and drive your business towards success.',
-
+    'Our Service Packages'=>'Our Service Packages',
+    'Choose the perfect package that suits your needs.'=>'Choose the perfect package that suits your needs.',
+    'Basic Package'=>'Basic Package',
+    'Ideal for small businesses and startups'=>'Ideal for small businesses and startups',
+    'Order Now'=>'Order Now',
+    'Month'=>'Month',
+    'Standard Package'=>'Standard Package',
+    'Perfect for growing businesses'=>'Perfect for growing businesses',
+    'Premium Package'=>'Premium Package',
+    'Best for large enterprises'=>'Best for large enterprises',
+    'Choose the perfect package for your project needs'=>'Choose the perfect package for your project needs',
+    'Web & Mobile App Development'=>'Web & Mobile App Development',
+    'Get tailored, robust, and innovative web and mobile apps for your business'=>'Get tailored, robust, and innovative web and mobile apps for your business',
+    'Graphic Design'=>'Graphic Design',
 
 
 
