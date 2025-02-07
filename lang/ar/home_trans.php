@@ -262,6 +262,32 @@ return[
     'Programming & Designed By'=>'برمجة وتصميم',
     'Stay Connected'=>'ابقى على اتصال',
     'Transforming your ideas into achievements with innovative solutions, tailored to meet your needs and drive your business towards success.'=>'نحول أفكارك إلى إنجازات من خلال حلول مبتكرة، مصممة خصيصًا لتلبية احتياجاتك ودفع أعمالك نحو النجاح.',
+    'Our Service Packages'=>'باقات خدماتنا',
+    'Choose the perfect package that suits your needs.'=>'اختر الباقة المثالية التي تناسب احتياجاتك',
+    'Basic Package'=>'الباقة الاساسية',
+    'Ideal for small businesses and startups'=>'مثالي للشركات الصغيرة والشركات الناشئة',
+    'Order Now'=>'اطلب الان',
+    'Month'=>'شهر',
+    'Standard Package'=>'الباقة القياسية',
+    'Perfect for growing businesses'=>'مثالية للشركات المتنامية',
+    'Premium Package'=>'الباقة المميزة',
+    'Best for large enterprises'=>'الأفضل للمؤسسات الكبيرة',
+    'Choose the perfect package for your project needs'=>'اختر الباقة المثالية لاحتياجات مشروعك',
+    'Web & Mobile App Development'=>'تطوير تطبيقات الويب والموبايل',
+    'Get tailored, robust, and innovative web and mobile apps for your business'=>'احصل على تطبيقات ويب وموبايل مصممة خصيصًا وقوية ومبتكرة لشركتك',
+    'Graphic Design'=>'التصميم الجرافيكي',
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
