@@ -214,7 +214,7 @@
 {{--                    </li>--}}
                     <li class="mb-2 d-flex align-items-center">
                         <i class="fa fa-phone-alt ms-2 me-2 text-primary"></i>
-                        <span class="text-white-50">{{setting()->phone}}</span>
+                        <span class="text-white-50">{{'+'}}{{setting()->phone}}</span>
                     </li>
                     <li class="mb-2 d-flex align-items-center">
                         <i class="fa fa-envelope ms-2 me-2 text-primary"></i>
