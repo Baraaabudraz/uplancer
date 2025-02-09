@@ -128,7 +128,7 @@
         </div>
         <div class="col-xl-6">
             <!--begin::Statistics Widget 5-->
-            <a href="#" class="card bg-success hoverable card-xl-stretch mb-5 mb-xl-8">
+            <a href="{{ route('sponsors.index') }}" class="card bg-success hoverable card-xl-stretch mb-5 mb-xl-8">
                 <!--begin::Body-->
                 <div class="card-body">
                     <!--begin::Svg Icon | path: icons/duotone/Shopping/Chart-bar1.svg-->
@@ -156,5 +156,82 @@
             <!--end::Statistics Widget 5-->
         </div>
         <!--end::Row-->
+
+        @if(setting())
+            <div class="card-body">
+                <div class="text-center mb-4" style="background-color: #5d3991">
+                    <img src="{{asset('images/settings/logo/'.setting()->logo)}}" class="image-input-wrapper w-200px  bgi-position-center mb-5"  alt="{{setting()->alt}}">
+                </div>
+                <!--begin::Row-->
+                <div class="row mb-7">
+                    <!--begin::Label-->
+                    <label class="col-lg-4 fw-bold text-muted">{{trans('dashboard_trans.Website Name')}}</label>
+                    <!--end::Label-->
+                    <!--begin::Col-->
+                    <div class="col-lg-8">
+                        <span class="fw-bolder fs-6 text-gray-800">{{setting()->name}}</span>
+                    </div>
+                    <!--end::Col-->
+                </div>
+                <!--end::Row-->
+                <!--begin::Input group-->
+                <div class="row mb-7">
+                    <!--begin::Label-->
+                    <label class="col-lg-4 fw-bold text-muted">{{trans('dashboard_trans.Email')}}</label>
+                    <!--end::Label-->
+                    <!--begin::Col-->
+                    <div class="col-lg-8 fv-row">
+                        <span class="fw-bold text-gray-800 fs-6">{{setting()->email}}</span>
+                    </div>
+                    <!--end::Col-->
+                </div>
+                <!--end::Input group-->
+                <!--begin::Input group-->
+                <div class="row mb-7">
+                    <!--begin::Label-->
+                    <label class="col-lg-4 fw-bold text-muted">{{trans('dashboard_trans.Phone')}}
+                        <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="" data-bs-original-title="Phone number must be active" aria-label="Phone number must be active"></i></label>
+                    <!--end::Label-->
+                    <!--begin::Col-->
+                    <div class="col-lg-8 d-flex align-items-center">
+                        <span class="fw-bolder fs-6 text-gray-800 me-2">{{setting()->phone}}</span>
+                        <span class="badge badge-success">{{trans('dashboard_trans.Verified')}}</span>
+                    </div>
+                    <!--end::Col-->
+                </div>
+                <!--end::Input group-->
+                <!--begin::Input group-->
+                <div class="row mb-7">
+                    <!--begin::Label-->
+                    <label class="col-lg-4 fw-bold text-muted">{{trans('dashboard_trans.Company Site')}}</label>
+                    <!--end::Label-->
+                    <!--begin::Col-->
+                    <div class="col-lg-8">
+                        <a href="{{setting()->url}}" target="_blank" class="fw-bold fs-6 text-gray-800 text-hover-primary">{{setting()->name}}</a>
+                    </div>
+                    <!--end::Col-->
+                </div>
+                <!--end::Input group-->
+                <!--begin::Input group-->
+                <div class="row mb-7">
+                    <!--begin::Label-->
+                    <label class="col-lg-4 fw-bold text-muted">{{trans('dashboard_trans.Connected Accounts')}}</label>
+                    <!--end::Label-->
+                    <!--begin::Col-->
+                    <div class="col-lg-8">
+                        <a href="{{setting()->linkedin}}"><img src="{{asset('assets/media/svg/brand-logos/linkedin.svg')}}" class="w-30px me-6" alt=""></a>
+                        <a href="{{setting()->facebook}}" target="_blank"><img src="{{asset('assets/media/svg/brand-logos/facebook-4.svg')}}" class="w-30px me-6" alt=""></a>
+                        <a href="{{setting()->instagram}}"><img src="{{asset('assets/media/svg/brand-logos/instagram-2016.svg')}}" class="w-30px me-6" alt="">
+                        </a>
+                        <a href="{{setting()->x}}"><img src="{{asset('assets/media/svg/brand-logos/twitter.svg')}}" class="w-30px me-6" alt="">
+                        </a>
+                    </div>
+                    <!--end::Col-->
+                </div>
+                <!--end::Input group-->
+                @else
+                    <div class="card-body text-center text-muted">لم يتم ضبط إعدادات الموقع بعد</div>
+                @endif
+    </div>
     </div>
 @endsection
