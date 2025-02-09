@@ -76,7 +76,7 @@
                             <!--begin::Image input-->
                             <div class="image-input image-input-outline" data-kt-image-input="true" style="background-image: url({{asset('assets/media/avatars/blank.png')}})">
                                 <!--begin::Preview existing avatar-->
-                                <div class="image-input-wrapper w-125px h-125px bgi-position-center" style="background-size: 100%; background-image: url({{asset('images/settings/logo/'.$website_settings->logo)}})"></div>
+                                <div class="image-input-wrapper w-125px h-125px bgi-position-center" style="background-size: 100%; background-image: url({{Storage::url($website_settings->logo)}})"></div>
                                 <!--end::Preview existing avatar-->
                                 <!--begin::Label-->
                                 <label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-white shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" title="" data-bs-original-title="Change avatar">
