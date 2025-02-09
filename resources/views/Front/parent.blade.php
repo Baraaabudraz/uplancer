@@ -12,14 +12,14 @@
 
     <meta property="og:keywords" content="{{setting()->meta_keyword ?? ''}}">
     <meta property="og:description" content="{{setting()->meta_description ?? ''}}">
-    <meta property="og:image" content="{{asset('images/settings/logo/'. setting()->logo ?? '')}}">
+    <meta property="og:image" content="{{Storage::url(setting()->logo ?? '')}}">
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="{{setting()->name ?? trans('home_trans.Up Lancer')}}">
     <meta property="og:url" content="https://uplancerps.com">
     @yield('meta')
     <!-- Favicon -->
-    <link href="{{asset('images/settings/favicon/'.setting()->favicon ?? '')}}" rel="icon">
+    <link href="{{Storage::url(setting()->favicon ?? '')}}" rel="icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
