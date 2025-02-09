@@ -10,6 +10,6 @@ class Setting extends Model
 {
     use HasFactory;
     use HasTranslations;
-    protected $translatable  = ['name'  , 'description','why_us','about' ,'desc_contact' ,'meta_description' ,'meta_keywords' ];
+    protected $translatable  = ['name', 'description','why_us','about' ,'desc_contact' ,'meta_description' ,'meta_keyword' , 'alt' ];
     protected $guarded=[];
 }
