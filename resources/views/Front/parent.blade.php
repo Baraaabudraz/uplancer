@@ -2,23 +2,24 @@
 <html lang="{{App::getLocale() == 'ar' ? 'ar':'en'}}" dir="{{App::getLocale() == 'ar' ? 'rtl' : 'ltr'}}">
 <head>
     <meta charset="utf-8">
-    <title>Up Lancer | @yield('title')</title>
+    <title>{{setting()->name ?? ''}} | @yield('title')</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta name="application-name" content="Uplancer | Software Development for Businesses & Founders">
-    <meta name="author" content="Uplancer">
-    <meta property="og:title" content="@yield('meta_title')">
-    <meta content="@yield('meta_keywords')" name="keywords">
-    <meta content="@yield('meta_description')" name="description">
+    <meta name="application-name" content="{{setting()->name ?? ''}}">
+    <meta name="author" content="{{setting()->name ?? ''}}">
+    <meta property="og:title" content="{{setting()->name ?? ''}} ">
+    <meta content="{{setting()->meta_keyword ?? ''}}" name="keywords">
+    <meta content="{{setting()->meta_description ?? ''}}" name="description">
 
-    <meta property="og:keywords" content="@yield('meta_keywords')">
-    <meta property="og:description" content="@yield('meta_description')">
-    <meta property="og:image" content="@yield('og:image')">
+    <meta property="og:keywords" content="{{setting()->meta_keyword ?? ''}}">
+    <meta property="og:description" content="{{setting()->meta_description ?? ''}}">
+    <meta property="og:image" content="{{asset('images/settings/logo/'. setting()->logo ?? '')}}">
 
     <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Uplancer | Software Development for Businesses & Founders">
+    <meta property="og:site_name" content="{{setting()->name ?? trans('home_trans.Up Lancer')}}">
     <meta property="og:url" content="https://uplancerps.com">
+    @yield('meta')
     <!-- Favicon -->
-    <link href="{{asset('uplancer/logo/up lancer team logo.svg')}}" rel="icon">
+    <link href="{{asset('images/settings/favicon/'.setting()->favicon)}}" rel="icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -215,14 +216,14 @@
                     <li class="mb-2 d-flex align-items-center">
                         <i class="fa fa-phone-alt ms-2 me-2 text-primary"></i>
                         @if(App::getLocale() == 'ar')
-                        <span class="text-white-50">{{setting()->phone}}{{'+'}}</span>
+                        <span class="text-white-50">{{setting()->phone ?? ''}}{{'+'}}</span>
                         @else
-                            <span class="text-white-50">{{'+'}}{{setting()->phone}}</span>
+                            <span class="text-white-50">{{'+'}}{{setting()->phone ?? ''}}</span>
                         @endif
                     </li>
                     <li class="mb-2 d-flex align-items-center">
                         <i class="fa fa-envelope ms-2 me-2 text-primary"></i>
-                        <span class="text-white-50">{{setting()->email}}</span>
+                        <span class="text-white-50">{{setting()->email ?? ''}}</span>
                     </li>
                 </ul>
             </div>
@@ -267,7 +268,7 @@
     </div>
 </footer><!-- Footer End -->
 
-<a href="https://api.whatsapp.com/send?phone=+{{setting()->phone}}&text=مرحبا لدي استفسار%21%20." class="float" target="_blank">
+<a href="https://api.whatsapp.com/send?phone=+{{setting()->phone ?? ''}}&text=مرحبا لدي استفسار%21%20." class="float" target="_blank">
     <i class="fa-brands fa-whatsapp my-float"></i>
 </a>
 <!-- Back to Top -->
