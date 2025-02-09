@@ -10,7 +10,7 @@ return new class extends Migration {
         Schema::table('settings', function (Blueprint $table) {
             $table->text('meta_title')->nullable();
             $table->json('meta_description')->nullable();
-            $table->text('meta_keyword')->nullable();
+            $table->json('meta_keyword')->nullable();
         });
     }
 
