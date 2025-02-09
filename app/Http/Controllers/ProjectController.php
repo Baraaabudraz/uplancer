@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\ControllerHelper;
 use App\Models\Project;
 use App\Models\Service;
+use App\Services\ImagesUploadService;
 use Illuminate\Http\Request;
 
 class ProjectController extends Controller
@@ -11,10 +13,37 @@ class ProjectController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+
+    protected ImagesUploadService $imagesUploadService;
+
+    public function __construct(ImagesUploadService $imagesUploadService)
     {
+        $this->imagesUploadService = $imagesUploadService;
+    }
+
+    public function index(Request $request)
+    {
+        if ($request->ajax()) {
+            $query = Project::query()->with('service')->latest();
+            return datatables()->of($query)
+                ->addColumn('actions', function ($row) {
+                    return view('cms.project.partials.actions', compact('row'))->render();
+                })
+                ->addColumn('checkbox', function ($row) {
+                    return '<input class="form-check-input" type="checkbox"  id="select-all"  data-kt-check-target="#kt_projects_table .form-check-input" value="1" data-id="'.$row->id.'">';
+                })
+                ->addColumn('partials', function ($row) {
+                    return view('cms.project.partials.partials', compact('row'))->render();
+                })
+                ->addColumn('service', function ($row) {
+                    return '<span class="badge badge-info" >'.$row->service->name.'</span>';
+                })
+                ->rawColumns(['actions', 'checkbox', 'partials', 'service'])
+                ->make(true);
+
+        }
         $projects = Project::query()->with('service')->paginate(10);
-        return view('cms.project.index',compact('projects'));
+        return view('cms.project.index', compact('projects'));
     }
 
     /**
@@ -22,14 +51,14 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        $services=Service::query()->get();
-        return view('cms.project.create',compact('services'));
+
+        return view('cms.project.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request, ImagesUploadService $imagesUploadService)
     {
 
 //        dd($request);
@@ -40,37 +69,38 @@ class ProjectController extends Controller
             'description.*' => 'required|string',
             'features.*' => 'nullable',
             'images.*' => 'required|image',
+            'thumbnail' => 'required|image',
             'technology' => 'required|string',
+            'alt' => 'nullable|string',
+            'slug' => 'required|string|unique:projects,slug',
         ]);
 
         $data = $request->only([
-            'name', 'description', 'service_id', 'technology', 'slug', 'meta_keyword', 'meta_description', 'features'
+            'name', 'alt', 'thumbnail', 'description', 'service_id', 'technology', 'slug', 'meta_keyword',
+            'meta_description', 'features'
         ]);
 
-        // Handle images
-        if ($request->hasFile('images')) {
-            $images = [];
-            foreach ($request->file('images') as $image) {
-                $imageName = $image->hashName();
-                $image->move(public_path('images/projects'), $imageName);
-                $images[] = $imageName;
-            }
-            $data['images'] = json_encode($images);
-        }
+        $thumbnail = $this->imagesUploadService->uploadImage($request, 'thumbnail', 'images/projects');
+        $data['thumbnail'] = $thumbnail;
 
+        $uploadedFiles = session()->get('uploaded_files', []);
+        $savedImages = $imagesUploadService->moveImages($uploadedFiles, 'images/projects');
+        $data['images'] = json_encode($savedImages);
+
+
+        // Clear the session
+        session()->forget('uploaded_files');
 
         $request->features = json_encode(array($request->features));
 
         $project = Project::create($data);
 
         if ($project) {
-            session()->flash('alert-type', 'alert-success');
-            session()->flash('message', trans('dashboard_trans.Project Created Successfully'));
-            return redirect()->back();
+            return ControllerHelper::generateResponse('success', trans('dashboard_trans.Project Created Successfully'),
+                200);
         } else {
-            session()->flash('alert-type', 'alert-danger');
-            session()->flash('message', trans('dashboard_trans.Failed to create project'));
-            return redirect()->back();
+            return ControllerHelper::generateResponse('success', trans('dashboard_trans.Failed to create project'),
+                400);
         }
     }
 
@@ -89,14 +119,14 @@ class ProjectController extends Controller
     public function edit(string $id)
     {
         $project = Project::query()->findOrFail($id);
-        $services=Service::query()->get();
-        return view('cms.project.edit',compact('project','services'));
+        $images = json_decode($project->images);
+        return view('cms.project.edit', compact('project', 'images'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, string $id, ImagesUploadService $imagesUploadService)
     {
         $request->request->add(['id' => $id]);
         $request->validate([
@@ -105,105 +135,136 @@ class ProjectController extends Controller
             'description.*' => 'required|string',
             'features.*' => 'nullable',
             'technology' => 'required|string',
+            'thumbnail' => 'image',
 
         ]);
-        $data = $request->only([
-            'name', 'description', 'service_id', 'features', 'technology','slug','meta_keyword' ,'meta_description'
-        ]);
+
         $project = Project::find($id);
 
-        if ($project) {
-            // الحصول على الصور الحالية من قاعدة البيانات
-            $images = json_decode($project->images, true);
 
-            // تحقق من وجود صور جديدة في الطلب
-            if ($request->hasFile('images')) {
-                // إذا كانت هناك صور جديدة، احذف الصور القديمة أولاً
-                if (is_array($images)) {
-                    foreach ($images as $image) {
-                        $imagePath = public_path('images/projects/' . $image);
+        $data = $request->only([
+            'name', 'description', 'service_id','images', 'features', 'technology', 'slug', 'meta_keyword', 'meta_description'
+        ]);
+
+        if (json_encode($request->hasFile('images'))) {
+            if ($project->images) {
+                $oldImages = json_decode($project->images, true);
+                    foreach ($oldImages as $image) {
+                        $imagePath = public_path('storage/'.$image);
                         if (file_exists($imagePath)) {
                             unlink($imagePath);
                         }
                     }
-                }
-
-                // الآن قم بتحديث قائمة الصور بالصور الجديدة
-                $newImages = [];
-                foreach ($request->file('images') as $image) {
-                    $imageName = time() . '-' . uniqid() . '.' . $image->getClientOriginalExtension();
-                    $image->move(public_path('images/projects'), $imageName);
-                    $newImages[] = $imageName;
-                }
-
-                // تعيين الصور الجديدة إلى المتغير data لتحديث قاعدة البيانات
-                $data['images'] = json_encode($newImages);
-            } else {
-                // إذا لم يتم تحميل صور جديدة، احتفظ بالصور القديمة كما هي
-                $data['images'] = $project->images;
             }
+            $uploadedFiles = session()->get('uploaded_files', []);
+            $savedImages = $imagesUploadService->moveImages($uploadedFiles, 'images/projects');
+            $data['images'] = json_encode($savedImages);
+        } else{
+            $data['images'] = $project->images;
         }
 
+        // Handle thumbnail
+        if ($request->hasFile('thumbnail')) {
+            // Delete old thumbnail
+            if ($project->thumbnail) {
+                $oldThumbnailPath = public_path('storage/' . $project->thumbnail);
+                if (file_exists($oldThumbnailPath)) {
+                    unlink($oldThumbnailPath);
+                }
+            }
+            $thumbnail = $imagesUploadService->uploadImage($request, 'thumbnail', 'images/projects');
+            $data['thumbnail'] = $thumbnail;
+        }else{
+            $data['thumbnail'] = $project->thumbnail;
+        }
+
+        // Clear the session
+        session()->forget('uploaded_files');
 
         $request->features = array(json_encode($request->features));
 
-            $project = Project::query()->find($id)->update($data);
-            if ($project) {
-                session()->flash('alert-type', 'alert-success');
-                session()->flash('message', trans('dashboard_trans.Project Updated Successfully'));
-                return redirect()->back();
+        $isUpdated = $project->update($data);
 
-            } else {
-                session()->flash('alert-type', 'alert-danger');
-                session()->flash('message', trans('dashboard_trans.Failed to updated project'));
-                return redirect()->back();
+        if ($isUpdated) {
+            return ControllerHelper::generateResponse('success', trans('dashboard_trans.Project Updated Successfully'), 200);
 
-            }
+        } else {
+            return ControllerHelper::generateResponse('error', trans('dashboard_trans.Failed to updated project'), 400);
         }
+    }    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(string $id)
+    {
 
-        /**
-         * Remove the specified resource from storage.
-         */
-        public
-        function destroy(string $id)
-        {
+        $project = Project::find($id);
 
-            $project = Project::find($id);
-
-            if ($project) {
-                $images = json_decode($project->images, true);
-
-                if (is_array($images)) {
-                    foreach ($images as $image) {
-
-                        $imagePath = public_path('images/projects/'.$image);
-                        if (file_exists($imagePath)) {
-                            unlink($imagePath);
-                        }
+        if ($project) {
+            $images = json_decode($project->images, true);
+            if (is_array($images)) {
+                foreach ($images as $image) {
+                    $imagePath = public_path('storage/'.$image);
+                    if (file_exists($imagePath)) {
+                        unlink($imagePath);
                     }
                 }
-                $is_Deleted = $project->delete();
-
-                if ($is_Deleted) {
-                    return response()->json([
-                        'title' => 'success',
-                        'icon' => 'success',
-                        'text' => trans('dashboard_trans.Project deleted successfully'),
-                    ]);
-                } else {
-                    return response()->json([
-                        'title' => 'error',
-                        'icon' => 'error',
-                        'text' => trans('dashboard_trans.Failed to delete this project'),
-                    ]);
+            }
+            if ($project->thumbnail) {
+                $imagePath = public_path('storage/'.$project->thumbnail);
+                if (file_exists($imagePath)) {
+                    unlink($imagePath);
                 }
+            }
+            $is_Deleted = $project->delete();
+
+            if ($is_Deleted) {
+                return response()->json([
+                    'title' => 'success',
+                    'icon' => 'success',
+                    'text' => trans('dashboard_trans.Project deleted successfully'),
+                ]);
             } else {
                 return response()->json([
-                    'title' => 'warning',
-                    'icon' => 'warning',
-                    'text' => trans('dashboard_trans.Project not found'),
+                    'title' => 'error',
+                    'icon' => 'error',
+                    'text' => trans('dashboard_trans.Failed to delete this project'),
                 ]);
             }
-
+        } else {
+            return response()->json([
+                'title' => 'warning',
+                'icon' => 'warning',
+                'text' => trans('dashboard_trans.Project not found'),
+            ]);
         }
+
+    }
+
+    public function storeMedia(Request $request, ImagesUploadService $imagesUploadService)
+    {
+        $path = storage_path('tmp/uploads');
+
+        if (!file_exists($path)) {
+            mkdir($path, 0777, true);
+        }
+
+        $file = $request->file('images');
+
+        if (!$file) {
+            return response()->json(['error' => 'No file uploaded.'], 400);
+        }
+
+        $name = uniqid().'_'.trim($file->hashName());
+        $file->move($path, $name);
+
+        // Store the file path in the session (or database)
+        $uploadedFiles = session()->get('uploaded_files', []);
+        $uploadedFiles[] = $name; // Store the filename
+        session()->put('uploaded_files', $uploadedFiles);
+
+        return response()->json([
+            'name' => $name,
+            'original_name' => $file->hashName(),
+        ]);
+    }
 }
