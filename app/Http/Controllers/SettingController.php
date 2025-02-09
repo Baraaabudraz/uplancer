@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Helpers\ControllerHelper;
 use App\Models\Setting;
+use App\Services\ImagesUploadService;
 use Illuminate\Http\Request;
 
 class SettingController extends Controller
@@ -11,6 +12,13 @@ class SettingController extends Controller
     /**
      * Display a listing of the resource.
      */
+
+    protected ImagesUploadService $imagesUploadService;
+
+    public function __construct(ImagesUploadService $imagesUploadService)
+    {
+        $this->imagesUploadService = $imagesUploadService;
+    }
     public function index()
     {
         $website_settings = Setting::query()->first();
@@ -41,18 +49,13 @@ class SettingController extends Controller
             'facebook', 'instagram', 'x' , 'desc_contact' , 'about' , 'why_us' , 'meta_title' , 'meta_description' , 'meta_keyword'
         ]);
 
-        if ($request->hasFile('logo')) {
-            $logo = $request->file('logo');
-            $logoName = time() . '_' . '.' . $logo->getClientOriginalExtension();
-            $logo->move('images/settings/logo', $logoName);
-            $data['logo'] = $logoName;
+        if ($request->logo) {
+            $logo = $this->imagesUploadService->uploadImage($request, 'logo','images/settings/logo');
+            $data['logo'] = $logo;
         }
-
-        if ($request->hasFile('favicon')) {
-            $favicon = $request->file('favicon');
-            $favName = time() . '_' . '.' . $favicon->getClientOriginalExtension();
-            $favicon->move('images/settings/favicon', $favName);
-            $data['favicon'] = $favName;
+        if($request->favicon){
+            $favicon = $this->imagesUploadService->uploadImage($request, 'favicon','images/settings/favicon');
+            $data['favicon'] = $favicon;
         }
 
         $website_settings = Setting::query()->create($data);
@@ -102,9 +105,8 @@ class SettingController extends Controller
                 if (file_exists($imagePath)){
                     unlink($imagePath);
                 }
-                $newLogo= $request->image->hashName();
-                $request->image->move(public_path('images/settings/logo'), $newLogo);
-                $data['logo'] = $newLogo;
+                $logo = $this->imagesUploadService->uploadImage($request, 'logo','images/settings/logo');
+                $data['logo'] = $logo;
             }else{
                 $data['logo']=$settings->logo;
             }
@@ -114,9 +116,8 @@ class SettingController extends Controller
                 if (file_exists($imagePath)){
                     unlink($imagePath);
                 }
-                $newFavicon= $request->image->hashName();
-                $request->image->move(public_path('images/settings/favicon'), $newFavicon);
-                $data['favicon'] = $newFavicon;
+                $favicon = $this->imagesUploadService->uploadImage($request, 'favicon','images/settings/favicon');
+                $data['favicon'] = $favicon;
             }else{
                 $data['favicon']=$settings->favicon;
             }
