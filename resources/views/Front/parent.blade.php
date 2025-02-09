@@ -19,7 +19,7 @@
     <meta property="og:url" content="https://uplancerps.com">
     @yield('meta')
     <!-- Favicon -->
-    <link href="{{asset('images/settings/favicon/'.setting()->favicon)}}" rel="icon">
+    <link href="{{asset('images/settings/favicon/'.setting()->favicon ?? '')}}" rel="icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -137,11 +137,11 @@
 <!-- Navbar Start -->
 <!-- Navbar with Sticky Feature -->
 <!-- Navbar Modern Design -->
-<nav class="navbar navbar-expand-lg navbar-dark sticky-top wow fadeIn" style="background: #5D3991; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);">
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top wow fadeIn" style="background: #5D3991; box-shadow: 1px 4px 6px rgba(0, 0, 0, 0.1);">
     <div class="container">
         <!-- Logo -->
         <a href="{{ route('home') }}" class="navbar-brand d-flex align-items-center">
-            <img src="{{ asset('uplancer/logo/up_lancer_logo_light.png') }}" alt="Up Lancer Logo" class="img-fluid" style="height: 50px;">
+            <img src="{{ Storage::url(setting()->logo ?? '') }}" alt="{{setting()->alt ?? ''}}" class="img-fluid" style="height: 50px;">
         </a>
 
         <!-- Toggler Button for Mobile -->
