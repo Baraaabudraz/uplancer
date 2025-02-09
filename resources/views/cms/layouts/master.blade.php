@@ -69,7 +69,7 @@
                     <div class="aside-logo flex-column-auto" id="kt_aside_logo" style="background-color: #5d3991">
                         <!--begin::Logo-->
                         <a href="{{route('dashboard')}}">
-                            <img alt="Logo" src="{{asset('images/settings/logo/'.setting()->logo)}}"   class="w-200px logo"/>
+                            <img alt="{{setting()->alt ?? ''}}" src="{{Storage::url(setting()->logo ?? '')}}"   class="w-200px logo"/>
                         </a>
                         <!--end::Logo-->
                         <!--begin::Aside toggler-->
