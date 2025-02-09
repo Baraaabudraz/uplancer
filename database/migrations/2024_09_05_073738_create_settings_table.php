@@ -13,18 +13,21 @@ return new class extends Migration
     {
         Schema::create('settings', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('logo');
-            $table->string('phone');
-            $table->string('email');
-            $table->json('about');
-            $table->json('why_us');
-            $table->json('desc_contact');
-            $table->string('company_site');
-            $table->string('linkedin');
-            $table->string('facebook');
-            $table->string('x');
-            $table->string('instagram');
+            $table->json('name');
+            $table->string('logo')->nullable();
+            $table->string('favicon')->nullable();
+            $table->json('alt')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('email')->nullable();
+            $table->json('address')->nullable();
+            $table->json('about')->nullable();
+            $table->json('why_us')->nullable();
+            $table->json('desc_contact')->nullable();
+            $table->string('url');
+            $table->string('linkedin')->nullable();
+            $table->string('facebook')->nullable();
+            $table->string('x')->nullable();
+            $table->string('instagram')->nullable();
             $table->timestamps();
         });
     }
