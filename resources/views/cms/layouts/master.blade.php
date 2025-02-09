@@ -16,7 +16,7 @@
 
             <meta name="csrf-token" content="{{ csrf_token() }}"/>
 
-            <link rel="shortcut icon" href="{{asset('images/settings/favicon/'.setting()->favicon ?? '')}}"/>
+            <link rel="shortcut icon" href="{{Storage::url(setting()->favicon ?? '')}}"/>
             <!--begin::Fonts-->
             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-chevron-right"
                  viewBox="0 0 16 16">
