@@ -1,9 +1,9 @@
 @extends('Front.parent')
-@section('title', $project->name)
-@section('meta_title', $project->name)
-@section('meta_description', $project->meta_description)
-@section('meta_keywords', $project->meta_keyword)
-@section('og:image',asset('images/projects/'.json_decode($project->images)[0]))
+@section('meta')
+    <meta content="{{$project->meta_keyword ?? ''}}" name="keywords">
+    <meta content="{{$project->meta_description ?? ''}}" name="description">
+    <meta property="og:image" content="{{Storage::url($project->thumbnail)}}">
+@endsection
 @section('styles')
     <style>
         .project-image img {
@@ -28,8 +28,8 @@
                         @foreach(json_decode($project->images) as $image)
                             <div class="col-md-6">
                                 <div class="project-image">
-                                    <a href="{{ asset('images/projects/'.$image) }}" data-lightbox="project-gallery">
-                                        <img class="img-fluid rounded" src="{{ asset('images/projects/'.$image) }}" alt="Project Image">
+                                    <a href="{{Storage::url($image)}}" data-lightbox="project-gallery">
+                                        <img class="img-fluid rounded" src="{{Storage::url($image)}}" loading="lazy"  alt="{{$project->alt}}">
                                     </a>
                                 </div>
                             </div>
