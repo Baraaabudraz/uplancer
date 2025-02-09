@@ -72,7 +72,7 @@
                     <div class="col-md-4">
                         <div class="project-item shadow-lg rounded p-3 h-100">
                             <div class="position-relative mb-3">
-                                <img class="img-fluid rounded lazyload"   src="{{url('images/projects/',json_decode($project->images)[0])}}" alt="">
+                                <img class="img-fluid rounded lazyload" src="{{Storage::url($project->thumbnail)}}" loading="lazy" alt="">
                                 <div class="overlay">
                                     <a href="{{route('project-show',$project->slug)}}" class="view-icon">
                                         <i class="fa fa-eye fa-2x"></i>
