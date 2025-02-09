@@ -1,9 +1,10 @@
 @extends('Front.parent')
-@section('title','Home')
-@section('meta_title',setting()->meta_title ?? '')
-@section('meta_description',setting()->meta_description ?? '')
-@section('meta_keywords',setting()->meta_keyword ?? '')
-@section('og:image',asset('uplancer/logo/up lancer team logo.svg'))
+@section('title',trans('home_trans.Home'))
+@section('meta')
+    <meta content="{{setting()->meta_keyword ?? ''}}" name="keywords">
+    <meta content="{{setting()->meta_description ?? ''}}" name="description">
+    <meta property="og:image" content="{{asset('images/settings/logo/'. setting()->logo ?? '')}}">
+@endsection
 @section('styles')
 <style>
     .process-step {
@@ -333,7 +334,6 @@
         </div>
     </section>
 
-
     <!-- About End -->
 
 
@@ -444,22 +444,22 @@
                 <h1 class="display-6 mb-4">{{trans('home_trans.Learn More About Our Complete Projects')}}</h1>
             </div>
             <div class="row g-4">
-                @foreach($projects as $project)
-                <div class="col-md-4" >
-                    <div class="project-item shadow-lg rounded p-3 h-100">
-                        <div class="position-relative mb-3">
-                            <img class="img-fluid rounded lazyload" src="{{url('images/projects/',json_decode($project->images)[0])}}" alt="">
-                                <div class="overlay">
-                                    <a href="{{route('project-show',$project->slug)}}" class="view-icon">
-                                        <i class="fa fa-eye fa-2x"></i>
-                                    </a>
-                                </div>
-                        </div>
-                        <h6 class="text-primary">{{$project->name}}</h6>
-                            <span>{{Str::limit($project->description,120)}}</span>
-                </div>
-            </div>
-                @endforeach
+{{--                @foreach($projects as $project)--}}
+{{--                <div class="col-md-4" >--}}
+{{--                    <div class="project-item shadow-lg rounded p-3 h-100">--}}
+{{--                        <div class="position-relative mb-3">--}}
+{{--                            <img class="img-fluid rounded lazyload" loading="lazy" src="{{Storage::url($project->thumbnail)}}" alt="{{$project->alt}}">--}}
+{{--                                <div class="overlay">--}}
+{{--                                    <a href="{{route('project-show',$project->slug)}}" class="view-icon">--}}
+{{--                                        <i class="fa fa-eye fa-2x"></i>--}}
+{{--                                    </a>--}}
+{{--                                </div>--}}
+{{--                        </div>--}}
+{{--                        <h6 class="text-primary">{{$project->name}}</h6>--}}
+{{--                            <span>{{Str::limit($project->description,120)}}</span>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--                @endforeach--}}
             <div class="text-center mt-5">
                 <a href="{{route('projects')}}" class="btn btn-primary rounded-pill py-3 px-5">{{trans('home_trans.View All Projects')}}</a>
             </div>
@@ -499,6 +499,63 @@
 {{--        </div>--}}
 {{--    </div>--}}
     </div>
+
+
+    <!-- Service Packages Section -->
+{{--    <section class="py-5" style="background-color: #f8f9fa;">--}}
+{{--        <div class="container text-center">--}}
+{{--            <h2 class="fw-bold mb-4 text-primary">{{ trans('home_trans.Our Service Packages') }}</h2>--}}
+{{--            <p class="text-muted mb-5">{{ trans('home_trans.Choose the perfect package for your project needs') }}</p>--}}
+
+{{--            <div class="row g-4">--}}
+{{--                <!-- Web and Mobile App Development Package -->--}}
+{{--                <div class="col-lg-3 col-md-6">--}}
+{{--                    <div class="card h-100 shadow-sm border-0">--}}
+{{--                        <div class="card-body d-flex flex-column justify-content-between">--}}
+{{--                            <h4 class="fw-bold text-primary">{{ trans('home_trans.Web & Mobile App Development') }}</h4>--}}
+{{--                            <p class="text-muted">{{ trans('home_trans.Get tailored, robust, and innovative web and mobile apps for your business') }}</p>--}}
+{{--                            <a href="{{ route('services') }}" class="btn btn-outline-primary w-100">{{ trans('home_trans.Order Now') }}</a>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+
+{{--                <!-- Graphic Design Package -->--}}
+{{--                <div class="col-lg-3 col-md-6">--}}
+{{--                    <div class="card h-100 shadow-sm border-0">--}}
+{{--                        <div class="card-body d-flex flex-column justify-content-between">--}}
+{{--                            <h4 class="fw-bold text-success">{{ trans('home_trans.Graphic Design') }}</h4>--}}
+{{--                            <p class="text-muted">{{ trans('home_trans.Visually stunning and creative designs tailored to your branding needs.') }}</p>--}}
+{{--                            <a href="{{ route('services') }}" class="btn btn-outline-success w-100">{{ trans('home_trans.Learn More') }}</a>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+
+{{--                <!-- SEO Optimization Package -->--}}
+{{--                <div class="col-lg-3 col-md-6">--}}
+{{--                    <div class="card h-100 shadow-sm border-0">--}}
+{{--                        <div class="card-body d-flex flex-column justify-content-between">--}}
+{{--                            <h4 class="fw-bold text-warning">{{ trans('home_trans.SEO Optimization') }}</h4>--}}
+{{--                            <p class="text-muted">{{ trans('home_trans.Enhance your visibility on search engines and attract more customers.') }}</p>--}}
+{{--                            <a href="{{ route('services') }}" class="btn btn-outline-warning w-100">{{ trans('home_trans.Learn More') }}</a>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+
+{{--                <!-- Custom Projects Package -->--}}
+{{--                <div class="col-lg-3 col-md-6">--}}
+{{--                    <div class="card h-100 shadow-sm border-0">--}}
+{{--                        <div class="card-body d-flex flex-column justify-content-between">--}}
+{{--                            <h4 class="fw-bold text-danger">{{ trans('home_trans.Custom Projects') }}</h4>--}}
+{{--                            <p class="text-muted">{{ trans('home_trans.Your project deserves a unique package tailored to its specific needs.') }}</p>--}}
+{{--                            <a href="{{ route('contact') }}" class="btn btn-outline-danger w-100">{{ trans('home_trans.Contact Us') }}</a>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </section>--}}
+
+
 
     <!-- Start: Up Lancer Process Section -->
     <div class="container-fluid bg-light py-5 mt-5 wow fadeInUp" data-wow-delay="0.1s" style="border-top: 1px solid #eaeaea;">
