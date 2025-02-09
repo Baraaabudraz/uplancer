@@ -293,6 +293,22 @@ return [
     'Meta Title'=>'Meta Title',
     'Project Updated Successfully'=>'Project Updated Successfully',
     'Failed to updated project'=>'Failed to updated project',
+    'Favicon'=>'Favicon',
+    'Up Lancer'=>'Up Lancer',
+    'Alternative Text'=>'Alternative Text',
+    'Setting added successfully'=>'Setting added successfully',
+    'Failed to added Setting'=>'Failed to added Setting',
+    'Verified'=>'Verified',
+    'Media'=>'Media',
+    'Drop files here or click to upload'=>'Drop files here or click to upload',
+    'Upload up to 10 files'=>'Upload up to 10 files',
+    'Set the product media gallery'=>'Set the product media gallery',
+
+
+
+
+
+
 
 
 
