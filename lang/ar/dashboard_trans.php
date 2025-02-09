@@ -83,7 +83,7 @@ return [
     'Designation' => 'التعيين',
     'Status' => 'الحالة',
     'Role' => 'الدور',
-    'Actions' => 'العمليات',
+    'Actions' => 'الاجراءات',
     'You can browse the list of admin' => 'يمكنك تصفح قائمة المدراء من',
     'Gender' => 'الجنس',
     'Password' => 'كلمة المرور',
@@ -258,7 +258,7 @@ return [
     'Edit Website Settings' => 'تعديل اعدادات الموقع الالكتروني',
     'Add Settings to website' => 'إضافة إعدادات للموقع الالكتروني',
     'Company Site' => 'موقع الشركة',
-    'About' => 'عنّا',
+    'About' => 'عن',
     'Contact Description' => 'وصف التواصل',
     'Why Us' => 'لماذا نحن',
     'Connected Accounts' => 'حسابات التواصل',
@@ -293,6 +293,22 @@ return [
     'Meta Title'=>'ميتا العنوان',
     'Project Updated Successfully'=>'تم تعديل المشروع بنجاح',
     'Failed to updated project'=>'لم يتم تعديل المشروع',
+    'Favicon'=>'الايقونة',
+    'Up Lancer'=>'اب لانسر',
+    'Alternative Text'=>'نص بديل',
+    'Setting added successfully'=>'تم اضافة الاعداد بنجاح',
+    'Failed to add Setting'=>'لم يتم اضافة الاعداد',
+    'Verified'=>'مُحقق',
+    'Media'=>'وسائط',
+    'Drop files here or click to upload'=>'قم بإسقاط الملفات هنا أو انقر للتحميل',
+    'Upload up to 10 files'=>'تحميل ما يصل إلى 10 ملفات',
+    'Set the product media gallery'=>'تعيين معرض الوسائط للمنتج',
+
+
+
+
+
+
 
 
 
