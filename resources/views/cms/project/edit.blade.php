@@ -5,13 +5,6 @@
 
 @section('links')
     <style>
-        #result{
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            padding: 10px 0;
-        }
-
         .thumbnail {
             height: 92px;
             border: 4px #ffb500 solid;
@@ -100,10 +93,66 @@
                         <!--end::Description-->
                     </div>
                     <!--end::Heading-->
-
-                    <form method="POST" action="{{route('projects.update',$project->id)}}" enctype="multipart/form-data" class="w-100 position-relative mb-3">
+                    <form method="POST" id="kt_cms_edit_project_form" action="{{route('projects.update',$project->id)}}" enctype="multipart/form-data" class="w-100 position-relative mb-3" data-kt-redirect="{{route('projects.index')}}">
                         @csrf
                         @method('PUT')
+                        <div class="card-title">
+                            <h2>{{trans('dashboard_trans.Image')}}</h2>
+
+                            <!--end::Card title-->
+                            <!--end::Card header-->
+                            <!--begin::Card body-->
+                            <div class="card-body text-center pt-0">
+                                <!--begin::Image input-->
+                                <!--begin::Image input placeholder-->
+                                <style>.image-input-placeholder { background-image: url({{asset('assets/media/avatars/blank.png')}}''); } [data-bs-theme="dark"] .image-input-placeholder { background-image: url({{url('assets/media/svg/files/blank-image-dark.svg')}}''); }</style>
+                                <!--end::Image input placeholder-->
+                                <div class="image-input image-input-empty image-input-outline image-input-placeholder mb-3" data-kt-image-input="true">
+                                    <!--begin::Preview existing avatar-->
+                                    <div class="image-input-wrapper w-150px h-150px"
+                                         style="background-image: url({{Storage::url($project->thumbnail)}});object-fit: cover"></div>
+                                    <!--end::Preview existing avatar-->
+                                    <!--begin::Label-->
+                                    <label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" title="Change avatar">
+                                        <i class="ki-duotone ki-pencil fs-7">
+                                            <span class="path1"></span>
+                                            <span class="path2"></span>
+                                        </i>
+                                        <!--begin::Inputs-->
+                                        <input type="file" name="thumbnail" accept=".png, .jpg, .jpeg" />
+                                        <input type="hidden" name="avatar_remove" />
+                                        <!--end::Inputs-->
+                                    </label>
+                                    <!--end::Label-->
+                                    <!--begin::Cancel-->
+                                    <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="cancel" data-bs-toggle="tooltip" title="Cancel avatar">
+													<i class="ki-duotone ki-cross fs-2">
+														<span class="path1"></span>
+														<span class="path2"></span>
+													</i>
+												</span>
+                                    <!--end::Cancel-->
+                                    <!--begin::Remove-->
+                                    <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="remove" data-bs-toggle="tooltip" title="Remove avatar">
+													<i class="ki-duotone ki-cross fs-2">
+														<span class="path1"></span>
+														<span class="path2"></span>
+													</i>
+												</span>
+                                    <!--end::Remove-->
+                                    <!--begin::Description-->
+                                    <div class="text-muted fs-7 mb-5">{{trans('dashboard_trans.Allowed file types')}}:</div>
+                                    <!--end::Description-->
+                                    @error('thumbnail')
+                                    <span class="text-danger">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                                <!--end::Image input-->
+
+
+                                <!--end::Card body-->
+                            </div>
+                        </div>
                         <div class="row">
                             <div class="col-md-12 mb-10" style="border:1px ">
                                 <div class="row">
@@ -152,38 +201,71 @@
                                         @endforeach
                                     <div class="col-md-6 d-flex flex-column mb-8 fv-row">
                                         <label class="d-flex align-items-center fs-6 fw-bold mb-2">{{trans('dashboard_trans.Services')}}</label>
-                                        <select class="form-select" name="service_id" >
-                                            <option disabled hidden selected>{{trans('dashboard_trans.All services')}}</option>
-                                            @foreach($services as $service)
-                                                <option value="{{$service->id}}" @selected($project->service_id  == $service->id)>{{$service->name}}</option>
-                                            @endforeach
+                                        <select class="form-select mb-2 select2-hidden-accessible" data-control="select2" name="service_id" data-hide-search="true"    aria-hidden="true"  data-placeholder="{{trans('dashboard_trans.All services')}}" data-selected-id="{{ $project->service_id }}">
+                                                <option></option>
                                         </select>
                                         @error('service_id')
                                         <span class="text-danger" role="alert">{{ $message }}</span>
                                         @enderror
                                     </div>
                                         <div class="col-md-6 d-flex flex-column mb-8 fv-row">
-                                            <!-- Input for the slug (can be hidden or shown) -->
-                                            <input class="form-control form-control-solid" placeholder="Slug" name="slug" id="slug" value="{{$project->slug}}" readonly>
+                                            <label class="d-flex align-items-center fs-6 fw-bold mb-2">
+                                                <span class="required">Slug</span>
+                                                <i class="fas fa-exclamation-circle ms-2 fs-7"
+                                                   data-bs-toggle="tooltip"
+                                                   title="{{trans('dashboard_trans.Slug')}}"></i>
+                                            </label>
+                                            <input class="form-control form-control-solid" placeholder="{{trans('dashboard_trans.Slug')}}" name="slug" id="slug" value="{{$project->slug}}" />
+                                            <div id="slug-{{ $key }}-error" class="error-message"></div>
                                         </div>
-                                    <div  class="col-md-6 ">
-                                        <!--begin::Label-->
-                                        <label class="d-flex align-items-center fs-6 fw-bold mb-2">
-                                            <span class="required">{{trans('dashboard_trans.Image')}}</span>
-                                            <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="{{trans('dashboard_trans.Image')}}"></i>
-                                        </label>
-                                        <br>
-                                        <!--end::Label-->
+                                        <!--begin::Media-->
+                                        <div class="card card-flush py-4 col-md-12">
+                                            <!--begin::Card header-->
+                                            <div class="card-header">
+                                                <div class="card-title">
+                                                    <h2>{{trans('dashboard_trans.Media')}}</h2>
+                                                </div>
+                                            </div>
+                                            <!--end::Card header-->
+                                            <!--begin::Card body-->
+                                            <div class="card-body pt-0">
+                                                <!--begin::Input group-->
+                                                <div class="fv-row mb-2">
+                                                    <!--begin::Dropzone-->
+                                                    <div class="dropzone" id="kt_cms_edit_project_media">
+                                                        <!--begin::Message-->
+                                                        <div class="dz-message needsclick">
+                                                            <!--begin::Icon-->
+                                                            <i class="ki-duotone ki-file-up text-primary fs-3x">
+                                                                <span class="path1"></span>
+                                                                <span class="path2"></span>
+                                                            </i>
+                                                            <!--end::Icon-->
+                                                            <!--begin::Info-->
+                                                            <div class="ms-4">
+                                                                <h3 class="fs-5 fw-bold text-gray-900 mb-1">{{trans('dashboard_trans.Drop files here or click to upload')}}.</h3>
+                                                                <span class="fs-7 fw-semibold text-gray-400">{{trans('dashboard_trans.Upload up to 10 files')}}</span>
+                                                            </div>
+                                                            <!--end::Info-->
+                                                        </div>
+                                                    </div>
+                                                    <!--end::Dropzone-->
+                                                </div>
+                                                <!--end::Input group-->
+                                                <!--begin::Description-->
+                                                <div class="text-muted fs-7">{{trans('dashboard_trans.Set the product media gallery')}}.</div>
+                                                <!--end::Description-->
+                                            </div>
+                                            <div>
+                                                @foreach(json_decode($project->images) as $image)
+                                                <img src="{{Storage::url($image)}}" class="image-input-placeholder w-50px h-50px"  alt="">
+                                                @endforeach
+                                            </div>
+                                            <!--end::Card header-->
+                                            <div id="images-{{ $key }}-error" class="error-message"></div>
 
-                                        {{--                                            <div class="dz-default dz-message" >قم بإسقاط الصور هنا أو إضغط للرفع</div>--}}
-                                        <input id="files" type="file" class="dropzone" name="images[]" multiple="multiple" accept="image/jpeg, image/png, image/jpg,image/webp">
-                                    </div>
-                                    <output id="result">
-                                        @foreach(json_decode($project->images) as $key => $image)
-                                            <img src="{{url('images/projects/',$image)}}" style="height: 100px" width="100">
-                                        @endforeach
-                                    </output>
-
+                                        </div>
+                                        <!--end::Media-->
                                 </div>
                                 <div class="card mb-5 mb-xl-10">
                                     <!--begin::Card header-->
@@ -258,19 +340,20 @@
 
 
                         <!--begin::Actions-->
-                        <div class="card-footer d-flex justify-content-center py-6 px-9">
-                            <button type="reset" class="btn btn-white btn-active-light-primary me-2">
-                                {{trans('dashboard_trans.Clear data')}}
+                        <div class="d-flex justify-content-end">
+                            <!--begin::Button-->
+                            <a href="{{ route('projects.index') }}" id="kt_cms_edit_project_cancel" class="btn btn-light me-5">{{trans('dashboard_trans.Cancel')}}</a>
+                            <!--end::Button-->
+                            <!--begin::Button-->
+                            <button type="submit" id="kt_cms_edit_project_submit" class="btn btn-primary">
+                                <span class="indicator-label">{{trans('dashboard_trans.Create')}}</span>
+                                <span class="indicator-progress">{{trans('dashboard_trans.Please wait')}}...<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
                             </button>
-
-                            <button type="submit" class="addUserBtn1 btn btn-success me-2">
-                                {{trans('dashboard_trans.Save Edit')}}
-                            </button>
+                            <!--end::Button-->
+                            <!--end::Actions-->
                         </div>
                         <!--end::Actions-->
                     </form>
-
-
                 </div>
                 <!--end::Body-->
             </div>
@@ -285,27 +368,16 @@
 @endsection
 @section('scripts')
     <script>
-        document.querySelector("#files").addEventListener("change", (e) => { //CHANGE EVENT FOR UPLOADING PHOTOS
-            if (window.File && window.FileReader && window.FileList && window.Blob) { //CHECK IF FILE API IS SUPPORTED
-                const files = e.target.files; //FILE LIST OBJECT CONTAINING UPLOADED FILES
-                const output = document.querySelector("#result");
-                output.innerHTML = "";
-                for (let i = 0; i < files.length; i++) { // LOOP THROUGH THE FILE LIST OBJECT
-                    if (!files[i].type.match("image")) continue; // ONLY PHOTOS (SKIP CURRENT ITERATION IF NOT A PHOTO)
-                    const picReader = new FileReader(); // RETRIEVE DATA URI
-                    picReader.addEventListener("load", function (event) { // LOAD EVENT FOR DISPLAYING PHOTOS
-                        const picFile = event.target;
-                        const div = document.createElement("div");
-                        div.innerHTML = `<img class="thumbnail" src="${picFile.result}" title="${picFile.name}"/>`;
-                        output.appendChild(div);
-                    });
-                    picReader.readAsDataURL(files[i]); //READ THE IMAGE
-                }
-            } else {
-                alert("Your browser does not support File API");
-            }
-        });
+        const routes = {
+            post: "{{ route('store-media') }}",
+        };
+
+        const services = {
+            get: "{{ route('get-services') }}",
+        };
     </script>
+
+    <script src="{{asset('assets/js/custom/apps/ecommerce/catalog/edit-project.js')}}"></script>
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
@@ -342,6 +414,7 @@
             });
         });
     </script>
+
     <script>
         document.querySelectorAll('input[name]').forEach(function(input) {
             input.addEventListener('input', function() {
