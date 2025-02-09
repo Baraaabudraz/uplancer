@@ -162,4 +162,14 @@ class ServiceController extends Controller
             ]);
         }
     }
+
+    public function getServices(Request $request)
+    {
+
+        $page = $request->get('page', 1);
+        $services = Service::latest()->paginate(10, ['*'], 'page', $page);
+
+        return response()->json($services);
+
+    }
 }
