@@ -56,23 +56,30 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function()
     Route::get('show-project/{slug}',[FrontController::class,'showProject'])->name('project-show');
 
     Route::prefix('cms/admin')->middleware(['auth:admin','has.permission'])->group(function (){
+
     Route::get('/',[HomeController::class,'index'])->name('dashboard');
-    Route::resource('admins',AdminController::class);
-    Route::resource('roles',RoleController::class);
-    Route::resource('permissions',PermissionController::class);
-    Route::resource('posts',PostController::class);
-    Route::resource('sections',SectionController::class);
-    Route::resource('services',ServiceController::class);
-    Route::resource('profile',ProfileController::class);
-    Route::resource('projects',ProjectController::class);
-    Route::resource('settings',SettingController::class);
-    Route::resource('sliders',SliderController::class);
-    Route::resource('members',TeamController::class);
-    Route::resource('sponsors',SponsorController::class);
+
+    Route::resources([
+        'admins'      => AdminController::class,
+        'roles'       => RoleController::class,
+        'permissions' => PermissionController::class,
+        'posts'       => PostController::class,
+        'sections'    => SectionController::class,
+        'services'    => ServiceController::class,
+        'profile'     => ProfileController::class,
+        'projects'    => ProjectController::class,
+        'settings'    => SettingController::class,
+        'sliders'     => SliderController::class,
+        'members'     => TeamController::class,
+        'sponsors'    => SponsorController::class,
+    ]);
+
+
+    Route::post('/store-media', [ProjectController::class, 'storeMedia'])->name('store-media');
+    Route::get('/get-services',[ServiceController::class,'getServices'])->name('get-services');
+
 
     Route::get('get_roles', [AdminController::class, 'loadRoles'])->name('get_roles');
-    Route::put('update-settings',[SettingController::class,'updateSettings'])->name('update-settings');
-    Route::get('edit-website-settings',[SettingController::class,'edit_settings'])->name('edit-website-settings');
 
 //    Route::resource('users',UserController::class);
 //        Route::get('orders',[CartController::class,'userOrder'])->name('industries_orders.index');
