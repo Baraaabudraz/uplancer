@@ -72,7 +72,7 @@
                 @if($website_settings)
                     <div class="card-body">
                         <div class="text-center mb-4" style="background-color: #5d3991">
-                            <img src="{{asset('images/settings/logo/'.$website_settings->logo)}}" class="image-input-wrapper w-200px  bgi-position-center mb-5"  alt="{{$website_settings->alt}}">
+                            <img src="{{Storage::url($website_settings->logo ?? '')}}" class="image-input-wrapper w-200px  bgi-position-center mb-5"  alt="{{$website_settings->alt ?? ''}}">
                         </div>
             <!--begin::Row-->
             <div class="row mb-7">
