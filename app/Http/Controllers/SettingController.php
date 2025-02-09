@@ -81,7 +81,7 @@ class SettingController extends Controller
     {
         $request->validate([
             'name.*' => 'required|string',
-            'logo' => '',
+            'logo' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'phone' => 'required|string|min:5|max:15',
             'email' => 'required|email',
             'about.*' => 'required|string',
@@ -99,9 +99,10 @@ class SettingController extends Controller
         ]);
 
         $settings = Setting::query()->first();
+
         if ($settings){
             if ($request->hasFile('logo')){
-                $imagePath = public_path('images/settings/logo/' . $settings->logo);
+                $imagePath = public_path('storage/' . $settings->logo);
                 if (file_exists($imagePath)){
                     unlink($imagePath);
                 }
@@ -112,7 +113,7 @@ class SettingController extends Controller
             }
 
             if ($request->hasFile('favicon')){
-                $imagePath = public_path('images/settings/favicon/' . $settings->favicon);
+                $imagePath = public_path('storage/' . $settings->favicon);
                 if (file_exists($imagePath)){
                     unlink($imagePath);
                 }
