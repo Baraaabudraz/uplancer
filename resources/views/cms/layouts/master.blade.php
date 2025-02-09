@@ -16,7 +16,7 @@
 
             <meta name="csrf-token" content="{{ csrf_token() }}"/>
 
-            <link rel="shortcut icon" href="{{asset('admin/img/dashboard-logo.png')}}"/>
+            <link rel="shortcut icon" href="{{asset('images/settings/favicon/'.setting()->favicon ?? '')}}"/>
             <!--begin::Fonts-->
             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-chevron-right"
                  viewBox="0 0 16 16">
@@ -61,15 +61,15 @@
             <!--begin::Page-->
             <div class="page d-flex flex-row flex-column-fluid">
                 <!--begin::Aside-->
-                <div id="kt_aside" class="aside aside-light aside-hoverable"  data-kt-drawer="true" data-kt-drawer-name="aside"
+                <div id="kt_aside" class="aside aside-light aside-hoverable" data-kt-drawer="true" data-kt-drawer-name="aside"
                      data-kt-drawer-activate="{default: true, lg: false}" data-kt-drawer-overlay="true"
                      data-kt-drawer-width="{default:'200px', '300px': '250px'}" data-kt-drawer-direction="start"
                      data-kt-drawer-toggle="#kt_aside_mobile_toggle">
                     <!--begin::Brand-->
-                    <div class="aside-logo flex-column-auto" id="kt_aside_logo">
+                    <div class="aside-logo flex-column-auto" id="kt_aside_logo" style="background-color: #5d3991">
                         <!--begin::Logo-->
                         <a href="{{route('dashboard')}}">
-                            <img alt="Logo" src="{{asset('uplancer/logo/up-lancer-team-logo.png')}}" class="w-200px logo"/>
+                            <img alt="Logo" src="{{asset('images/settings/logo/'.setting()->logo)}}"   class="w-200px logo"/>
                         </a>
                         <!--end::Logo-->
                         <!--begin::Aside toggler-->
@@ -713,14 +713,13 @@
                                                     </form>
                                                 </div>
                                             @endauth
-
                                             <!--end::Menu item-->
+
                                         </div>
                                         <!--end::Menu-->
                                         <!--end::Menu wrapper-->
                                     </div>
                                     <!--end::User -->
-
                                 </div>
                                 <!--end::Toolbar wrapper-->
                             </div>
@@ -730,7 +729,6 @@
 
                         <!--end::Container-->
                     </div>
-
                     <!--end::Header-->
                     <!--begin::Content-->
 
@@ -748,7 +746,7 @@
                             <!--begin::Copyright-->
                             <div class="text-dark order-2 order-md-1">
                                 <a href="https://www.uplancerps.com" target="_blank" class="text-gray-800 text-hover-primary">Copy Right || Up Lancer</a>
-                                <span class="text-muted fw-bold me-1">2022©</span>
+                                <span class="text-muted fw-bold me-1">©{{date('Y')}}</span>
                             </div>
                             <!--end::Copyright-->
                             <!--begin::Menu-->
