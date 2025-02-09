@@ -2,7 +2,7 @@
 @section('meta')
     <meta content="{{$project->meta_keyword ?? ''}}" name="keywords">
     <meta content="{{$project->meta_description ?? ''}}" name="description">
-    <meta property="og:image" content="{{Storage::url($project->thumbnail)}}">
+    <meta property="og:image" content="{{Storage::url($project->thumbnail ?? '')}}">
 @endsection
 @section('styles')
     <style>
@@ -29,7 +29,7 @@
                             <div class="col-md-6">
                                 <div class="project-image">
                                     <a href="{{Storage::url($image)}}" data-lightbox="project-gallery">
-                                        <img class="img-fluid rounded" src="{{Storage::url($image)}}" loading="lazy"  alt="{{$project->alt}}">
+                                        <img class="img-fluid rounded" src="{{Storage::url($image)}}" loading="lazy"  alt="{{$project->alt ?? ''}}">
                                     </a>
                                 </div>
                             </div>
