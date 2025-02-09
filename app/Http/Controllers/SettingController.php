@@ -81,7 +81,7 @@ class SettingController extends Controller
     {
         $request->validate([
             'name.*' => 'required|string',
-            'logo' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'logo' => '',
             'phone' => 'required|string|min:5|max:15',
             'email' => 'required|email',
             'about.*' => 'required|string',
@@ -142,7 +142,7 @@ class SettingController extends Controller
         if ($settings){
             $logo = $settings->logo ;
             if ($logo){
-                $imagePath = public_path('images/settings/logo/' . $logo);
+                $imagePath = public_path('storage/' . $logo);
                 if (file_exists($imagePath)){
                     unlink($imagePath);
                 }
