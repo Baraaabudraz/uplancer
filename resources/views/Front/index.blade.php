@@ -3,7 +3,7 @@
 @section('meta')
     <meta content="{{setting()->meta_keyword ?? ''}}" name="keywords">
     <meta content="{{setting()->meta_description ?? ''}}" name="description">
-    <meta property="og:image" content="{{asset('images/settings/logo/'. setting()->logo ?? '')}}">
+    <meta property="og:image" content="{{Storage::url(setting()->logo ?? '')}}">
 @endsection
 @section('styles')
 <style>
