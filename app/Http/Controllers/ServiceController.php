@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Service;
+use App\Services\ImagesUploadService;
 use Illuminate\Http\Request;
 
 class ServiceController extends Controller
@@ -19,7 +20,7 @@ class ServiceController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request, ImagesUploadService $imagesUploadService)
     {
         $request->validate([
             'name.*' => 'required|string|max:100',
@@ -33,12 +34,8 @@ class ServiceController extends Controller
             'name', 'description', 'icon' ,'slug'
         ]);
 
-        if ($request->hasFile('image')) {
-            $image = $request->file('image');
-            $imageName = time() . '_' . $request->get('name.*') . '.' . $image->getClientOriginalExtension();
-            $image->move('images/services', $imageName);
-            $data['image'] = $imageName;
-        }
+        $image = $imagesUploadService->uploadImage($request, 'image', 'images/projects');
+        $data['image'] = $image;
 
 
         $service = Service::query()->create($data);
@@ -84,7 +81,7 @@ class ServiceController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, string $id, ImagesUploadService $imagesUploadService)
     {
         $request->request->add(['id' => $id]);
         $request->validate([
@@ -104,17 +101,15 @@ class ServiceController extends Controller
         if ($service){
             $image = $service->image ;
             if ($image){
-                $imagePath = public_path('images/services/' . $image);
+                $imagePath = public_path('storage/' . $image);
                 if (file_exists($imagePath)){
                     unlink($imagePath);
                 }
-                if ($request->hasFile('image')) {
-                    $image = $request->file('image');
-                    $imageName = time() . '_' . $request->get('name.*') . '.' . $image->getClientOriginalExtension();
-                    $image->move('images/services', $imageName);
-                    $data['image'] = $imageName;
-                }
+                $newImage = $imagesUploadService->uploadImage($request, 'image', 'images/services');
+                $data['image'] = $newImage;
 
+            }else{
+                $data['image']=$service->image;
             }
         }
 
@@ -140,7 +135,7 @@ class ServiceController extends Controller
         if ($service){
             $image = $service->image ;
             if ($image){
-                $imagePath = public_path('images/services/' . $image);
+                $imagePath = public_path('storage/' . $image);
                 if (file_exists($imagePath)){
                     unlink($imagePath);
                 }
