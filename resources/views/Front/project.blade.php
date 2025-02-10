@@ -1,5 +1,11 @@
 @extends('Front.parent')
-@section('title','Projects')
+@section('title',trans('home_trans.Projects'))
+@section('keywords',setting()->meta_keyword ?? '')
+@section('description',trans('home_trans.Explore Up Lancer projects that merge creativity and technology to turn your ideas into reality'))
+
+@section('og:title',trans('home_trans.Projects'))
+@section('og:keywords',setting()->meta_keyword ?? '')
+@section('og:description',trans('home_trans.Explore Up Lancer projects that merge creativity and technology to turn your ideas into reality'))
 @section('styles')
     <!-- Custom CSS -->
     <style>
