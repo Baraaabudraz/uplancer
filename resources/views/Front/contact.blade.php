@@ -1,5 +1,11 @@
 @extends('Front.parent')
-@section('title','Contact Us')
+@section('title',trans('home_trans.Contact Us'))
+@section('keywords',setting()->meta_keyword ?? '')
+@section('description',trans('home_trans.Get in touch with the Up Lancer team for comprehensive solutions in web and app development, Design, and digital marketing'))
+
+@section('og:title',trans('home_trans.Contact Us'))
+@section('og:keywords',setting()->meta_keyword ?? '')
+@section('og:description',trans('home_trans.Get in touch with the Up Lancer team for comprehensive solutions in web and app development, Design, and digital marketing'))
 @section('styles')
     <!-- Custom CSS -->
     <style>
