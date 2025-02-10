@@ -1,11 +1,15 @@
 @extends('Front.parent')
 @section('title',trans('home_trans.Home'))
-@section('meta')
-    <meta content="{{setting()->meta_keyword ?? ''}}" name="keywords">
-    <meta content="{{setting()->meta_description ?? ''}}" name="description">
-    <meta property="og:image" content="{{Storage::url(setting()->logo ?? '')}}">
-@endsection
+
+@section('keywords',setting()->meta_keyword ?? '')
+@section('description',setting()->meta_description ?? '')
+
+@section('og:title',trans('home_trans.Home'))
+@section('og:keywords',setting()->meta_keyword ?? '')
+@section('og:description',setting()->meta_description ?? '')
+
 @section('styles')
+
 <style>
     .process-step {
         transition: all 0.3s ease;
