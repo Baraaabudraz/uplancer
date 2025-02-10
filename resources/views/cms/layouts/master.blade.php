@@ -641,7 +641,7 @@
                                                     <div class="symbol symbol-50px me-5">
                                                         @auth('admin')
                                                             @if(auth()->user()->image)
-                                                                <img alt="Logo" src="{{asset('images/admin/'.Auth()->user()->image)}}"/>
+                                                                <img alt="{{auth()->user()->name}}" src="{{Storage::url(Auth()->user()->image)}}"/>
                                                             @else
                                                                 <img alt="Logo" src="{{asset('assets/media/avatars/blank.png')}}"/>
                                                             @endif
