@@ -164,9 +164,9 @@
                                         <label class="form-label">{{trans('dashboard_trans.Meta Description')}} ({{$lang}})</label>
                                         <textarea name="meta_description[{{$key}}]" class="form-control" placeholder="{{trans('dashboard_trans.Meta Description')}}">{{  $website_settings->getTranslation('meta_description',$key) }}</textarea>
                                         <label class="form-label mt-2">{{trans('dashboard_trans.Meta Keywords')}} ({{$lang}})</label>
-                                        <textarea name="meta_keyword[[{{$key}}]]" class="form-control" placeholder="{{trans('dashboard_trans.Meta Keywords')}}">{{  $website_settings->getTranslation('meta_keyword',$key) }}</textarea>
+                                        <textarea name="meta_keyword[{{$key}}]" class="form-control" placeholder="{{trans('dashboard_trans.Meta Keywords')}}">{{  $website_settings->getTranslation('meta_keyword',$key) }}</textarea>
                                         <label class="form-label mt-2">(Alt){{trans('dashboard_trans.Alternative Text')}} ({{$lang}})</label>
-                                        <textarea name="alt[[{{$key}}]]" class="form-control" placeholder="نص بديل للصورة">{{  $website_settings->getTranslation('alt',$key) }}</textarea>
+                                        <textarea name="alt[{{$key}}]" class="form-control" placeholder="نص بديل للصورة">{{  $website_settings->getTranslation('alt',$key) }}</textarea>
                                     </div>
                                 @endforeach
                             </div>
