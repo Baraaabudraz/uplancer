@@ -624,7 +624,7 @@
                                         <div class="cursor-pointer symbol symbol-30px symbol-md-40px" data-kt-menu-trigger="click" data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end" data-kt-menu-flip="bottom">
                                             @auth('admin')
                                                 @if(auth()->user()->image)
-                                                    <img src="{{asset('images/admin/'.Auth()->user()->image)}}" alt="Admin" />
+                                                    <img src="{{Storage::url(Auth()->user()->image)}}" alt="Admin" />
                                                 @else
                                                     <img alt="Logo" src="{{asset('assets/media/avatars/blank.png')}}"/>
                                                 @endif
