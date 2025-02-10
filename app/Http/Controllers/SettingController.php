@@ -94,7 +94,7 @@ class SettingController extends Controller
             'x' => 'nullable|url',
         ]);
         $data = $request->only([
-            'name', 'phone', 'email', 'linkedin', 'url' ,
+            'name', 'phone', 'email', 'linkedin', 'url' , 'alt',
             'facebook', 'instagram', 'x' , 'desc_contact' , 'about' , 'why_us', 'meta_title' , 'meta_description' , 'meta_keyword'
         ]);
 
