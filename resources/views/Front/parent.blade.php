@@ -202,7 +202,7 @@
             <!-- Footer About -->
             <div class="col-lg-3 col-md-6 mb-4">
                 <a href="{{ route('home') }}" class="navbar-brand d-flex align-items-center mb-3">
-                    <img src="{{ asset('uplancer/logo/up_lancer_logo_light.png') }}" alt="Up Lancer Logo" class="img-fluid me-2" style="height: 50px;">
+                    <img src="{{ Storage::url(setting()->logo ?? '') }}" alt="Up Lancer Logo" class="img-fluid me-2" style="height: 50px;">
                 </a>
                 <p>{{ trans('home_trans.Transforming your ideas into achievements with innovative solutions, tailored to meet your needs and drive your business towards success.') }}</p>
             </div>
