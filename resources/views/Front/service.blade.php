@@ -1,5 +1,12 @@
 @extends('Front.parent')
-@section('title','Services')
+@section('title',trans('home_trans.Services'))
+@section('keywords',setting()->meta_keyword ?? '')
+@section('description',trans('home_trans.Explore Up Lancer comprehensive services in web and app development, Design, and digital marketing to enhance your business performance'))
+
+@section('og:title',trans('home_trans.Services'))
+@section('og:keywords',setting()->meta_keyword ?? '')
+@section('og:description',trans('home_trans.Explore Up Lancer comprehensive services in web and app development, Design, and digital marketing to enhance your business performance'))
+
 @section('content')
 
     <!-- Service Start -->
