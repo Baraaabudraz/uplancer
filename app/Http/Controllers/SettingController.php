@@ -42,10 +42,11 @@ class SettingController extends Controller
             'linkedin' => 'nullable|url',
             'facebook' => 'nullable|url',
             'instagram' => 'nullable|url',
+            'slogan.*' => 'nullable|string',
             'x' => 'nullable|url',
         ]);
         $data = $request->only([
-            'name', 'logo', 'phone', 'email', 'linkedin', 'url',
+            'name', 'logo', 'phone', 'email', 'linkedin', 'url', 'slogan',
             'facebook', 'instagram', 'x' , 'desc_contact' , 'about' , 'why_us' , 'meta_title' , 'meta_description' , 'meta_keyword'
         ]);
 
@@ -92,9 +93,11 @@ class SettingController extends Controller
             'facebook' => 'nullable|url',
             'instagram' => 'nullable|url',
             'x' => 'nullable|url',
+            'slogan.*' => 'nullable|string',
+
         ]);
         $data = $request->only([
-            'name', 'phone', 'email', 'linkedin', 'url' , 'alt',
+            'name', 'phone', 'email', 'linkedin', 'url' , 'alt', 'slogan',
             'facebook', 'instagram', 'x' , 'desc_contact' , 'about' , 'why_us', 'meta_title' , 'meta_description' , 'meta_keyword'
         ]);
 
