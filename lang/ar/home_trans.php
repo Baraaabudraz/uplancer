@@ -239,7 +239,7 @@ return[
     'Subject'=>'الموضوع',
     'Message'=>'الرسالة',
     'Send Message'=>'ارسال الرسالة',
-    'Contact Us on WhatsApp'=>'تواصل معناعلى الواتس اب',
+    'Contact Us on WhatsApp'=>'تواصل معنا على الواتس اب',
     'Email Us'=>'راسلنا عبر البريد الإلكتروني',
     'Lets talk'=>'دعنا نتحدث!',
     'What can Up Lancer do for you?'=>'ماذا يمكن أن تقدم لك أب لانسر؟',
