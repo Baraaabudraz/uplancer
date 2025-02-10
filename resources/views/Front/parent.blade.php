@@ -3,21 +3,27 @@
 <head>
     <meta charset="utf-8">
     <title>{{setting()->name ?? ''}} | @yield('title')</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta name="application-name" content="{{setting()->name ?? ''}}">
-    <meta name="author" content="{{setting()->name ?? ''}}">
-    <meta property="og:title" content="{{setting()->name ?? ''}} ">
-    <meta content="{{setting()->meta_keyword ?? ''}}" name="keywords">
-    <meta content="{{setting()->meta_description ?? ''}}" name="description">
 
-    <meta property="og:keywords" content="{{setting()->meta_keyword ?? ''}}">
-    <meta property="og:description" content="{{setting()->meta_description ?? ''}}">
-    <meta property="og:image" content="{{Storage::url(setting()->logo ?? '')}}">
+
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta name="application-name" content="{{setting()->name ?? ''}} | {{setting()->slogan}} ">
+    <meta name="author" content="{{setting()->name ?? ''}}">
+    <meta name="keywords" content="@yield('keywords')" >
+    <meta name="description" content="@yield('description')" name="description">
 
     <meta property="og:type" content="website">
-    <meta property="og:site_name" content="{{setting()->name ?? trans('home_trans.Up Lancer')}}">
-    <meta property="og:url" content="https://uplancerps.com">
-    @yield('meta')
+    <meta property="og:site_name" content="{{setting()->name ?? trans('home_trans.Up Lancer')}} | {{setting()->slogan}}">
+    <meta property="og:locale" content="{{App::getLocale() == 'ar' ? 'ar_AR':'en_US'}}"/>
+    <meta property="og:locale:alternate" content="{{App::getLocale() == 'en' ? 'en_US':'ar_US'}}"/>
+    <meta property="og:url" content="{{setting()->url ?? 'https://uplancerps.com'}}">
+    <meta property="og:title" content="{{setting()->name ?? ''}} | @yield('og:title')">
+    <meta property="og:description" content="@yield('og:description')">
+    <meta property="og:keywords" content="@yield('og:keywords')">
+
+    <meta property="og:image" content="{{Storage::url(setting()->logo ?? '')}}">
+    <meta property="og:image:width" content="256"/>
+    <meta property="og:image:height" content="256"/>
+
     <!-- Favicon -->
     <link href="{{Storage::url(setting()->favicon ?? '')}}" rel="icon">
 
@@ -28,7 +34,6 @@
 
 {{--    <!-- Icon Font Stylesheet -->--}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-{{--    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">--}}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
     @yield('styles')
