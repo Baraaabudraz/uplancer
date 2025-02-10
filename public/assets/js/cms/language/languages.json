@@ -1,0 +1,22 @@
+{
+    "en": {
+        "Deleting": "Deleting",
+        "Deleted": "Are you sure you want to delete",
+        "NotDeleted": "was not deleted.",
+        "correctErrors": "Please correct the highlighted errors and try again.",
+        "genericError": "An error occurred. Please try again later.",
+        "confirmButtonText": "Ok, got it!",
+        "YesButtonText": "Yes, Delete",
+        "NoButtonText": "No, Cancel"
+    },
+    "ar": {
+        "Deleting": "يحذف",
+        "Deleted": "هل أنت متأكد انك تريد حذف",
+        "NotDeleted": "لم يتم حذف",
+        "correctErrors": "يرجى تصحيح الأخطاء المشار إليها ثم المحاولة مرة أخرى.",
+        "genericError": "حدث خطأ. يرجى المحاولة لاحقًا.",
+        "confirmButtonText": "حسناً، فهمت",
+        "YesButtonText": "نعم، احذف",
+        "NoButtonText": "لا، تراجع"
+    }
+}
