@@ -89,7 +89,7 @@ class ProfileController extends Controller
                 'gender' => 'required|string|in:Male,Female',
             ]);
             $data = $request->only([
-                'name', 'email', 'password', 'address', 'mobile_num', 'gender',
+                'name', 'email', 'password', 'address', 'mobile_number', 'gender',
             ]);
             $admin  = Admin::query()->find($id);
 
