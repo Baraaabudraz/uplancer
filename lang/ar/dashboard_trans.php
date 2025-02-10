@@ -303,6 +303,7 @@ return [
     'Drop files here or click to upload'=>'قم بإسقاط الملفات هنا أو انقر للتحميل',
     'Upload up to 10 files'=>'تحميل ما يصل إلى 10 ملفات',
     'Set the product media gallery'=>'تعيين معرض الوسائط للمنتج',
+    'Slogan'=>'نص فرعي',
 
 
 
