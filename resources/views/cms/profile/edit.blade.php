@@ -123,7 +123,7 @@
                                     <!--begin::Image input-->
                                     <div class="image-input image-input-outline" data-kt-image-input="true" style="background-image: url({{asset('assets/media/avatars/blank.png')}})">
                                         <!--begin::Preview existing avatar-->
-                                        <div class="image-input-wrapper" style="background-image: url('{{asset('images/admin/'.auth()->user()->image)}}')"></div>
+                                        <div class="image-input-wrapper" style="background-image: url('{{Storage::url(auth()->user()->image)}}')"></div>
                                         <!--end::Preview existing avatar-->
                                         <!--begin::Label-->
                                         <label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-white shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" title="Change avatar">
@@ -199,14 +199,14 @@
                                 <label class="col-lg-4 col-form-label fw-bold fs-6">{{trans('dashboard_trans.Gender')}} </label>
                                 <div class="col-lg-6 fv-row">
                                 <div class="form-check form-check-inline mb-2">
-                                    <input class="form-check-input" type="radio" name="gender" id="gender_male"
-                                           value="Male" @if(auth()->user()->gender === 'Male') checked @endif>
-                                    <label class="form-check-label" for="gender_male">{{trans('dashboard_trans.Male')}}</label>
-                                </div>
-                                <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="radio" name="gender" id="gender_female"
                                            value="Female" @if(auth()->user()->gender === 'Female') checked @endif>
-                                    <label class="form-check-label" for="gender_female">{{trans('dashboard_trans.Female')}}</label>
+                                    <label class="form-check-label" for="gender_female">{{trans('dashboard_trans.Male')}}</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="gender" id="gender_male"
+                                           value="Male" @if(auth()->user()->gender === 'Male') checked @endif>
+                                    <label class="form-check-label" for="gender_male">{{trans('dashboard_trans.Female')}}</label>
                                 </div>
                                 @error('gender')
                                 <span class="text-danger" role="alert">{{ $message }}</span>
@@ -266,6 +266,7 @@
     </div>
     @endauth
 
+    </div>
 
 
 
@@ -274,44 +275,5 @@
     <!--end::Post-->
 @endsection
 @section('scripts')
-    <script>
 
-        function addNewField() {
-            var container = document.getElementById("fields-container");
-            var fieldCount = container.getElementsByClassName("form-group").length;
-
-            var newField = document.createElement("div");
-            newField.className = "form-group";
-
-            var label = document.createElement("label");
-            label.innerText = "محل تفريغ " + (fieldCount + 1) + ":";
-
-            var input = document.createElement("input");
-            input.type = "text";
-            input.name = "store[]";
-            input.className = "form-control form-control-solid ";
-
-            var deleteButton = document.createElement("button");
-            deleteButton.type = "button";
-            deleteButton.onclick = function() { removeField(this); };
-            deleteButton.className = "btn-sm btn-danger";
-
-            var deleteIcon = document.createElement("i");
-            deleteIcon.className = "fas fa-trash";
-
-            deleteButton.appendChild(deleteIcon);
-
-            newField.appendChild(label);
-            newField.appendChild(input);
-            newField.appendChild(deleteButton);
-
-            container.appendChild(newField);
-        }
-
-        function removeField(button) {
-            var field = button.parentNode;
-            var container = field.parentNode;
-            container.removeChild(field);
-        }
-    </script>
 @endsection
