@@ -303,6 +303,8 @@ return [
     'Drop files here or click to upload'=>'Drop files here or click to upload',
     'Upload up to 10 files'=>'Upload up to 10 files',
     'Set the product media gallery'=>'Set the product media gallery',
+    'Slogan'=>'Slogan',
+
 
 
 
