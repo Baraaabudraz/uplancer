@@ -39,7 +39,7 @@ var KTAppCmsProjects = function () {
                 },
                 columns: [
                     {data: "checkbox", orderable: false, searchable: false },
-                    {data: 'partials', name: 'partials'},
+                    {data: 'partials', name: 'name'},
                     {data: 'service',    name: 'service'},
                     {data: 'actions',   name: 'actions', orderable: true, searchable: true},
                 ],
