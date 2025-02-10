@@ -276,6 +276,10 @@ return[
     'Web & Mobile App Development'=>'Web & Mobile App Development',
     'Get tailored, robust, and innovative web and mobile apps for your business'=>'Get tailored, robust, and innovative web and mobile apps for your business',
     'Graphic Design'=>'Graphic Design',
+    'Explore Up Lancer projects that merge creativity and technology to turn your ideas into reality'=>'Explore Up Lancer projects that merge creativity and technology to turn your ideas into reality',
+    'Get in touch with the Up Lancer team for comprehensive solutions in web and app development, Design, and digital marketing'=>'Get in touch with the Up Lancer team for comprehensive solutions in web and app development, Design, and digital marketing',
+    'Explore Up Lancer comprehensive services in web and app development, Design, and digital marketing to enhance your business performance'=>'Explore Up Lancer comprehensive services in web and app development, Design, and digital marketing to enhance your business performance',
+
 
 
 
