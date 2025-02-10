@@ -119,6 +119,12 @@
                                 <input type="text" name="name[{{$key}}]" value="{{ $website_settings->getTranslation('name',$key) }}" class="form-control" placeholder="{{trans('dashboard_trans.Website Name')}}">
                             </div>
                         @endforeach
+                            @foreach(config('lang') as $key => $lang)
+                                <div class="col-md-6">
+                                    <label class="form-label">{{trans('dashboard_trans.Slogan')}} ({{$lang}})</label>
+                                    <input type="text" name="slogan[{{$key}}]" value="{{ $website_settings->getTranslation('slogan',$key) }}" class="form-control" placeholder="{{trans('dashboard_trans.Slogan')}}">
+                                </div>
+                            @endforeach
                         <div class="col-md-6">
                             <label class="form-label">{{trans('dashboard_trans.Company Site')}}</label>
                             <input type="url" name="url" value="{{ $website_settings->url }}" class="form-control" placeholder="{{trans('dashboard_trans.Company Site')}}">
