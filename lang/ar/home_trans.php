@@ -187,7 +187,7 @@ return[
     'Start with Up Lancer'=>'ابدأ مع اب لانسر',
     'Discover Our Story'=>'اكتشف قصتنا',
     'Empower Your Success with'=>'عزز نجاحك مع',
-    'Up Lancer'=>'أب لانسر',
+    'Up Lancer'=>'اب لانسر',
     'Where Excellence Meets Innovation'=>'حيث يلتقي التميز بالابتكار',
     'MENU'=>'القائمة',
     'We Focus On Making The Best In All Sectors'=>'نحن نركز على صنع الأفضل في جميع القطاعات',
