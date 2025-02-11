@@ -77,7 +77,8 @@
 }
 
 .navbar .navbar-nav .nav-link {
-    margin-right: 30px;
+    margin-left: 30px;
+    margin-right: 0;
     padding: 20px 0;
     color: #FFFFFF;
     font-weight: 500;
