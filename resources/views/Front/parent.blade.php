@@ -8,8 +8,8 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta name="application-name" content="{{setting()->name ?? ''}} | {{setting()->slogan}} ">
     <meta name="author" content="{{setting()->name ?? ''}}">
-    <meta name="keywords" content="@yield('keywords')" >
-    <meta name="description" content="@yield('description')" name="description">
+    <meta name="keywords" content="@yield('keywords')">
+    <meta name="description" content="@yield('description')">
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="{{setting()->name ?? trans('home_trans.Up Lancer')}} | {{setting()->slogan}}">
