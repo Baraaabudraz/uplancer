@@ -48,13 +48,9 @@
     .display-5 {
         font-size: 2.5rem;
     }
-    .hero h1 {
-        line-height: 1.3; /* تحسين التباعد بين أسطر العنوان */
-    }
 
-    .hero ul li span {
-        font-weight: 500; /* جعل النصوص أكثر وضوحًا */
-    }
+
+
 
 </style>
 @endsection
@@ -243,7 +239,7 @@
                 <!-- Projects Completed -->
                 <div class="col-md-4">
                     <div class="counter-item d-flex flex-column align-items-center">
-                        <div class="icon-wrapper bg-primary text-white rounded-circle d-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
+                        <div class="icon-wrapper bg-primary text-white rounded-circle d-flex align-items-center justify-content-center mb-3 icon-md" style="width: 80px; height: 80px;">
                             <i class="fas fa-tasks fa-2x"></i>
                         </div>
                         <h2 class="display-5 fw-bold text-primary mb-1" data-target1="150">0</h2>
