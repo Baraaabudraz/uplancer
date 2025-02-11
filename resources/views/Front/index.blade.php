@@ -1,5 +1,5 @@
 @extends('Front.parent')
-@section('title',trans('home_trans.Home'))
+@section('title',setting()->slogan ?? '')
 
 @section('keywords',setting()->meta_keyword ?? '')
 @section('description',setting()->meta_description ?? '')
