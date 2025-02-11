@@ -4,7 +4,6 @@
     <meta charset="utf-8">
     <title>{{setting()->name ?? ''}} | @yield('title')</title>
 
-
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta name="application-name" content="{{setting()->name ?? ''}} | {{setting()->slogan}} ">
     <meta name="author" content="{{setting()->name ?? ''}}">
@@ -32,7 +31,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href='https://fonts.googleapis.com/css?family=Cairo' rel='stylesheet'>
 
-{{--    <!-- Icon Font Stylesheet -->--}}
+    {{--    <!-- Icon Font Stylesheet -->--}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
@@ -40,81 +39,28 @@
 
     <!-- Libraries Stylesheet -->
     <link href="{{asset('uplancer/lib/animate/animate.min.css')}}" rel="stylesheet">
-{{--    <link href="{{asset('uplancer/lib/owlcarousel/assets/owl.carousel.min.css')}}" rel="stylesheet">--}}
+    {{--    <link href="{{asset('uplancer/lib/owlcarousel/assets/owl.carousel.min.css')}}" rel="stylesheet">--}}
     <link href="{{asset('uplancer/lib/lightbox/css/lightbox.min.css')}}" rel="stylesheet">
     <!-- Customized Bootstrap Stylesheet -->
 
     @if(App::getLocale() == 'ar')
+        <link href="{{asset('/uplancer/css/bootstrap-rtl.min.css')}}" rel="stylesheet">
         <link href="{{asset('/uplancer/css/style-rtl.css')}}" rel="stylesheet">
-        <link href="{{asset('uplancer/css/bootstrap-rtl.min.css')}}" rel="stylesheet">
 
     @else
+        <link href="{{asset('/uplancer/css/bootstrap.min.css')}}" rel="stylesheet">
         <link href="{{asset('/uplancer/css/style.css')}}" rel="stylesheet">
-        <link href="{{asset('uplancer/css/bootstrap.min.css')}}" rel="stylesheet">
-
     @endif
 
 
     <!-- Template Stylesheet -->
     <style>
-        .project-item {
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .project-item:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .project-item img {
-            transition: all 0.3s ease;
-        }
-
-        .project-item:hover img {
-            transform: scale(1.05);
-        }
-
-        .overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.6);
-            opacity: 0;
-            transition: all 0.3s ease;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .project-item:hover .overlay {
-            opacity: 1;
-        }
-
-
-        .btn-primary {
-            border: none;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-        }
-
-        .btn-primary:hover {
-            background-color: #462b6c;
-            transform: translateY(-3px);
-        }
-
-        .btn-primary:active {
-            transform: translateY(0px);
-        }
-
         .float{
             position:fixed;
             width:60px;
             height:60px;
             bottom:40px;
-            left:10px;
+            left:20px;
             background-color:#25d366;
             color:#FFF;
             border-radius:50px;
@@ -127,6 +73,7 @@
         .my-float{
             margin-top:16px;
         }
+
     </style>
 
 </head>
@@ -214,14 +161,14 @@
             <div class="col-lg-3 col-md-6">
                 <h5 class="fw-bold mb-4 text-white">{{trans('home_trans.Address')}}</h5>
                 <ul class="list-unstyled">
-{{--                    <li class="mb-2 d-flex align-items-center">--}}
-{{--                        <i class="fa fa-map-marker-alt ms-2 me-2 text-primary"></i>--}}
-{{--                        <span class="text-white-50">{{trans('home_trans.Kingdom of Saudi Arabia')}}</span>--}}
-{{--                    </li>--}}
+                    {{--                    <li class="mb-2 d-flex align-items-center">--}}
+                    {{--                        <i class="fa fa-map-marker-alt ms-2 me-2 text-primary"></i>--}}
+                    {{--                        <span class="text-white-50">{{trans('home_trans.Kingdom of Saudi Arabia')}}</span>--}}
+                    {{--                    </li>--}}
                     <li class="mb-2 d-flex align-items-center">
                         <i class="fa fa-phone-alt ms-2 me-2 text-primary"></i>
                         @if(App::getLocale() == 'ar')
-                        <span class="text-white-50">{{setting()->phone ?? ''}}{{'+'}}</span>
+                            <span class="text-white-50">{{setting()->phone ?? ''}}{{'+'}}</span>
                         @else
                             <span class="text-white-50">{{'+'}}{{setting()->phone ?? ''}}</span>
                         @endif
@@ -255,14 +202,14 @@
                     <li><a href="https://www.linkedin.com/company/uplancerps" target="_blank" class="text-primary fs-4"><i class="fab fa-linkedin"></i></a></li>
                     <li><a href="https://instagram.com/uplancerps" target="_blank" class="text-primary fs-4"><i class="fab fa-instagram"></i></a></li>
                 </ul>
-                    <a href="https://wa.me/+966549289484" class="btn btn-primary px-4 py-2" target="_blank">
-                        {{trans('home_trans.Contact us')}}
-                    </a>
+                <a href="https://wa.me/+966549289484" class="btn btn-primary px-4 py-2" target="_blank">
+                    {{trans('home_trans.Contact us')}}
+                </a>
             </div>
         </div>
         <div class="row mt-4">
             <div class="col text-center text-white-50">
-                &copy; {{ date('Y') }} Up Lancer. {{ trans('home_trans.All Right Reserved') }}.
+                © {{ date('Y') }} Up Lancer. {{ trans('home_trans.All Right Reserved') }}.
                 <div class="col text-center text-white-50">
                     {{trans('home_trans.Programming & Designed By')}}
                     <span class="text-primary">Up Lancer</span>
@@ -281,15 +228,9 @@
 
 @yield('scripts')
 <!-- JavaScript Libraries -->
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="{{asset('uplancer/lib/wow/wow.min.js')}}"></script>
-{{--<script src="{{asset('uplancer/lib/easing/easing.min.js')}}"></script>--}}
-{{--<script src="{{asset('uplancer/lib/waypoints/waypoints.min.js')}}"></script>--}}
-{{--<script src="{{asset('uplancer/lib/counterup/counterup.min.js')}}"></script>--}}
-{{--<script src="{{asset('uplancer/lib/owlcarousel/owl.carousel.min.js')}}"></script>--}}
 <script src="{{asset('uplancer/lib/lightbox/js/lightbox.min.js')}}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js" async></script>
 <!-- Template Javascript -->
