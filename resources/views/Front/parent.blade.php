@@ -202,7 +202,7 @@
                     <li><a href="https://www.linkedin.com/company/uplancerps" target="_blank" class="text-primary fs-4"><i class="fab fa-linkedin"></i></a></li>
                     <li><a href="https://instagram.com/uplancerps" target="_blank" class="text-primary fs-4"><i class="fab fa-instagram"></i></a></li>
                 </ul>
-                <a href="https://wa.me/+966549289484" class="btn btn-primary px-4 py-2" target="_blank">
+                <a href="https://wa.me/+{{setting()->phone ?? ''}}" class="btn btn-primary px-4 py-2" target="_blank">
                     {{trans('home_trans.Contact us')}}
                 </a>
             </div>
