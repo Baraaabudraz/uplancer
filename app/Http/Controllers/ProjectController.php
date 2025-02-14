@@ -136,30 +136,37 @@ class ProjectController extends Controller
             'features.*' => 'nullable',
             'technology' => 'required|string',
             'thumbnail' => 'image',
-
         ]);
 
         $project = Project::find($id);
 
-
         $data = $request->only([
-            'name', 'description', 'service_id','images', 'features', 'technology', 'slug', 'meta_keyword', 'meta_description'
+            'name', 'description', 'service_id', 'features', 'technology', 'slug', 'meta_keyword', 'meta_description'
         ]);
 
-        if (json_encode($request->hasFile('images'))) {
+        // Check if new images are uploaded
+        $newImagesUploaded = session()->has('uploaded_files') && !empty(session('uploaded_files'));
+
+        if ($newImagesUploaded) {
+            // Delete old images
             if ($project->images) {
                 $oldImages = json_decode($project->images, true);
+                if (is_array($oldImages)) { // Ensure $oldImages is an array before looping
                     foreach ($oldImages as $image) {
-                        $imagePath = public_path('storage/'.$image);
+                        $imagePath = public_path('storage/' . $image);
                         if (file_exists($imagePath)) {
                             unlink($imagePath);
                         }
                     }
+                }
             }
+
+            // Move new images from temporary storage
             $uploadedFiles = session()->get('uploaded_files', []);
             $savedImages = $imagesUploadService->moveImages($uploadedFiles, 'images/projects');
             $data['images'] = json_encode($savedImages);
-        } else{
+        } else {
+            // Keep the old images
             $data['images'] = $project->images;
         }
 
@@ -174,7 +181,7 @@ class ProjectController extends Controller
             }
             $thumbnail = $imagesUploadService->uploadImage($request, 'thumbnail', 'images/projects/thumbnails');
             $data['thumbnail'] = $thumbnail;
-        }else{
+        } else {
             $data['thumbnail'] = $project->thumbnail;
         }
 
@@ -187,11 +194,10 @@ class ProjectController extends Controller
 
         if ($isUpdated) {
             return ControllerHelper::generateResponse('success', trans('dashboard_trans.Project Updated Successfully'), 200);
-
         } else {
             return ControllerHelper::generateResponse('error', trans('dashboard_trans.Failed to updated project'), 400);
         }
-    }    /**
+    } /**
      * Remove the specified resource from storage.
      */
     public function destroy(string $id)
