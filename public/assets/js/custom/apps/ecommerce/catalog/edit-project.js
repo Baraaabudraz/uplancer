@@ -1,8 +1,10 @@
 "use strict";
+
 var KTAppCmsSaveProject = function () {
     let messages = {};
-
+    var lang = $('html').attr('lang');
     const currentLanguage = document.documentElement.lang || "ar";
+
     function loadMessagesWithCache(lang) {
         const cachedMessages = localStorage.getItem(`messages_${lang}`);
         if (cachedMessages) {
@@ -20,16 +22,14 @@ var KTAppCmsSaveProject = function () {
         console.log("Messages loaded:", messages);
     });
 
-    // Initialize Select2
     const initSelect2 = () => {
-        document.querySelectorAll('[data-kt-cms-add-project="project_option"]').forEach((e) => {
+        document.querySelectorAll('[data-kt-cms-edit-project="project_option"]').forEach((e) => {
             if (!$(e).hasClass("select2-hidden-accessible")) {
                 $(e).select2({ minimumResultsForSearch: -1 });
             }
         });
     };
 
-    // Initialize Dropzone
     const initDropzone = () => {
         const uploadedFiles = [];
         const myDropzone = new Dropzone("#kt_cms_edit_project_media", {
@@ -51,8 +51,6 @@ var KTAppCmsSaveProject = function () {
         });
     };
 
-
-    // Handle Form Submission
     const handleFormSubmit = () => {
         const form = document.getElementById("kt_cms_edit_project_form");
         const submitButton = document.getElementById("kt_cms_edit_project_submit");
@@ -60,15 +58,10 @@ var KTAppCmsSaveProject = function () {
         if (form && submitButton) {
             submitButton.addEventListener("click", function (event) {
                 event.preventDefault();
-
-                // Create FormData object
                 let formData = new FormData(form);
-
-                // Show loading indicator
                 submitButton.setAttribute("data-kt-indicator", "on");
                 submitButton.disabled = true;
 
-                // AJAX request
                 $.ajax({
                     url: form.getAttribute('action'),
                     method: 'POST',
@@ -83,7 +76,7 @@ var KTAppCmsSaveProject = function () {
                             text: response.text,
                             icon: response.icon,
                             buttonsStyling: false,
-                            confirmButtonText: response.confirmButtonText,
+                            confirmButtonText: messages.confirmButtonText,
                             customClass: { confirmButton: "btn btn-primary" }
                         }).then((result) => {
                             if (result.isConfirmed) {
@@ -98,10 +91,8 @@ var KTAppCmsSaveProject = function () {
                         if (xhr.status === 422) {
                             let errors = xhr.responseJSON.errors;
 
-                            // Clear previous error messages
                             $('.error-message').empty();
 
-                            // Display errors under each input
                             $.each(errors, function (key, message) {
                                 if (key.includes('.')) {
                                     const [field, subfield] = key.split('.');
@@ -139,11 +130,10 @@ var KTAppCmsSaveProject = function () {
         }
     };
 
-    const initializeSelect2WithInfiniteScroll = (selectElement, url, ids = null) => {
+    const initializeSelect2WithInfiniteScroll = (selectElement, url) => {
         selectElement.select2({
             allowClear: true,
-            search: true,
-            multiple: selectElement.attr('name').endsWith('[]'),
+            // multiple: true,
             ajax: {
                 url: url,
                 dataType: 'json',
@@ -152,16 +142,16 @@ var KTAppCmsSaveProject = function () {
                     return {
                         q: params.term,
                         page: params.page || 1,
-                        ids: ids,
                     };
                 },
                 processResults: function (data, params) {
                     params.page = params.page || 1;
+
                     return {
                         results: $.map(data.data, function (item) {
                             return {
                                 id: item.id,
-                                text: item.name
+                                text: item.name[currentLanguage] || item.name["ar"] || item.name.en, // <--- تعديل هنا
                             };
                         }),
                         pagination: {
@@ -180,7 +170,6 @@ var KTAppCmsSaveProject = function () {
                     return item.text[currentLanguage] || item.text["ar"] || item.text.en;
                 }
                 return item.text;
-
             },
             templateSelection: function (item) {
                 if (item && item.text) {
@@ -194,10 +183,10 @@ var KTAppCmsSaveProject = function () {
         });
     };
 
+
     $(document).ready(function() {
         const selectElement = $('select[name="service_id"]');
         const serviceId = selectElement.data('selected-id');
-
         if (serviceId) {
             $.ajax({
                 url: services.get,
@@ -205,22 +194,24 @@ var KTAppCmsSaveProject = function () {
                 data: { id: serviceId }
             }).then(function(data) {
                 if (data && data.data && data.data.length > 0) {
-                    const selectedItem = data.data[0];
-                    let serviceName = selectedItem.name;
-
-                    if (typeof selectedItem.name === 'object') {
-                        serviceName = selectedItem.name[currentLanguage] || selectedItem.name["ar"] || selectedItem.name.en;
+                    const selectedItem = data.data.find(item => item.id == serviceId);
+                    if (selectedItem) {
+                        let serviceName;
+                        if (typeof selectedItem.name === 'object') {
+                            serviceName = selectedItem.name[currentLanguage] || selectedItem.name["ar"] || selectedItem.name.en;
+                        } else {
+                            serviceName = selectedItem.name;
+                        }
+                        const option = new Option(serviceName, selectedItem.id, true, true);
+                        selectElement.append(option).trigger('change');
                     }
-                    const option = new Option(serviceName, selectedItem.id, true, true);
-                    selectElement.append(option).trigger('change');
                 }
-                initializeSelect2WithInfiniteScroll(selectElement, services.get, serviceId);
+                initializeSelect2WithInfiniteScroll(selectElement, services.get,serviceId);
             });
-        }else{
+        } else {
             initializeSelect2WithInfiniteScroll(selectElement, services.get);
         }
     });
-
 
     return {
         init: function () {
