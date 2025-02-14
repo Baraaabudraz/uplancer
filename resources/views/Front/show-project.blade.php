@@ -1,4 +1,5 @@
 @extends('Front.parent')
+@section('title',trans('home_trans.Projects'))
 @section('meta')
     <meta content="{{$project->meta_keyword ?? ''}}" name="keywords">
     <meta content="{{$project->meta_description ?? ''}}" name="description">
