@@ -80,7 +80,7 @@ class ProjectController extends Controller
             'meta_description', 'features'
         ]);
 
-        $thumbnail = $this->imagesUploadService->uploadImage($request, 'thumbnail', 'images/projects');
+        $thumbnail = $this->imagesUploadService->uploadImage($request, 'thumbnail', 'images/projects/thumbnails');
         $data['thumbnail'] = $thumbnail;
 
         $uploadedFiles = session()->get('uploaded_files', []);
@@ -172,7 +172,7 @@ class ProjectController extends Controller
                     unlink($oldThumbnailPath);
                 }
             }
-            $thumbnail = $imagesUploadService->uploadImage($request, 'thumbnail', 'images/projects');
+            $thumbnail = $imagesUploadService->uploadImage($request, 'thumbnail', 'images/projects/thumbnails');
             $data['thumbnail'] = $thumbnail;
         }else{
             $data['thumbnail'] = $project->thumbnail;
