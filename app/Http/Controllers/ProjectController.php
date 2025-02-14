@@ -198,7 +198,6 @@ class ProjectController extends Controller
             return ControllerHelper::generateResponse('error', trans('dashboard_trans.Failed to updated project'), 400);
         }
     }
-
     
     /**
      * Remove the specified resource from storage.
