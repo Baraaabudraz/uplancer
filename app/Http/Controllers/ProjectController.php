@@ -151,7 +151,7 @@ class ProjectController extends Controller
             // Delete old images
             if ($project->images) {
                 $oldImages = json_decode($project->images, true);
-                if (is_array($oldImages)) { // Ensure $oldImages is an array before looping
+                if (is_array($oldImages)) {
                     foreach ($oldImages as $image) {
                         $imagePath = public_path('storage/' . $image);
                         if (file_exists($imagePath)) {
@@ -166,7 +166,7 @@ class ProjectController extends Controller
             $savedImages = $imagesUploadService->moveImages($uploadedFiles, 'images/projects');
             $data['images'] = json_encode($savedImages);
         } else {
-            // Keep the old images
+
             $data['images'] = $project->images;
         }
 
@@ -197,7 +197,10 @@ class ProjectController extends Controller
         } else {
             return ControllerHelper::generateResponse('error', trans('dashboard_trans.Failed to updated project'), 400);
         }
-    } /**
+    }
+
+    
+    /**
      * Remove the specified resource from storage.
      */
     public function destroy(string $id)
