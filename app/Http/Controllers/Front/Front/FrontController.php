@@ -25,11 +25,15 @@ class FrontController extends Controller
         return view('Front.index',compact('services','projects','settings'));
     }
 
-    public function projects(){
-
-        $projects =Project::query()->with('service')->latest()->paginate(20);
-        return view('Front.project',compact('projects'));
-
+    public function projects(request $request)
+    {
+        if ($request->ajax()){
+            $page = $request->input('page',1);
+            $perPage = $request->input('perPage',10);
+            $getProjects = Project::query()->with('service')->latest()->paginate($perPage, ['*'], 'page', $page);
+            return response()->json($getProjects);
+        }
+        return view('Front.projects');
     }
     public function showProject($slug){
 
