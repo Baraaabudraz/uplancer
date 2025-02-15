@@ -38,7 +38,7 @@
         <div class="d-flex flex-center flex-column flex-column-fluid p-10 pb-lg-20">
             <!--begin::Logo-->
             <a href="{{route('home')}}" class="mb-12">
-                <img alt="Up Lancer" src="{{asset('images/settings/logo/'.setting()->logo)}}" class="w-350px" />
+                <img alt="Up Lancer" src="{{Storage::url(setting()->logo ?? '')}}" class="w-350px" />
             </a>
             <!--end::Logo-->
             <!--begin::Wrapper-->
