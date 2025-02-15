@@ -279,7 +279,7 @@ return[
     'Explore Up Lancer projects that merge creativity and technology to turn your ideas into reality'=>'اكتشف مشاريع اب لانسر التي تجمع بين الإبداع والتكنولوجيا لتحويل أفكارك إلى واقع',
     'Get in touch with the Up Lancer team for comprehensive solutions in web and app development, Design, and digital marketing'=>'تواصل مع فريق اب لانسر للحصول على استشارات وحلول متكاملة في تطوير الويب والتطبيقات، التصميم، والتسويق الرقمي',
     'Explore Up Lancer comprehensive services in web and app development, Design, and digital marketing to enhance your business performance'=>'استكشف خدمات اب لانسر المتكاملة في تطوير الويب والتطبيقات، التصميم، والتسويق الرقمي لتحسين أداء أعمالك',
-
+    'Load More Projects'=>'تحميل مزيد من المشاريع',
 
 
 
