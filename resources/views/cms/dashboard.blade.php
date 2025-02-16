@@ -43,19 +43,17 @@
 
     @if(setting())
         <div class="card-body">
-            <!-- زر التعديل في الزاوية العليا -->
+
             <div class="d-flex justify-content-end">
                 <a href="{{ route('settings.edit' , setting()->first()) }}" class="btn btn-outline-primary rounded-pill px-4 py-2">
                     <i class="fas fa-edit"></i> تعديل
                 </a>
             </div>
 
-            <!-- الشعار -->
             <div class="text-center my-4 rounded" style="background-color: #5d3991">
                 <img src="{{ Storage::url(setting()->logo ?? '') }}" class="w-150px" alt="{{ setting()->alt ?? '' }}">
             </div>
 
-            <!-- تفاصيل الموقع -->
             <div class="row mb-3">
                 <label class="col-lg-4 fw-bold text-muted">{{ trans('dashboard_trans.Website Name') }}</label>
                 <div class="col-lg-8">
@@ -106,7 +104,6 @@
     @else
         <div class="card-body text-center text-muted">لم يتم ضبط إعدادات الموقع بعد</div>
     @endif
-
-
+    
 @endsection
 
