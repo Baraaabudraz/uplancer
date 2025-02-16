@@ -43,10 +43,19 @@
 
     @if(setting())
         <div class="card-body">
-            <div class="text-center mb-4" style="background-color: #5d3991; padding: 20px; border-radius: 10px;">
-                <img src="{{ Storage::url(setting()->logo ?? '') }}" class="image-input-wrapper w-200px bgi-position-center mb-3 " alt="{{ setting()->alt ?? '' }}">
+            <!-- زر التعديل في الزاوية العليا -->
+            <div class="d-flex justify-content-end">
+                <a href="{{ route('settings.edit' , setting()->first()) }}" class="btn btn-outline-primary rounded-pill px-4 py-2">
+                    <i class="fas fa-edit"></i> تعديل
+                </a>
             </div>
 
+            <!-- الشعار -->
+            <div class="text-center my-4 rounded" style="background-color: #5d3991">
+                <img src="{{ Storage::url(setting()->logo ?? '') }}" class="w-150px" alt="{{ setting()->alt ?? '' }}">
+            </div>
+
+            <!-- تفاصيل الموقع -->
             <div class="row mb-3">
                 <label class="col-lg-4 fw-bold text-muted">{{ trans('dashboard_trans.Website Name') }}</label>
                 <div class="col-lg-8">
@@ -56,7 +65,7 @@
 
             <div class="row mb-3">
                 <label class="col-lg-4 fw-bold text-muted">{{ trans('dashboard_trans.Email') }}</label>
-                <div class="col-lg-8 fv-row">
+                <div class="col-lg-8">
                     <span class="fw-bold text-gray-800 fs-6">{{ setting()->email }}</span>
                 </div>
             </div>
@@ -79,15 +88,25 @@
             <div class="row mb-3">
                 <label class="col-lg-4 fw-bold text-muted">{{ trans('dashboard_trans.Connected Accounts') }}</label>
                 <div class="col-lg-8">
-                    <a href="{{ setting()->linkedin }}"><img src="{{ asset('assets/media/svg/brand-logos/linkedin.svg') }}" class="w-30px me-2" alt=""></a>
-                    <a href="{{ setting()->facebook }}" target="_blank"><img src="{{ asset('assets/media/svg/brand-logos/facebook-4.svg') }}" class="w-30px me-2" alt=""></a>
-                    <a href="{{ setting()->instagram }}"><img src="{{ asset('assets/media/svg/brand-logos/instagram-2016.svg') }}" class="w-30px me-2" alt=""></a>
-                    <a href="{{ setting()->x }}"><img src="{{ asset('assets/media/svg/brand-logos/twitter.svg') }}" class="w-30px me-2" alt=""></a>
+                    <a href="{{ setting()->linkedin }}" target="_blank">
+                        <img src="{{ asset('assets/media/svg/brand-logos/linkedin.svg') }}" class="w-30px me-2" alt="LinkedIn">
+                    </a>
+                    <a href="{{ setting()->facebook }}" target="_blank">
+                        <img src="{{ asset('assets/media/svg/brand-logos/facebook-4.svg') }}" class="w-30px me-2" alt="Facebook">
+                    </a>
+                    <a href="{{ setting()->instagram }}" target="_blank">
+                        <img src="{{ asset('assets/media/svg/brand-logos/instagram-2016.svg') }}" class="w-30px me-2" alt="Instagram">
+                    </a>
+                    <a href="{{ setting()->x }}" target="_blank">
+                        <img src="{{ asset('assets/media/svg/brand-logos/twitter.svg') }}" class="w-30px me-2" alt="Twitter">
+                    </a>
                 </div>
             </div>
         </div>
     @else
         <div class="card-body text-center text-muted">لم يتم ضبط إعدادات الموقع بعد</div>
     @endif
+
+
 @endsection
 
