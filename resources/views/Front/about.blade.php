@@ -5,7 +5,7 @@
 
 @section('og:title',trans('home_trans.About Up Lancer'))
 @section('og:keywords',setting()->meta_keyword ?? '')
-@section('og:description',setting()->meta_description ?? '')
+@section('og:description',trans('home_trans.At Up Lancer, our vision is to redefine the standards of quality and innovation in every sector we serve. We believe in creating impactful solutions that not only meet the needs of today but anticipate the challenges of tomorrow.'))
 @section('content')
     <!-- About Start -->
     <div class="container-fluid py-5 bg-light">
