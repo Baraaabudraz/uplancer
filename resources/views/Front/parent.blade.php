@@ -19,7 +19,7 @@
     <meta property="og:description" content="@yield('og:description')">
     <meta property="og:keywords" content="@yield('og:keywords')">
 
-    <meta property="og:image" content="{{Storage::url(setting()->logo ?? '')}}">
+    <meta property="og:image" content="{{asset('images/site/Up-Lancer-logo.png')}}">
     <meta property="og:image:width" content="256"/>
     <meta property="og:image:height" content="256"/>
 
