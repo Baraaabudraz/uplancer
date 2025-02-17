@@ -51,6 +51,34 @@
             @endif
 
             @yield('links')
+
+            <style>
+                .aside-logo {
+                    background-color: var(--primary-color) !important;
+                }
+
+                .menu-item .menu-link {
+                    color: var(--text-color);
+                }
+
+                .menu-item .menu-link:hover,
+                .menu-item .menu-link.active {
+                    color: var(--primary-color);
+                    background-color: rgba(var(--primary-color-rgb, 93, 57, 145), 0.1); /* Adjust alpha for desired effect */
+                }
+
+
+                .footer {
+                    background-color: #f8f9fa;
+                    padding: 1rem;
+                    border-top: 1px solid #ddd;
+                    text-align: center;
+                }
+
+            .aside-logo {
+                    background-color: #5d3991 !important; /* Use a fallback color if primary_color is not set */
+                }
+            </style>
         </head>
         <!--end::Head-->
         <!--begin::Body-->
@@ -540,7 +568,6 @@
                 <div class="wrapper d-flex flex-column flex-row-fluid" id="kt_wrapper">
                     <!--begin::Header-->
                     <div id="kt_header" style="" class="header align-items-stretch">
-
                         <!--begin::Container-->
                         <div class="container-fluid d-flex align-items-stretch justify-content-between">
                             <!--begin::Aside mobile toggle-->
@@ -567,59 +594,32 @@
                             <!--end::Aside mobile toggle-->
                             <!--begin::Mobile logo-->
                             <div class="d-flex align-items-center flex-grow-1 flex-lg-grow-0">
-                                {{--                                <a href="" class="d-lg-none">--}}
-                                {{--                                    <img alt="Logo" src="{{asset('assets/media/logos/logo-1-dark.svg')}}" class="h-20px"/>--}}
-                                {{--                                </a>--}}
+                                <a href="" class="d-lg-none rounded" style="background-color:#5d3991 ">
+                                    <img alt="{{setting()->alt ?? ''}}" src="{{Storage::url(setting()->logo ?? '')}}"  class="h-20px"/>
+                                </a>
                             </div>
-
                             <!--end::Mobile logo-->
                             <!--begin::Wrapper-->
                             <div class="d-flex align-items-stretch justify-content-between flex-lg-grow-1">
+
                                 <!--begin::Navbar-->
                                 <div class="d-flex align-items-stretch" id="kt_header_nav">
                                 </div>
                                 <!--end::Navbar-->
                                 <!--begin::Topbar-->
-
                                 <div class="d-flex align-items-stretch flex-shrink-0">
                                     <!--begin::Toolbar wrapper-->
 
                                     <!--end::Notifications-->
-
-                                    {{--                                    <div class="d-flex align-items-center ms-1 ms-lg-3" id="kt_header_user_menu_toggle">--}}
-
-                                    {{--                                        <div class="app-navbar-item">--}}
-                                    {{--                                            <!--begin::Menu toggle-->--}}
-                                    {{--                                            <span class="btn btn-icon btn-custom btn-icon-muted btn-active-light btn-active-color-primary w-20px h-20px w-sm-15px h-sm-15px" data-kt-menu-trigger="{default:'click', lg: 'hover'}" data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end">--}}
-                                    {{--                                    <!--begin::Svg Icon | path: icons/duotune/general/gen060.svg-->--}}
-                                    {{--                                                    <img class="symbol symbol h-15px" src="{{asset('assets/media/flags/united-arab-emirates.svg')}}" alt="" />--}}
-
-                                    {{--                                                <!--end::Svg Icon-->--}}
-                                    {{--                                </span>--}}
-                                    {{--                                            <span> </span>--}}
-                                    {{--                                            <!--begin::Menu toggle-->--}}
-                                    {{--                                            <!--begin::Menu-->--}}
-
-                                    {{--                                            <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-title-gray-700 menu-icon-muted menu-active-bg menu-state-color fw-semibold py-4 fs-base w-175px" data-kt-menu="true" data-kt-element="theme-mode-menu" style="">--}}
-                                    {{--                                                <!--begin::Menu item-->--}}
-
-                                    {{--                                                <ul class="menu-item px-3 my-0">--}}
-
-                                    {{--                                                        <li class="menu-title">--}}
-                                    {{--                                                            <a rel="alternate" hreflang="" href="">--}}
-
-                                    {{--                                                            </a>--}}
-                                    {{--                                                        </li>--}}
-
-                                    {{--                                                </ul>--}}
-                                    {{--                                                <!--end::Menu item-->--}}
-                                    {{--                                            </div>--}}
-                                    {{--                                            <!--end::Menu-->--}}
-                                    {{--                                        </div>--}}
-                                    {{--                                    </div>--}}
+                                    <div class="d-flex align-items-center ms-1 ms-lg-3" id="kt_header_user_menu_toggle">
+                                        <div class="app-navbar-item">
+                                            <a href="{{route('home')}}" type="button" class="btn btn-info" target="_blank">
+                                                {{trans('dashboard_trans.Go to website ')}}&nbsp;
+                                                <i class="fa fa-home"></i></a>
+                                        </div>
+                                    </div>
                                     <!--begin::User-->
                                     <div class="d-flex align-items-center ms-1 ms-lg-3" id="kt_header_user_menu_toggle">
-
                                         <!--begin::Menu wrapper-->
                                         <div class="cursor-pointer symbol symbol-30px symbol-md-40px" data-kt-menu-trigger="click" data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end" data-kt-menu-flip="bottom">
                                             @auth('admin')
