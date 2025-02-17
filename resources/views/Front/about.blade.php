@@ -1,9 +1,9 @@
 @extends('Front.parent')
-@section('title','About')
+@section('title',trans('home_trans.About Up Lancer'))
 @section('keywords',setting()->meta_keyword ?? '')
 @section('description',setting()->meta_description ?? '')
 
-@section('og:title',trans('home_trans.About'))
+@section('og:title',trans('home_trans.About Up Lancer'))
 @section('og:keywords',setting()->meta_keyword ?? '')
 @section('og:description',setting()->meta_description ?? '')
 @section('content')
