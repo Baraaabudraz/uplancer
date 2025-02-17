@@ -12,8 +12,8 @@
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="{{setting()->name ?? trans('home_trans.Up Lancer')}} | {{setting()->slogan}}">
-    <meta property="og:locale" content="{{App::getLocale() == 'ar' ? 'ar_AR':'en_US'}}"/>
-    <meta property="og:locale:alternate" content="{{App::getLocale() == 'en' ? 'en_US':'ar_US'}}"/>
+    <meta property="og:locale" content="{{App::getLocale() == 'ar' ? 'ar_SA':'en_US'}}"/>
+    <meta property="og:locale:alternate" content="{{App::getLocale() == 'en' ? 'en_US':'ar_SA'}}"/>
     <meta property="og:url" content="{{setting()->url ?? 'https://uplancerps.com'}}">
     <meta property="og:title" content="{{setting()->name ?? ''}} | @yield('og:title')">
     <meta property="og:description" content="@yield('og:description')">
