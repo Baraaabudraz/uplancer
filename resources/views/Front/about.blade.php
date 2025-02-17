@@ -1,5 +1,11 @@
 @extends('Front.parent')
 @section('title','About')
+@section('keywords',setting()->meta_keyword ?? '')
+@section('description',setting()->meta_description ?? '')
+
+@section('og:title',trans('home_trans.About'))
+@section('og:keywords',setting()->meta_keyword ?? '')
+@section('og:description',setting()->meta_description ?? '')
 @section('content')
     <!-- About Start -->
     <div class="container-fluid py-5 bg-light">
