@@ -1,23 +1,7 @@
 @extends('cms.layouts.master')
-@section('title')
-    {{trans('dashboard_trans.Add new member')}}
-@endsection
+@section('title',trans('dashboard_trans.Add new member'))
 
 @section('links')
-    <style>
-        #result{
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            padding: 10px 0;
-        }
-
-        .thumbnail {
-            height: 92px;
-            border: 4px #ffb500 solid;
-            border-radius: 10px;
-        }
-    </style>
 @endsection
 @section('content')
 
@@ -101,9 +85,49 @@
                     </div>
                     <!--end::Heading-->
 
-                    <form method="POST" action="{{route('members.store')}}" enctype="multipart/form-data" class="w-100 position-relative mb-3">
+                    <form method="POST" id="kt_cms_add_member_form" action="{{route('members.store')}}" enctype="multipart/form-data" class="w-100 position-relative mb-3" data-kt-redirect="{{route('members.create')}}">
                         @csrf
                         <div class="row">
+                            <div class="row mb-5">
+                                <!--begin::Col-->
+                                <div class="col-xl-3">
+                                    <div class="fs-6 fw-bold mt-2 mb-3">{{trans('dashboard_trans.Image')}}</div>
+                                </div>
+                                <!--end::Col-->
+                                <!--begin::Col-->
+                                <div class="col-lg-8">
+                                    <!--begin::Image input-->
+                                    <div class="image-input image-input-outline" data-kt-image-input="true" style="background-image: url({{asset('assets/media/avatars/blank.png')}})">
+                                        <!--begin::Preview existing avatar-->
+                                        <div class="image-input-wrapper w-125px h-125px bgi-position-center" style="background-size: 100%; background-image: url({{asset('assets/media/avatars/blank.png')}})"></div>
+                                        <!--end::Preview existing avatar-->
+                                        <!--begin::Label-->
+                                        <label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-white shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" title="" data-bs-original-title="Change avatar">
+                                            <i class="bi bi-pencil-fill fs-7"></i>
+                                            <!--begin::Inputs-->
+                                            <input type="file" name="image" accept=".png, .jpg, .jpeg">
+                                            <input type="hidden" name="image">
+                                            <!--end::Inputs-->
+                                        </label>
+                                        <!--end::Label-->
+                                        <!--begin::Cancel-->
+                                        <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-white shadow" data-kt-image-input-action="cancel" data-bs-toggle="tooltip" title="" data-bs-original-title="Cancel avatar">
+															<i class="bi bi-x fs-2"></i>
+														</span>
+                                        <!--end::Cancel-->
+                                        <!--begin::Remove-->
+                                        <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-white shadow" data-kt-image-input-action="remove" data-bs-toggle="tooltip" title="" data-bs-original-title="Remove avatar">
+															<i class="bi bi-x fs-2"></i>
+														</span>
+                                        <!--end::Remove-->
+                                    </div>
+                                    <!--end::Image input-->
+                                    <!--begin::Hint-->
+                                    <div class="form-text">{{trans('dashboard_trans.Allowed file types')}}: png, jpg, jpeg.</div>
+                                    <!--end::Hint-->
+                                </div>
+                                <!--end::Col-->
+                            </div>
                             <div class="col-md-12 mb-10" style="border:1px ">
                                 <div class="row">
                                     @foreach(config('lang') as $key => $lang)
@@ -136,25 +160,71 @@
                                         </div>
                                     @endforeach
 
-                                    <div  class="col-md-6 ">
-                                        <!--begin::Label-->
-                                        <label class="d-flex align-items-center fs-6 fw-bold mb-2">
-                                            <span class="required">{{trans('dashboard_trans.Image')}}</span>
-                                            <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="{{trans('dashboard_trans.Image')}}"></i>
-                                        </label>
-                                        <br>
-                                        <!--end::Label-->
+                                        <div class="col-md-6 d-flex flex-column mb-8 fv-row">
+                                            <!--begin::Label-->
+                                            <label class="d-flex align-items-center fs-6 fw-bold mb-2">
+                                                <span class="required">{{trans('dashboard_trans.Address')}} </span>
+                                                <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title=""></i>
+                                            </label>
+                                            <!--end::Label-->
+                                            <input type="text" name="address" class="form-control @error('address') is-invalid @enderror" value="{{old('address')}}">
+                                            @error('address')
+                                            <span class="text-danger">{{$message}}</span>
+                                            @enderror
+                                        </div>
+                                        <div class="col-md-6 d-flex flex-column mb-8 fv-row">
+                                            <!--begin::Label-->
+                                            <label class="d-flex align-items-center fs-6 fw-bold mb-2">
+                                                <span class="required">{{trans('dashboard_trans.Phone')}} </span>
+                                                <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title=""></i>
+                                            </label>
+                                            <!--end::Label-->
+                                            <input type="tel" name="phone" class="form-control @error('phone') is-invalid @enderror" value="{{old('phone')}}">
+                                            @error('address')
+                                            <span class="text-danger">{{$message}}</span>
+                                            @enderror
+                                        </div>
+                                        <div class="col-md-6 d-flex flex-column mb-8 fv-row">
+                                            <label class="d-flex align-items-center fs-6 fw-bold mb-2">{{trans('dashboard_trans.Roles')}}</label>
+                                            <select class="form-select mb-2 select2-hidden-accessible" data-control="select2" name="role_id" data-hide-search="true" aria-hidden="true" data-placeholder="{{trans('dashboard_trans.All roles')}}">
+                                                    <option></option>
+                                            </select>
+                                            @error('role_id')
+                                            <span class="text-danger" role="alert">{{ $message }}</span>
+                                            @enderror
+                                        </div>
+                                        <div class="col-md-6 d-flex flex-column mb-8 fv-row">
+                                            <label class="d-flex align-items-center fs-6 fw-bold mb-2">{{trans('dashboard_trans.Status')}}</label>
+                                            <select class="form-select mb-2 select2-hidden-accessible" data-control="select2" name="status" data-hide-search="true" aria-hidden="true" data-placeholder="{{trans('dashboard_trans.Select Option')}}">
+                                                <option></option>
+                                                <option value="Active">{{trans('dashboard_trans.Active')}}</option>
+                                                <option value="InActive">{{trans('dashboard_trans.InActive')}}</option>
+                                                <option value="Blocked">{{trans('dashboard_trans.Blocked')}}</option>
+                                            </select>
+                                        </div>
 
-                                        {{--                                            <div class="dz-default dz-message" >قم بإسقاط الصور هنا أو إضغط للرفع</div>--}}
-                                        <input id="files" type="file" class="dropzone" name="image" multiple="multiple" accept="image/jpeg, image/png, image/jpg">
-                                    </div>
-                                    <output id="result"></output>
+                                        <div class="col-md-12 d-flex flex-column mb-8 fv-row">
+                                            <label class="d-flex align-items-center fs-6 fw-bold mb-2">{{trans('dashboard_trans.Gender')}}:</label>
+                                            <div class="form-check form-check-inline mb-2">
+                                                <input class="form-check-input" type="radio" name="gender" id="gender_male"
+                                                       value="Male">
+                                                <label class="form-check-label" for="gender_male">{{trans('dashboard_trans.Male')}}</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="gender" id="gender_female"
+                                                       value="Female">
+                                                <label class="form-check-label" for="gender_female">{{trans('dashboard_trans.Female')}}</label>
+                                            </div>
+                                            @error('gender')
+                                            <span class="text-danger" role="alert">{{ $message }}</span>
+                                            @enderror
+                                        </div>
                                 </div>
                                 <div class="card mb-5 mb-xl-10">
                                     <!--begin::Card header-->
                                     <div class="card-header border-0 cursor-pointer" role="button" data-bs-toggle="collapse" data-bs-target="#kt_account_connected_accounts" aria-expanded="true" aria-controls="kt_account_connected_accounts">
                                         <div class="card-title m-0">
-                                            <h3 class="fw-bolder m-0">Connected Accounts</h3>
+                                            <h3 class="fw-bolder m-0">{{trans('dashboard_trans.Connected Accounts')}}</h3>
                                         </div>
                                     </div>
                                     <!--end::Card header-->
@@ -162,31 +232,6 @@
                                     <div id="kt_account_connected_accounts" class="collapse show">
                                         <!--begin::Card body-->
                                         <div class="card-body border-top p-9">
-                                            <!--begin::Notice-->
-                                            {{--                        <div class="notice d-flex bg-light-primary rounded border-primary border border-dashed mb-9 p-6">--}}
-                                            {{--                            <!--begin::Icon-->--}}
-                                            {{--                            <!--begin::Svg Icon | path: icons/duotone/Design/Select.svg-->--}}
-                                            {{--                            <span class="svg-icon svg-icon-2tx svg-icon-primary me-4">--}}
-                                            {{--													<svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">--}}
-                                            {{--														<path d="M18.5,8 C17.1192881,8 16,6.88071187 16,5.5 C16,4.11928813 17.1192881,3 18.5,3 C19.8807119,3 21,4.11928813 21,5.5 C21,6.88071187 19.8807119,8 18.5,8 Z M18.5,21 C17.1192881,21 16,19.8807119 16,18.5 C16,17.1192881 17.1192881,16 18.5,16 C19.8807119,16 21,17.1192881 21,18.5 C21,19.8807119 19.8807119,21 18.5,21 Z M5.5,21 C4.11928813,21 3,19.8807119 3,18.5 C3,17.1192881 4.11928813,16 5.5,16 C6.88071187,16 8,17.1192881 8,18.5 C8,19.8807119 6.88071187,21 5.5,21 Z" fill="#000000" opacity="0.3"></path>--}}
-                                            {{--														<path d="M5.5,8 C4.11928813,8 3,6.88071187 3,5.5 C3,4.11928813 4.11928813,3 5.5,3 C6.88071187,3 8,4.11928813 8,5.5 C8,6.88071187 6.88071187,8 5.5,8 Z M11,4 L13,4 C13.5522847,4 14,4.44771525 14,5 C14,5.55228475 13.5522847,6 13,6 L11,6 C10.4477153,6 10,5.55228475 10,5 C10,4.44771525 10.4477153,4 11,4 Z M11,18 L13,18 C13.5522847,18 14,18.4477153 14,19 C14,19.5522847 13.5522847,20 13,20 L11,20 C10.4477153,20 10,19.5522847 10,19 C10,18.4477153 10.4477153,18 11,18 Z M5,10 C5.55228475,10 6,10.4477153 6,11 L6,13 C6,13.5522847 5.55228475,14 5,14 C4.44771525,14 4,13.5522847 4,13 L4,11 C4,10.4477153 4.44771525,10 5,10 Z M19,10 C19.5522847,10 20,10.4477153 20,11 L20,13 C20,13.5522847 19.5522847,14 19,14 C18.4477153,14 18,13.5522847 18,13 L18,11 C18,10.4477153 18.4477153,10 19,10 Z" fill="#000000"></path>--}}
-                                            {{--													</svg>--}}
-                                            {{--												</span>--}}
-                                            {{--                            <!--end::Svg Icon-->--}}
-                                            {{--                            <!--end::Icon-->--}}
-                                            {{--                            <!--begin::Wrapper-->--}}
-                                            {{--                            <div class="d-flex flex-stack flex-grow-1">--}}
-                                            {{--                                <!--begin::Content-->--}}
-                                            {{--                                <div class="fw-bold">--}}
-                                            {{--                                    <div class="fs-6 text-gray-700">--}}
-                                            {{--                                        <a href="#" class="fw-bolder">Learn More</a></div>--}}
-                                            {{--                                </div>--}}
-                                            {{--                                <!--end::Content-->--}}
-                                            {{--                            </div>--}}
-                                            {{--                            <!--end::Wrapper-->--}}
-                                            {{--                        </div>--}}
-                                            <!--end::Notice-->
-                                            <!--begin::Items-->
                                             <div class="py-2">
                                                 <!--begin::Item-->
                                                 <div class="d-flex flex-stack">
@@ -260,7 +305,7 @@
                                                 <!--begin::Item-->
                                                 <div class="d-flex flex-stack">
                                                     <div class="d-flex">
-                                                        <img src="{{asset('assets/media/svg/brand-logos/alcatel-mobile-3.svg')}}" class="w-30px me-6" alt="">
+                                                        <i class="fas fa-phone-square fa-3x me-6" style="color: #00b300"></i>
                                                         <div class="d-flex flex-column">
                                                             <a href="#" class="fs-5 text-dark text-hover-primary fw-bolder">Whatsapp</a>
                                                             <div class="fs-6 fw-bold text-gray-400">Keep in touch</div>
@@ -286,59 +331,33 @@
 
 
                         <!--begin::Actions-->
-                        <div class="card-footer d-flex justify-content-center py-6 px-9">
-                            <button type="reset" class="btn btn-white btn-active-light-primary me-2">
-                                {{trans('dashboard_trans.Clear data')}}
+                        <div class="d-flex justify-content-end">
+                            <!--begin::Button-->
+                            <a href="{{ route('members.index') }}" id="kt_cms_add_member_cancel" class="btn btn-light me-5">{{trans('dashboard_trans.Cancel')}}</a>
+                            <!--end::Button-->
+                            <!--begin::Button-->
+                            <button type="submit" id="kt_cms_add_member_submit" class="btn btn-primary">
+                                <span class="indicator-label">{{trans('dashboard_trans.Create')}}</span>
+                                <span class="indicator-progress">{{trans('dashboard_trans.Please wait')}}...<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
                             </button>
-
-                            <button type="submit" class="addUserBtn1 btn btn-success me-2">
-                                {{trans('dashboard_trans.Create')}}
-                            </button>
+                            <!--end::Button-->
                         </div>
                         <!--end::Actions-->
                     </form>
-
-
                 </div>
                 <!--end::Body-->
             </div>
             <!--end::List Widget 6-->
-
         </div>
-
-
     </div>
     <!--end::Card-->
-
 @endsection
 @section('scripts')
-    <script src="{{asset('assets/js/custom/uppy/uppy.bundle.js')}}"></script>
-    <script src="{{asset('assets/js/custom/uppy/uppy.js')}}"></script>
-    {{--    <script src="{{asset('assets/js/custom/dropzonejs/dropzonejs.js')}}"></script>--}}
-    {{--    <script src="{{asset('assets/js/custom/documentation/forms/dropzonejs.js')}}"></script>--}}
-    {{--    <script src="{{asset('assets/js/custom/documentation/forms/dropzonejs.js.map')}}"></script>--}}
-
     <script>
-        document.querySelector("#files").addEventListener("change", (e) => { //CHANGE EVENT FOR UPLOADING PHOTOS
-            if (window.File && window.FileReader && window.FileList && window.Blob) { //CHECK IF FILE API IS SUPPORTED
-                const files = e.target.files; //FILE LIST OBJECT CONTAINING UPLOADED FILES
-                const output = document.querySelector("#result");
-                output.innerHTML = "";
-                for (let i = 0; i < files.length; i++) { // LOOP THROUGH THE FILE LIST OBJECT
-                    if (!files[i].type.match("image")) continue; // ONLY PHOTOS (SKIP CURRENT ITERATION IF NOT A PHOTO)
-                    const picReader = new FileReader(); // RETRIEVE DATA URI
-                    picReader.addEventListener("load", function (event) { // LOAD EVENT FOR DISPLAYING PHOTOS
-                        const picFile = event.target;
-                        const div = document.createElement("div");
-                        div.innerHTML = `<img class="thumbnail" src="${picFile.result}" title="${picFile.name}"/>`;
-                        output.appendChild(div);
-                    });
-                    picReader.readAsDataURL(files[i]); //READ THE IMAGE
-                }
-            } else {
-                alert("Your browser does not support File API");
-            }
-        });
+        const roles = {
+            get : "{{route('get_roles')}}"
+        }
     </script>
+    <script src="{{asset('assets/js/cms/members/save-member.js')}}"></script>
 
 @endsection
