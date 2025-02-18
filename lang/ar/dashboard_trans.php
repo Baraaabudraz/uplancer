@@ -306,6 +306,7 @@ return [
     'Slogan'=>'نص فرعي',
     'Active'=>'فعال',
     'Select Option'=>'حدد خياراً',
+    'Edit member details'=>'تعديل بيانات العضو',
 
 
 
