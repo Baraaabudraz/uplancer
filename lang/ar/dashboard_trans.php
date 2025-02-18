@@ -304,6 +304,9 @@ return [
     'Upload up to 10 files'=>'تحميل ما يصل إلى 10 ملفات',
     'Set the product media gallery'=>'تعيين معرض الوسائط للمنتج',
     'Slogan'=>'نص فرعي',
+    'Active'=>'فعال',
+    'Select Option'=>'حدد خياراً',
+
 
 
 
