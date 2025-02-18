@@ -43,6 +43,7 @@ var KTAppCmsMembers = function () {
                     {data: 'position', name: 'position'},
                     {data: 'phone', name: 'phone'},
                     {data: 'role',    name: 'role'},
+                    {data: 'status',    name: 'status'},
                     {data: 'actions',   name: 'actions', orderable: true, searchable: true},
                 ],
                 order: [[1, "asc"]]
