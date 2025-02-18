@@ -71,7 +71,7 @@
                     <!--begin::Heading-->
                     <div class="mb-13 text-center">
                         <!--begin::Title-->
-                        <h1 class="mb-3">{{trans('dashboard_trans.Add new member')}}</h1>
+                        <h1 class="mb-3">{{trans('dashboard_trans.Edit member details')}}</h1>
                         <!--end::Title-->
                         <!--begin::Description-->
                         <div class="text-gray-400 fw-bold fs-5">{{trans('dashboard_trans.You can browse the list of members')}}
