@@ -304,6 +304,9 @@ return [
     'Upload up to 10 files'=>'Upload up to 10 files',
     'Set the product media gallery'=>'Set the product media gallery',
     'Slogan'=>'Slogan',
+    'Active'=>'Active',
+    'Select Option'=>'Select Option',
+
 
 
 
