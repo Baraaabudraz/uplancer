@@ -81,7 +81,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function()
     Route::get('/get-services',[ServiceController::class,'getServices'])->name('get-services');
 
 
-    Route::get('get_roles', [AdminController::class, 'loadRoles'])->name('get_roles');
+    Route::get('get_roles', [RoleController::class, 'getRoles'])->name('get_roles');
 
 //    Route::resource('users',UserController::class);
 //        Route::get('orders',[CartController::class,'userOrder'])->name('industries_orders.index');
