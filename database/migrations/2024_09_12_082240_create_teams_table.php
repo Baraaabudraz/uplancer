@@ -11,6 +11,12 @@ return new class extends Migration {
             $table->id();
             $table->string('name');
             $table->string('position')->nullable();
+            $table->string('address')->nullable();
+            $table->string('phone')->nullable();
+            $table->enum('status',['Active','InActive','Blocked'])->default('Active');
+            $table->enum('gender',['Female','Male']);
+            $table->foreignId('role_id');
+            $table->foreign('role_id')->references('id')->on('roles');
             $table->string('linkedin')->nullable();
             $table->string('github')->nullable();
             $table->string('whatsapp')->nullable();
