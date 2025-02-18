@@ -306,6 +306,7 @@ return [
     'Slogan'=>'Slogan',
     'Active'=>'Active',
     'Select Option'=>'Select Option',
+    'Edit member details'=>'Edit member details',
 
 
 
