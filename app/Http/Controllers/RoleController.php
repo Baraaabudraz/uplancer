@@ -104,4 +104,12 @@ class RoleController extends Controller
         }
     }
 
+    public function getRoles(Request $request)
+    {
+        $page = $request->get('page', 1);
+        $roles = Role::latest()->paginate(10, ['*'], 'page', $page);
+        return response()->json($roles);
+
+    }
+
 }
