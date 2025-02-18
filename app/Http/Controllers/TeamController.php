@@ -2,15 +2,52 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\ControllerHelper;
 use App\Models\Team;
+use App\Services\ImagesUploadService;
 use Illuminate\Http\Request;
 
 class TeamController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $members = Team::query()->paginate(10);
-        return view('cms.team.index',compact('members'));
+        if ($request->ajax()){
+            $members = Team::query()->latest();
+            return datatables()->of($members)
+                ->addColumn('actions', function ($member) {
+                    return view('cms.team.partials.actions', compact('member'))->render();
+                })
+                ->addColumn('checkbox', function ($member) {
+                    return '<input class="form-check-input" type="checkbox"  id="select-all"  data-kt-check-target="#kt_members_table .form-check-input" value="1" data-id="'.$member->id.'">';
+                })
+                ->addColumn('partials',function ($member){
+                    return view('cms.team.partials.partials',compact('member'))->render();
+                })
+                ->addColumn('position',function ($member){
+                    return $member->position;
+                })
+                ->addColumn('phone',function ($member){
+                    return $member->phone;
+                })
+                ->addColumn('role',function ($member){
+                    return '<span class="badge badge-info" >'.$member->role->name.'</span>';
+
+                })
+                ->addColumn('status',function ($member){
+                    if ($member->status == 'Active'){
+                        return '<span class="badge badge-success" >'.trans('dashboard_trans.Active').'</span>';
+                    }elseif ($member->status == 'InActive'){
+                        return '<span class="badge badge-warning" >'.trans('dashboard_trans.InActive').'</span>';
+                    }else{
+                        return '<span class="badge badge-danger" >'.trans('dashboard_trans.Blocked').'</span>';
+                    }
+
+                })
+                ->rawColumns(['actions','checkbox','partials','role'])
+                ->make(true);
+
+        }
+        return view('cms.team.index');
 
     }
 
@@ -20,10 +57,14 @@ class TeamController extends Controller
 
     }
 
-    public function store(Request $request)
+    public function store(Request $request ,ImagesUploadService $imagesUploadService)
     {
         $request->validate([
             'name.*'   => 'required|string|min:3|max:55',
+            'role_id'  => 'required|int|exists:roles,id',
+            'address'  =>  'nullable|string',
+            'phone'    =>  'required|string|min:5|max:15',
+            'image'    => 'required|image',
             'position.*' => 'required|string',
             'linkedin' => 'nullable|url',
             'github'   => 'nullable|url',
@@ -33,29 +74,19 @@ class TeamController extends Controller
         ]);
 
         $data = $request->only([
-            'name', 'facebook', 'x', 'linkedin',
-            'position', 'github', 'whatsapp'
+            'name', 'facebook', 'x', 'linkedin', 'position', 'github', 'whatsapp' ,'role_id' ,'address','phone'
         ]);
 
-        if ($request->hasFile('image')){
-            $image = $request->file('image');
-            $imageName = time() . ('_') . $request->get('name.') . ('.') . $image->getClientOriginalExtension();
-            $image->move('images/members',$imageName);
+        $image = $imagesUploadService->uploadImage($request,'image','images/members');
+        $data['image'] = $image;
 
-        }
-        $data['image'] = $imageName;
 
         $is_Saved = Team::query()->create($data);
 
          if ($is_Saved){
-             session()->flash('alert-type','alert-success');
-             session()->flash('message',trans('dashboard_trans.Member add successfully'));
-             return redirect()->back();
+             return ControllerHelper::generateResponse('success',trans('dashboard_trans.Member add successfully'),200);
          }else{
-             session()->flash('alert-type','alert-danger');
-             session()->flash('message' , trans('dashboard_trans.Failed to add member'));
-             return redirect()->back();
-
+             return ControllerHelper::generateResponse('error',trans('dashboard_trans.Failed to add member'),400);
          }
     }
 
