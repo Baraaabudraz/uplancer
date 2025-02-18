@@ -43,7 +43,7 @@ class TeamController extends Controller
                     }
 
                 })
-                ->rawColumns(['actions','checkbox','partials','role'])
+                ->rawColumns(['actions','checkbox','partials','role','status'])
                 ->make(true);
 
         }
@@ -71,6 +71,8 @@ class TeamController extends Controller
             'whatsapp' => 'nullable|url',
             'facebook' => 'nullable|url',
             'x'        => 'nullable|url',
+            'status'   => 'required|in:Active,InActive,Blocked',
+
         ]);
 
         $data = $request->only([
@@ -79,6 +81,8 @@ class TeamController extends Controller
 
         $image = $imagesUploadService->uploadImage($request,'image','images/members');
         $data['image'] = $image;
+
+        $data['status'] = $request->input('status') === 'Active' ? 'Active' : ($request->has('status') ? 'InActive' : 'Blocked');
 
 
         $is_Saved = Team::query()->create($data);
@@ -101,74 +105,70 @@ class TeamController extends Controller
 
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request, $id ,ImagesUploadService $imagesUploadService)
     {
         $request->request->add(['id'=>$id]);
 
         $request->validate([
             'id'=>'required|int|exists:teams',
             'name.*'     => 'required|string|min:3|max:55',
+            'role_id'    => 'required|int|exists:roles,id',
             'position.*' => 'required|string',
             'linkedin' => 'nullable|url',
             'github'   => 'nullable|url',
             'whatsapp' => 'nullable|url',
             'facebook' => 'nullable|url',
             'x'        => 'nullable|url',
-            'image'    => 'image',
+            'image'    => 'nullable',
+            'status'   => 'required|in:Active,InActive,Blocked',
         ]);
         $data = $request->only([
-            'name', 'facebook', 'x', 'linkedin',
-            'position', 'github', 'whatsapp'
+            'name', 'facebook', 'x', 'linkedin', 'position', 'github', 'whatsapp' ,'role_id' ,'address','phone'
         ]);
+        $status = $request->input('status');
 
-        $team = Team::query()->find($id);
-        if ($team){
+        $data['status'] = ($status === 'Active') ? 'Active' : (($status === 'InActive') ? 'InActive' : 'Blocked');
+
+        $member = Team::query()->find($id);
+
+        if ($member){
             if ($request->hasFile('image')){
                 // إذا كان هناك صورة جديدة، احذف القديمة وقم بتحديث الصورة
-                $imagePath = public_path('images/members/' . $team->image);
+                $imagePath = public_path('storage/' . $member->image);
                 if (file_exists($imagePath)){
                     unlink($imagePath);
                 }
-                $newImage = $request->image->hashName();
-                $request->image->move(public_path('images/members'), $newImage);
-                $data['image'] = $newImage;
+                $image = $imagesUploadService->uploadImage($request,'image','images/members');
+                $data['image'] = $image;
 
             }else{
                 // احتفظ بالصورة القديمة في حالة عدم تحميل صورة جديدة
-                $data['image']=$team->image;
+                $data['image']=$member->image;
             }
         }
 
-
-
-
-        $is_Updated = Team::query()->find($id)->update($data);
+        $is_Updated = $member->update($data);
 
         if ($is_Updated){
-            session()->flash('alert-type','alert-success');
-            session()->flash('message',trans('dashboard_trans.Member update successfully'));
-            return redirect()->back();
+            return ControllerHelper::generateResponse('success',trans('dashboard_trans.Member update successfully'),200);
         }else{
-            session()->flash('alert-type','alert-danger');
-            session()->flash('message' , trans('dashboard_trans.Failed to update member'));
-            return redirect()->back();
-
+            return ControllerHelper::generateResponse('success',trans('dashboard_trans.Failed to update member'),400);
         }
     }
 
     public function destroy($id)
     {
-        $team = Team::find($id);
-        if ($team){
-            $image = $team->image ;
+        $member = Team::find($id);
+        if ($member){
+            $image = $member->image ;
             if ($image){
-                $imagePath = public_path('images/members/' . $image);
+                $imagePath = public_path('storage/' . $image);
                 if (file_exists($imagePath)){
                     unlink($imagePath);
                 }
             }
         }
-        $is_Deleted = $team->delete();
+        $is_Deleted = $member->delete();
 
         if ($is_Deleted){
             return response()->json([
