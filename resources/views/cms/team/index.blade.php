@@ -92,6 +92,7 @@
                         <th>{{trans('dashboard_trans.Position')}}</th>
                         <th>{{trans('dashboard_trans.Phone')}}</th>
                         <th>{{trans('dashboard_trans.Role')}}</th>
+                        <th>{{trans('dashboard_trans.Status')}}</th>
                         <th>{{trans('dashboard_trans.Actions')}}</th>
                     </tr>
                     </thead>
