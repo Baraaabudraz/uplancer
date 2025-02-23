@@ -120,7 +120,7 @@
                                        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                                        <div class="project-item shadow-lg rounded p-3 h-100">
                                            <div class="position-relative mb-3">
-                                               <img class="img-fluid rounded lazyload" src="storage/${project.thumbnail}" loading="lazy" alt=""  data-uc-img="loading: lazy">
+                                               <img class="img-fluid rounded lazyload" src="/storage/${project.thumbnail}" loading="lazy" alt=""  data-uc-img="loading: lazy">
                                                <div class="overlay">
                                                     <a href="show-project/${project.slug}" class="view-icon">
                                                         <i class="fa fa-eye fa-2x"></i>
