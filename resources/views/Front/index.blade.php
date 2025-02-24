@@ -9,63 +9,135 @@
 @section('og:description',setting()->meta_description ?? '')
 
 @section('styles')
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 
 <style>
-    .process-step {
-        transition: all 0.3s ease;
+
+    /* For smaller screens */
+    @media (max-width: 767px) {
+        .counter-item {
+            padding: 3rem;
+        }
+    }
+    /* تصميم البانر */
+    .banner-modern {
+        position: relative;
+        border-radius: 25px;
+        padding: 20px;
+        margin-top: 30px;
+        overflow: hidden;
+        z-index: 1;
     }
 
-    .process-step:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    /* إضافة خلفية متحركة */
+    .banner-modern::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(45deg, #5d3991, #9b59b6, #5d3991);
+        background-size: 300% 300%;
+        animation: gradientMove 6s infinite alternate;
+        z-index: -1;
     }
 
-    .step-icon {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: #f0f0f0;
-        border-radius: 50%;
-        width: 80px;
-        height: 80px;
-        margin: 0 auto;
+    @keyframes gradientMove {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
     }
 
-    .process-step h5 {
-        font-size: 18px;
-        color: #333;
-    }
-
-    .process-step p {
-        font-size: 14px;
-        color: #666;
-    }
-
-    .bg-light {
-        background-color: #f9f9f9;
-    }
-
-    .display-5 {
-        font-size: 2.5rem;
+    /* تأثير الزجاج */
+    .banner-overlay {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(12px);
+        border-radius: 25px;
+        padding: 30px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
     }
 
 
+    /* Service Packages Section */
+    .package-type-header {
+        padding: 20px;
+        text-align: center;
+        color: #fff;
+        border-radius: 15px 15px 0 0;
+        margin-bottom: 10px;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-size: 1.2em;
+        transition: transform 0.3s ease;
+    }
 
+    .package-type-header:hover {
+        transform: translateY(-3px);
+    }
+
+    .website-development {
+        background: linear-gradient(45deg, #eee6f3, #f8f5e2);    }
+
+    .graphic-design {
+        background: linear-gradient(45deg, #eee6f3, #f8f5e2);     }
+
+    .app-development {
+        background: linear-gradient(45deg, #eee6f3, #f8f5e2);     }
+    /* Accordion Styles */
+    .accordion-item {
+        border: 1px solid rgba(0, 0, 0, 0.125);
+        border-radius: 0.25rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .accordion-header {
+        font-size: 1.1rem;
+    }
+
+    .accordion-button {
+        background-color: #a386ff;
+        color: #212529;
+        border: 0;
+        padding: 1rem 1.25rem;
+        width: 100%;
+        text-align: left;
+        border-radius: 0.25rem;
+        transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, border-radius 0.15s ease;
+    }
+
+    .accordion-button:not(.collapsed) {
+        color: #fff;
+        background-color: #6c63ff;
+        box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.125);
+    }
+
+    .accordion-button:focus {
+        border-color: #8a18e4;
+        outline: 0;
+        box-shadow: 0 0 0 0.25rem rgba(138, 24, 228, 0.25);
+    }
+
+    .accordion-body {
+        padding: 1rem 1.25rem;
+    }
 
 </style>
 @endsection
 
 @section('content')
     <!-- Hero Section -->
-    <section class="container-fluid hero bg-light py-5">
+    <div class="container-xxl py-5">
         <div class="container">
             <div class="row align-items-center">
                 <!-- Text Content -->
-                <div class="col-lg-6 text-center text-lg-start mb-4 mb-lg-0">
-                    <h1 class="display-4 fw-bold mb-4">
+                <div class="col-lg-6 flex-column text-center text-lg-start mb-4 mb-lg-0">
+                    <h1 class="display-4 fw-bold mb-4 text-dark">
                         {{ trans('home_trans.Software Development for Businesses & Founders') }}
                     </h1>
-                    <ul class="list-unstyled fs-5 mt-4">
+                    <ul class="list-inline flex-column fs-5 mt-4">
                         <li class="mb-3 d-flex align-items-center">
                             <i class="fa fa-check-circle text-primary ms-1 me-2 fs-4"></i>
                             <span class="text-dark">{{ trans('home_trans.Skilled in development, design, & marketing') }}</span>
@@ -79,19 +151,54 @@
                             <span class="text-dark">{{ trans('home_trans.Trusted by founders for cost-effective solutions') }}</span>
                         </li>
                     </ul>
-                    <button type="button"  class="btn btn-primary btn-lg mt-4 px-4 py-2 rounded-pill text-white" data-toggle="modal" data-target="#exampleModal">
+                    <button type="button" class="btn btn-primary btn-lg mt-4 px-4 py-2 rounded-pill text-white" data-toggle="modal" data-target="#exampleModal">
                         {{ trans('home_trans.Start with Up Lancer') }}
                     </button>
                 </div>
 
                 <!-- Image Content -->
                 <div class="col-lg-6 text-center">
-                    <img src="{{ asset('images/site/hero-team.svg') }}" alt="Business Illustration" class="img-fluid w-100 max-height-400">
+                    <img src="{{ asset('images/site/hero-team.svg') }}" alt="Business Illustration" class="img-fluid w-100 max-height-400 wow zoomIn" data-wow-delay="0.3s">
                 </div>
             </div>
         </div>
-    </section>
-
+        <!-- Facts Start -->
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="row g-4">
+                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="fact-item bg-light rounded text-center h-100 p-5">
+                            <i class="fa fa-certificate fa-4x text-primary mb-4"></i>
+                            <h5 class="mb-3">{{trans('home_trans.Years Experience')}}</h5>
+                            <h1 class="display-5 mb-0" data-target1="7">0</h1>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                        <div class="fact-item bg-light rounded text-center h-100 p-5">
+                            <i class="fa fa-users fa-4x text-primary mb-4"></i>
+                            <h5 class="mb-3">{{trans('home_trans.Satisfied Customers')}}</h5>
+                            <h1 class="display-5 mb-0" data-target1="50">0</h1>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
+                        <div class="fact-item bg-light rounded text-center h-100 p-5">
+                            <i class="fa fa-check fa-4x text-primary mb-4"></i>
+                            <h5 class="mb-3">{{trans('home_trans.Projects Completed')}}</h5>
+                            <h1 class="display-5 mb-0" data-target1="50">0</h1>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="fact-item bg-light rounded text-center h-100 p-5">
+                            <i class="fa fa-eye fa-4x text-primary mb-4"></i>
+                            <h5 class="mb-3">{{trans('home_trans.Visitor')}}</h5>
+                            <h1 class="display-5 mb-0" data-target1="2000">0</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Facts End -->
+    </div>
 
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -228,57 +335,13 @@
         </div>
     </div>
 
-    <!-- Facts Start -->
-
-    <!-- Facts End -->
-
-    <!-- Section: Statistics Counter -->
-    <div class="container-fluid py-5 bg-light wow fadeInUp">
-        <div class="container text-center">
-            <div class="row g-4">
-                <!-- Projects Completed -->
-                <div class="col-md-4">
-                    <div class="counter-item d-flex flex-column align-items-center">
-                        <div class="icon-wrapper bg-primary text-white rounded-circle d-flex align-items-center justify-content-center mb-3 icon-md" style="width: 80px; height: 80px;">
-                            <i class="fas fa-tasks fa-2x"></i>
-                        </div>
-                        <h2 class="display-5 fw-bold text-primary mb-1" data-target1="150">0</h2>
-                        <p class="text-muted mb-0">{{ trans('home_trans.Projects Completed') }}</p>
-                    </div>
-                </div>
-                <!-- Happy Clients -->
-                <div class="col-md-4">
-                    <div class="counter-item d-flex flex-column align-items-center">
-                        <div class="icon-wrapper bg-success text-white rounded-circle d-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
-                            <i class="fas fa-smile fa-2x"></i>
-                        </div>
-                        <h2 class="display-5 fw-bold text-success mb-1" data-target1="120">0</h2>
-                        <p class="text-muted mb-0">{{ trans('home_trans.Satisfied Customers') }}</p>
-                    </div>
-                </div>
-                <!-- Website Visitors -->
-                <div class="col-md-4">
-                    <div class="counter-item d-flex flex-column align-items-center">
-                        <div class="icon-wrapper bg-warning text-white rounded-circle d-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
-                            <i class="fas fa-users fa-2x"></i>
-                        </div>
-                        <h2 class="display-5 fw-bold text-warning mb-1" data-target1="600">0</h2>
-                        <p class="text-muted mb-0">{{ trans('home_trans.Visitor') }}</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Section: Statistics Counter -->
 
     <!-- About Start -->
-    <section class="bg-light py-5">
+    <div class="container-xxl py-5">
         <div class="container">
-            <div class="row g-5 align-items-center">
-                <!-- Left Content -->
-                <div class="col-lg-6">
-                    <div>
-                        <h6 class="section-title text-start text-primary mb-3">{{trans('home_trans.Discover Our Story')}}</h6>
+            <div class="row g-5">
+                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <h6 class="section-title bg-white text-center text-primary px-3">{{trans('home_trans.Discover Our Story')}}</h6>
                         <h1 class="display-5 fw-bold mb-4">
                             {{trans('home_trans.Empower Your Success with')}}
                             <span class="text-primary">{{trans('home_trans.Up Lancer')}}</span> -
@@ -286,43 +349,42 @@
                         </h1>
                         <div class="row text-center">
                             <div class="col-6 mb-4">
-                                <div class="feature-icon bg-primary text-white rounded-circle mx-auto d-flex align-items-center justify-content-center" style="width: 90px; height: 90px;">
+                                <div class="feature-icon bg-primary text-white rounded-circle mx-auto d-flex align-items-center justify-content-center mb-3" style="width: 90px; height: 90px; transition: transform 0.3s ease;">
                                     <i class="fas fa-lightbulb fa-2x"></i>
                                 </div>
                                 <h6 class="mt-3 fw-bold">{{trans('home_trans.Innovative Solutions')}}</h6>
                             </div>
                             <div class="col-6 mb-4">
-                                <div class="feature-icon bg-primary text-white rounded-circle mx-auto d-flex align-items-center justify-content-center" style="width: 90px; height: 90px;">
+                                <div class="feature-icon bg-primary text-white rounded-circle mx-auto d-flex align-items-center justify-content-center mb-3" style="width: 90px; height: 90px; transition: transform 0.3s ease;">
                                     <i class="fas fa-award fa-2x"></i>
                                 </div>
                                 <h6 class="mt-3 fw-bold">{{trans('home_trans.Award-Winning Expertise')}}</h6>
                             </div>
-                            <div class="col-6">
-                                <div class="feature-icon bg-primary text-white rounded-circle mx-auto d-flex align-items-center justify-content-center" style="width: 90px; height: 90px;">
+                            <div class="col-6 mb-4">
+                                <div class="feature-icon bg-primary text-white rounded-circle mx-auto d-flex align-items-center justify-content-center mb-3" style="width: 90px; height: 90px; transition: transform 0.3s ease;">
                                     <i class="fas fa-users fa-2x"></i>
                                 </div>
                                 <h6 class="mt-3 fw-bold">{{trans('home_trans.Customer-Centric')}}</h6>
                             </div>
-                            <div class="col-6">
-                                <div class="feature-icon bg-primary text-white rounded-circle mx-auto d-flex align-items-center justify-content-center" style="width: 90px; height: 90px;">
+                            <div class="col-6 mb-4">
+                                <div class="feature-icon bg-primary text-white rounded-circle mx-auto d-flex align-items-center justify-content-center mb-3" style="width: 90px; height: 90px; transition: transform 0.3s ease;">
                                     <i class="fas fa-shield-alt fa-2x"></i>
                                 </div>
                                 <h6 class="mt-3 fw-bold">{{trans('home_trans.Security & Trust')}}</h6>
                             </div>
                         </div>
-                    </div>
                 </div>
 
                 <!-- Right Content -->
-                <div class="col-lg-6">
+                <div class="col-lg-6 col-md-12">
                     <div class="h-100">
-                        <div class="bg-white p-4 shadow-lg rounded mb-4">
+                        <div class="bg-white p-4 shadow-lg rounded mb-4" style="transition: transform 0.3s ease;">
                             <h3 class="text-primary mb-3">{{trans('home_trans.Our Vision')}}</h3>
                             <p class="text-muted">
                                 {{trans('home_trans.At Up Lancer, our vision is to redefine the standards of quality and innovation in every sector we serve. We believe in creating impactful solutions that not only meet the needs of today but anticipate the challenges of tomorrow.')}}
                             </p>
                         </div>
-                        <div class="bg-white p-4 shadow-lg rounded">
+                        <div class="bg-white p-4 shadow-lg rounded" style="transition: transform 0.3s ease;">
                             <h3 class="text-primary mb-3">{{trans('home_trans.Our Mission')}}</h3>
                             <p class="text-muted">
                                 {{trans('home_trans.Our mission is to empower businesses to reach their full potential by providing expert solutions that are innovative, reliable, and tailored to meet the unique goals of each client.')}}
@@ -332,8 +394,7 @@
                 </div>
             </div>
         </div>
-    </section>
-
+    </div>
     <!-- About End -->
 
 
@@ -358,111 +419,92 @@
             </div>
         </div>
     </div>
-
     <!-- Service End -->
 
 
     <!-- Feature Start -->
-    <div class="container-fluid py-5 bg-light wow fadeInUp">
+    <div class="container-xxl py-5">
         <div class="container">
-            <!-- Section Header -->
-            <div class="text-center mb-5">
-                <h6 class="section-title text-uppercase text-primary mb-2">{{ trans('home_trans.Why Up Lancer?') }}</h6>
-                <h2 class="display-5 fw-bold">{{ trans('home_trans.Why People Trust Us?') }}</h2>
-            </div>
-
-            <!-- Content Cards -->
             <div class="row g-4 justify-content-center text-center">
-                <!-- Card 1 -->
-                <div class="col-md-4 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="card h-100 border-0 shadow-sm p-4 rounded-4 bg-white" >
-                        <div class="icon-wrapper mx-auto mb-3">
-                            <i class="fas fa-lightbulb fa-3x text-primary"></i>
+                <div class="col-lg-12 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="h-100">
+                        <h6 class="section-title bg-white text-center text-primary px-3">{{trans('home_trans.Why Up Lancer?')}}</h6>
+                        <h1 class="display-6 mb-4">{{trans('home_trans.Why People Trust Us?')}}</h1>
+                        <div class="row g-4 justify-content-center text-center">
+                            <!-- Card 1 -->
+                            <div class="col-md-4 col-sm-6 wow fadeInUp" data-wow-delay="0.1s" >
+                                <div class="card h-100 border-0 shadow-sm p-4 rounded-4 bg-white">
+                                    <div class="icon-wrapper mx-auto mb-3">
+                                        <i class="fas fa-lightbulb fa-3x text-primary"></i>
+                                    </div>
+                                    <h5 class="fw-bold">{{trans('home_trans.Innovative Solutions')}}</h5>
+                                </div>
+                            </div>
+
+                            <!-- Card 2 -->
+                            <div class="col-md-4 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+                                <div class="card h-100 border-0 shadow-sm p-4 rounded-4 bg-white">
+                                    <div class="icon-wrapper mx-auto mb-3">
+                                        <i class="fas fa-check-circle fa-3x text-primary"></i>
+                                    </div>
+                                    <h5 class="fw-bold">{{trans('home_trans.Quality-Driven Processes')}}</h5>
+                                </div>
+                            </div>
+
+                            <!-- Card 3 -->
+                            <div class="col-md-4 col-sm-6  wow fadeInUp" data-wow-delay="0.1s">
+                                <div class="card h-100 border-0 shadow-sm p-4 rounded-4 bg-white">
+                                    <div class="icon-wrapper mx-auto mb-3">
+                                        <i class="fas fa-leaf fa-3x text-primary"></i>
+                                    </div>
+                                    <h5 class="fw-bold">{{trans('home_trans.Long-Term Value')}}</h5>
+                                </div>
+                            </div>
+
+                            <!-- Card 4 -->
+                            <div class="col-md-4 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+                                <div class="card h-100 border-0 shadow-sm p-4 rounded-4 bg-white">
+                                    <div class="icon-wrapper mx-auto mb-3">
+                                        <i class="fas fa-users fa-3x text-primary"></i>
+                                    </div>
+                                    <h5 class="fw-bold">{{trans('home_trans.Collaborative Partnership')}}</h5>
+                                </div>
+                            </div>
+
+                            <!-- Card 5 -->
+                            <div class="col-md-4 col-sm-6 wow fadeInUp" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
+                                <div class="card h-100 border-0 shadow-sm p-4 rounded-4 bg-white">
+                                    <div class="icon-wrapper mx-auto mb-3">
+                                        <i class="fas fa-lock fa-3x text-primary"></i>
+                                    </div>
+                                    <h5 class="fw-bold">{{trans('home_trans.Security & Reliability')}}</h5>
+                                </div>
+                            </div>
                         </div>
-                        <h5 class="fw-bold">{{ trans('home_trans.Innovative Solutions') }}</h5>
                     </div>
                 </div>
-
-                <!-- Card 2 -->
-                <div class="col-md-4 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="card h-100 border-0 shadow-sm p-4 rounded-4 bg-white">
-                        <div class="icon-wrapper mx-auto mb-3">
-                            <i class="fas fa-check-circle fa-3x text-primary"></i>
-                        </div>
-                        <h5 class="fw-bold">{{ trans('home_trans.Quality-Driven Processes') }}</h5>
-                    </div>
+                <div class="text-center mt-5">
+                    <a href="{{route('about')}}" class="btn btn-primary btn-lg rounded-pill px-5">
+                        {{trans('home_trans.Learn More')}}
+                    </a>
                 </div>
-
-                <!-- Card 3 -->
-                <div class="col-md-4 col-sm-6  wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="card h-100 border-0 shadow-sm p-4 rounded-4 bg-white">
-                        <div class="icon-wrapper mx-auto mb-3">
-                            <i class="fas fa-leaf fa-3x text-primary"></i>
-                        </div>
-                        <h5 class="fw-bold">{{ trans('home_trans.Long-Term Value') }}</h5>
-                    </div>
-                </div>
-
-                <!-- Card 4 -->
-                <div class="col-md-4 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="card h-100 border-0 shadow-sm p-4 rounded-4 bg-white">
-                        <div class="icon-wrapper mx-auto mb-3">
-                            <i class="fas fa-users fa-3x text-primary"></i>
-                        </div>
-                        <h5 class="fw-bold">{{ trans('home_trans.Collaborative Partnership') }}</h5>
-                    </div>
-                </div>
-
-                <!-- Card 5 -->
-                <div class="col-md-4 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="card h-100 border-0 shadow-sm p-4 rounded-4 bg-white">
-                        <div class="icon-wrapper mx-auto mb-3">
-                            <i class="fas fa-lock fa-3x text-primary"></i>
-                        </div>
-                        <h5 class="fw-bold">{{ trans('home_trans.Security & Reliability') }}</h5>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Call-to-Action -->
-            <div class="text-center mt-5">
-                <a href="{{ route('about') }}" class="btn btn-primary btn-lg rounded-pill px-5">
-                    {{ trans('home_trans.Learn More') }}
-                </a>
             </div>
         </div>
     </div>
-
-
     <!-- Feature End -->
 
     <!-- Project Start -->
     <div class="container-xxl py-5">
         <div class="container">
-            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s">
+            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
                 <h6 class="section-title bg-white text-center text-primary px-3">{{trans('home_trans.Our Projects')}}</h6>
                 <h1 class="display-6 mb-4">{{trans('home_trans.Learn More About Our Complete Projects')}}</h1>
             </div>
             <div class="row g-4">
-{{--                @foreach($projects as $project)--}}
-{{--                <div class="col-md-4" >--}}
-{{--                    <div class="project-item shadow-lg rounded p-3 h-100">--}}
-{{--                        <div class="position-relative mb-3">--}}
-{{--                            <img class="img-fluid rounded lazyload" loading="lazy" src="{{Storage::url($project->thumbnail)}}" alt="{{$project->alt}}">--}}
-{{--                                <div class="overlay">--}}
-{{--                                    <a href="{{route('project-show',$project->slug)}}" class="view-icon">--}}
-{{--                                        <i class="fa fa-eye fa-2x"></i>--}}
-{{--                                    </a>--}}
-{{--                                </div>--}}
-{{--                        </div>--}}
-{{--                        <h6 class="text-primary">{{$project->name}}</h6>--}}
-{{--                            <span>{{Str::limit($project->description,120)}}</span>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--                @endforeach--}}
             <div class="text-center mt-5">
                 <a href="{{route('projects')}}" class="btn btn-primary rounded-pill py-3 px-5">{{trans('home_trans.View All Projects')}}</a>
             </div>
+        </div>
         </div>
     </div>
     <!-- Project End -->
@@ -498,67 +540,158 @@
 
 {{--        </div>--}}
 {{--    </div>--}}
-    </div>
-
+    <!-- Project End -->
 
     <!-- Service Packages Section -->
-{{--    <section class="py-5" style="background-color: #f8f9fa;">--}}
-{{--        <div class="container text-center">--}}
-{{--            <h2 class="fw-bold mb-4 text-primary">{{ trans('home_trans.Our Service Packages') }}</h2>--}}
-{{--            <p class="text-muted mb-5">{{ trans('home_trans.Choose the perfect package for your project needs') }}</p>--}}
+    <div class="container-xxl  py-5">
+        <div class="container">
+            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s">
+                <h6 class="section-title bg-white text-center text-primary px-3">{{trans('home_trans.Our Service Packages')}}</h6>
+                <p class="text-muted">{{ trans('home_trans.Choose the perfect package for your project needs') }}</p>
+            </div>
 
-{{--            <div class="row g-4">--}}
-{{--                <!-- Web and Mobile App Development Package -->--}}
-{{--                <div class="col-lg-3 col-md-6">--}}
-{{--                    <div class="card h-100 shadow-sm border-0">--}}
-{{--                        <div class="card-body d-flex flex-column justify-content-between">--}}
-{{--                            <h4 class="fw-bold text-primary">{{ trans('home_trans.Web & Mobile App Development') }}</h4>--}}
-{{--                            <p class="text-muted">{{ trans('home_trans.Get tailored, robust, and innovative web and mobile apps for your business') }}</p>--}}
-{{--                            <a href="{{ route('services') }}" class="btn btn-outline-primary w-100">{{ trans('home_trans.Order Now') }}</a>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
+            <div class="row g-4">
+                <!-- Service Package Columns Loop -->
+                @foreach (['Website Development', 'Graphic Design', 'App Development'] as $serviceType)
+                    @php
+                        $serviceTypeLower = strtolower(str_replace(' ', '-', $serviceType));
+                    @endphp
+                    <div class="col-md-4 wow fadeInUp" data-wow-delay="0.3s">
+                        <div class="package-type-header {{ $serviceTypeLower }}">
+                            <h3>{{ trans('home_trans.' . $serviceType) }}</h3>
+                        </div>
 
-{{--                <!-- Graphic Design Package -->--}}
-{{--                <div class="col-lg-3 col-md-6">--}}
-{{--                    <div class="card h-100 shadow-sm border-0">--}}
-{{--                        <div class="card-body d-flex flex-column justify-content-between">--}}
-{{--                            <h4 class="fw-bold text-success">{{ trans('home_trans.Graphic Design') }}</h4>--}}
-{{--                            <p class="text-muted">{{ trans('home_trans.Visually stunning and creative designs tailored to your branding needs.') }}</p>--}}
-{{--                            <a href="{{ route('services') }}" class="btn btn-outline-success w-100">{{ trans('home_trans.Learn More') }}</a>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
+                        <!-- Accordion -->
+                        <div class="accordion" id="{{ $serviceTypeLower }}Accordion">
+                            <!-- Loop Through Packages -->
+                            @foreach (['Basic', 'Advanced', 'Pro'] as $packageType)
+                                @php
+                                    $packageTypeLower = strtolower($packageType);
+                                    $accordionId = $serviceTypeLower . '-' . $packageTypeLower;
+                                @endphp
 
-{{--                <!-- SEO Optimization Package -->--}}
-{{--                <div class="col-lg-3 col-md-6">--}}
-{{--                    <div class="card h-100 shadow-sm border-0">--}}
-{{--                        <div class="card-body d-flex flex-column justify-content-between">--}}
-{{--                            <h4 class="fw-bold text-warning">{{ trans('home_trans.SEO Optimization') }}</h4>--}}
-{{--                            <p class="text-muted">{{ trans('home_trans.Enhance your visibility on search engines and attract more customers.') }}</p>--}}
-{{--                            <a href="{{ route('services') }}" class="btn btn-outline-warning w-100">{{ trans('home_trans.Learn More') }}</a>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="heading{{ $accordionId }}">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ $accordionId }}" aria-expanded="false" aria-controls="collapse{{ $accordionId }}">
+                                            {{ trans('home_trans.' . $packageType) }}
+                                        </button>
+                                    </h2>
+                                    <div id="collapse{{ $accordionId }}" class="accordion-collapse collapse" aria-labelledby="heading{{ $accordionId }}" data-bs-parent="#{{ $serviceTypeLower }}Accordion">
+                                        <div class="accordion-body">
+                                            <p class="package-price">
+                                                @php
+                                                    $price = '';
+                                                    switch ($serviceType) {
+                                                        case 'Website Development':
+                                                            switch ($packageType) {
+                                                                case 'Basic': $price = '300$ - 500$'; break;
+                                                                case 'Advanced': $price = '800$ - 1,500$'; break;
+                                                                case 'Pro': $price = '2,500$ - 5,000$'; break;
+                                                            }
+                                                            break;
+                                                        case 'Graphic Design':
+                                                            switch ($packageType) {
+                                                                case 'Basic': $price = '200$ - 400$'; break;
+                                                                case 'Advanced': $price = '600$ - 900$'; break;
+                                                                case 'Pro': $price = '1,200$ - 2,000$'; break;
+                                                            }
+                                                            break;
+                                                        case 'App Development':
+                                                            switch ($packageType) {
+                                                                case 'Basic': $price = '1,500$ - 3,000$'; break;
+                                                                case 'Advanced': $price = '5,000$ - 10,000$'; break;
+                                                                case 'Pro': $price = '15,000$ - 30,000$'; break;
+                                                            }
+                                                            break;
+                                                    }
+                                                @endphp
+                                                {{ $price }}
+                                            </p>
+                                            <ul>
+                                                @php
+                                                    $features = [];
+                                                    switch ($serviceType) {
+                                                        case 'Website Development':
+                                                            switch ($packageType) {
+                                                                case 'Basic':
+                                                                    $features = ['Simple website design', 'Responsive design', 'Social media integration', 'Basic performance optimization', '2 weeks support'];
+                                                                    break;
+                                                                case 'Advanced':
+                                                                    $features = ['Complete website design', 'UI/UX optimization', 'Basic SEO', 'Content management system', '1 month support'];
+                                                                    break;
+                                                                case 'Pro':
+                                                                    $features = ['Custom UI/UX design', 'Advanced SEO', 'Payment gateway integration', 'Marketing tools integration', '3 months support'];
+                                                                    break;
+                                                            }
+                                                            break;
+                                                        case 'Graphic Design':
+                                                            switch ($packageType) {
+                                                                case 'Basic':
+                                                                    $features = ['10 Social Media Posts', '1 Cover & Story', 'Limited Revisions', 'PNG & JPG Files'];
+                                                                    break;
+                                                                case 'Advanced':
+                                                                    $features = ['20 Social Media Posts', '2 Covers & 4 Stories', '3 Ad Designs', 'Unlimited Revisions', 'PNG, JPG, PSD Files'];
+                                                                    break;
+                                                                case 'Pro':
+                                                                    $features = ['30 Social Media Posts', 'Covers & Visual Identities', 'Short Motion Graphic Video', 'Professional Ads', 'Branding & Design Consultations'];
+                                                                    break;
+                                                            }
+                                                            break;
+                                                        case 'App Development':
+                                                            switch ($packageType) {
+                                                                case 'Basic':
+                                                                    $features = ['Simple Hybrid App', 'Basic Functions & Login', 'One Month Support'];
+                                                                    break;
+                                                                case 'Advanced':
+                                                                    $features = ['Custom App for Android & iOS', 'Database Integration', 'Push Notifications', 'Professional Interfaces', 'Three Months Support'];
+                                                                    break;
+                                                                case 'Pro':
+                                                                    $features = ['Comprehensive App', 'Data Management Control Panel', 'Payment & Security Systems', 'Six Months Support'];
+                                                                    break;
+                                                            }
+                                                            break;
+                                                    }
+                                                @endphp
+                                                @foreach($features as $feature)
+                                                    <li>{{ trans('home_trans.' . $feature) }}</li>
+                                                @endforeach
+                                            </ul>
+                                            <a href="https://wa.me/+{{setting()->phone ?? ''}}" target="_blank" class="btn btn-sm btn-outline-light">{{ trans('home_trans.Book Now') }}</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+        <!-- Banner Section -->
+        <div class="container text-center py-5">
+            <div class="banner-content banner-modern">
+                <p class="lead fw-bold animate__animated animate__fadeIn animate__delay-1s text-white">
+                    {{ trans('home_trans.Ready to take your project to the next level?') }}
+                </p>
+                <p class="mb-4 text-white-50 animate__animated animate__fadeIn animate__delay-2s">
+                    {{ trans('home_trans.Book your favorite package now and enjoy exclusive prices and offers') }}
+                </p>
+                <a href="https://wa.me/+{{setting()->phone ?? ''}}" target="_blank" class="btn btn-primary rounded-pill px-4 py-2 animate__animated animate__pulse animate__infinite">
+                    {{ trans('home_trans.Book Now') }}
+                </a>
+            </div>
 
-{{--                <!-- Custom Projects Package -->--}}
-{{--                <div class="col-lg-3 col-md-6">--}}
-{{--                    <div class="card h-100 shadow-sm border-0">--}}
-{{--                        <div class="card-body d-flex flex-column justify-content-between">--}}
-{{--                            <h4 class="fw-bold text-danger">{{ trans('home_trans.Custom Projects') }}</h4>--}}
-{{--                            <p class="text-muted">{{ trans('home_trans.Your project deserves a unique package tailored to its specific needs.') }}</p>--}}
-{{--                            <a href="{{ route('contact') }}" class="btn btn-outline-danger w-100">{{ trans('home_trans.Contact Us') }}</a>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </section>--}}
+        </div>
+        <!-- End Banner Section -->
+
+    </div>
+    <!-- End Service Packages Section -->
+
+
 
 
 
     <!-- Start: Up Lancer Process Section -->
-    <div class="container-fluid bg-light py-5 mt-5 wow fadeInUp" data-wow-delay="0.1s" style="border-top: 1px solid #eaeaea;">
+    <div class="container-xxl py-5 mt-5 wow fadeInUp" data-wow-delay="0.1s" style="border-top: 1px solid #eaeaea;">
         <div class="container text-center">
             <h2 class="mb-4 display-5 text-primary">{{trans('home_trans.You’re going to love your Up Lancer')}}</h2>
             <p class="text-dark mb-5">{{trans('home_trans.Including the people behind the scenes')}}</p>
@@ -610,8 +743,10 @@
             </div>
         </div>
     </div>
+    <!-- End: Up Lancer Process Section -->
 
-    <section class="bg-light py-5">
+
+    <div class="container-xxl py-5">
         <div class="container px-4 sm:px-20 lg:px-28">
             <div class="row align-items-center justify-content-between">
                 <!-- Left Text Section -->
@@ -636,11 +771,8 @@
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 
-
-    <!-- End: Up Lancer Process Section -->
-    <!-- Team End -->
 
     <!-- Testimonial Start -->
 {{--  <div class="container-xxl py-5">--}}
@@ -700,9 +832,12 @@
 @endsection
 @section('scripts')
     <script>
-        $('#exampleModal').on('shown.bs.modal', function () {
-            $('#myInput').trigger('focus')
-        })
+        $(document).ready(function() {
+            $('#exampleModal').on('shown.bs.modal', function () {
+                $('#myInput').trigger('focus')
+            })
+        });
+
     </script>
     <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
@@ -728,4 +863,5 @@
             });
         });
     </script>
+
 @endsection
