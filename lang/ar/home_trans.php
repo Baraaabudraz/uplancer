@@ -280,6 +280,100 @@ return[
     'Get in touch with the Up Lancer team for comprehensive solutions in web and app development, Design, and digital marketing'=>'تواصل مع فريق اب لانسر للحصول على استشارات وحلول متكاملة في تطوير الويب والتطبيقات، التصميم، والتسويق الرقمي',
     'Explore Up Lancer comprehensive services in web and app development, Design, and digital marketing to enhance your business performance'=>'استكشف خدمات اب لانسر المتكاملة في تطوير الويب والتطبيقات، التصميم، والتسويق الرقمي لتحسين أداء أعمالك',
     'Load More Projects'=>'تحميل مزيد من المشاريع',
+    'Tailored, innovative web and mobile apps'=>'تطبيقات ويب و موبايل مصممة خصيصًا و مبتكرة',
+    'Custom UI/UX'=>'واجهة مستخدم/تجربة مستخدم مخصصة',
+    'SEO Optimization'=>'تحسين محركات البحث',
+    'Responsive Design'=>'تصميم متجاوب',
+    'API Integration'=>'تكامل واجهة برمجة التطبيقات',
+    'Branding & Design'=>'العلامات التجارية والتصميم',
+    'Create a unique identity with our top-notch design services'=>'قم بإنشاء هوية فريدة من نوعها مع خدمات التصميم المتميزة لدينا',
+    'Logo & Branding'=>'الشعار والعلامة التجارية',
+    'Marketing Materials'=>'مواد تسويقية',
+    'Social Media Designs'=>'تصاميم وسائل التواصل الاجتماعي',
+    'SEO & Marketing'=>'تحسين الظهور في محركات البحث والتسويق',
+    'Increase your visibility and reach your target audience'=>'قم بزيادة ظهورك والوصول إلى جمهورك المستهدف',
+    'Keyword Research'=>'البحث عن الكلمات الرئيسية',
+    'Content Strategy'=>'استراتيجية المحتوى',
+    'On-page SEO'=>'تحسين محركات البحث على الصفحة',
+    'Analytics & Reports'=>'التحليلات والتقارير',
+    'Ready to take your project to the next level?'=>'هل أنت مستعد للانتقال بمشروعك إلى المستوى التالي؟',
+    'Book your favorite package now and enjoy exclusive prices and offers'=>'احجز باقتك المفضلة الآن واستمتع بأسعار وعروض حصرية',
+    'Book Now'=>'احجز الأن',
+    'Website Development'=>'تطوير الويب',
+    'App Development'=>'تطوير التطبيقات',
+    'Basic'=>'اساسية',
+    'Advanced'=>'متقدمة',
+    'Pro'=>'احترافية',
+    'Simple website design'=>'تصميم موقع بسيط',
+    'Responsive design'=>'تصميم متجاوب',
+    'Social media integration'=>'تكامل مع وسائل التواصل الاجتماعي',
+    'Basic performance optimization'=>'تحسين الأداء الأساسي',
+    '2 weeks support'=>'دعم لمدة أسبوعين',
+    'Complete website design'=>'تصميم موقع متكامل',
+    'UI/UX optimization'=>'تحسين تجربة المستخدم وواجهة المستخدم',
+    'Basic SEO'=>'تحسين محركات البحث الأساسي',
+    'Content management system'=>'نظام إدارة المحتوى',
+    'Google Analytics integration'=>'تكامل مع Google Analytics',
+    '1 month support'=>'دعم لمدة شهر واحد',
+    'Custom UI/UX design'=>'تصميم واجهة مستخدم وتجربة مستخدم مخصصة',
+    'Advanced SEO'=>'تحسين محركات البحث المتقدم',
+    'Payment gateway integration'=>'تكامل بوابة الدفع',
+    'Marketing tools integration'=>'تكامل أدوات التسويق',
+    '3 months support'=>'دعم لمدة 3 أشهر',
+    '10 Social Media Posts'=>'10 منشورات على وسائل التواصل الاجتماعي',
+    '1 Cover & Story'=>'غلاف واحد وStory واحدة',
+    'Limited Revisions'=>'تعديلات محدودة',
+    'PNG & JPG Files'=>'ملفات بصيغة PNG و JPG',
+    '20 Social Media Posts'=>'20 منشورًا على وسائل التواصل الاجتماعي',
+    '2 Covers & 4 Stories'=>'غلافان و4 قصص',
+    '3 Ad Designs'=>'3 تصاميم إعلانية',
+    'Unlimited Revisions'=>'تعديلات غير محدودة',
+    'PNG, JPG, PSD Files'=>'ملفات بصيغة PNG و JPG و PSD',
+    '30 Social Media Posts'=>'30 منشورًا على وسائل التواصل الاجتماعي',
+    'Covers & Visual Identities'=>'أغلفة وهويات بصرية',
+    'Short Motion Graphic Video'=>'فيديو موشن جرافيك قصير',
+    'Professional Ads'=>'إعلانات احترافية',
+    'Branding & Design Consultations'=>'استشارات في العلامة التجارية والتصميم',
+    'Simple Hybrid App'=>'تطبيق هجين بسيط',
+    'Basic Functions & Login'=>'وظائف أساسية ونظام تسجيل الدخول',
+    'One Month Support'=>'دعم لمدة شهر واحد',
+    'Custom App for Android & iOS'=>'تطبيق مخصص لنظامي Android و iOS',
+    'Database Integration'=>'تكامل مع قاعدة البيانات',
+    'Push Notifications'=>'إشعارات الدفع',
+    'Professional Interfaces'=>'واجهات احترافية',
+    'Three Months Support'=>'دعم لمدة 3 أشهر',
+    'Comprehensive App'=>'تطبيق شامل',
+    'Data Management Control Panel'=>'لوحة تحكم لإدارة البيانات',
+    'Payment & Security Systems'=>'أنظمة الدفع والأمان',
+    'Six Months Support'=>'دعم لمدة 6 أشهر',
+    'Years Experience'=>'سنوات الخبرة',
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
