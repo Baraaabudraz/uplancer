@@ -307,6 +307,7 @@ return [
     'Active'=>'Active',
     'Select Option'=>'Select Option',
     'Edit member details'=>'Edit member details',
+    'Tailored, innovative web and mobile apps'=>'Tailored, innovative web and mobile apps',
 
 
 
