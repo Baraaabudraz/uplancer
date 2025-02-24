@@ -307,6 +307,8 @@ return [
     'Active'=>'فعال',
     'Select Option'=>'حدد خياراً',
     'Edit member details'=>'تعديل بيانات العضو',
+    'Tailored, innovative web and mobile apps'=>'تطبيقات ويب و جوال مصممة خصيصًا و مبتكرة',
+
 
 
 
